@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://unln1999.github.io/img/6-1.png">
 <meta property="og:image" content="https://unln1999.github.io/img/6-2.png">
-<meta property="og:updated_time" content="2019-09-16T05:53:06.473Z">
+<meta property="og:updated_time" content="2019-09-17T12:02:31.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP环境安装【web系列3】">
 <meta name="twitter:description" content="蓝色字体将介绍安装的软件。 环境检测全新系统不需要这一步，我暂时跳过，日后补充。 安装Apache、PHP、Mysql1.安装Apache世界使用排名第一的服务器软件，可广泛地运行于多个平台上先su进root。 1# yum -y install httpd  我的返回结果是： 1234567已安装:  httpd.x86_64 0:2.4.6-89.el7.centos.1">
@@ -197,7 +197,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-server</span><br></pre></td></tr></table></figure>
 
 <p>直接从官网下载Mysql-server就可以了<br>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i</span><br><span class="line"># rpm -ivh mysql-community-release-el7-5.noarch.rpm2</span><br><span class="line"># （这句不对，改为下面那句）yum install mysql-community-server #遇到了进程冲突的问题，但是我不知道是什么进程，退了终端再使用就可以了，但是我很担心会不会又后遗问题。</span><br><span class="line"># yum install mysql-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i</span><br><span class="line"># rpm -ivh mysql-community-release-el7-5.noarch.rpm2</span><br><span class="line"># yum install mysql-community-server</span><br></pre></td></tr></table></figure>
 
 <p>输入y继续。<br>耐心等候。（这个过程很快，如果不快就换源，阿里云的好像不行，中科大的快）<br>我的返回结果是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mysql-community-server.x86_64 0:5.6.45-2.el7                                  </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7                                  </span><br><span class="line">  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7                                   </span><br><span class="line">  perl-DBI.x86_64 0:1.627-4.el7                                                 </span><br><span class="line">  perl-IO-Compress.noarch 0:2.061-2.el7                                         </span><br><span class="line">  perl-Net-Daemon.noarch 0:0.48-5.el7                                           </span><br><span class="line">  perl-PlRPC.noarch 0:0.2020-14.el7                                             </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
@@ -357,18 +357,18 @@
   
 <nav id="article-nav">
   
-    <a href="/unln1999.github.io/2019/09/15/4centos安装/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          CentOS 7（Gnome桌面）安装流程【web系列1】
+          Ubuntu18.04.3安装流程【web系列2】
         
       </div>
     </a>
   
   
-    <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ubuntu18.04.3安装流程【web系列2】</div>
+    <a href="/unln1999.github.io/2019/09/15/4centos安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS 7（Gnome桌面）安装流程【web系列1】</div>
       <i class="icon-circle-right"></i>
     </a>
   
