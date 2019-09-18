@@ -490,6 +490,90 @@
 
 
   
+    <article id="post-5ubuntu安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">Ubuntu18.04.3安装流程【web系列2】</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
+<h2 id="下载Ubuntu镜像文件"><a href="#下载Ubuntu镜像文件" class="headerlink" title="下载Ubuntu镜像文件"></a>下载Ubuntu镜像文件</h2><p>在<a href="https://ubuntu.com/download#download" target="_blank" rel="noopener">这个页面</a>下载Ubuntu Desktop latest（LTS）</p>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br><strong>选择稍后安装操作系统</strong><br>下一步。<br>5.<br>然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。<br><img src="/img/5-1.png" alt="5-1"><br>下一步。<br>6.<br>然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）<br><img src="/img/5-2.png" alt="5-2"><br>下一步。<br>7.<br>下一步。（1个内核就行）<br>8.<br>下一步。（2G就行）<br>9.<br>下一步。（NAT）<br>10.<br>下一步。（LSI logic）<br>11.<br>下一步。（SCSI）<br>12.<br>下一步。（创建新虚拟硬盘）<br>13.<br>我看到教程改成了拆分成单个文件，我们不拆。<br>直接下一步。<br><img src="/img/5-3.png" alt="5-3"><br>14.<br>下一步。<br>15.<br>完成。</p>
+<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>按图配置ISO文件。(最后⑤的圈没圈起来)<br><img src="/img/5-4.png" alt="5-4"><br>2.<br>启动虚拟机，如果有问题，重新下载ISO文件。<br>3.<br>过一段时间进入安装界面，选择中文，并点击安装Ubuntu。<br>4.<br>之后几步一直按默认来，点击继续，直到设置用户名和密码。<br>5.<br>输入用户名和密码，然后选择自动登录，方便。<br>6.<br>然后等待安装，安装完成后重启。检查一下网络连接。<br>如果无法进入桌面（一直黑屏）<br>重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。<br>然后找到一个splash，在后面打一个空格，然后输入nomodeset。<br><img src="/img/5-5.png" alt="5-5"><br>再按ctrl+X重启。</p>
+<h2 id="VMware-Tools安装"><a href="#VMware-Tools安装" class="headerlink" title="VMware Tools安装"></a>VMware Tools安装</h2><p>在左上角“虚拟机”菜单里点击安装VMware Tools。<br>然后桌面会有一个光盘的图标，双击打开。<br>复制里面的压缩包到主目录。<br>压缩包就是下图圈的那个。<br><img src="/img/5-6.png" alt="5-6"><br>然后打开终端。<br><font color="red">这里介绍一下ubuntu su进root的办法，挺重要的。</font><br>就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。<br>su进root只需要：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo passwd </span><br><span class="line">(输入原密码)</span><br><span class="line">（输入新密码，可以和原密码一样，建议一样）</span><br><span class="line">（确认新密码）</span><br></pre></td></tr></table></figure>
+
+<p>搞定之后就可以su进root了。<br><img src="/img/5-7.png" alt="5-7"><br>接着我们继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。</span><br><span class="line"># cd vmware-tools-distrib</span><br><span class="line"># sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
+
+<p>然后重启就可以使用VMware Tools了。<br>重启的时候又黑屏，估计每次都得搞那个nomodeset。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-6.LAMP环境安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -610,90 +694,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-5ubuntu安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">Ubuntu18.04.3安装流程【web系列2】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载Ubuntu镜像文件"><a href="#下载Ubuntu镜像文件" class="headerlink" title="下载Ubuntu镜像文件"></a>下载Ubuntu镜像文件</h2><p>在<a href="https://ubuntu.com/download#download" target="_blank" rel="noopener">这个页面</a>下载Ubuntu Desktop latest（LTS）</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br><strong>选择稍后安装操作系统</strong><br>下一步。<br>5.<br>然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。<br><img src="/img/5-1.png" alt="5-1"><br>下一步。<br>6.<br>然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）<br><img src="/img/5-2.png" alt="5-2"><br>下一步。<br>7.<br>下一步。（1个内核就行）<br>8.<br>下一步。（2G就行）<br>9.<br>下一步。（NAT）<br>10.<br>下一步。（LSI logic）<br>11.<br>下一步。（SCSI）<br>12.<br>下一步。（创建新虚拟硬盘）<br>13.<br>我看到教程改成了拆分成单个文件，我们不拆。<br>直接下一步。<br><img src="/img/5-3.png" alt="5-3"><br>14.<br>下一步。<br>15.<br>完成。</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>按图配置ISO文件。(最后⑤的圈没圈起来)<br><img src="/img/5-4.png" alt="5-4"><br>2.<br>启动虚拟机，如果有问题，重新下载ISO文件。<br>3.<br>过一段时间进入安装界面，选择中文，并点击安装Ubuntu。<br>4.<br>之后几步一直按默认来，点击继续，直到设置用户名和密码。<br>5.<br>输入用户名和密码，然后选择自动登录，方便。<br>6.<br>然后等待安装，安装完成后重启。检查一下网络连接。<br>如果无法进入桌面（一直黑屏）<br>重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。<br>然后找到一个splash，在后面打一个空格，然后输入nomodeset。<br><img src="/img/5-5.png" alt="5-5"><br>再按ctrl+X重启。</p>
-<h2 id="VMware-Tools安装"><a href="#VMware-Tools安装" class="headerlink" title="VMware Tools安装"></a>VMware Tools安装</h2><p>在左上角“虚拟机”菜单里点击安装VMware Tools。<br>然后桌面会有一个光盘的图标，双击打开。<br>复制里面的压缩包到主目录。<br>压缩包就是下图圈的那个。<br><img src="/img/5-6.png" alt="5-6"><br>然后打开终端。<br><font color="red">这里介绍一下ubuntu su进root的办法，挺重要的。</font><br>就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。<br>su进root只需要：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo passwd </span><br><span class="line">(输入原密码)</span><br><span class="line">（输入新密码，可以和原密码一样，建议一样）</span><br><span class="line">（确认新密码）</span><br></pre></td></tr></table></figure>
-
-<p>搞定之后就可以su进root了。<br><img src="/img/5-7.png" alt="5-7"><br>接着我们继续</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。</span><br><span class="line"># cd vmware-tools-distrib</span><br><span class="line"># sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
-
-<p>然后重启就可以使用VMware Tools了。<br>重启的时候又黑屏，估计每次都得搞那个nomodeset。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">展开全文 >></a>
         </p>
       
 
@@ -1250,19 +1250,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
             
             <div class="clearfix"></div>
