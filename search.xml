@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Bugku 2019-9-20 web基础$_POST]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F20%2Fbk2-post%2F</url>
-    <content type="text"><![CDATA[进入题目页面显示 1234$what=$_POST[&apos;what&apos;];echo $what;if($what==&apos;flag&apos;)echo &apos;flag&#123;****&#125;&apos;; 思路阅读后，知道这是php代码，意思是，用post方式从html里获取一个名为’what’的表单值赋给php的变量$what。然后页面会打印出$what变量的值。当$what为’flag’时，还会输出flag。这段代码显然不是后台实际脚本，只是一个提示。根据该提示，我们提交一个$what变量。 writeup解法1用firefox的hackbar插件（日后写一个免费hackbar的教程）提交。然后点击Execute就可以传递了。 解法2打开bp，刷新页面这段文字是 123456789GET /post/ HTTP/1.1Host: 123.206.87.240:8002User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2Accept-Encoding: gzip, deflateConnection: closeUpgrade-Insecure-Requests: 1Cache-Control: max-age=0 （注，下面的操作也推荐在repeater里进行）把第一行的GET改成POST，把前两行之外的内容全删除。添加一行：Content-Type: application/x-www-form-urlencoded【背诵】然后再空一行并添加一行：what=flag。如下图（必须要空一行，如箭头所示）：注意flag后面不能有空格，因此要用delete清除后面的空格、空行。然后提交包，页面显示flag。 知识点 如何提交post变量 php代码阅读（基础）]]></content>
+    <content type="text"><![CDATA[进入题目页面显示 1234$what=$_POST[&apos;what&apos;];echo $what;if($what==&apos;flag&apos;)echo &apos;flag&#123;****&#125;&apos;; 思路阅读后，知道这是php代码，意思是，用post方式从html里获取一个名为’what’的表单值赋给php的变量$$$what。然后页面会打印出$$$what变量的值。当$$$what为’flag’时，还会输出flag。这段代码显然不是后台实际脚本，只是一个提示。根据该提示，我们提交一个$$$what变量。 writeup解法1用firefox的hackbar插件（日后写一个免费hackbar的教程）提交。然后点击Execute就可以传递了。 解法2打开bp，刷新页面这段文字是 123456789GET /post/ HTTP/1.1Host: 123.206.87.240:8002User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2Accept-Encoding: gzip, deflateConnection: closeUpgrade-Insecure-Requests: 1Cache-Control: max-age=0 （注，下面的操作也推荐在repeater里进行）把第一行的GET改成POST，把前两行之外的内容全删除。添加一行：Content-Type: application/x-www-form-urlencoded【背诵】然后再空一行并添加一行：what=flag。如下图（必须要空一行，如箭头所示）：注意flag后面不能有空格，因此要用delete清除后面的空格、空行。然后提交包，页面显示flag。 知识点 如何提交post变量 php代码阅读（基础）]]></content>
       <tags>
         <tag>bugku</tag>
       </tags>
@@ -19,7 +19,7 @@
   <entry>
     <title><![CDATA[Bugku 2019-9-19 web基础$_GET]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F19%2Fbk1-get%2F</url>
-    <content type="text"><![CDATA[进入题目页面显示 1234$what=$_GET[&apos;what&apos;];echo $what;if($what==&apos;flag&apos;)echo &apos;flag&#123;****&#125;&apos;; 思路阅读后，知道这是php代码，意思是，用get方式从html里获取一个名为’what’的表单值赋给php的变量$what。然后页面会打印出$what变量的值。当$what为’flag’时，还会输出flag。这段代码显然不是后台实际脚本，只是一个提示。根据该提示，我们让浏览器用get方式提交一个what变量值，这只需要通过url实现。 writeup直接在浏览器url后添加’?what=flag’然后有： 知识点 如何提交get变量 php代码阅读（基础）]]></content>
+    <content type="text"><![CDATA[进入题目页面显示 1234$what=$_GET[&apos;what&apos;];echo $what;if($what==&apos;flag&apos;)echo &apos;flag&#123;****&#125;&apos;; 思路阅读后，知道这是php代码，意思是，用get方式从html里获取一个名为’what’的表单值赋给php的变量$$$what。然后页面会打印出$$$what变量的值。当$$$what为’flag’时，还会输出flag。这段代码显然不是后台实际脚本，只是一个提示。根据该提示，我们让浏览器用get方式提交一个what变量值，这只需要通过url实现。 writeup直接在浏览器url后添加’?what=flag’然后有： 知识点 如何提交get变量 php代码阅读（基础）]]></content>
       <tags>
         <tag>bugku</tag>
       </tags>
