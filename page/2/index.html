@@ -144,6 +144,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/12/1/">Win10利用Github+Hexo建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/12/1/" class="archive-article-date">
+  	<time datetime="2019-09-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>任何已完成的步骤可以跳过。<br>参考的主要原文点击 <a href="https://www.cnblogs.com/hackhyl/p/9532339.html" target="_blank" rel="noopener">这里</a>、<a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">这里（推荐）</a>和<a href="https://www.cnblogs.com/orchidbaby/p/7686136.html" target="_blank" rel="noopener">这里</a>【但是我认为里面会有一些错误，所以尽量以本文为主】</p>
+<h2 id="1-注册Github账号"><a href="#1-注册Github账号" class="headerlink" title="1.注册Github账号"></a>1.注册Github账号</h2><p>这个环节非常简单，只需要打开<a href="https://github.com" target="_blank" rel="noopener">Github官网</a>，然后在右上角的sign up处注册就可以了。<br>在第一个环节有个小测试（来测试你是否是机器人、AI、程序啥的），有时候浏览器可能无法加载，这个时候可以尝试用手机浏览器解决。<br>根据实践，苹果自带的safari是可以完成注册的。</p>
+<h2 id="2-创建Github仓库"><a href="#2-创建Github仓库" class="headerlink" title="2.创建Github仓库"></a>2.创建Github仓库</h2><p>在Github首页（或许包括绝大多数页面）可以找到New Repository按钮，Repository就是仓库。<br>仓库名称为<font color="blue">你的用户名.github.io</font>。<br>用户名就是你注册设置的那个玩意儿。我的用户名是unln1999，可能你不知道它是什么意思，反正这就是我的用户名。<br>那么我的仓库名就是<font color="blue">unln1999.github.io</font>。<br>【应该是可以设置为其它名字的，但是不建议第一次就特立独行，Github大佬自行设置qaq】<br><strong>选择类型为Public</strong>，如果是Private就无法成为一个大家都能看到的网站了（大概是这样）<br>其它设置不需要变，点击Create Repository按钮即可。</p>
+<h2 id="3-安装Git"><a href="#3-安装Git" class="headerlink" title="3.安装Git"></a>3.安装Git</h2><p>在<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git官网的下载页面</a>直接下载你对应系统的Git，这里以windows系统为例。<strong>一般打开这个页面应该能够看到一个显示器的图像，点击里面的那个按钮“Download 版本号 for windows”就可以下载安装包了。</strong><br>然后在本地双击安装包，<strong>一直按默认设置点下一步即可</strong>。（当然大佬可以自己配置）<br>装好之后，在任何文件夹（包括桌面）右键都可以使用<strong>Git Bash终端</strong>了</p>
+<h2 id="4-安装Nodejs"><a href="#4-安装Nodejs" class="headerlink" title="4.安装Nodejs"></a>4.安装Nodejs</h2><p>在<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">Nodejs官网的下载页面</a>直接下载你对应系统的对应位数（目前一般是64位）的.msi安装包。<br>然后在本地双击安装包，在下图的界面里<strong>选择Add to PATH</strong>，然后<strong>接下来只用一直点击下一步即可</strong>。（之前我自己变动了一个选项，导致没装好，重新装了一次，所以建议不改默认配置）<br><img src="/img/1-1.png" alt="1-1"></p>
+<h2 id="5-安装HEXO"><a href="#5-安装HEXO" class="headerlink" title="5.安装HEXO"></a>5.安装HEXO</h2><p>在Git Bash里输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>就会开始安装HEXO，安装过程会有点慢，如果你中途想要关闭终端，它会提示正在工作，因为Git Bash有时候（就我目前使用来看）不会显示进程详情，所以只能通过右上角点关闭来判断终端是否在工作。<br>耐心等待，HEXO就安装好了。<br>可以输入HEXO -v确定是否安装完毕。</p>
+<h2 id="6-创建博客"><a href="#6-创建博客" class="headerlink" title="6.创建博客"></a>6.创建博客</h2><p>在本地选择一个合适的目录，比如我选在了D:\博客环境。<br>然后再这个目录下右键Git Bash Here。<br>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init 你的用户名.github.io #创建博客</span><br><span class="line">$ cd 你的用户名.github.io #进入该目录</span><br><span class="line">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia #下载yilia主题，也可以用别的主题，自行百度hexo主题</span><br><span class="line">$ npm install hexo-deployer-git --save #安装hexo自动部署发布工具，有了这个才能部署，所谓部署就是上传到Github上</span><br></pre></td></tr></table></figure>
+
+<p>在资源管理器（也就是常说的文件浏览器什么的）中进入博客目录（比如我的D:\博客环境\unln1999.github.io）,然后用编辑器（<strong>推荐notepad++</strong>）打开_config.yml。<br>进行一些基本设置，以下是一些基本的设置项，我用我的设置作为参考</p>
+<h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 夢の此夜亭🌸 #博客的名称，类似于网页名称</span><br><span class="line">subtitle: A Blog with Tiny Fantasy #副标题</span><br><span class="line">description: 记录CTF学习之路上的各种收获，和同学们分享，共同进步~ #这个好像不显示，写不写也无所谓</span><br><span class="line">keywords: #不懂，空着先</span><br><span class="line">author: 英和路雪 #作者名，其实无所谓，随便填</span><br><span class="line">language: zh-Hans #汉语，这个应该比较重要</span><br><span class="line">timezone: Asia/Shanghai #时区</span><br></pre></td></tr></table></figure>
+
+<h4 id="主题设置（选择刚才下的yilia或者你自己下的主题）"><a href="#主题设置（选择刚才下的yilia或者你自己下的主题）" class="headerlink" title="主题设置（选择刚才下的yilia或者你自己下的主题）"></a>主题设置（选择刚才下的yilia或者你自己下的主题）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+
+<h4 id="重要设置（这里的设置网上有很多种，按我的来吧）"><a href="#重要设置（这里的设置网上有很多种，按我的来吧）" class="headerlink" title="重要设置（这里的设置网上有很多种，按我的来吧）"></a>重要设置（这里的设置网上有很多种，按我的来吧）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://unln1999.github.io/unln1999.github.io #这个是真实URL，也就是说你在网页里输入unln1999.github.io就可以访问博客了</span><br><span class="line">root: /unln1999.github.io/ #这个是根目录，也就是你本地的文件夹名，刚开始我们创建博客用的文件夹名是和网址相同的（D:\博客环境\unln1999.github.io），如果取的名字是别的，比如blog，那么这里是/blog/，url也要改为https://unln1999.github.io/blog</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git #这里应该必须设置为git，不能设置为github之类的</span><br><span class="line">  repository: https://github.com/unln1999/unln1999.github.io.git #注意结尾是.git，这里参考网址2里说的我认为有误</span><br><span class="line">  branch: master #设置为master</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）"><a href="#8-配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）" class="headerlink" title="8.配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）"></a>8.配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）</h2><p>第一次使用要配置Git的一些东东，如果不是，估计你也知道SSH是啥了（反正我不知道qaq）<br>在Git Bash里操作即可，如下：(注意按tab键可以补齐)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;随便写一个名字&quot;</span><br><span class="line">$ git config --global user.email &quot;你的邮箱&quot;</span><br><span class="line">$ ssh-keygen -t rsa -C &quot;你的邮箱&quot; #生成SSH</span><br><span class="line">$ cd ~/.ssh</span><br><span class="line">$ cat i（按Tab）（按.）（按Tab）</span><br><span class="line">【注：上一行打全了是 $ cat id_rsa.pub】</span><br></pre></td></tr></table></figure>
+
+<p>然后会出现一串东西，复制一下。<br>打开Github，进入settings，按下图配置SSH。<br><img src="/img/1-2.png" alt="1-2"></p>
+<h2 id="9-写博文和部署"><a href="#9-写博文和部署" class="headerlink" title="9.写博文和部署"></a>9.写博文和部署</h2><p>博文在博客目录里的/source/_posts/中。<br>一开始会有一个hello world.md文件。可以把它删掉、修改或者留着做测试，也可以阅读一下（反正我没读……）<br>学习一下markdown就可以写出漂亮的文章了，并不难！</p>
+<p>每次更新了博客文章或者设置，首先在博客根目录下，打开Git Bash，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>来进行测试，在浏览器里输入localhost:4000就可以进入测试页面了（注意图片无法显示，但是上传到Github上就可以了）<br>如果4000端口被占用就百度一下，关键词“Hexo”、“4000占用”<br>测试没问题了就可以部署了。</p>
+<p>部署的时候，也是在博客根目录下，打开Git Bash，然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d #就用这个就行了，想要深入研究自行百度Hexo命令</span><br></pre></td></tr></table></figure>
+
+<p>这个时候在浏览器里输入 你的用户名.github.io就可以访问你的个人博客啦（当然你部署的时候得联网）。</p>
+<h2 id="10-其它"><a href="#10-其它" class="headerlink" title="10.其它"></a>10.其它</h2><ol>
+<li>可能在hexo s时会报错，这里有几个参考的可能。一个是config文件里面的键值对（学过数据库的都知道），冒号后面要加空格。此外冒号必须用英文的冒号。</li>
+<li>编辑的时候，尽量关闭测试（按Ctrl + C）。</li>
+<li>测试要频繁，以免不知道自己哪里出错了。</li>
+<li>隔一段时间要给博客做备份。把根目录压缩就可以了。</li>
+<li>关于主题的配置自行研究。（/themes/主题名 里面也有一个config文件）</li>
+<li>关于markdown的一系列操作也请百度学习。重要的内容会在之后的博文里更新。</li>
+<li>部署到GitHub要有半分钟到一分钟后才能看到效果，毕竟上传要时间嘛。</li>
+<li>第一次部署应该会要输入Github账号密码，如果没有，则说明配置有问题。可能可以部署，但是会没有样式。但是按我以上的配置应该是可以成功部署的。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/12/1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -467,7 +582,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,15 +590,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电路</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">电路</a>
               </li>
             
             <div class="clearfix"></div>

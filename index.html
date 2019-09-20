@@ -144,6 +144,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk1-get" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/20/bk1-get/">Bugku 2019-9-20 web基础$_GET</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/20/bk1-get/" class="archive-article-date">
+  	<time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what=$_GET[&apos;what&apos;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what==&apos;flag&apos;)</span><br><span class="line">echo &apos;flag&#123;****&#125;&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读后，知道这是php代码，意思是，用get方式从html里获取一个名为’what’的表单值赋给php的变量$what。<br>然后页面会打印出$what变量的值。<br>当$what为’flag’时，还会输出flag。<br>这段代码显然不是后台实际脚本，只是一个提示。<br>根据该提示，我们让浏览器用get方式提交一个what变量值，这只需要通过url实现。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>直接在浏览器url后添加’?what=flag’<br>然后有：<br><img src="/img/bk1-1.png" alt="bk1-1"></p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li>如何提交get变量</li>
+<li>php代码阅读（基础）</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/20/bk1-get/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-11php教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -586,85 +668,6 @@
 
 
   
-    <article id="post-4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/4centos安装/">CentOS 7（Gnome桌面）安装流程【web系列1】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/15/4centos安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！</p>
-<h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载CentOS镜像文件"><a href="#下载CentOS镜像文件" class="headerlink" title="下载CentOS镜像文件"></a>下载CentOS镜像文件</h2><p>在<a href="https://www.centos.org/download/" target="_blank" rel="noopener">这个页面</a>下载DVD ISO文件。<br>然后等下好。</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br>选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（<strong>不要有中文目录！！！</strong>，虽然我第一次安装也有中文目录且没有什么问题）<br>下一步。<br>5.<br>下一步。<br>6.<br>下一步。（内核数量改成2也行）<br>7.<br>下一步。（内存改成2G也行）<br>8.<br>下一步。（选择NAT）<br>9.<br>下一步。（LSI logic）<br>10.<br>下一步。（SCSI）<br>11.<br>下一步。（创建新虚拟硬盘）<br>12.<br>下一步。（20G，拆分成多个文件）<br>13.<br>下一步。<br>14.<br>下一步。（可以勾选创建后开启此虚拟机，我勾选了。）</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）<br>2.<br>鼠标移动到画面内，按下Enter键。<br>3.<br>进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。<br>4.<br>然后会有这样的界面。<br><img src="/img/4-1.png" alt="4-1"><br>在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）<br>在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。<br>按下图，左边选择GNOME桌面，右边选择图中这四个。<br><img src="/img/4-2.png" alt="4-2"><br>5.<br>点击系统里面的“安装位置”，什么也不用修改，确认。<br>6.<br>接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。<br><img src="/img/4-3.png" alt="4-3"><br><img src="/img/4-4.png" alt="4-4"><br>7.<br>接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。<br><img src="/img/4-5.png" alt="4-5"><br><strong>图中这里勾上把此用户作为管理员！！！</strong><br><img src="/img/4-6.png" alt="4-6"><br>8.<br>等待安装完成后，重启。<br>9.<br>重启后点击Licence Infomation，然后再点同意，确认。<br>10.<br>点击右下角完成配置。<br>11.<br>然后进入图形化登录界面。<br><img src="/img/4-7.png" alt="4-7"><br>12.<br>登陆后配置语言、输入法。在线账号那里可以跳过。<br>13.<br>然后就安装完毕了。<br><img src="/img/4-8.png" alt="4-8"></p>
-<h2 id="关于VMware-Tools安装"><a href="#关于VMware-Tools安装" class="headerlink" title="关于VMware Tools安装"></a>关于VMware Tools安装</h2><p>很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。<br>我之前装过了……然后重装系统之后还有，迷惑。<br>我看在Ubuntu系统上安装的时候，单独写一篇日志。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/4centos安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-5ubuntu安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -898,6 +901,85 @@
 
 
   
+    <article id="post-4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/4centos安装/">CentOS 7（Gnome桌面）安装流程【web系列1】</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/15/4centos安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！</p>
+<h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
+<h2 id="下载CentOS镜像文件"><a href="#下载CentOS镜像文件" class="headerlink" title="下载CentOS镜像文件"></a>下载CentOS镜像文件</h2><p>在<a href="https://www.centos.org/download/" target="_blank" rel="noopener">这个页面</a>下载DVD ISO文件。<br>然后等下好。</p>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br>选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（<strong>不要有中文目录！！！</strong>，虽然我第一次安装也有中文目录且没有什么问题）<br>下一步。<br>5.<br>下一步。<br>6.<br>下一步。（内核数量改成2也行）<br>7.<br>下一步。（内存改成2G也行）<br>8.<br>下一步。（选择NAT）<br>9.<br>下一步。（LSI logic）<br>10.<br>下一步。（SCSI）<br>11.<br>下一步。（创建新虚拟硬盘）<br>12.<br>下一步。（20G，拆分成多个文件）<br>13.<br>下一步。<br>14.<br>下一步。（可以勾选创建后开启此虚拟机，我勾选了。）</p>
+<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）<br>2.<br>鼠标移动到画面内，按下Enter键。<br>3.<br>进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。<br>4.<br>然后会有这样的界面。<br><img src="/img/4-1.png" alt="4-1"><br>在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）<br>在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。<br>按下图，左边选择GNOME桌面，右边选择图中这四个。<br><img src="/img/4-2.png" alt="4-2"><br>5.<br>点击系统里面的“安装位置”，什么也不用修改，确认。<br>6.<br>接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。<br><img src="/img/4-3.png" alt="4-3"><br><img src="/img/4-4.png" alt="4-4"><br>7.<br>接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。<br><img src="/img/4-5.png" alt="4-5"><br><strong>图中这里勾上把此用户作为管理员！！！</strong><br><img src="/img/4-6.png" alt="4-6"><br>8.<br>等待安装完成后，重启。<br>9.<br>重启后点击Licence Infomation，然后再点同意，确认。<br>10.<br>点击右下角完成配置。<br>11.<br>然后进入图形化登录界面。<br><img src="/img/4-7.png" alt="4-7"><br>12.<br>登陆后配置语言、输入法。在线账号那里可以跳过。<br>13.<br>然后就安装完毕了。<br><img src="/img/4-8.png" alt="4-8"></p>
+<h2 id="关于VMware-Tools安装"><a href="#关于VMware-Tools安装" class="headerlink" title="关于VMware Tools安装"></a>关于VMware Tools安装</h2><p>很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。<br>我之前装过了……然后重装系统之后还有，迷惑。<br>我看在Ubuntu系统上安装的时候，单独写一篇日志。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/4centos安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -962,121 +1044,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/unln1999.github.io/2019/09/13/3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/12/1/">Win10利用Github+Hexo建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/12/1/" class="archive-article-date">
-  	<time datetime="2019-09-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>任何已完成的步骤可以跳过。<br>参考的主要原文点击 <a href="https://www.cnblogs.com/hackhyl/p/9532339.html" target="_blank" rel="noopener">这里</a>、<a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">这里（推荐）</a>和<a href="https://www.cnblogs.com/orchidbaby/p/7686136.html" target="_blank" rel="noopener">这里</a>【但是我认为里面会有一些错误，所以尽量以本文为主】</p>
-<h2 id="1-注册Github账号"><a href="#1-注册Github账号" class="headerlink" title="1.注册Github账号"></a>1.注册Github账号</h2><p>这个环节非常简单，只需要打开<a href="https://github.com" target="_blank" rel="noopener">Github官网</a>，然后在右上角的sign up处注册就可以了。<br>在第一个环节有个小测试（来测试你是否是机器人、AI、程序啥的），有时候浏览器可能无法加载，这个时候可以尝试用手机浏览器解决。<br>根据实践，苹果自带的safari是可以完成注册的。</p>
-<h2 id="2-创建Github仓库"><a href="#2-创建Github仓库" class="headerlink" title="2.创建Github仓库"></a>2.创建Github仓库</h2><p>在Github首页（或许包括绝大多数页面）可以找到New Repository按钮，Repository就是仓库。<br>仓库名称为<font color="blue">你的用户名.github.io</font>。<br>用户名就是你注册设置的那个玩意儿。我的用户名是unln1999，可能你不知道它是什么意思，反正这就是我的用户名。<br>那么我的仓库名就是<font color="blue">unln1999.github.io</font>。<br>【应该是可以设置为其它名字的，但是不建议第一次就特立独行，Github大佬自行设置qaq】<br><strong>选择类型为Public</strong>，如果是Private就无法成为一个大家都能看到的网站了（大概是这样）<br>其它设置不需要变，点击Create Repository按钮即可。</p>
-<h2 id="3-安装Git"><a href="#3-安装Git" class="headerlink" title="3.安装Git"></a>3.安装Git</h2><p>在<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git官网的下载页面</a>直接下载你对应系统的Git，这里以windows系统为例。<strong>一般打开这个页面应该能够看到一个显示器的图像，点击里面的那个按钮“Download 版本号 for windows”就可以下载安装包了。</strong><br>然后在本地双击安装包，<strong>一直按默认设置点下一步即可</strong>。（当然大佬可以自己配置）<br>装好之后，在任何文件夹（包括桌面）右键都可以使用<strong>Git Bash终端</strong>了</p>
-<h2 id="4-安装Nodejs"><a href="#4-安装Nodejs" class="headerlink" title="4.安装Nodejs"></a>4.安装Nodejs</h2><p>在<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">Nodejs官网的下载页面</a>直接下载你对应系统的对应位数（目前一般是64位）的.msi安装包。<br>然后在本地双击安装包，在下图的界面里<strong>选择Add to PATH</strong>，然后<strong>接下来只用一直点击下一步即可</strong>。（之前我自己变动了一个选项，导致没装好，重新装了一次，所以建议不改默认配置）<br><img src="/img/1-1.png" alt="1-1"></p>
-<h2 id="5-安装HEXO"><a href="#5-安装HEXO" class="headerlink" title="5.安装HEXO"></a>5.安装HEXO</h2><p>在Git Bash里输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>就会开始安装HEXO，安装过程会有点慢，如果你中途想要关闭终端，它会提示正在工作，因为Git Bash有时候（就我目前使用来看）不会显示进程详情，所以只能通过右上角点关闭来判断终端是否在工作。<br>耐心等待，HEXO就安装好了。<br>可以输入HEXO -v确定是否安装完毕。</p>
-<h2 id="6-创建博客"><a href="#6-创建博客" class="headerlink" title="6.创建博客"></a>6.创建博客</h2><p>在本地选择一个合适的目录，比如我选在了D:\博客环境。<br>然后再这个目录下右键Git Bash Here。<br>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init 你的用户名.github.io #创建博客</span><br><span class="line">$ cd 你的用户名.github.io #进入该目录</span><br><span class="line">$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia #下载yilia主题，也可以用别的主题，自行百度hexo主题</span><br><span class="line">$ npm install hexo-deployer-git --save #安装hexo自动部署发布工具，有了这个才能部署，所谓部署就是上传到Github上</span><br></pre></td></tr></table></figure>
-
-<p>在资源管理器（也就是常说的文件浏览器什么的）中进入博客目录（比如我的D:\博客环境\unln1999.github.io）,然后用编辑器（<strong>推荐notepad++</strong>）打开_config.yml。<br>进行一些基本设置，以下是一些基本的设置项，我用我的设置作为参考</p>
-<h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 夢の此夜亭🌸 #博客的名称，类似于网页名称</span><br><span class="line">subtitle: A Blog with Tiny Fantasy #副标题</span><br><span class="line">description: 记录CTF学习之路上的各种收获，和同学们分享，共同进步~ #这个好像不显示，写不写也无所谓</span><br><span class="line">keywords: #不懂，空着先</span><br><span class="line">author: 英和路雪 #作者名，其实无所谓，随便填</span><br><span class="line">language: zh-Hans #汉语，这个应该比较重要</span><br><span class="line">timezone: Asia/Shanghai #时区</span><br></pre></td></tr></table></figure>
-
-<h4 id="主题设置（选择刚才下的yilia或者你自己下的主题）"><a href="#主题设置（选择刚才下的yilia或者你自己下的主题）" class="headerlink" title="主题设置（选择刚才下的yilia或者你自己下的主题）"></a>主题设置（选择刚才下的yilia或者你自己下的主题）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
-
-<h4 id="重要设置（这里的设置网上有很多种，按我的来吧）"><a href="#重要设置（这里的设置网上有很多种，按我的来吧）" class="headerlink" title="重要设置（这里的设置网上有很多种，按我的来吧）"></a>重要设置（这里的设置网上有很多种，按我的来吧）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://unln1999.github.io/unln1999.github.io #这个是真实URL，也就是说你在网页里输入unln1999.github.io就可以访问博客了</span><br><span class="line">root: /unln1999.github.io/ #这个是根目录，也就是你本地的文件夹名，刚开始我们创建博客用的文件夹名是和网址相同的（D:\博客环境\unln1999.github.io），如果取的名字是别的，比如blog，那么这里是/blog/，url也要改为https://unln1999.github.io/blog</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git #这里应该必须设置为git，不能设置为github之类的</span><br><span class="line">  repository: https://github.com/unln1999/unln1999.github.io.git #注意结尾是.git，这里参考网址2里说的我认为有误</span><br><span class="line">  branch: master #设置为master</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）"><a href="#8-配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）" class="headerlink" title="8.配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）"></a>8.配置SSH（我不确定是否必须，如果无法上传到Github的话，执行此步，否则可以不用。所以先看第九步）</h2><p>第一次使用要配置Git的一些东东，如果不是，估计你也知道SSH是啥了（反正我不知道qaq）<br>在Git Bash里操作即可，如下：(注意按tab键可以补齐)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;随便写一个名字&quot;</span><br><span class="line">$ git config --global user.email &quot;你的邮箱&quot;</span><br><span class="line">$ ssh-keygen -t rsa -C &quot;你的邮箱&quot; #生成SSH</span><br><span class="line">$ cd ~/.ssh</span><br><span class="line">$ cat i（按Tab）（按.）（按Tab）</span><br><span class="line">【注：上一行打全了是 $ cat id_rsa.pub】</span><br></pre></td></tr></table></figure>
-
-<p>然后会出现一串东西，复制一下。<br>打开Github，进入settings，按下图配置SSH。<br><img src="/img/1-2.png" alt="1-2"></p>
-<h2 id="9-写博文和部署"><a href="#9-写博文和部署" class="headerlink" title="9.写博文和部署"></a>9.写博文和部署</h2><p>博文在博客目录里的/source/_posts/中。<br>一开始会有一个hello world.md文件。可以把它删掉、修改或者留着做测试，也可以阅读一下（反正我没读……）<br>学习一下markdown就可以写出漂亮的文章了，并不难！</p>
-<p>每次更新了博客文章或者设置，首先在博客根目录下，打开Git Bash，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<p>来进行测试，在浏览器里输入localhost:4000就可以进入测试页面了（注意图片无法显示，但是上传到Github上就可以了）<br>如果4000端口被占用就百度一下，关键词“Hexo”、“4000占用”<br>测试没问题了就可以部署了。</p>
-<p>部署的时候，也是在博客根目录下，打开Git Bash，然后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d #就用这个就行了，想要深入研究自行百度Hexo命令</span><br></pre></td></tr></table></figure>
-
-<p>这个时候在浏览器里输入 你的用户名.github.io就可以访问你的个人博客啦（当然你部署的时候得联网）。</p>
-<h2 id="10-其它"><a href="#10-其它" class="headerlink" title="10.其它"></a>10.其它</h2><ol>
-<li>可能在hexo s时会报错，这里有几个参考的可能。一个是config文件里面的键值对（学过数据库的都知道），冒号后面要加空格。此外冒号必须用英文的冒号。</li>
-<li>编辑的时候，尽量关闭测试（按Ctrl + C）。</li>
-<li>测试要频繁，以免不知道自己哪里出错了。</li>
-<li>隔一段时间要给博客做备份。把根目录压缩就可以了。</li>
-<li>关于主题的配置自行研究。（/themes/主题名 里面也有一个config文件）</li>
-<li>关于markdown的一系列操作也请百度学习。重要的内容会在之后的博文里更新。</li>
-<li>部署到GitHub要有半分钟到一分钟后才能看到效果，毕竟上传要时间嘛。</li>
-<li>第一次部署应该会要输入Github账号密码，如果没有，则说明配置有问题。可能可以部署，但是会没有样式。但是按我以上的配置应该是可以成功部署的。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/12/1/">展开全文 >></a>
         </p>
       
 
@@ -1224,7 +1191,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,15 +1199,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电路</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">电路</a>
               </li>
             
             <div class="clearfix"></div>
