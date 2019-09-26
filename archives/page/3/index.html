@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
-  <title>Linux小笔记——文件权限、用户权限 | 夢の此夜亭🌸</title>
+  <title>Archives | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux用户对文件的权限主要有三种，读、写、执行。分别是r、w、x。也就是read、write、execute。 Linux用户关于文件权限的三个命令分别是ls、chmod、chown。 ls下面我挑了几个我个人觉得有用的选项-a 显示隐藏的文件（试了一下，-A好像和-a差不多，就是少了.和..）-l 单列显示，并且很详细-F 在文件名后显示类型标识符-b 用编码显示不可输出的字符-d 仅显示目">
-<meta name="keywords" content="linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux小笔记——文件权限、用户权限">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/09/18/9linux基础/index.html">
+  <meta name="description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="夢の此夜亭🌸">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/archives/page/3/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="Linux用户对文件的权限主要有三种，读、写、执行。分别是r、w、x。也就是read、write、execute。 Linux用户关于文件权限的三个命令分别是ls、chmod、chown。 ls下面我挑了几个我个人觉得有用的选项-a 显示隐藏的文件（试了一下，-A好像和-a差不多，就是少了.和..）-l 单列显示，并且很详细-F 在文件名后显示类型标识符-b 用编码显示不可输出的字符-d 仅显示目">
+<meta property="og:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T16:07:15.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux小笔记——文件权限、用户权限">
-<meta name="twitter:description" content="Linux用户对文件的权限主要有三种，读、写、执行。分别是r、w、x。也就是read、write、execute。 Linux用户关于文件权限的三个命令分别是ls、chmod、chown。 ls下面我挑了几个我个人觉得有用的选项-a 显示隐藏的文件（试了一下，-A好像和-a差不多，就是少了.和..）-l 单列显示，并且很详细-F 在文件名后显示类型标识符-b 用编码显示不可输出的字符-d 仅显示目">
+<meta name="twitter:title" content="夢の此夜亭🌸">
+<meta name="twitter:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -148,194 +146,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-9linux基础" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Linux小笔记——文件权限、用户权限
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/unln1999.github.io/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">LAMP环境安装【web系列3】</a>
     </h1>
   
 
-        
-        <a href="/unln1999.github.io/2019/09/18/9linux基础/" class="archive-article-date">
-  	<time datetime="2019-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Linux用户对文件的权限"><a href="#Linux用户对文件的权限" class="headerlink" title="Linux用户对文件的权限"></a>Linux用户对文件的权限</h2><p>主要有三种，读、写、执行。<br>分别是r、w、x。<br>也就是read、write、execute。</p>
-<h2 id="Linux用户关于文件权限的三个命令"><a href="#Linux用户关于文件权限的三个命令" class="headerlink" title="Linux用户关于文件权限的三个命令"></a>Linux用户关于文件权限的三个命令</h2><p>分别是ls、chmod、chown。</p>
-<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>下面我挑了几个我个人觉得有用的选项<br>-a 显示隐藏的文件（试了一下，-A好像和-a差不多，就是少了.和..）<br>-l 单列显示，并且很详细<br>-F 在文件名后显示类型标识符<br>-b 用编码显示不可输出的字符<br>-d 仅显示目录名<br>-k 以KB显示文件大小（感觉没啥用）<br>-m 加逗号分隔文件和目录<br>-r 反向排序<br>-s size，也是显示大小<br>-t time，按更改时间排序<br>-R 递归处理（在目录里继续lS）</p>
-<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><p><strong>字母模式</strong><br>chomod [ugoa][+-=][rexX]</p>
-<p>-R 递归<br>-f 抑制失败错误信息<br><strong>数字模式</strong><br>ugo各一个数字<br>r1w2x4</p>
-<p>比如715<br>u的权限是rwx<br>g的权限是r<br>o的权限是rx</p>
-<h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><p>chomod id:idgroup</p>
-<h2 id="给用户sudo权限"><a href="#给用户sudo权限" class="headerlink" title="给用户sudo权限"></a>给用户sudo权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br><span class="line">(输入密码)</span><br><span class="line"># vim /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-<p>然后找到“root ALL=(ALL)ALL”这一行，然后再下一行添加：<br>“你要赋予权限的用户名 ALL=（ALL）ALL”<br>比如“zhanhan ALL=(ALL)ALL”</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖糖╰(*°▽°*)╯<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/09/18/9linux基础/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/unln1999.github.io/2019/09/18/10vim/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux小笔记——vim编辑
-        
-      </div>
-    </a>
-  
-  
-    <a href="/unln1999.github.io/2019/09/16/8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux中的DVWA环境搭建【web系列5】</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">Ubuntu18.04.3安装流程【web系列2】</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/unln1999.github.io/2019/09/13/3/" class="archive-article-date">
+  	<time datetime="2019-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/unln1999.github.io/2019/09/13/3/">时域分析</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电路</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/unln1999.github.io/2019/09/12/1/" class="archive-article-date">
+  	<time datetime="2019-09-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/unln1999.github.io/2019/09/12/1/">Win10利用Github+Hexo建个人博客</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/unln1999.github.io/2019/09/01/2/" class="archive-article-date">
+  	<time datetime="2019-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/unln1999.github.io/2019/09/01/2/">DVWA-SQL Injection Low级</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/unln1999.github.io/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/archives/">1</a><a class="page-number" href="/unln1999.github.io/archives/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -359,8 +378,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

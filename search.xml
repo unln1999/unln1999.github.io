@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Bugku 2019/9/28 web5]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F28%2Fbk10-web5%EF%BC%88jjencode%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[打开题目界面显示一段文字和一个文本框和提交按钮。 思路打开html代码，分区里有一堆字符，第一次看真的不知道是干啥的。然后就是很正常的两个表单。题目的意思是让你输入正确的flag，然后提交后会反馈给你是否正确。我们先随便输点东西，看一下有没有错误反馈。结果是有的，作者让你再看一下。于是就研究html代码。但是不知道那堆字符是干嘛的，于是去查了writeup。提示中的JSPFUCK中的JSP是指java server page。这个好像也是一种加密，不太清楚到底是jjencode还是jspfuck。总之，把这段字符放在控制行里，回车得到java代码。 writeup复制字符到浏览器console并回车。得到flag，然后输入后发现不对。再由题干中的字符大写启发，改为大写，则正确。 知识点 jsp加密]]></content>
+      <tags>
+        <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Bugku 2019/9/27 头等舱]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F27%2Fbk9-%E5%A4%B4%E7%AD%89%E8%88%B1%2F</url>
+    <content type="text"><![CDATA[进入题目页面显示“什么都没有” 思路因为直接显示的内容里没有明显的线索。因此看源代码。发现也没有内容。这时候再看更根本的HTTP响应。 writeup打开bp，把get请求发送到repeater里，然后go一下，接收返回来的http响应。然后可以发现，响应头标里有flag。 知识点 HTTP响应头标]]></content>
+      <tags>
+        <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Bugku 2019/9/26 你必须让他停下]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F26%2Fbk8-%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%AE%A9%E5%AE%83%E5%81%9C%E4%B8%8B%E6%9D%A5%2F</url>
+    <content type="text"><![CDATA[进入题目页面进入后，可以看到页面一直在刷新。有个图片一直在变，还有一些话，意识是，当你看到熊猫的时候，就会看到flag。 思路做web题要看F12，页面一直在刷新，所以不便于看html代码。因此用bp抓包，让页面刷新可控。应该每个图本来都是会显示的，应该是服务器里出了什么问题，导致图片显示不出来。所以正常情况下，我们看刷新的页面，是会出现熊猫的。并且我们不能发现flag。我们观察html代码。可以发现有一句： 1&lt;a style=&quot;display:none&quot;&gt;flag is here~&lt;/a&gt; 看到display可以猜测flag会在这个书签语句里出现，并且它会被隐藏。 writeup要刷新页面到出现熊猫时才会有flag。因此把第一个包（连接服务器的get包，我还不太懂qaq）发送到repeater里。重复获取页面。最终flag会出现。如果过头了的话，repeater里可以倒退。 知识点 repeater刷新初始页面]]></content>
+      <tags>
+        <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Bugku 2019/9/25 host]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F25%2Fbk7-host%2F</url>
+    <content type="text"><![CDATA[进入题目页面其实没有题目页面，就是有个题目。然后内容是：“听说把 flag.baidu.com 解析到123.206.87.240 就能拿到flag” 思路第一次做且不懂hosts肯定无法理解什么意思。所以我查了writeup，才知道是要添加到hosts文件里。至于题目背后的原理，我还是不太清楚。 writeup找到系统的hosts文件。然后另起一行输入： 1123.206.87.240 flag.baidu.com 知识点 hosts设置]]></content>
+      <tags>
+        <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Bugku 2019-9-24 web3]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F24%2Fbk6-web3%2F</url>
     <content type="text"><![CDATA[进入题目页面出现了一些列弹窗。说flag就在这里。 思路点击几次弹窗，发现还在弹。考虑无限弹窗的可能性，直接不管弹窗，打开开发者工具（F12）。阅读代码，发现一段被注释的HTML特殊字母编码，猜测这是flag。 writeup把这个特殊编码写入一个html文档里，直接打开，会译为字符串。结果就是flag。 知识点 html注释 html特殊字母编码]]></content>
       <tags>
         <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[双极型晶体管及其基本放大电路——模电Charpter3]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F24%2Fmd3%2F</url>
+    <content type="text"><![CDATA[1. 双极型晶体管1.1 晶体管的结构、类型和三种组态结构就是由发射极、基极、集电极组成。 类型有NPN型和PNP型。 组态有共基极接法、共发射极接法、共集电极接法。 1.2 晶体管的电流放大作用共基极直流放大系数 α共射极直流放大系数 β1.3 晶体管的共射特性曲线和主要参数输入特性曲线$U_{CE}$不变，$i_B$和$U_{BE}$的关系和二极管正向特性曲线相似。 输出特性曲线$i_B$不变，$i_C$随$U_{CE}$的增大而增大直至饱和。（$U_{CE}$） 主要参数参数有直流参数、交流参数、极限参数三类。 直流参数（加横杠表示直流）β：当$U_{CE}$不变时，输出集电极电流和输入基极电流的比值。α：见上。 交流参数交流放大系数和直流的差不多。特征频率截止频率有：$f_α=f_T=β·f_β$ 极限参数集电极最大允许电流集电极最大允许功耗 2. 放大的概念和放大的性能指标]]></content>
+      <tags>
+        <tag>模电</tag>
       </tags>
   </entry>
   <entry>
@@ -51,7 +91,7 @@
   <entry>
     <title><![CDATA[半导体二极管及其基本应用电路——模电Charpter2]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F21%2Fmd2%2F</url>
-    <content type="text"><![CDATA[写在最最前面模电第一章是绪论，所以第一章不做笔记。然后本套笔记的标题为“章.节.点”，一般省略章。标题主要取自哈尔滨工业大学的慕课《模拟电子技术基础》，次取自高等教育出版社的《模拟电子技术基础》。也会有自己添加标题的情况。本笔记主要标记方式为加粗、下划线和红蓝字体。重点程度为，红&gt;蓝&gt;加粗，下划线是需要理解记忆（或强行记忆）的地方。本笔记不宜作为自学、系统学习的教程。主要是个人向的重点总结。没了，好好学习！ 1 半导体基本知识和PN结1.1 半导体基础知识本征半导体光热下本征激发和复合动态平衡，产生少量载流子。 杂质半导体P型：多数载流子是空穴，掺入了三价原子。N型：多数载流子是电子，掺入了五价原子。杂质半导体的载流子是自由电子和空穴。 1.2 PN结扩散运动多子因为浓度差开始扩散，形成了耗尽层（空间电荷区、势垒区）。浓度差始终存在，因此扩散始终进行。 漂移运动耗尽层中，形成内电场，使得内电场中的少子开始漂移削弱内电场。内电场始终存在，因此漂移始终进行。 动态平衡扩散增强内电场，漂移削弱内电场，哪个作用强，哪个作用就会减弱，另一个的作用就会增强，最终达到动态平衡，内电场强度宏观上不再变化。 单向导电性正向偏置导电有压降，反向偏置截止。 电容效应了解2 半导体二极管2.1 二极管的伏安特性硅：0.5V 0.7V锗：0.1V 0.3V]]></content>
+    <content type="text"><![CDATA[写在最最前面模电第一章是绪论，所以第一章不做笔记。然后本套笔记的标题为“章.节.点”，一般省略章。标题主要取自哈尔滨工业大学的慕课《模拟电子技术基础》，次取自高等教育出版社的《模拟电子技术基础》。也会有自己添加标题的情况。本笔记主要标记方式为加粗、下划线和红蓝字体。重点程度为，红&gt;蓝&gt;加粗，下划线是需要理解记忆（或强行记忆）的地方。本笔记不宜作为自学、系统学习的教程。主要是个人向的重点总结。没了，好好学习！ 1 半导体基本知识和PN结1.1 半导体基础知识本征半导体光热下本征激发和复合动态平衡，产生少量载流子。 杂质半导体P型：多数载流子是空穴，掺入了三价原子。N型：多数载流子是电子，掺入了五价原子。杂质半导体的载流子是自由电子和空穴。 1.2 PN结扩散运动多子因为浓度差开始扩散，形成了耗尽层（空间电荷区、势垒区）。浓度差始终存在，因此扩散始终进行。 漂移运动耗尽层中，形成内电场，使得内电场中的少子开始漂移削弱内电场。内电场始终存在，因此漂移始终进行。 动态平衡扩散增强内电场，漂移削弱内电场，哪个作用强，哪个作用就会减弱，另一个的作用就会增强，最终达到动态平衡，内电场强度宏观上不再变化。 单向导电性正向偏置导电有压降，反向偏置截止。 电容效应了解2 半导体二极管2.1 二极管的伏安特性硅：0.5V 0.7V锗：0.1V 0.3V 2.2 二极管的等效模型 理想模型 恒压降模型 折线化模型 小信号模型]]></content>
       <tags>
         <tag>模电</tag>
       </tags>
@@ -113,14 +153,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ubuntu18.04.3安装流程【web系列2】]]></title>
-    <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F5ubuntu%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[预先安装VMware Workstation Pro 15因为我事先安装好了，所以暂时先不记录流程。这个东东是用固定序列号注册的，所以正版激活只用百度序列号。之后我会写一篇文章来讲Vmware Workstation的安装。 下载Ubuntu镜像文件在这个页面下载Ubuntu Desktop latest（LTS） 创建虚拟机1.打开VMware Workstation。点击创建虚拟机（在左上角“文件”菜单里有）。2.选择自定义！！！下一步。3.下一步。4.选择稍后安装操作系统下一步。5.然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。下一步。6.然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）下一步。7.下一步。（1个内核就行）8.下一步。（2G就行）9.下一步。（NAT）10.下一步。（LSI logic）11.下一步。（SCSI）12.下一步。（创建新虚拟硬盘）13.我看到教程改成了拆分成单个文件，我们不拆。直接下一步。14.下一步。15.完成。 虚拟机安装1.按图配置ISO文件。(最后⑤的圈没圈起来)2.启动虚拟机，如果有问题，重新下载ISO文件。3.过一段时间进入安装界面，选择中文，并点击安装Ubuntu。4.之后几步一直按默认来，点击继续，直到设置用户名和密码。5.输入用户名和密码，然后选择自动登录，方便。6.然后等待安装，安装完成后重启。检查一下网络连接。如果无法进入桌面（一直黑屏）重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。然后找到一个splash，在后面打一个空格，然后输入nomodeset。再按ctrl+X重启。 VMware Tools安装在左上角“虚拟机”菜单里点击安装VMware Tools。然后桌面会有一个光盘的图标，双击打开。复制里面的压缩包到主目录。压缩包就是下图圈的那个。然后打开终端。这里介绍一下ubuntu su进root的办法，挺重要的。就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。su进root只需要： 1234$ sudo passwd (输入原密码)（输入新密码，可以和原密码一样，建议一样）（确认新密码） 搞定之后就可以su进root了。接着我们继续 123# tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。# cd vmware-tools-distrib# sudo ./vmware-install.pl 然后重启就可以使用VMware Tools了。重启的时候又黑屏，估计每次都得搞那个nomodeset。]]></content>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[CentOS 7（Gnome桌面）安装流程【web系列1】]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F4centos%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！ 预先安装VMware Workstation Pro 15因为我事先安装好了，所以暂时先不记录流程。这个东东是用固定序列号注册的，所以正版激活只用百度序列号。之后我会写一篇文章来讲Vmware Workstation的安装。 下载CentOS镜像文件在这个页面下载DVD ISO文件。然后等下好。 创建虚拟机1.打开VMware Workstation。点击创建虚拟机（在左上角“文件”菜单里有）。2.选择自定义！！！下一步。3.下一步。4.选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（不要有中文目录！！！，虽然我第一次安装也有中文目录且没有什么问题）下一步。5.下一步。6.下一步。（内核数量改成2也行）7.下一步。（内存改成2G也行）8.下一步。（选择NAT）9.下一步。（LSI logic）10.下一步。（SCSI）11.下一步。（创建新虚拟硬盘）12.下一步。（20G，拆分成多个文件）13.下一步。14.下一步。（可以勾选创建后开启此虚拟机，我勾选了。） 虚拟机安装1.启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）2.鼠标移动到画面内，按下Enter键。3.进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。4.然后会有这样的界面。在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。按下图，左边选择GNOME桌面，右边选择图中这四个。5.点击系统里面的“安装位置”，什么也不用修改，确认。6.接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。7.接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。图中这里勾上把此用户作为管理员！！！8.等待安装完成后，重启。9.重启后点击Licence Infomation，然后再点同意，确认。10.点击右下角完成配置。11.然后进入图形化登录界面。12.登陆后配置语言、输入法。在线账号那里可以跳过。13.然后就安装完毕了。 关于VMware Tools安装很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。我之前装过了……然后重装系统之后还有，迷惑。我看在Ubuntu系统上安装的时候，单独写一篇日志。]]></content>
@@ -132,6 +164,14 @@
     <title><![CDATA[LAMP环境安装【web系列3】]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F6.LAMP%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[蓝色字体将介绍安装的软件。 环境检测全新系统不需要这一步，我暂时跳过，日后补充。 安装Apache、PHP、Mysql1.安装Apache世界使用排名第一的服务器软件，可广泛地运行于多个平台上先su进root。 1# yum -y install httpd 我的返回结果是： 1234567已安装: httpd.x86_64 0:2.4.6-89.el7.centos.1 作为依赖被安装: httpd-tools.x86_64 0:2.4.6-89.el7.centos.1 mailcap.noarch 0:2.1.41-2.el7 完毕！ 2.安装PHP一种较新的web脚本语言，php环境用来运行php程序代码输入： 1# yum -y install php 我的返回结果是： 12345678已安装: php.x86_64 0:5.4.16-46.el7 作为依赖被安装: libzip.x86_64 0:0.10.1-8.el7 php-cli.x86_64 0:5.4.16-46.el7 php-common.x86_64 0:5.4.16-46.el7 完毕！ 3.安装php-fpmphp的fastCGI process manager，CGI是通用网关接口（Common Gateway Interface）,fast就是快速。web服务器（我们的是Apache）本身不能解释php语言，服务器将php请求交给FastCGI进程管理来处理。对于5.3.3之前的php环境，应该只有安装了php-fpm，才能让服务器解释php文件。我的php版本为5.4.16，我特意卸载掉php-fpm依然可以在localhost里打开php文件。输入： 1# yum -y install php-fpm 我的返回结果是： 1234已安装: php-fpm.x86_64 0:5.4.16-46.el7 完毕！ 4.安装Mysql一种流行的DBMS（关系型数据库管理系统）输入： 1# yum -y install mysql 我的返回结果是： 1234已安装: mariadb.x86_64 1:5.5.60-1.el7_5 完毕！ 5.安装Mysql-serverMysql的服务器，是Mysql的核心程序这一步要先换源！！！【参考web系列4】这里用yum会出错，这是作者怕Mysql闭源的结果。无法使用下面的命令： 1# yum -y install mysql-server 直接从官网下载Mysql-server就可以了输入： 123# wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i# rpm -ivh mysql-community-release-el7-5.noarch.rpm2# yum install mysql-community-server 输入y继续。耐心等候。（这个过程很快，如果不快就换源，阿里云的好像不行，中科大的快）我的返回结果是： 123456789101112已安装: mysql-community-server.x86_64 0:5.6.45-2.el7 作为依赖被安装: perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7 perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7 perl-DBI.x86_64 0:1.627-4.el7 perl-IO-Compress.noarch 0:2.061-2.el7 perl-Net-Daemon.noarch 0:0.48-5.el7 perl-PlRPC.noarch 0:0.2020-14.el7 完毕！ 6.安装php-mysql应该是php和Mysql的接口工具之类的（百度不到）输入： 1# yum -y install php-mysql 我的返回结果是： 1234567已安装: php-mysql.x86_64 0:5.4.16-46.el7 作为依赖被安装: php-pdo.x86_64 0:5.4.16-46.el7 完毕！ 安装基本常用扩展包1.安装Apache扩展包输入： 1# yum -y install httpd-manual mod_ssl mod_perl mod_auth_mysql 我的返回结果是： 1234567891011121314151617已安装: httpd-manual.noarch 0:2.4.6-89.el7.centos.1 mod_perl.x86_64 0:2.0.10-3.el7 mod_ssl.x86_64 1:2.4.6-89.el7.centos.1 作为依赖被安装: gdbm-devel.x86_64 0:1.10-8.el7 libdb-devel.x86_64 0:5.3.21-24.el7 perl-BSD-Resource.x86_64 0:1.29.07-1.el7 perl-ExtUtils-Install.noarch 0:1.58-294.el7_6 perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7 perl-ExtUtils-Manifest.noarch 0:1.61-244.el7 perl-ExtUtils-ParseXS.noarch 1:3.18-3.el7 perl-Linux-Pid.x86_64 0:0.04-18.el7 perl-devel.x86_64 4:5.16.3-294.el7_6 systemtap-sdt-devel.x86_64 0:3.3-3.el7 完毕！ 2.安装PHP扩展包输入： 1# yum -y install php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel 我的返回结果是： 1234567891011已安装: php-devel.x86_64 0:5.4.16-46.el7 php-gd.x86_64 0:5.4.16-46.el7 php-ldap.x86_64 0:5.4.16-46.el7 php-mbstring.x86_64 0:5.4.16-46.el7 php-pear.noarch 1:1.9.4-21.el7 php-xml.x86_64 0:5.4.16-46.el7 php-xmlrpc.x86_64 0:5.4.16-46.el7 作为依赖被安装: pcre-devel.x86_64 0:8.32-17.el7 php-process.x86_64 0:5.4.16-46.el7 t1lib.x86_64 0:5.1.2-14.el7 完毕！ 3.安装Mysql扩展包输入： 1# yum -y install mysql-connector-odbc mysql-devel libdbi-dbd-mysql 我的返回结果是： 12345678910已安装: libdbi-dbd-mysql.x86_64 0:0.8.3-16.el7 mysql-community-devel.x86_64 0:5.6.45-2.el7 mysql-connector-odbc.x86_64 0:8.0.17-1.el7 作为依赖被安装: libdbi.x86_64 0:0.8.4-6.el7 libdbi-drivers.x86_64 0:0.8.3-16.el7 unixODBC.x86_64 0:2.3.1-11.el7 完毕！ 配置Apache、Mysql开机启动（这样更方便）123456# systemctl enable httpd.service #设置apache开机启动(返回如下)Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.# systemctl enable mysqld.service #设置mysql开机启动（没有返回结果） 重启检验是否开机启动 12# service mysqld status# service httpd status 配置Mysql设置密码输入： 12345# mysql_secure_installation（回车）（回车）（输入密码，不显示，我输入的是root）（回车4次，完成设置） 测试环境测试Apache在虚拟机的浏览器（firefox）里打开“http://localhost/”应该会如图有这样的界面，如果没有说明有问题，或者apache没有启动。没有启动要用 12# service httpd status #确定是否启动# service httpd start #启动 测试php123# cd /var/www/html# touch phpinfo-test.php #这个名字无所谓的# vim phpinfo-test.php 写一个简单的php文件： 123&lt;?phpphpinfo;?&gt; 然后保存退出，浏览器力打开“localhost/phpinfo-test.php”如果出现下图，则php安装成功。]]></content>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu18.04.3安装流程【web系列2】]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F5ubuntu%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[预先安装VMware Workstation Pro 15因为我事先安装好了，所以暂时先不记录流程。这个东东是用固定序列号注册的，所以正版激活只用百度序列号。之后我会写一篇文章来讲Vmware Workstation的安装。 下载Ubuntu镜像文件在这个页面下载Ubuntu Desktop latest（LTS） 创建虚拟机1.打开VMware Workstation。点击创建虚拟机（在左上角“文件”菜单里有）。2.选择自定义！！！下一步。3.下一步。4.选择稍后安装操作系统下一步。5.然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。下一步。6.然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）下一步。7.下一步。（1个内核就行）8.下一步。（2G就行）9.下一步。（NAT）10.下一步。（LSI logic）11.下一步。（SCSI）12.下一步。（创建新虚拟硬盘）13.我看到教程改成了拆分成单个文件，我们不拆。直接下一步。14.下一步。15.完成。 虚拟机安装1.按图配置ISO文件。(最后⑤的圈没圈起来)2.启动虚拟机，如果有问题，重新下载ISO文件。3.过一段时间进入安装界面，选择中文，并点击安装Ubuntu。4.之后几步一直按默认来，点击继续，直到设置用户名和密码。5.输入用户名和密码，然后选择自动登录，方便。6.然后等待安装，安装完成后重启。检查一下网络连接。如果无法进入桌面（一直黑屏）重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。然后找到一个splash，在后面打一个空格，然后输入nomodeset。再按ctrl+X重启。 VMware Tools安装在左上角“虚拟机”菜单里点击安装VMware Tools。然后桌面会有一个光盘的图标，双击打开。复制里面的压缩包到主目录。压缩包就是下图圈的那个。然后打开终端。这里介绍一下ubuntu su进root的办法，挺重要的。就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。su进root只需要： 1234$ sudo passwd (输入原密码)（输入新密码，可以和原密码一样，建议一样）（确认新密码） 搞定之后就可以su进root了。接着我们继续 123# tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。# cd vmware-tools-distrib# sudo ./vmware-install.pl 然后重启就可以使用VMware Tools了。重启的时候又黑屏，估计每次都得搞那个nomodeset。]]></content>
       <tags>
         <tag>web</tag>
       </tags>
