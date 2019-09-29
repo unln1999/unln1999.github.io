@@ -148,6 +148,256 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk4-计算器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/22/bk4-计算器/">Bugku 2019-9-22 计算器</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/22/bk4-计算器/" class="archive-article-date">
+  	<time datetime="2019-09-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示了一个验证码（应该靠后端脚本生成，不在html里体现。）<br>然后还有一个文本框。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>猜测输入正确的验证码之后，会出现flag。然而文本框只能输入一位数字。<br>猜测是受到了限制。因此查看html代码。<br>发现这里限制了maxlength。<br>然后这个文本框不是表单，因此无法通过修改get、post表单值。<br>强行改变html代码，来使页面发生变化。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>把maxlength去掉或加长。<br>然后输入正确的验证码。<br>flag出来了。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>html代码是可以直接修改的，甚至强行添加新的内容。</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/22/bk4-计算器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-dw-热学公式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/22/dw-热学公式/">热学公式和一些细节</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/22/dw-热学公式/" class="archive-article-date">
+  	<time datetime="2019-09-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="只需要记红色的公式！"><a href="#只需要记红色的公式！" class="headerlink" title="只需要记红色的公式！"></a>只需要记<font color="red">红色</font>的公式！</h1><p><strong><font color="blue">第17章 气体动理论</font></strong></p>
+<h2 id="理想气体状态方程"><a href="#理想气体状态方程" class="headerlink" title="理想气体状态方程"></a>理想气体状态方程</h2><p><strong>N、V、P、T</strong><br>$PV=νRT$<br>$PV=NkT$<br><font color="red">$P=nkT$</font></p>
+<h2 id="理想气体压强（这个公式不记）"><a href="#理想气体压强（这个公式不记）" class="headerlink" title="理想气体压强（这个公式不记）"></a>理想气体压强（这个公式不记）</h2><p><strong>N、V、P、$\varepsilon_t$</strong><br>$P=\frac{2}{3}n\varepsilon_t$(n为单位体积分子数)<br>$PV=\frac{2}{3}N\varepsilon_t$</p>
+<h2 id="理想气体分子平均平动动能"><a href="#理想气体分子平均平动动能" class="headerlink" title="理想气体分子平均平动动能"></a>理想气体分子平均平动动能</h2><p><strong>\varepsilon_t、T</strong><br><font color="red">$\varepsilon_t=\frac{3}{2}kT$</font></p>
+<h2 id="分子总平均动能"><a href="#分子总平均动能" class="headerlink" title="分子总平均动能"></a>分子总平均动能</h2><p><font color="red">$\varepsilon_k=\frac{i}{2}kT$</font></p>
+<h2 id="气体内能"><a href="#气体内能" class="headerlink" title="气体内能"></a>气体内能</h2><p>$E=N\varepsilon_k$</p>
+<h2 id="三种速率"><a href="#三种速率" class="headerlink" title="三种速率"></a>三种速率</h2><p>$v_{rms}$是用来算平均平动动能的。<br><font color="red">$\varepsilon_t=\frac{1}{2}mv_{rms}^2</font><br>另外两个目前没用（我感觉）</p>
+<hr>
+<p>小结：本章研究气体的几个表征量。<br>微观的有：分子平均平动动能、分子平均动能【公式3】<br>宏观的有：气压、气温、分子浓度、内能<br>其中，分子平均平动动能和气温有直接关系。【公式2】<br>微观量只和气温和分子类型有关。<br>所以研究气体，最重要的是研究宏观。<br>气温、气压、气浓知二求一。【公式1】<br>然后知道方均根速率和分子平均平动动能的关系。【公式4】<br>单位体积内能只与温度和分子数有关。</p>
+<hr>
+<p><strong><font color="blue">第18章 热力学第一定律<font></font></font></strong></p>
+<h2 id="热力学第一定律"><a href="#热力学第一定律" class="headerlink" title="热力学第一定律"></a>热力学第一定律</h2><p><strong>Q、A、E</strong><br><font color="red">Q=$\DeltaE+A$</font>，主要记文字表述：<strong>系统吸热等于系统内能增量+系统对外做功</strong><br>【Q的确定依赖T】<br>【A的确定依赖PV】<br>【E的确定依赖VT】<br>热力学第一定律问题本质上是对气体宏观属性的利用。</p>
+<h2 id="准静态过程体积功"><a href="#准静态过程体积功" class="headerlink" title="准静态过程体积功"></a>准静态过程体积功</h2><p><strong>A、P、V</strong><br>$A=\int^{V_2}_{V_1}p{\rm d}v$<br>在PV图里，正向面积为系统对外做功，负向面积为外界对内做功。<br>循环过程中，顺时针是整体对外做功，逆时针是整体外界对内做功。<br><font color="red"><strong>体积功正负只和体积变化有关，体积变大一定对外做功，体积缩小一定对内做功。</strong></font></p>
+<h2 id="热容"><a href="#热容" class="headerlink" title="热容"></a>热容</h2><p>定体热容$C_{V,m}=\frac{i}{2}R$<br>定压热容$C_{P,m}=\frac{i+2}{2}R$</p>
+<h2 id="几种过程"><a href="#几种过程" class="headerlink" title="几种过程"></a>几种过程</h2><h3 id="等体过程，A-0"><a href="#等体过程，A-0" class="headerlink" title="等体过程，A=0"></a>等体过程，A=0</h3><h3 id="等压过程"><a href="#等压过程" class="headerlink" title="等压过程"></a>等压过程</h3><h3 id="等温过程，-DeltaE-0"><a href="#等温过程，-DeltaE-0" class="headerlink" title="等温过程，$\DeltaE$=0"></a>等温过程，$\DeltaE$=0</h3><h3 id="绝热过程，Q-0"><a href="#绝热过程，Q-0" class="headerlink" title="绝热过程，Q=0"></a>绝热过程，Q=0</h3><p>$PV^γ=const$,γ是比热比。<br>$A=\frac{1}{γ-1}(P_1V_1-P_2V_2)$</p>
+<h3 id="绝热自由膨胀（不是准静态过程）"><a href="#绝热自由膨胀（不是准静态过程）" class="headerlink" title="绝热自由膨胀（不是准静态过程）"></a>绝热自由膨胀（不是准静态过程）</h3><p>写不动了，回头在更新</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大物</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/22/dw-热学公式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fb1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/22/fb1/">复变函数论</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/22/fb1/" class="archive-article-date">
+  	<time datetime="2019-09-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本教程不是零基础向，读者应有高中复数基本知识等。</p>
+<h1 id="1-1-复数、区域和边界"><a href="#1-1-复数、区域和边界" class="headerlink" title="1.1 复数、区域和边界"></a>1.1 复数、区域和边界</h1><h2 id="1-1-1-复数的基本定义"><a href="#1-1-1-复数的基本定义" class="headerlink" title="1.1.1 复数的基本定义"></a>1.1.1 复数的基本定义</h2><p>常识。<br><strong>a+bi中，a是实部，b是虚部，提取实部虚部的记号要记住，是Re z和Im z</strong><br>加减乘除的共轭要会算。</p>
+<h2 id="1-1-2-复数的几何表示与各种标记"><a href="#1-1-2-复数的几何表示与各种标记" class="headerlink" title="1.1.2 复数的几何表示与各种标记"></a>1.1.2 复数的几何表示与各种标记</h2><p>就是在复平面上用向量表示复数。<br>长度称为<strong>复数的模</strong>。<br><strong>辐角主值</strong>是最常用的，<strong>辐角</strong>有无穷个。（z=0时，辐角没有意义）</p>
+<p>然后复数除了代数式，还可以写成三角式，和利用欧拉公式写成指数式。<br>（虽然指数式不是记号，而是确实等于这个复数，但也可以把它作为一种记号，便于理解，看不懂这句话就算了……）</p>
+<p>复数的加减用代数式或向量式（本质是一个东西）。<br>复数的乘除用指数式（或三角式）。<br>开方也用指数式，开几次方，有几个解.</p>
+<h2 id="1-1-3-球极投影"><a href="#1-1-3-球极投影" class="headerlink" title="1.1.3 球极投影"></a>1.1.3 球极投影</h2><p>了解</p>
+<h2 id="1-1-4区域和边界"><a href="#1-1-4区域和边界" class="headerlink" title="1.1.4区域和边界"></a>1.1.4区域和边界</h2><p>区域是连通的开集。<br>边界也是常识，边界由边界点构成，边界点的任意邻域内，既有属于区域的点也有区域外的点。<br>边界和区域的并集为闭区域。</p>
+<h1 id="1-2-复变函数"><a href="#1-2-复变函数" class="headerlink" title="1.2 复变函数"></a>1.2 复变函数</h1><p>本课程内，我们只研究单值函数。<br>复变函数类似于二元函数。只不过是两个二元函数的“复合”。<br><strong>多元函数的极限，需要不依赖路径，复变函数也是如此。</strong><br><strong>复变函数有极限，需要两个二元函数都有极限。</strong><br><strong>复变函数的连续也等价于两个二元函数的连续。</strong><br>但是复变函数本质上又是一元函数。<br>差不多就这样。</p>
+<h1 id="1-3-复变函数的可微性和解析性"><a href="#1-3-复变函数的可微性和解析性" class="headerlink" title="1.3 复变函数的可微性和解析性"></a>1.3 复变函数的可微性和解析性</h1><p>可微是对点来说的，其实也可以对整个函数来说，只不过这里整个单值函数可微称为解析。<br>作为一元函数，复变函数可导等价于可微。<br><strong>需要记忆的↓</strong><br>柯西黎曼条件：<br><font color="red">$\frac{\patialu}{patialx}=\frac{\patialv}{patialy},\frac{patialu}{patialy}=-\frac{\patialv}{patialx}$</font><br>拉普拉斯微分方程：<br>调和函数满足：$\frac{\patial^2\phi}{patialx^2}+\frac{\patial^2\phi}{patialy^2}$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">复变</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/22/fb1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk3-web2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -750,259 +1000,6 @@
 
 
   
-    <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/16/8/">Linux中的DVWA环境搭建【web系列5】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/16/8/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="下载DVWA"><a href="#下载DVWA" class="headerlink" title="下载DVWA"></a>下载DVWA</h2><p>我用的系统是CentOS 7。<br>预先要安装好LAMP环境【参考web系列3】。<br>在<a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA官网</a>点击Download下载DVWA环境（其实是有版本的）。</p>
-<h2 id="解压zip文件"><a href="#解压zip文件" class="headerlink" title="解压zip文件"></a>解压zip文件</h2><p>然后用VMware Tools复制到虚拟机中，当然直接在虚拟机里下载也行。<br>先su一下，然后改一下目录的读写权限（我感觉改了之后很方便）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chmod a+rwx -R /var/www/</span><br></pre></td></tr></table></figure>
-
-<p>然后直接把压缩包放到这个目录里。（也可以在其它目录解压到这个目录）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# unzip DVWA-master.zip </span><br><span class="line">[root@localhost html]# rm DVWA-master.zip </span><br><span class="line">rm：是否删除普通文件 &quot;DVWA-master.zip&quot;？y</span><br><span class="line">[root@localhost html]# mv DVWA-master/ DVWA</span><br></pre></td></tr></table></figure>
-
-<p>解压并删除压缩包。把目录名字修改为DVWA<br>有必要的话，还需要多次赋予读写权限。</p>
-<h2 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# cd DVWA/config</span><br><span class="line">[root@localhost config]# cp config.inc.php.dist  config.inc.php #备份</span><br></pre></td></tr></table></figure>
-
-<p>这里就是需要config文件，备份的同时，把dist去掉，php文件作为config文件（配置文件）。<br>编辑这个php文件，把server改为localhost，把password修改为root。<br><img src="/img/7-1.png" alt="7-1"></p>
-<h2 id="使用DVWA"><a href="#使用DVWA" class="headerlink" title="使用DVWA"></a>使用DVWA</h2><p>然后在浏览器里输入：“localhost/DVWA”就可以进入类似于下图的DVWA界面。<br><img src="/img/7-2.png" alt="7-2"><br>点击Create/Reset Database后会创建数据库。<br>然后就会跳转到登录界面。<br>之后都会直接是登录界面。<br>初始用户名是admin，密码是password。<br>登录后是这样的，安装成功~<br><img src="/img/7-3.png" alt="7-3"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-7.换源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/16/7.换源/">CentOS换中科大源【web系列4】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/16/7.换源/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先备份源。然后编辑源。<br>备份过程略。<br>首先提供编辑权限，一时半会不用改回去。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/yum.repos.d/</span><br><span class="line"># touch epel.repo</span><br><span class="line"># touch epel-testing.repo</span><br><span class="line"># chmod a+rwx -R /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-
-<p>然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。<br>编辑CentOS-Base.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-$releasever - Updates</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-$releasever - Plus</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/centosplus/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
-
-<p>编辑epel.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-
-<p>编辑epel-testing.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel-testing]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-testing-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-testing-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-
-<p>接着要补充一个gpg密钥文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/pki/rpm-gpg </span><br><span class="line"># wget https://archive.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7</span><br></pre></td></tr></table></figure>
-
-<p>然后应该就完事了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/7.换源/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/4centos安装/">CentOS 7（Gnome桌面）安装流程【web系列1】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/15/4centos安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！</p>
-<h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载CentOS镜像文件"><a href="#下载CentOS镜像文件" class="headerlink" title="下载CentOS镜像文件"></a>下载CentOS镜像文件</h2><p>在<a href="https://www.centos.org/download/" target="_blank" rel="noopener">这个页面</a>下载DVD ISO文件。<br>然后等下好。</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br>选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（<strong>不要有中文目录！！！</strong>，虽然我第一次安装也有中文目录且没有什么问题）<br>下一步。<br>5.<br>下一步。<br>6.<br>下一步。（内核数量改成2也行）<br>7.<br>下一步。（内存改成2G也行）<br>8.<br>下一步。（选择NAT）<br>9.<br>下一步。（LSI logic）<br>10.<br>下一步。（SCSI）<br>11.<br>下一步。（创建新虚拟硬盘）<br>12.<br>下一步。（20G，拆分成多个文件）<br>13.<br>下一步。<br>14.<br>下一步。（可以勾选创建后开启此虚拟机，我勾选了。）</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）<br>2.<br>鼠标移动到画面内，按下Enter键。<br>3.<br>进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。<br>4.<br>然后会有这样的界面。<br><img src="/img/4-1.png" alt="4-1"><br>在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）<br>在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。<br>按下图，左边选择GNOME桌面，右边选择图中这四个。<br><img src="/img/4-2.png" alt="4-2"><br>5.<br>点击系统里面的“安装位置”，什么也不用修改，确认。<br>6.<br>接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。<br><img src="/img/4-3.png" alt="4-3"><br><img src="/img/4-4.png" alt="4-4"><br>7.<br>接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。<br><img src="/img/4-5.png" alt="4-5"><br><strong>图中这里勾上把此用户作为管理员！！！</strong><br><img src="/img/4-6.png" alt="4-6"><br>8.<br>等待安装完成后，重启。<br>9.<br>重启后点击Licence Infomation，然后再点同意，确认。<br>10.<br>点击右下角完成配置。<br>11.<br>然后进入图形化登录界面。<br><img src="/img/4-7.png" alt="4-7"><br>12.<br>登陆后配置语言、输入法。在线账号那里可以跳过。<br>13.<br>然后就安装完毕了。<br><img src="/img/4-8.png" alt="4-8"></p>
-<h2 id="关于VMware-Tools安装"><a href="#关于VMware-Tools安装" class="headerlink" title="关于VMware Tools安装"></a>关于VMware Tools安装</h2><p>很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。<br>我之前装过了……然后重装系统之后还有，迷惑。<br>我看在Ubuntu系统上安装的时候，单独写一篇日志。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/4centos安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1121,7 +1118,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1133,15 +1130,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">

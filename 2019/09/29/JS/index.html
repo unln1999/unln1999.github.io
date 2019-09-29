@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
-  <title>CentOS换中科大源【web系列4】 | 夢の此夜亭🌸</title>
+  <title>JavaScript基础 | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先备份源。然后编辑源。备份过程略。首先提供编辑权限，一时半会不用改回去。 1234# cd /etc/yum.repos.d/# touch epel.repo# touch epel-testing.repo# chmod a+rwx -R /etc/yum.repos.d/  然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。编辑CentOS-Base.repo: 123456789">
-<meta name="keywords" content="web">
+  <meta name="description" content="JSP简介JavaScript 是可插入HTML页面的编程代码。它可以做到以下的事：  直接写入html输出流（document.write） 对事件的反应（通过button） 改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容） 改变html图像（通过element.src来改变图像的source） 改变html样式 验证输入  J">
+<meta name="keywords" content="web,javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS换中科大源【web系列4】">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/09/16/7.换源/index.html">
+<meta property="og:title" content="JavaScript基础">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/09/29/JS/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="首先备份源。然后编辑源。备份过程略。首先提供编辑权限，一时半会不用改回去。 1234# cd /etc/yum.repos.d/# touch epel.repo# touch epel-testing.repo# chmod a+rwx -R /etc/yum.repos.d/  然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。编辑CentOS-Base.repo: 123456789">
+<meta property="og:description" content="JSP简介JavaScript 是可插入HTML页面的编程代码。它可以做到以下的事：  直接写入html输出流（document.write） 对事件的反应（通过button） 改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容） 改变html图像（通过element.src来改变图像的source） 改变html样式 验证输入  J">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-16T04:40:14.212Z">
+<meta property="og:image" content="https://unln1999.github.io/img/js-1.png">
+<meta property="og:image" content="https://unln1999.github.io/img/js-2.png">
+<meta property="og:updated_time" content="2019-09-29T14:24:42.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS换中科大源【web系列4】">
-<meta name="twitter:description" content="首先备份源。然后编辑源。备份过程略。首先提供编辑权限，一时半会不用改回去。 1234# cd /etc/yum.repos.d/# touch epel.repo# touch epel-testing.repo# chmod a+rwx -R /etc/yum.repos.d/  然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。编辑CentOS-Base.repo: 123456789">
+<meta name="twitter:title" content="JavaScript基础">
+<meta name="twitter:description" content="JSP简介JavaScript 是可插入HTML页面的编程代码。它可以做到以下的事：  直接写入html输出流（document.write） 对事件的反应（通过button） 改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容） 改变html图像（通过element.src来改变图像的source） 改变html样式 验证输入  J">
+<meta name="twitter:image" content="https://unln1999.github.io/img/js-1.png">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -148,42 +151,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-7.换源" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS换中科大源【web系列4】
+      JavaScript基础
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/16/7.换源/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+        <a href="/unln1999.github.io/2019/09/29/JS/" class="archive-article-date">
+  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先备份源。然后编辑源。<br>备份过程略。<br>首先提供编辑权限，一时半会不用改回去。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/yum.repos.d/</span><br><span class="line"># touch epel.repo</span><br><span class="line"># touch epel-testing.repo</span><br><span class="line"># chmod a+rwx -R /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+        <h1 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h1><p>JavaScript 是可插入HTML页面的编程代码。<br>它可以做到以下的事：</p>
+<ul>
+<li>直接写入html输出流（document.write）</li>
+<li>对事件的反应（通过button）</li>
+<li>改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容）</li>
+<li>改变html图像（通过element.src来改变图像的source）</li>
+<li>改变html样式</li>
+<li>验证输入</li>
+</ul>
+<h1 id="JSP用法"><a href="#JSP用法" class="headerlink" title="JSP用法"></a>JSP用法</h1><p>必须位于script标签之间。<br>既可放在body也可放在head里。<br>还可以将JavaScript保存在外部文件里。</p>
+<h1 id="JSP输出"><a href="#JSP输出" class="headerlink" title="JSP输出"></a>JSP输出</h1><ol>
+<li>window.alert()</li>
+<li>document.write()</li>
+<li>使用innerHTML写入html元素中。</li>
+<li>console.log写入浏览器的控制台中。</li>
+</ol>
+<h1 id="JSP语法"><a href="#JSP语法" class="headerlink" title="JSP语法"></a>JSP语法</h1><p>//是注释，也可以用/**/<br>语句用;作结<br>JSP对大小写敏感。<br>其它和别的编程语言差不多。</p>
+<h1 id="JSP语句"><a href="#JSP语句" class="headerlink" title="JSP语句"></a>JSP语句</h1><p>和C差不多</p>
+<h1 id="JSP变量"><a href="#JSP变量" class="headerlink" title="JSP变量"></a>JSP变量</h1><p>加var来声明。<br>是弱类型的。<br>可以声明多个变量。还可以跨行。<br>重新声明，值不会改变。</p>
+<h1 id="JSP数据类型"><a href="#JSP数据类型" class="headerlink" title="JSP数据类型"></a>JSP数据类型</h1><p>字符串、数字、布尔值、null、undefined、Symbol。<br>数据具有动态类型，可以通过赋值而改变数据类型。<br>JSP数组和C有一定区别。<br>JSP对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔。<br>可以用关键字new来声明变量类型。</p>
+<h1 id="JSP对象"><a href="#JSP对象" class="headerlink" title="JSP对象"></a>JSP对象</h1><p>对象是拥有属性和方法的数据。<br><img src="/img/js-1.png" alt="js-1"><br>在 JavaScript 中，对象是非常重要的，当你理解了对象，就可以了解 JavaScript 。<br>对象的方法定义了一个函数。</p>
+<h1 id="JSP函数"><a href="#JSP函数" class="headerlink" title="JSP函数"></a>JSP函数</h1><p>函数内的都是局部变量，函数内的都是局部变量，函数外的是全局变量。</p>
+<h1 id="JSP作用域"><a href="#JSP作用域" class="headerlink" title="JSP作用域"></a>JSP作用域</h1><p>作用域是可访问变量的集合。</p>
+<h1 id="JSP事件"><a href="#JSP事件" class="headerlink" title="JSP事件"></a>JSP事件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;some-HTML-element some-event=&quot;JavaScript 代码&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<p>然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。<br>编辑CentOS-Base.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-$releasever - Updates</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-$releasever - Plus</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/centosplus/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
-
-<p>编辑epel.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-
-<p>编辑epel-testing.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel-testing]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-testing-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-testing-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-
-<p>接着要补充一个gpg密钥文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/pki/rpm-gpg </span><br><span class="line"># wget https://archive.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7</span><br></pre></td></tr></table></figure>
-
-<p>然后应该就完事了。</p>
+<p><img src="/img/js-2.png" alt="js-2"></p>
 
       
 
@@ -229,6 +242,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -284,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/09/16/7.换源/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/09/29/JS/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +315,18 @@
   
 <nav id="article-nav">
   
-    <a href="/unln1999.github.io/2019/09/16/8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/unln1999.github.io/2019/09/29/12正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux中的DVWA环境搭建【web系列5】
+          正则表达式
         
       </div>
     </a>
   
   
-    <a href="/unln1999.github.io/2019/09/15/4centos安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS 7（Gnome桌面）安装流程【web系列1】</div>
+    <a href="/unln1999.github.io/2019/09/29/bk11-网站被黑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Bugku 2019/9/29 网站被黑</div>
       <i class="icon-circle-right"></i>
     </a>
   

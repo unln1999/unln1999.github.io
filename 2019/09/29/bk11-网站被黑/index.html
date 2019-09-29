@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
-  <title>CentOS换中科大源【web系列4】 | 夢の此夜亭🌸</title>
+  <title>Bugku 2019/9/29 网站被黑 | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先备份源。然后编辑源。备份过程略。首先提供编辑权限，一时半会不用改回去。 1234# cd /etc/yum.repos.d/# touch epel.repo# touch epel-testing.repo# chmod a+rwx -R /etc/yum.repos.d/  然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。编辑CentOS-Base.repo: 123456789">
-<meta name="keywords" content="web">
+  <meta name="description" content="进入题目页面这道题的题目是网站被黑，但是这个题目“网站”并没有被黑，而你需要做的事就是侵入webshell。 思路webshell是以php、asp等网页文件形式存在的命令执行环境，一开始不知道网页后台的网页文件有哪些。因此使用web后台扫描工具扫出所有网页文件。然后寻找webshell，找到后，破解密码即可攻入。 writeup利用某御剑扫描工具，将域名“http://123.206.87.24">
+<meta name="keywords" content="bugku">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS换中科大源【web系列4】">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/09/16/7.换源/index.html">
+<meta property="og:title" content="Bugku 2019&#x2F;9&#x2F;29 网站被黑">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/09/29/bk11-网站被黑/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="首先备份源。然后编辑源。备份过程略。首先提供编辑权限，一时半会不用改回去。 1234# cd /etc/yum.repos.d/# touch epel.repo# touch epel-testing.repo# chmod a+rwx -R /etc/yum.repos.d/  然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。编辑CentOS-Base.repo: 123456789">
+<meta property="og:description" content="进入题目页面这道题的题目是网站被黑，但是这个题目“网站”并没有被黑，而你需要做的事就是侵入webshell。 思路webshell是以php、asp等网页文件形式存在的命令执行环境，一开始不知道网页后台的网页文件有哪些。因此使用web后台扫描工具扫出所有网页文件。然后寻找webshell，找到后，破解密码即可攻入。 writeup利用某御剑扫描工具，将域名“http://123.206.87.24">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-16T04:40:14.212Z">
+<meta property="og:updated_time" content="2019-09-28T17:10:22.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS换中科大源【web系列4】">
-<meta name="twitter:description" content="首先备份源。然后编辑源。备份过程略。首先提供编辑权限，一时半会不用改回去。 1234# cd /etc/yum.repos.d/# touch epel.repo# touch epel-testing.repo# chmod a+rwx -R /etc/yum.repos.d/  然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。编辑CentOS-Base.repo: 123456789">
+<meta name="twitter:title" content="Bugku 2019&#x2F;9&#x2F;29 网站被黑">
+<meta name="twitter:description" content="进入题目页面这道题的题目是网站被黑，但是这个题目“网站”并没有被黑，而你需要做的事就是侵入webshell。 思路webshell是以php、asp等网页文件形式存在的命令执行环境，一开始不知道网页后台的网页文件有哪些。因此使用web后台扫描工具扫出所有网页文件。然后寻找webshell，找到后，破解密码即可攻入。 writeup利用某御剑扫描工具，将域名“http://123.206.87.24">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -148,42 +148,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-7.换源" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-bk11-网站被黑" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS换中科大源【web系列4】
+      Bugku 2019/9/29 网站被黑
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/16/7.换源/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+        <a href="/unln1999.github.io/2019/09/29/bk11-网站被黑/" class="archive-article-date">
+  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先备份源。然后编辑源。<br>备份过程略。<br>首先提供编辑权限，一时半会不用改回去。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/yum.repos.d/</span><br><span class="line"># touch epel.repo</span><br><span class="line"># touch epel-testing.repo</span><br><span class="line"># chmod a+rwx -R /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-
-<p>然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。<br>编辑CentOS-Base.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-$releasever - Updates</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-$releasever - Plus</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/centosplus/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
-
-<p>编辑epel.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-
-<p>编辑epel-testing.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel-testing]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-testing-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-testing-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-
-<p>接着要补充一个gpg密钥文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/pki/rpm-gpg </span><br><span class="line"># wget https://archive.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7</span><br></pre></td></tr></table></figure>
-
-<p>然后应该就完事了。</p>
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>这道题的题目是网站被黑，但是这个题目“网站”并没有被黑，而你需要做的事就是侵入webshell。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>webshell是以php、asp等网页文件形式存在的命令执行环境，一开始不知道网页后台的网页文件有哪些。<br>因此使用web后台扫描工具扫出所有网页文件。然后寻找webshell，找到后，破解密码即可攻入。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>利用某御剑扫描工具，将域名“<a href="http://123.206.87.240:8002/webshell/”输入到软件中，点击开始扫描，等待片刻获得扫描结果。" target="_blank" rel="noopener">http://123.206.87.240:8002/webshell/”输入到软件中，点击开始扫描，等待片刻获得扫描结果。</a><br>然后发现“<a href="http://123.206.87.240:8002/webshell/shell.php”就是webshell。" target="_blank" rel="noopener">http://123.206.87.240:8002/webshell/shell.php”就是webshell。</a><br>然后利用bp破解密码。<br>方法是，首先在页面提交一次密码，然后在proxy里的history里找到发送过去的post包，将这个包发送给intruder，然后设置“破解字段”。<br>再在payloads里添加字典，然后start attack即可获取密码。<br>在弱字典里的最后部分里匹配到了密码，hack。<br>（字典附在后面）</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>黑入网站</strong></li>
+<li><strong>网站后台扫描</strong></li>
+<li><strong>bp密码破解</strong></li>
+</ol>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>computer<br>cpu<br>memory<br>disk<br>soft<br>y2k<br>software<br>cdrom<br>rom<br>admin<br>master<br>card<br>pci<br>lock<br>ascii<br>knight<br>creative<br>modem<br>internet<br>intranet<br>web<br>www<br>isp<br>unlock<br>ftp<br>telnet<br>ibm<br>intel<br>microsoft<br>dell<br>compaq<br>toshiba<br>acer<br>info<br>aol<br>56k<br>server<br>dos<br>windows<br>win95<br>win98<br>office<br>word<br>excel<br>access<br>unix<br>linux<br>password<br>file<br>program<br>mp3<br>mpeg<br>jpeg<br>gif<br>bmp<br>billgates<br>chip<br>silicon<br>sony<br>link<br>word97<br>office97<br>network<br>ram<br>sun<br>yahoo<br>excite<br>hotmail<br>yeah<br>sina<br>pcweek<br>mac<br>apple<br>robot<br>key<br>monitor<br>win2000<br>office2000<br>word2000<br>net<br>virus<br>company<br>tech<br>technology<br>print<br>coolweb<br>guest<br>printer<br>superman<br>hotpage<br>enter<br>myweb<br>download<br>cool<br>coolman<br>coolboy<br>coolgirl<br>netboy<br>netgirl<br>log<br>login<br>connect<br>email<br>hyperlink<br>url<br>hotweb<br>java<br>cgi<br>html<br>htm<br>home<br>homepage<br>icq<br>mykey<br>c++<br>basic<br>delphi<br>pascal<br>anonymous<br>crack<br>hack<br>hacker<br>chinese<br>vcd<br>chat<br>chatroom<br>mud<br>cracker<br>happy<br>hello<br>room<br>english<br>user<br>netizen<br>frontpage<br>agp<br>netwolf<br>usa<br>hot<br>site<br>address<br>mail<br>news<br>topcool<br>000<br>0000<br>001<br>002<br>007<br>008<br>10th<br>1st<br>2nd<br>3rd<br>4th<br>5th<br>6th<br>7th<br>8th<br>9th<br>100<br>101<br>108<br>133<br>163<br>166<br>188<br>233<br>266<br>350<br>366<br>450<br>466<br>136<br>137<br>138<br>139<br>158<br>168<br>169<br>192<br>198<br>200<br>222<br>233<br>234<br>258<br>288<br>300<br>301<br>333<br>345<br>388<br>400<br>433<br>456<br>458<br>500<br>555<br>558<br>588<br>600<br>666<br>598<br>668<br>678<br>688<br>888<br>988<br>999<br>1088<br>1100<br>1188<br>1234<br>1288<br>1388<br>1588<br>1688<br>1888<br>1949<br>1959<br>1960<br>1961<br>1962<br>1963<br>1964<br>1965<br>1966<br>1967<br>1968<br>1969<br>1970<br>1971<br>1972<br>1973<br>1974<br>1975<br>1976<br>1977<br>1978<br>1979<br>1980<br>1981<br>1982<br>1983<br>1984<br>1985<br>1986<br>1987<br>1988<br>1989<br>1990<br>1997<br>1999<br>2000<br>2001<br>2002<br>2088<br>2100<br>2188<br>2345<br>2588<br>3000<br>3721<br>3888<br>4567<br>4728<br>5555<br>5678<br>5888<br>6666<br>6688<br>6789<br>6888<br>7788<br>8888<br>8899<br>9988<br>9999<br>12345<br>23456<br>34567<br>45678<br>54321<br>88888<br>123456<br>654321<br>888888<br>6666<br>56789<br>1234567<br>12345678<br>123456789<br>1234567890<br>012345678<br>0123456789<br>01234567890<br>737<br>777<br>1111<br>2222<br>3333<br>4321</p>
 
       
 
@@ -228,7 +221,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
         		</li>
       		
 		</ul>
@@ -284,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/09/16/7.换源/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/09/29/bk11-网站被黑/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +291,18 @@
   
 <nav id="article-nav">
   
-    <a href="/unln1999.github.io/2019/09/16/8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/unln1999.github.io/2019/09/29/JS/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux中的DVWA环境搭建【web系列5】
+          JavaScript基础
         
       </div>
     </a>
   
   
-    <a href="/unln1999.github.io/2019/09/15/4centos安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS 7（Gnome桌面）安装流程【web系列1】</div>
+    <a href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Bugku 2019/9/28 web5</div>
       <i class="icon-circle-right"></i>
     </a>
   
