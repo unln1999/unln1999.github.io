@@ -148,6 +148,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk1-get" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/19/bk1-get/">Bugku 2019-9-19 web基础$_GET</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/19/bk1-get/" class="archive-article-date">
+  	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what=$_GET[&apos;what&apos;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what==&apos;flag&apos;)</span><br><span class="line">echo &apos;flag&#123;****&#125;&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读后，知道这是php代码，意思是，用get方式从html里获取一个名为’what’的表单值赋给php的变量＄what。<br>然后页面会打印出＄what变量的值。<br>当＄what为’flag’时，还会输出flag。<br>这段代码显然不是后台实际脚本，只是一个提示。<br>根据该提示，我们让浏览器用get方式提交一个what变量值，这只需要通过url实现。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>直接在浏览器url后添加’?what=flag’<br>然后有：<br><img src="/img/bk1-1.png" alt="bk1-1"></p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>如何提交get变量</strong></li>
+<li><strong>php代码阅读（基础）</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/19/bk1-get/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-10vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -324,91 +406,6 @@
 
 
   
-    <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/16/8/">Linux中的DVWA环境搭建【web系列5】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/16/8/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="下载DVWA"><a href="#下载DVWA" class="headerlink" title="下载DVWA"></a>下载DVWA</h2><p>我用的系统是CentOS 7。<br>预先要安装好LAMP环境【参考web系列3】。<br>在<a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA官网</a>点击Download下载DVWA环境（其实是有版本的）。</p>
-<h2 id="解压zip文件"><a href="#解压zip文件" class="headerlink" title="解压zip文件"></a>解压zip文件</h2><p>然后用VMware Tools复制到虚拟机中，当然直接在虚拟机里下载也行。<br>先su一下，然后改一下目录的读写权限（我感觉改了之后很方便）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chmod a+rwx -R /var/www/</span><br></pre></td></tr></table></figure>
-
-<p>然后直接把压缩包放到这个目录里。（也可以在其它目录解压到这个目录）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# unzip DVWA-master.zip </span><br><span class="line">[root@localhost html]# rm DVWA-master.zip </span><br><span class="line">rm：是否删除普通文件 &quot;DVWA-master.zip&quot;？y</span><br><span class="line">[root@localhost html]# mv DVWA-master/ DVWA</span><br></pre></td></tr></table></figure>
-
-<p>解压并删除压缩包。把目录名字修改为DVWA<br>有必要的话，还需要多次赋予读写权限。</p>
-<h2 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# cd DVWA/config</span><br><span class="line">[root@localhost config]# cp config.inc.php.dist  config.inc.php #备份</span><br></pre></td></tr></table></figure>
-
-<p>这里就是需要config文件，备份的同时，把dist去掉，php文件作为config文件（配置文件）。<br>编辑这个php文件，把server改为localhost，把password修改为root。<br><img src="/img/7-1.png" alt="7-1"></p>
-<h2 id="使用DVWA"><a href="#使用DVWA" class="headerlink" title="使用DVWA"></a>使用DVWA</h2><p>然后在浏览器里输入：“localhost/DVWA”就可以进入类似于下图的DVWA界面。<br><img src="/img/7-2.png" alt="7-2"><br>点击Create/Reset Database后会创建数据库。<br>然后就会跳转到登录界面。<br>之后都会直接是登录界面。<br>初始用户名是admin，密码是password。<br>登录后是这样的，安装成功~<br><img src="/img/7-3.png" alt="7-3"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-7.换源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -498,6 +495,91 @@
 
 
   
+    <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/16/8/">Linux中的DVWA环境搭建【web系列5】</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/16/8/" class="archive-article-date">
+  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载DVWA"><a href="#下载DVWA" class="headerlink" title="下载DVWA"></a>下载DVWA</h2><p>我用的系统是CentOS 7。<br>预先要安装好LAMP环境【参考web系列3】。<br>在<a href="http://www.dvwa.co.uk/" target="_blank" rel="noopener">DVWA官网</a>点击Download下载DVWA环境（其实是有版本的）。</p>
+<h2 id="解压zip文件"><a href="#解压zip文件" class="headerlink" title="解压zip文件"></a>解压zip文件</h2><p>然后用VMware Tools复制到虚拟机中，当然直接在虚拟机里下载也行。<br>先su一下，然后改一下目录的读写权限（我感觉改了之后很方便）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chmod a+rwx -R /var/www/</span><br></pre></td></tr></table></figure>
+
+<p>然后直接把压缩包放到这个目录里。（也可以在其它目录解压到这个目录）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# unzip DVWA-master.zip </span><br><span class="line">[root@localhost html]# rm DVWA-master.zip </span><br><span class="line">rm：是否删除普通文件 &quot;DVWA-master.zip&quot;？y</span><br><span class="line">[root@localhost html]# mv DVWA-master/ DVWA</span><br></pre></td></tr></table></figure>
+
+<p>解压并删除压缩包。把目录名字修改为DVWA<br>有必要的话，还需要多次赋予读写权限。</p>
+<h2 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# cd DVWA/config</span><br><span class="line">[root@localhost config]# cp config.inc.php.dist  config.inc.php #备份</span><br></pre></td></tr></table></figure>
+
+<p>这里就是需要config文件，备份的同时，把dist去掉，php文件作为config文件（配置文件）。<br>编辑这个php文件，把server改为localhost，把password修改为root。<br><img src="/img/7-1.png" alt="7-1"></p>
+<h2 id="使用DVWA"><a href="#使用DVWA" class="headerlink" title="使用DVWA"></a>使用DVWA</h2><p>然后在浏览器里输入：“localhost/DVWA”就可以进入类似于下图的DVWA界面。<br><img src="/img/7-2.png" alt="7-2"><br>点击Create/Reset Database后会创建数据库。<br>然后就会跳转到登录界面。<br>之后都会直接是登录界面。<br>初始用户名是admin，密码是password。<br>登录后是这样的，安装成功~<br><img src="/img/7-3.png" alt="7-3"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -548,6 +630,90 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/unln1999.github.io/2019/09/15/4centos安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-5ubuntu安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">Ubuntu18.04.3安装流程【web系列2】</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
+<h2 id="下载Ubuntu镜像文件"><a href="#下载Ubuntu镜像文件" class="headerlink" title="下载Ubuntu镜像文件"></a>下载Ubuntu镜像文件</h2><p>在<a href="https://ubuntu.com/download#download" target="_blank" rel="noopener">这个页面</a>下载Ubuntu Desktop latest（LTS）</p>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br><strong>选择稍后安装操作系统</strong><br>下一步。<br>5.<br>然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。<br><img src="/img/5-1.png" alt="5-1"><br>下一步。<br>6.<br>然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）<br><img src="/img/5-2.png" alt="5-2"><br>下一步。<br>7.<br>下一步。（1个内核就行）<br>8.<br>下一步。（2G就行）<br>9.<br>下一步。（NAT）<br>10.<br>下一步。（LSI logic）<br>11.<br>下一步。（SCSI）<br>12.<br>下一步。（创建新虚拟硬盘）<br>13.<br>我看到教程改成了拆分成单个文件，我们不拆。<br>直接下一步。<br><img src="/img/5-3.png" alt="5-3"><br>14.<br>下一步。<br>15.<br>完成。</p>
+<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>按图配置ISO文件。(最后⑤的圈没圈起来)<br><img src="/img/5-4.png" alt="5-4"><br>2.<br>启动虚拟机，如果有问题，重新下载ISO文件。<br>3.<br>过一段时间进入安装界面，选择中文，并点击安装Ubuntu。<br>4.<br>之后几步一直按默认来，点击继续，直到设置用户名和密码。<br>5.<br>输入用户名和密码，然后选择自动登录，方便。<br>6.<br>然后等待安装，安装完成后重启。检查一下网络连接。<br>如果无法进入桌面（一直黑屏）<br>重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。<br>然后找到一个splash，在后面打一个空格，然后输入nomodeset。<br><img src="/img/5-5.png" alt="5-5"><br>再按ctrl+X重启。</p>
+<h2 id="VMware-Tools安装"><a href="#VMware-Tools安装" class="headerlink" title="VMware Tools安装"></a>VMware Tools安装</h2><p>在左上角“虚拟机”菜单里点击安装VMware Tools。<br>然后桌面会有一个光盘的图标，双击打开。<br>复制里面的压缩包到主目录。<br>压缩包就是下图圈的那个。<br><img src="/img/5-6.png" alt="5-6"><br>然后打开终端。<br><font color="red">这里介绍一下ubuntu su进root的办法，挺重要的。</font><br>就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。<br>su进root只需要：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo passwd </span><br><span class="line">(输入原密码)</span><br><span class="line">（输入新密码，可以和原密码一样，建议一样）</span><br><span class="line">（确认新密码）</span><br></pre></td></tr></table></figure>
+
+<p>搞定之后就可以su进root了。<br><img src="/img/5-7.png" alt="5-7"><br>接着我们继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。</span><br><span class="line"># cd vmware-tools-distrib</span><br><span class="line"># sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
+
+<p>然后重启就可以使用VMware Tools了。<br>重启的时候又黑屏，估计每次都得搞那个nomodeset。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">展开全文 >></a>
         </p>
       
 
@@ -726,103 +892,19 @@
 
 
   
-    <article id="post-5ubuntu安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-3电路时域分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">Ubuntu18.04.3安装流程【web系列2】</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/13/3电路时域分析/">时域分析</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载Ubuntu镜像文件"><a href="#下载Ubuntu镜像文件" class="headerlink" title="下载Ubuntu镜像文件"></a>下载Ubuntu镜像文件</h2><p>在<a href="https://ubuntu.com/download#download" target="_blank" rel="noopener">这个页面</a>下载Ubuntu Desktop latest（LTS）</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br><strong>选择稍后安装操作系统</strong><br>下一步。<br>5.<br>然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。<br><img src="/img/5-1.png" alt="5-1"><br>下一步。<br>6.<br>然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）<br><img src="/img/5-2.png" alt="5-2"><br>下一步。<br>7.<br>下一步。（1个内核就行）<br>8.<br>下一步。（2G就行）<br>9.<br>下一步。（NAT）<br>10.<br>下一步。（LSI logic）<br>11.<br>下一步。（SCSI）<br>12.<br>下一步。（创建新虚拟硬盘）<br>13.<br>我看到教程改成了拆分成单个文件，我们不拆。<br>直接下一步。<br><img src="/img/5-3.png" alt="5-3"><br>14.<br>下一步。<br>15.<br>完成。</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>按图配置ISO文件。(最后⑤的圈没圈起来)<br><img src="/img/5-4.png" alt="5-4"><br>2.<br>启动虚拟机，如果有问题，重新下载ISO文件。<br>3.<br>过一段时间进入安装界面，选择中文，并点击安装Ubuntu。<br>4.<br>之后几步一直按默认来，点击继续，直到设置用户名和密码。<br>5.<br>输入用户名和密码，然后选择自动登录，方便。<br>6.<br>然后等待安装，安装完成后重启。检查一下网络连接。<br>如果无法进入桌面（一直黑屏）<br>重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。<br>然后找到一个splash，在后面打一个空格，然后输入nomodeset。<br><img src="/img/5-5.png" alt="5-5"><br>再按ctrl+X重启。</p>
-<h2 id="VMware-Tools安装"><a href="#VMware-Tools安装" class="headerlink" title="VMware Tools安装"></a>VMware Tools安装</h2><p>在左上角“虚拟机”菜单里点击安装VMware Tools。<br>然后桌面会有一个光盘的图标，双击打开。<br>复制里面的压缩包到主目录。<br>压缩包就是下图圈的那个。<br><img src="/img/5-6.png" alt="5-6"><br>然后打开终端。<br><font color="red">这里介绍一下ubuntu su进root的办法，挺重要的。</font><br>就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。<br>su进root只需要：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo passwd </span><br><span class="line">(输入原密码)</span><br><span class="line">（输入新密码，可以和原密码一样，建议一样）</span><br><span class="line">（确认新密码）</span><br></pre></td></tr></table></figure>
-
-<p>搞定之后就可以su进root了。<br><img src="/img/5-7.png" alt="5-7"><br>接着我们继续</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。</span><br><span class="line"># cd vmware-tools-distrib</span><br><span class="line"># sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
-
-<p>然后重启就可以使用VMware Tools了。<br>重启的时候又黑屏，估计每次都得搞那个nomodeset。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/13/3/">时域分析</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/13/3/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/13/3电路时域分析/" class="archive-article-date">
   	<time datetime="2019-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
@@ -873,7 +955,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/13/3/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/13/3电路时域分析/">展开全文 >></a>
         </p>
       
 
@@ -903,19 +985,19 @@
 
 
   
-    <article id="post-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-1建立博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/12/1/">Win10利用Github+Hexo建个人博客</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/12/1建立博客/">Win10利用Github+Hexo建个人博客</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/12/1/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/12/1建立博客/" class="archive-article-date">
   	<time datetime="2019-09-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
 </a>
         
@@ -988,212 +1070,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/12/1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/01/2/">DVWA-SQL Injection Low级</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/01/2/" class="archive-article-date">
-  	<time datetime="2019-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>斜体部分存疑，可能会有知识错误。</p>
-<h1 id="探究部分"><a href="#探究部分" class="headerlink" title="探究部分"></a>探究部分</h1><h3 id="1-什么是SQL注入？"><a href="#1-什么是SQL注入？" class="headerlink" title="1.什么是SQL注入？"></a>1.什么是SQL注入？</h3><p>SQL注入的英文全称是structrued query language injection。也即SQL injection。</p>
-<p>谈论SQL注入必须首先了解什么是SQL。根据英文易知，SQL其实就是结构化查询语言的意思，是一种编程语言。用于查询和操作RDBMS（relational database management system，关系数据库管理系统）中的数据。</p>
-<p>我们也容易见到MySQL、SQL server、oracle，这是三种常用且传统的RDBMS，传统的RDBMS都有统一的SQL语言操作接口（也就是说可以用SQL操作，<em>根据了解并推测，传统RDBMS也只能用SQL语言来对数据进行查询和操作&lt;如果涵盖pl/sql等&gt;</em>）。此外还有NoSQL数据库，这些数据库有自己特有的API接口，他们能做到传统RDBMS做不到的事，因此也有广泛应用。</p>
-<p>许多网站的数据库都是这三种数据库之中的，因此利用页面表单来获取数据库信息时，在<em>服务器中</em>的程序（asp、php等编写的脚本程序）中必然要用到SQL语言，根据页面反馈的信息，我们可以推测这段SQL语句是如何书写的。假如我们可以利用这个SQL语句设计上的漏洞，我们就可以在执行或终止执行原有的SQL语句的基础上，执行我们想要执行的SQL命令，来获取数据库信息。</p>
-<p><strong>总之，SQL注入就是利用页面脚本设计中的漏洞在表单中插入SQL语句，欺骗服务器执行“恶意”的SQL命令。</strong></p>
-<html>
-<small style="color:blue;">
-备注：按百度百科的说法，还可以利用域名、页面请求来进行SQL注入。利用域名的我好像有看到过，页面请求不太懂是什么意思。在百度查后两种SQL注入找不到详细的介绍（在第一页）。在写这篇笔记到这里的时候，我才过了DVWA的low级SQL injection渗透测试，对利用表单进行SQL注入有一定的认识，而后两者还不了解。因此上文写到“在表单中插入SQL语句”。
-</small>
-</html>
-
-<h3 id="2-SQL注入有哪几种方式？"><a href="#2-SQL注入有哪几种方式？" class="headerlink" title="2.SQL注入有哪几种方式？"></a>2.SQL注入有哪几种方式？</h3><ol>
-<li><strong>字符型注入</strong>：当表单要求获得字符时，传递到$query变量（或其它意义相同的SQL查询语句等）中时需要单引号或双引号，这时，如果表单中不对转义序列’或”进行过滤的话，就可能进行字符型注入。</li>
-<li><strong>数字型注入</strong>：当表单要求获得数字时，传递到$query变量（或其它意义相同的SQL查询语句等）中时，将没有单引号或双引号，直接输入数字+分号+想要服务器执行的SQL语句+注释– 就可能进行数字型注入。</li>
-<li>利用数据库服务器的漏洞（不懂）</li>
-<li>盲注（不懂）</li>
-<li>根据条件响应（不懂）</li>
-<li>条件性差错（不懂，大概是猜测数据库中的数据，如果数据存在会引起报错，从而得知特定数据的存在性）</li>
-<li>时间延误（不懂，通过长SQL命令队列等，使服务器产生时间延误，也就是加载时间，通过时间长短，判断语句是否为真）</li>
-</ol>
-<html>
-<small style="color:blue;">
-备注：这一部分主要从网上摘抄，前两个的详解是我个人目前的认识，也有可能不甚正确，因为前两种更为常见且比较简单，了解更多，后面几种了解甚微，原理一知半解。
-</small>
-</html>
-
-<h3 id="3-如何避免SQL注入？"><a href="#3-如何避免SQL注入？" class="headerlink" title="3.如何避免SQL注入？"></a>3.如何避免SQL注入？</h3><ol>
-<li>首先要防范用户输入，永远不能信任用户输入，要对用户输入做出限制，比如禁止使用转义序列，甚至禁止使用特殊符号乃至禁止使用字母。<strong>简单的禁用还可以被绕过，比如AND被禁用了，有时可以用&amp;&amp;或者%26%26来代替</strong>，因此禁用有等级的区分，并且禁用部分输入对SQL注入的防范能力是有限的，可能会牺牲系统（指网站及其脚本）的性能等。因此不要简单认为禁用部分输入之后就可以一劳永逸。</li>
-<li>不使用动态拼装的SQL语句，使用参数化的SQL语句（根据一个站点的介绍，asp、php不能够使用参数化SQL，因此要另寻它径，但是java、C#等语言可以）</li>
-<li>每个应用对数据库的访问设限。比如DVWA靶机里的low级SQL注入就是一个很简单的根据id获取姓名的应用，不应该让它具有访问其它重要数据库的能力。</li>
-<li>加密机密信息，即使泄露也难以破解。</li>
-<li>对错误信息进行包装，或者抑制等等，不给用户“明注”（相对于“盲注”）的机会。后文的low级SQL注入中就大方地公开了错误信息，使得注入思路较为明确。<h1 id="SQL-injection-low级手工注入实践"><a href="#SQL-injection-low级手工注入实践" class="headerlink" title="SQL injection low级手工注入实践"></a>SQL injection low级手工注入实践</h1><h3 id="后台脚本源码"><a href="#后台脚本源码" class="headerlink" title="后台脚本源码"></a>后台脚本源码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_REQUEST[ &apos;Submit&apos; ] ) ) </span><br><span class="line">&#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $id = $_REQUEST[ &apos;id&apos; ];</span><br><span class="line"></span><br><span class="line">    // Check database</span><br><span class="line">    $query  = &quot;SELECT first_name, last_name FROM users WHERE user_id = &apos;$id&apos;;&quot;;</span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query )</span><br><span class="line">    or die(</span><br><span class="line">    &apos;&lt;pre&gt;&apos; .</span><br><span class="line">    (</span><br><span class="line">    (is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ?</span><br><span class="line">    mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) :</span><br><span class="line">        (</span><br><span class="line">        ($___mysqli_res = mysqli_connect_error()) ?</span><br><span class="line">        $___mysqli_res : false</span><br><span class="line">        )</span><br><span class="line">    ) </span><br><span class="line">    . &apos;&lt;/pre&gt;&apos; </span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // Get results</span><br><span class="line">    while( $row = mysqli_fetch_assoc( $result ) ) &#123;</span><br><span class="line">        // Get values</span><br><span class="line">        $first = $row[&quot;first_name&quot;];</span><br><span class="line">        $last  = $row[&quot;last_name&quot;];</span><br><span class="line"></span><br><span class="line">        // Feedback for end user</span><br><span class="line">        $html .= &quot;&lt;pre&gt;ID: &#123;$id&#125;&lt;br /&gt;First name: &#123;$first&#125;&lt;br /&gt;Surname: &#123;$last&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><p>后台脚本由php书写。</p>
-<p>第一部分得到表单的值，当submit按钮被按下时，判断为真，执行后续语句——将name为’id’的input表单的值赋给变量$id。</p>
-<p>声明字符串变量$query，其值为”SELECT first_name, last_name FROM users WHERE user_id = ‘$id’;”</p>
-<p>因为这里是双引号，所以里面的变量$id会被表单中提交的内容所代替。</p>
-<p>整个$query就是一个典型的SQL SELECT语句。根据《SQL参考手册》，SELECT语句可以为以下两种形式。</p>
-<p><img src="/img/2-1.png" alt="image"></p>
-<p>它的用处是在某张数据表中检索对应字段的数据并返回给用户。</p>
-<p>接下来的mysqli_query()是php函数，语法如下：</p>
-<p><img src="/img/2-2.png" alt="image"></p>
-<p>$GLOBALS[“___mysqli_ston”]是一个全局变量的写法，在这里用于MySQL连接。</p>
-<p>$query即为查询字符串，这里之所以先声明这个变量，是为了阅读、处理、修改等的方便。</p>
-<p>当SELECT语句查询成功时，mysqli_query()函数返回mysqli_result 对象，则$result也为一个object。</p>
-<p><strong>在php的bool or bool语句中，前一个为真，后一个bool值将不再被判断。（前一个值的数据类型可能不是布尔类型，但也对应真假）</strong> 因此此时or之后的语句将不再被执行。</p>
-<p>然后将这个对象传递给mysqli_fetch_assoc()函数，来取得一行来作为关联数组。<em>然后这里的while循环应该有一定执行次数，这大概和对象有关，因为我没有系统学习的面向对象编程的知识，这里无法详解while循环的执行过程，只能抽象地概括为，不断地从数据库中获取数据。</em></p>
-<p>让变量$first获得”first_name”键对应的值，让变量$last获得”last_name”键对应的值。</p>
-<p>$html是显示页面的变量，利用运算符”.=”在其后面加入&lt;pre&gt;标签来显示文本。</p>
-<p>如果查询语句出错，则结束脚本，并进行嵌套的三元运算，首先判断$GLOBALS[“<strong><em>mysqli_ston”]是否是个对象，如果不是，那么检查连接有无错误，如果有，报错。如果无，说明数据库中没有对应id的记录。假如$GLOBALS[“</em></strong>mysqli_ston”]是对象，那么是用户输入有问题，利用mysqli_error()获得最近调用函数的最后一次错误并报错。<strong>这里的报错，为SQL注入提供了切入点</strong>。</p>
-<p>SQL注入的思路则是在不知道脚本代码的情况下，推测出$query变量的值的形式，并在后续插入我们想要服务器执行的SQL命令。然后在mysqli_query()函数中发挥作用，取得mysqli_result对象。</p>
-<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p><strong>1.输入数字1</strong></p>
-<p><img src="/img/2-3.png" alt="image"></p>
-<p>得到正常的结果，还无法判断是否存在数字型、字符型注入。</p>
-<p>根据URL中的显示，判断表单传递方式为GET。</p>
-<p><strong>2.输入’（判断是否存在注入以及类型）</strong></p>
-<p>得到报错信息：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’’’’ at line 1</p>
-<p>可知第一行里出现了’’’，不是偶数，程序出错，有注入的可能。</p>
-<p><strong>3.输入”</strong></p>
-<p>无反应，也无报错，说明一切正常，只是数据库中没有id为’”‘的记录。</p>
-<p><strong>4.输入反斜杠\（反斜杠可以使有特殊功能的字符变成普通的字符，容易造成语句错误）</strong></p>
-<p>得到报错信息：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’&#39;‘ at line 1</p>
-<p>可知第一行里出现了’\‘，并结合先前的试验，可以推测，这一块的内容类似于：</p>
-<p>‘$_GET[‘id’]’</p>
-<p>因此，我们输入的字符串，被夹在两个单引号之间。</p>
-<p>现在我们可以用诸如“1’;SQL语句；– ”、“1’ SQL语句 – ”来进行注入。或者就是“’;SQL语句；– ”、“’SQL语句 – ”</p>
-<p>而这里需要的SQL语句需要一定的SQL基础。</p>
-<html>
-<small style="color:blue;">
-备注：书写笔记至此，我为了能看懂SQL注入中究竟输入了些什么，已经学会了html基础、一半的基础CSS、大半的php，但是对SQL掌握不多，但是我会用SQL参考手册进行尝试。
-</small>
-</html>
-
-<p><strong>5.输入永真语句’or 1(Select语句对每一行都是真的，因此$row遍历每一个记录并输出)</strong></p>
-<p><img src="/img/2-4.png" alt="image"></p>
-<p>由此看出，该数据表的row为5行，尝试发现id是1、2、3、4、5。</p>
-<p>至此可以判断url（<a href="http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=&amp;Submit=Submit#）中的参数id存在注入点，存在字符型的SQL注入漏洞。" target="_blank" rel="noopener">http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=&amp;Submit=Submit#）中的参数id存在注入点，存在字符型的SQL注入漏洞。</a></p>
-<p><strong>6.输入’ order by 3 – 利用order by语句搭配SELECT语句得知字段数(<em>这里的数字应该是指第几个column</em>)</strong></p>
-<p>当为3时报错：Unknown column ‘3’ in ‘order clause’</p>
-<p>因此字段数为2。</p>
-<p>*<em>7.或者用union select语句，union是一种高级的SQL操作符，比如输入’ union select 3，4 -- *</em></p>
-<p>![image]/img/2-5.png)</p>
-<p>之所以是这么显示，是因为第一个单引号为空，不对应任何字段。后面的union select根据SQL参考手册，column数必须与前面的相同。</p>
-<p>同时我们利用union select获得了字段显示的位置，Web中，第一个字段显示在First name处，第二个字段显示在Surname处。</p>
-<p><strong>8.输入’ union select database(),version() – 利用SQL内置函数+不加from的union select语句得到数据库信息。</strong></p>
-<p><img src="/img/2-6.png" alt="image"></p>
-<p>可知，数据库名称为dvwa，版本是5.5.53。</p>
-<p><strong>8.输入’ union select user(),version() -- 利用SQL内置函数+不加from的union select语句得到当前使用的用户信息。</strong></p>
-<p><img src="/img/2-7.png" alt="image"></p>
-<p><strong>9.输入’ union select @@version_compile_os,@@datadir -- 得到服务器的操作系统信息和数据库的存储目录（@@表示全局变量，类似于php里的$_GLOBAL[]）</strong></p>
-<p><img src="/img/2-8.png" alt="image"></p>
-<p><strong>10.现在加入from，从MySQL默认创建的数据库里获取需要的信息，先从infomation_schema（纲要）库中schemeta表中获取所有数据库的信息。</strong></p>
-<p>![image]/img/2-9.png)</p>
-<p>11.现在再在infomation_schema库的schemeta表中，对当前所用的数据库的表进行查询。</p>
-<p><img src="/img/2-10.png" alt="image"></p>
-<p>还有一种高端的写法：</p>
-<p><img src="/img/2-11.png" alt="image"></p>
-<html>
-<small style="color:blue;">
-备注：schemeta指数据库、table指表。information_schema数据库中的表及列都是固定而有规律的。这之后都是按经验、套路办事了。
-</small>
-</html>
-
-<p><strong>12.获取users表中的列信息</strong></p>
-<p><img src="/img/2-12.png" alt="image"></p>
-<p><strong>13.获取用户名和密码：’ union select user,password from dvwa.users -- (这个注入命令是我找规律自己写的，可见我基本懂了，只是对information_schema库不熟悉)</strong></p>
-<p><img src="/img/2-13.png" alt="image"></p>
-<p>猜测这是md5密文（有经验后，现在我没经验），发现可以登录dvwa靶机，SQL injection low级成功。</p>
-<h1 id="关于SQL-map"><a href="#关于SQL-map" class="headerlink" title="关于SQL map"></a>关于SQL map</h1><p>这里将不详讲，我照葫芦画瓢成功安装了SQL map。</p>
-<p>在安装SQL map的时候需要安装python2。</p>
-<p>在有python3的环境下，可以使用虚拟环境virtualenvwrapper。</p>
-<p>利用SQL map可以方便地进行SQL注入测试与渗透。</p>
-<h1 id="参考网址（部分失效）："><a href="#参考网址（部分失效）：" class="headerlink" title="参考网址（部分失效）："></a>参考网址（部分失效）：</h1><p>百科：<a href="https://baike.baidu.com/item/sql注入/150289?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/sql注入/150289?fr=aladdin</a></p>
-<p>CSDN一篇学习者日志: <a href="https://blog.csdn.net/ideality_hunter/article/details/80623526" target="_blank" rel="noopener">https://blog.csdn.net/ideality_hunter/article/details/80623526</a></p>
-<p>上面那篇日志提到的参考：<a href="https://www.cnblogs.com/sdya/p/4568548.html" target="_blank" rel="noopener">https://www.cnblogs.com/sdya/p/4568548.html</a></p>
-<p>上面那篇参考的原文：<a href="https://www.cnblogs.com/rush/archive/2011/12/31/2309203.html" target="_blank" rel="noopener">https://www.cnblogs.com/rush/archive/2011/12/31/2309203.html</a></p>
-<p>绕过过滤器：<a href="https://www.jianshu.com/p/a98edc0d2438" target="_blank" rel="noopener">https://www.jianshu.com/p/a98edc0d2438</a></p>
-<p>新人训练营：<a href="https://www.freebuf.com/column/184285.html" target="_blank" rel="noopener">https://www.freebuf.com/column/184285.html</a></p>
-<p>另一个SQL练习教程：<a href="https://blog.csdn.net/weixin_40586270/article/details/81631191" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40586270/article/details/81631191</a></p>
-<p>DVWA环境搭建：<a href="https://www.cnblogs.com/ECJTUACM-873284962/p/7784508.html" target="_blank" rel="noopener">https://www.cnblogs.com/ECJTUACM-873284962/p/7784508.html</a></p>
-<p>Pip更新：<a href="http://www.51hsw.com/python-pipban-ben-geng-xin-de-wen-ti/" target="_blank" rel="noopener">http://www.51hsw.com/python-pipban-ben-geng-xin-de-wen-ti/</a></p>
-<p>SQL map基本操作：<a href="https://www.jianshu.com/p/17509d0a1ba3" target="_blank" rel="noopener">https://www.jianshu.com/p/17509d0a1ba3</a></p>
-<p>Phpstudy端口被占用：<a href="https://blog.csdn.net/weixin_43571641/article/details/83903804" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43571641/article/details/83903804</a></p>
-<p>全等级盲注：<a href="https://www.jianshu.com/p/757626cec742" target="_blank" rel="noopener">https://www.jianshu.com/p/757626cec742</a></p>
-<p>low级手工注入：<a href="https://www.jianshu.com/p/54b630f1ec35" target="_blank" rel="noopener">https://www.jianshu.com/p/54b630f1ec35</a></p>
-<p>参数化SQL：<a href="https://www.cnblogs.com/yuyu666/p/9828065.html" target="_blank" rel="noopener">https://www.cnblogs.com/yuyu666/p/9828065.html</a></p>
-<p>未使用网址：</p>
-<p>关于过滤SQL注入的文章：<a href="https://www.yuanmas.com/info/dnzlQnqqa6.html" target="_blank" rel="noopener">https://www.yuanmas.com/info/dnzlQnqqa6.html</a></p>
-<p>关于post提交SQL数据：<a href="https://zhidao.baidu.com/question/1610843988763312667.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/1610843988763312667.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/01/2/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/12/1建立博客/">展开全文 >></a>
         </p>
       
 
@@ -1225,7 +1102,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="extend next" rel="next" href="/unln1999.github.io/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1341,15 +1218,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1357,7 +1230,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1373,11 +1250,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color1">diary</a>
               </li>
             
             <div class="clearfix"></div>

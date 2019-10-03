@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
-  <title>JavaScript基础 | 夢の此夜亭🌸</title>
+  <title>夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSP简介JavaScript 是可插入HTML页面的编程代码。它可以做到以下的事：  直接写入html输出流（document.write） 对事件的反应（通过button） 改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容） 改变html图像（通过element.src来改变图像的source） 改变html样式 验证输入  J">
-<meta name="keywords" content="web,javascript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript基础">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/09/29/JS/index.html">
+  <meta name="description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="夢の此夜亭🌸">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/page/4/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="JSP简介JavaScript 是可插入HTML页面的编程代码。它可以做到以下的事：  直接写入html输出流（document.write） 对事件的反应（通过button） 改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容） 改变html图像（通过element.src来改变图像的source） 改变html样式 验证输入  J">
+<meta property="og:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://unln1999.github.io/img/js-1.png">
-<meta property="og:image" content="https://unln1999.github.io/img/js-2.png">
-<meta property="og:updated_time" content="2019-09-29T14:24:42.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript基础">
-<meta name="twitter:description" content="JSP简介JavaScript 是可插入HTML页面的编程代码。它可以做到以下的事：  直接写入html输出流（document.write） 对事件的反应（通过button） 改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容） 改变html图像（通过element.src来改变图像的source） 改变html样式 验证输入  J">
-<meta name="twitter:image" content="https://unln1999.github.io/img/js-1.png">
+<meta name="twitter:title" content="夢の此夜亭🌸">
+<meta name="twitter:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -151,86 +146,163 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-2SQLlow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      JavaScript基础
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/01/2SQLlow/">DVWA-SQL Injection Low级</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/29/JS/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
+        <a href="/unln1999.github.io/2019/09/01/2SQLlow/" class="archive-article-date">
+  	<time datetime="2019-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h1><p>JavaScript 是可插入HTML页面的编程代码。<br>它可以做到以下的事：</p>
-<ul>
-<li>直接写入html输出流（document.write）</li>
-<li>对事件的反应（通过button）</li>
-<li>改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容）</li>
-<li>改变html图像（通过element.src来改变图像的source）</li>
-<li>改变html样式</li>
-<li>验证输入</li>
-</ul>
-<h1 id="JSP用法"><a href="#JSP用法" class="headerlink" title="JSP用法"></a>JSP用法</h1><p>必须位于script标签之间。<br>既可放在body也可放在head里。<br>还可以将JavaScript保存在外部文件里。</p>
-<h1 id="JSP输出"><a href="#JSP输出" class="headerlink" title="JSP输出"></a>JSP输出</h1><ol>
-<li>window.alert()</li>
-<li>document.write()</li>
-<li>使用innerHTML写入html元素中。</li>
-<li>console.log写入浏览器的控制台中。</li>
+        <p>斜体部分存疑，可能会有知识错误。</p>
+<h1 id="探究部分"><a href="#探究部分" class="headerlink" title="探究部分"></a>探究部分</h1><h3 id="1-什么是SQL注入？"><a href="#1-什么是SQL注入？" class="headerlink" title="1.什么是SQL注入？"></a>1.什么是SQL注入？</h3><p>SQL注入的英文全称是structrued query language injection。也即SQL injection。</p>
+<p>谈论SQL注入必须首先了解什么是SQL。根据英文易知，SQL其实就是结构化查询语言的意思，是一种编程语言。用于查询和操作RDBMS（relational database management system，关系数据库管理系统）中的数据。</p>
+<p>我们也容易见到MySQL、SQL server、oracle，这是三种常用且传统的RDBMS，传统的RDBMS都有统一的SQL语言操作接口（也就是说可以用SQL操作，<em>根据了解并推测，传统RDBMS也只能用SQL语言来对数据进行查询和操作&lt;如果涵盖pl/sql等&gt;</em>）。此外还有NoSQL数据库，这些数据库有自己特有的API接口，他们能做到传统RDBMS做不到的事，因此也有广泛应用。</p>
+<p>许多网站的数据库都是这三种数据库之中的，因此利用页面表单来获取数据库信息时，在<em>服务器中</em>的程序（asp、php等编写的脚本程序）中必然要用到SQL语言，根据页面反馈的信息，我们可以推测这段SQL语句是如何书写的。假如我们可以利用这个SQL语句设计上的漏洞，我们就可以在执行或终止执行原有的SQL语句的基础上，执行我们想要执行的SQL命令，来获取数据库信息。</p>
+<p><strong>总之，SQL注入就是利用页面脚本设计中的漏洞在表单中插入SQL语句，欺骗服务器执行“恶意”的SQL命令。</strong></p>
+<html>
+<small style="color:blue;">
+备注：按百度百科的说法，还可以利用域名、页面请求来进行SQL注入。利用域名的我好像有看到过，页面请求不太懂是什么意思。在百度查后两种SQL注入找不到详细的介绍（在第一页）。在写这篇笔记到这里的时候，我才过了DVWA的low级SQL injection渗透测试，对利用表单进行SQL注入有一定的认识，而后两者还不了解。因此上文写到“在表单中插入SQL语句”。
+</small>
+</html>
+
+<h3 id="2-SQL注入有哪几种方式？"><a href="#2-SQL注入有哪几种方式？" class="headerlink" title="2.SQL注入有哪几种方式？"></a>2.SQL注入有哪几种方式？</h3><ol>
+<li><strong>字符型注入</strong>：当表单要求获得字符时，传递到$query变量（或其它意义相同的SQL查询语句等）中时需要单引号或双引号，这时，如果表单中不对转义序列’或”进行过滤的话，就可能进行字符型注入。</li>
+<li><strong>数字型注入</strong>：当表单要求获得数字时，传递到$query变量（或其它意义相同的SQL查询语句等）中时，将没有单引号或双引号，直接输入数字+分号+想要服务器执行的SQL语句+注释– 就可能进行数字型注入。</li>
+<li>利用数据库服务器的漏洞（不懂）</li>
+<li>盲注（不懂）</li>
+<li>根据条件响应（不懂）</li>
+<li>条件性差错（不懂，大概是猜测数据库中的数据，如果数据存在会引起报错，从而得知特定数据的存在性）</li>
+<li>时间延误（不懂，通过长SQL命令队列等，使服务器产生时间延误，也就是加载时间，通过时间长短，判断语句是否为真）</li>
 </ol>
-<h1 id="JSP语法"><a href="#JSP语法" class="headerlink" title="JSP语法"></a>JSP语法</h1><p>//是注释，也可以用/**/<br>语句用;作结<br>JSP对大小写敏感。<br>其它和别的编程语言差不多。</p>
-<h1 id="JSP语句"><a href="#JSP语句" class="headerlink" title="JSP语句"></a>JSP语句</h1><p>和C差不多</p>
-<h1 id="JSP变量"><a href="#JSP变量" class="headerlink" title="JSP变量"></a>JSP变量</h1><p>加var来声明。<br>是弱类型的。<br>可以声明多个变量。还可以跨行。<br>重新声明，值不会改变。</p>
-<h1 id="JSP数据类型"><a href="#JSP数据类型" class="headerlink" title="JSP数据类型"></a>JSP数据类型</h1><p>字符串、数字、布尔值、null、undefined、Symbol。<br>数据具有动态类型，可以通过赋值而改变数据类型。<br>JSP数组和C有一定区别。<br>JSP对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔。<br>可以用关键字new来声明变量类型。</p>
-<h1 id="JSP对象"><a href="#JSP对象" class="headerlink" title="JSP对象"></a>JSP对象</h1><p>对象是拥有属性和方法的数据。<br><img src="/img/js-1.png" alt="js-1"><br>在 JavaScript 中，对象是非常重要的，当你理解了对象，就可以了解 JavaScript 。<br>对象的方法定义了一个函数。</p>
-<h1 id="JSP函数"><a href="#JSP函数" class="headerlink" title="JSP函数"></a>JSP函数</h1><p>函数内的都是局部变量，函数内的都是局部变量，函数外的是全局变量。</p>
-<h1 id="JSP作用域"><a href="#JSP作用域" class="headerlink" title="JSP作用域"></a>JSP作用域</h1><p>作用域是可访问变量的集合。</p>
-<h1 id="JSP事件"><a href="#JSP事件" class="headerlink" title="JSP事件"></a>JSP事件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;some-HTML-element some-event=&quot;JavaScript 代码&quot;&gt;</span><br></pre></td></tr></table></figure>
+<html>
+<small style="color:blue;">
+备注：这一部分主要从网上摘抄，前两个的详解是我个人目前的认识，也有可能不甚正确，因为前两种更为常见且比较简单，了解更多，后面几种了解甚微，原理一知半解。
+</small>
+</html>
 
-<p><img src="/img/js-2.png" alt="js-2"></p>
+<h3 id="3-如何避免SQL注入？"><a href="#3-如何避免SQL注入？" class="headerlink" title="3.如何避免SQL注入？"></a>3.如何避免SQL注入？</h3><ol>
+<li>首先要防范用户输入，永远不能信任用户输入，要对用户输入做出限制，比如禁止使用转义序列，甚至禁止使用特殊符号乃至禁止使用字母。<strong>简单的禁用还可以被绕过，比如AND被禁用了，有时可以用&amp;&amp;或者%26%26来代替</strong>，因此禁用有等级的区分，并且禁用部分输入对SQL注入的防范能力是有限的，可能会牺牲系统（指网站及其脚本）的性能等。因此不要简单认为禁用部分输入之后就可以一劳永逸。</li>
+<li>不使用动态拼装的SQL语句，使用参数化的SQL语句（根据一个站点的介绍，asp、php不能够使用参数化SQL，因此要另寻它径，但是java、C#等语言可以）</li>
+<li>每个应用对数据库的访问设限。比如DVWA靶机里的low级SQL注入就是一个很简单的根据id获取姓名的应用，不应该让它具有访问其它重要数据库的能力。</li>
+<li>加密机密信息，即使泄露也难以破解。</li>
+<li>对错误信息进行包装，或者抑制等等，不给用户“明注”（相对于“盲注”）的机会。后文的low级SQL注入中就大方地公开了错误信息，使得注入思路较为明确。<h1 id="SQL-injection-low级手工注入实践"><a href="#SQL-injection-low级手工注入实践" class="headerlink" title="SQL injection low级手工注入实践"></a>SQL injection low级手工注入实践</h1><h3 id="后台脚本源码"><a href="#后台脚本源码" class="headerlink" title="后台脚本源码"></a>后台脚本源码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">if( isset( $_REQUEST[ &apos;Submit&apos; ] ) ) </span><br><span class="line">&#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $id = $_REQUEST[ &apos;id&apos; ];</span><br><span class="line"></span><br><span class="line">    // Check database</span><br><span class="line">    $query  = &quot;SELECT first_name, last_name FROM users WHERE user_id = &apos;$id&apos;;&quot;;</span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query )</span><br><span class="line">    or die(</span><br><span class="line">    &apos;&lt;pre&gt;&apos; .</span><br><span class="line">    (</span><br><span class="line">    (is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ?</span><br><span class="line">    mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) :</span><br><span class="line">        (</span><br><span class="line">        ($___mysqli_res = mysqli_connect_error()) ?</span><br><span class="line">        $___mysqli_res : false</span><br><span class="line">        )</span><br><span class="line">    ) </span><br><span class="line">    . &apos;&lt;/pre&gt;&apos; </span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    // Get results</span><br><span class="line">    while( $row = mysqli_fetch_assoc( $result ) ) &#123;</span><br><span class="line">        // Get values</span><br><span class="line">        $first = $row[&quot;first_name&quot;];</span><br><span class="line">        $last  = $row[&quot;last_name&quot;];</span><br><span class="line"></span><br><span class="line">        // Feedback for end user</span><br><span class="line">        $html .= &quot;&lt;pre&gt;ID: &#123;$id&#125;&lt;br /&gt;First name: &#123;$first&#125;&lt;br /&gt;Surname: &#123;$last&#125;&lt;/pre&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mysqli_close($GLOBALS[&quot;___mysqli_ston&quot;]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><p>后台脚本由php书写。</p>
+<p>第一部分得到表单的值，当submit按钮被按下时，判断为真，执行后续语句——将name为’id’的input表单的值赋给变量$id。</p>
+<p>声明字符串变量$query，其值为”SELECT first_name, last_name FROM users WHERE user_id = ‘$id’;”</p>
+<p>因为这里是双引号，所以里面的变量$id会被表单中提交的内容所代替。</p>
+<p>整个$query就是一个典型的SQL SELECT语句。根据《SQL参考手册》，SELECT语句可以为以下两种形式。</p>
+<p><img src="/img/2-1.png" alt="image"></p>
+<p>它的用处是在某张数据表中检索对应字段的数据并返回给用户。</p>
+<p>接下来的mysqli_query()是php函数，语法如下：</p>
+<p><img src="/img/2-2.png" alt="image"></p>
+<p>$GLOBALS[“___mysqli_ston”]是一个全局变量的写法，在这里用于MySQL连接。</p>
+<p>$query即为查询字符串，这里之所以先声明这个变量，是为了阅读、处理、修改等的方便。</p>
+<p>当SELECT语句查询成功时，mysqli_query()函数返回mysqli_result 对象，则$result也为一个object。</p>
+<p><strong>在php的bool or bool语句中，前一个为真，后一个bool值将不再被判断。（前一个值的数据类型可能不是布尔类型，但也对应真假）</strong> 因此此时or之后的语句将不再被执行。</p>
+<p>然后将这个对象传递给mysqli_fetch_assoc()函数，来取得一行来作为关联数组。<em>然后这里的while循环应该有一定执行次数，这大概和对象有关，因为我没有系统学习的面向对象编程的知识，这里无法详解while循环的执行过程，只能抽象地概括为，不断地从数据库中获取数据。</em></p>
+<p>让变量$first获得”first_name”键对应的值，让变量$last获得”last_name”键对应的值。</p>
+<p>$html是显示页面的变量，利用运算符”.=”在其后面加入&lt;pre&gt;标签来显示文本。</p>
+<p>如果查询语句出错，则结束脚本，并进行嵌套的三元运算，首先判断$GLOBALS[“<strong><em>mysqli_ston”]是否是个对象，如果不是，那么检查连接有无错误，如果有，报错。如果无，说明数据库中没有对应id的记录。假如$GLOBALS[“</em></strong>mysqli_ston”]是对象，那么是用户输入有问题，利用mysqli_error()获得最近调用函数的最后一次错误并报错。<strong>这里的报错，为SQL注入提供了切入点</strong>。</p>
+<p>SQL注入的思路则是在不知道脚本代码的情况下，推测出$query变量的值的形式，并在后续插入我们想要服务器执行的SQL命令。然后在mysqli_query()函数中发挥作用，取得mysqli_result对象。</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p><strong>1.输入数字1</strong></p>
+<p><img src="/img/2-3.png" alt="image"></p>
+<p>得到正常的结果，还无法判断是否存在数字型、字符型注入。</p>
+<p>根据URL中的显示，判断表单传递方式为GET。</p>
+<p><strong>2.输入’（判断是否存在注入以及类型）</strong></p>
+<p>得到报错信息：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’’’’ at line 1</p>
+<p>可知第一行里出现了’’’，不是偶数，程序出错，有注入的可能。</p>
+<p><strong>3.输入”</strong></p>
+<p>无反应，也无报错，说明一切正常，只是数据库中没有id为’”‘的记录。</p>
+<p><strong>4.输入反斜杠\（反斜杠可以使有特殊功能的字符变成普通的字符，容易造成语句错误）</strong></p>
+<p>得到报错信息：You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’&#39;‘ at line 1</p>
+<p>可知第一行里出现了’\‘，并结合先前的试验，可以推测，这一块的内容类似于：</p>
+<p>‘$_GET[‘id’]’</p>
+<p>因此，我们输入的字符串，被夹在两个单引号之间。</p>
+<p>现在我们可以用诸如“1’;SQL语句；– ”、“1’ SQL语句 – ”来进行注入。或者就是“’;SQL语句；– ”、“’SQL语句 – ”</p>
+<p>而这里需要的SQL语句需要一定的SQL基础。</p>
+<html>
+<small style="color:blue;">
+备注：书写笔记至此，我为了能看懂SQL注入中究竟输入了些什么，已经学会了html基础、一半的基础CSS、大半的php，但是对SQL掌握不多，但是我会用SQL参考手册进行尝试。
+</small>
+</html>
+
+<p><strong>5.输入永真语句’or 1(Select语句对每一行都是真的，因此$row遍历每一个记录并输出)</strong></p>
+<p><img src="/img/2-4.png" alt="image"></p>
+<p>由此看出，该数据表的row为5行，尝试发现id是1、2、3、4、5。</p>
+<p>至此可以判断url（<a href="http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=&amp;Submit=Submit#）中的参数id存在注入点，存在字符型的SQL注入漏洞。" target="_blank" rel="noopener">http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=&amp;Submit=Submit#）中的参数id存在注入点，存在字符型的SQL注入漏洞。</a></p>
+<p><strong>6.输入’ order by 3 – 利用order by语句搭配SELECT语句得知字段数(<em>这里的数字应该是指第几个column</em>)</strong></p>
+<p>当为3时报错：Unknown column ‘3’ in ‘order clause’</p>
+<p>因此字段数为2。</p>
+<p>*<em>7.或者用union select语句，union是一种高级的SQL操作符，比如输入’ union select 3，4 -- *</em></p>
+<p>![image]/img/2-5.png)</p>
+<p>之所以是这么显示，是因为第一个单引号为空，不对应任何字段。后面的union select根据SQL参考手册，column数必须与前面的相同。</p>
+<p>同时我们利用union select获得了字段显示的位置，Web中，第一个字段显示在First name处，第二个字段显示在Surname处。</p>
+<p><strong>8.输入’ union select database(),version() – 利用SQL内置函数+不加from的union select语句得到数据库信息。</strong></p>
+<p><img src="/img/2-6.png" alt="image"></p>
+<p>可知，数据库名称为dvwa，版本是5.5.53。</p>
+<p><strong>8.输入’ union select user(),version() -- 利用SQL内置函数+不加from的union select语句得到当前使用的用户信息。</strong></p>
+<p><img src="/img/2-7.png" alt="image"></p>
+<p><strong>9.输入’ union select @@version_compile_os,@@datadir -- 得到服务器的操作系统信息和数据库的存储目录（@@表示全局变量，类似于php里的$_GLOBAL[]）</strong></p>
+<p><img src="/img/2-8.png" alt="image"></p>
+<p><strong>10.现在加入from，从MySQL默认创建的数据库里获取需要的信息，先从infomation_schema（纲要）库中schemeta表中获取所有数据库的信息。</strong></p>
+<p>![image]/img/2-9.png)</p>
+<p>11.现在再在infomation_schema库的schemeta表中，对当前所用的数据库的表进行查询。</p>
+<p><img src="/img/2-10.png" alt="image"></p>
+<p>还有一种高端的写法：</p>
+<p><img src="/img/2-11.png" alt="image"></p>
+<html>
+<small style="color:blue;">
+备注：schemeta指数据库、table指表。information_schema数据库中的表及列都是固定而有规律的。这之后都是按经验、套路办事了。
+</small>
+</html>
+
+<p><strong>12.获取users表中的列信息</strong></p>
+<p><img src="/img/2-12.png" alt="image"></p>
+<p><strong>13.获取用户名和密码：’ union select user,password from dvwa.users -- (这个注入命令是我找规律自己写的，可见我基本懂了，只是对information_schema库不熟悉)</strong></p>
+<p><img src="/img/2-13.png" alt="image"></p>
+<p>猜测这是md5密文（有经验后，现在我没经验），发现可以登录dvwa靶机，SQL injection low级成功。</p>
+<h1 id="关于SQL-map"><a href="#关于SQL-map" class="headerlink" title="关于SQL map"></a>关于SQL map</h1><p>这里将不详讲，我照葫芦画瓢成功安装了SQL map。</p>
+<p>在安装SQL map的时候需要安装python2。</p>
+<p>在有python3的环境下，可以使用虚拟环境virtualenvwrapper。</p>
+<p>利用SQL map可以方便地进行SQL注入测试与渗透。</p>
+<h1 id="参考网址（部分失效）："><a href="#参考网址（部分失效）：" class="headerlink" title="参考网址（部分失效）："></a>参考网址（部分失效）：</h1><p>百科：<a href="https://baike.baidu.com/item/sql注入/150289?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/sql注入/150289?fr=aladdin</a></p>
+<p>CSDN一篇学习者日志: <a href="https://blog.csdn.net/ideality_hunter/article/details/80623526" target="_blank" rel="noopener">https://blog.csdn.net/ideality_hunter/article/details/80623526</a></p>
+<p>上面那篇日志提到的参考：<a href="https://www.cnblogs.com/sdya/p/4568548.html" target="_blank" rel="noopener">https://www.cnblogs.com/sdya/p/4568548.html</a></p>
+<p>上面那篇参考的原文：<a href="https://www.cnblogs.com/rush/archive/2011/12/31/2309203.html" target="_blank" rel="noopener">https://www.cnblogs.com/rush/archive/2011/12/31/2309203.html</a></p>
+<p>绕过过滤器：<a href="https://www.jianshu.com/p/a98edc0d2438" target="_blank" rel="noopener">https://www.jianshu.com/p/a98edc0d2438</a></p>
+<p>新人训练营：<a href="https://www.freebuf.com/column/184285.html" target="_blank" rel="noopener">https://www.freebuf.com/column/184285.html</a></p>
+<p>另一个SQL练习教程：<a href="https://blog.csdn.net/weixin_40586270/article/details/81631191" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40586270/article/details/81631191</a></p>
+<p>DVWA环境搭建：<a href="https://www.cnblogs.com/ECJTUACM-873284962/p/7784508.html" target="_blank" rel="noopener">https://www.cnblogs.com/ECJTUACM-873284962/p/7784508.html</a></p>
+<p>Pip更新：<a href="http://www.51hsw.com/python-pipban-ben-geng-xin-de-wen-ti/" target="_blank" rel="noopener">http://www.51hsw.com/python-pipban-ben-geng-xin-de-wen-ti/</a></p>
+<p>SQL map基本操作：<a href="https://www.jianshu.com/p/17509d0a1ba3" target="_blank" rel="noopener">https://www.jianshu.com/p/17509d0a1ba3</a></p>
+<p>Phpstudy端口被占用：<a href="https://blog.csdn.net/weixin_43571641/article/details/83903804" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43571641/article/details/83903804</a></p>
+<p>全等级盲注：<a href="https://www.jianshu.com/p/757626cec742" target="_blank" rel="noopener">https://www.jianshu.com/p/757626cec742</a></p>
+<p>low级手工注入：<a href="https://www.jianshu.com/p/54b630f1ec35" target="_blank" rel="noopener">https://www.jianshu.com/p/54b630f1ec35</a></p>
+<p>参数化SQL：<a href="https://www.cnblogs.com/yuyu666/p/9828065.html" target="_blank" rel="noopener">https://www.cnblogs.com/yuyu666/p/9828065.html</a></p>
+<p>未使用网址：</p>
+<p>关于过滤SQL注入的文章：<a href="https://www.yuanmas.com/info/dnzlQnqqa6.html" target="_blank" rel="noopener">https://www.yuanmas.com/info/dnzlQnqqa6.html</a></p>
+<p>关于post提交SQL数据：<a href="https://zhidao.baidu.com/question/1610843988763312667.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/1610843988763312667.html</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖糖╰(*°▽°*)╯<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -243,10 +315,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -254,84 +322,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/01/2SQLlow/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/09/29/JS/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/unln1999.github.io/2019/09/29/12正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          正则表达式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/unln1999.github.io/2019/09/29/bk11-网站被黑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Bugku 2019/9/29 网站被黑</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -351,14 +351,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/3/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -381,8 +379,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
