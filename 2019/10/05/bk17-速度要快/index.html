@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
-  <title>Tag: diary | 夢の此夜亭🌸</title>
+  <title>Bugku 2019/10/5 速度要快 | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="夢の此夜亭🌸">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/tags/diary/index.html">
+  <meta name="description" content="进入题目页面提示你要速度要快。 思路查看源码，说让你用post方法传递一个叫margin的量。它的值是多少呢？如果随便给个值，返回结果是”我都说了让你快点。。。”接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。把这个值作为margin的值。 writeup写一个快速反弹post的">
+<meta name="keywords" content="bugku">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku 2019&#x2F;10&#x2F;5 速度要快">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/10/05/bk17-速度要快/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
+<meta property="og:description" content="进入题目页面提示你要速度要快。 思路查看源码，说让你用post方法传递一个叫margin的量。它的值是多少呢？如果随便给个值，返回结果是”我都说了让你快点。。。”接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。把这个值作为margin的值。 writeup写一个快速反弹post的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-05T07:22:46.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夢の此夜亭🌸">
-<meta name="twitter:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
+<meta name="twitter:title" content="Bugku 2019&#x2F;10&#x2F;5 速度要快">
+<meta name="twitter:description" content="进入题目页面提示你要速度要快。 思路查看源码，说让你用post方法传递一个叫margin的量。它的值是多少呢？如果随便给个值，返回结果是”我都说了让你快点。。。”接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。把这个值作为margin的值。 writeup写一个快速反弹post的">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -146,60 +148,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-bk17-速度要快" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/unln1999.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/unln1999.github.io/2019/10/03/DIARY/191003/" class="archive-article-date">
-  	<time datetime="2019-10-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/unln1999.github.io/2019/10/03/DIARY/191003/">diary191003</a>
+    <h1 class="article-title" itemprop="name">
+      Bugku 2019/10/5 速度要快
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/unln1999.github.io/2019/10/05/bk17-速度要快/" class="archive-article-date">
+  	<time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>提示你要速度要快。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>查看源码，说让你用post方法传递一个叫margin的量。<br>它的值是多少呢？<br>如果随便给个值，返回结果是”我都说了让你快点。。。”<br>接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。<br>把这个值作为margin的值。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>写一个快速反弹post的python脚本，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">import base64</span><br><span class="line">s = requests.session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/web6/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">#第一种</span><br><span class="line">#flag = r.headers[&apos;flag&apos;]</span><br><span class="line">#flag = base64.b64decode(flag)</span><br><span class="line">#flag = flag.decode()</span><br><span class="line">#flag = base64.b64decode(flag.split(&quot;:&quot;)[1])</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line">#第二种</span><br><span class="line">#flag = re.search(r&quot;6LeR55qE6L\+Y5LiN6ZSZ77yM57uZ5L2gZmxhZ\+WQpzogT\w&#123;10&#125;=&quot;,str(r.headers))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#flag = re.search(r&quot;\w&#123;7&#125;[\w =]&quot;,str(flag))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/web6/&quot;,data)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>有两种方式去解密margin的值，第一种是网上常规的，第二种是我用正则表达式写的。<br>在powershell里运行py文件（使用的时候选择一种方法去掉语句的注释）。<br>即可得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>base64库</strong></li>
+<li><strong>base64多次加密</strong></li>
+<li>requests库</li>
+<li>基于python的快速反弹</li>
+<li>正则表达式</li>
+<li><strong>split方法</strong></li>
+<li>decode</li>
+<li>html响应头</li>
+</ol>
+<p>做了两道快速反弹post的题之后也可以意识到，提交post值还可以用py脚本。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖糖╰(*°▽°*)╯<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">diary</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/10/05/bk17-速度要快/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/unln1999.github.io/2019/10/04/13编码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编码和加密</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -222,9 +357,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -313,19 +448,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -333,11 +460,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -350,10 +485,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diary</a>
               </li>
             
             <div class="clearfix"></div>

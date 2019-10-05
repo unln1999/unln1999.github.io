@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://unln1999.github.io/img/bk15-2.png">
 <meta property="og:image" content="https://unln1999.github.io/img/bk15-3.png">
-<meta property="og:updated_time" content="2019-10-05T01:55:54.884Z">
+<meta property="og:updated_time" content="2019-10-05T02:42:10.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bugku 2019&#x2F;10&#x2F;3 点击一百万次">
 <meta name="twitter:description" content="jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。jQuery中#可作为id选择器。!(bk15-1)(/img/bk15-1.png)W3C参考 进入题目页面显示着点击曲奇饼增加点击数的界面。ht">
@@ -173,9 +173,16 @@
       
         <p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。<br>jQuery中#可作为id选择器。<br>!(bk15-1)(/img/bk15-1.png)<br><a href="https://www.w3school.com.cn/jquery/jquery_selectors.asp" target="_blank" rel="noopener">W3C参考</a></p>
 <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示着点击曲奇饼增加点击数的界面。<br>html里的js源码是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var clicks=0</span><br><span class="line">    $(</span><br><span class="line">	function() </span><br><span class="line">	&#123;</span><br><span class="line">      $(&quot;#cookie&quot;)</span><br><span class="line">		.mousedown</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;350px&apos;).height(&apos;350px&apos;);//控制形状变小</span><br><span class="line">			&#125;</span><br><span class="line">		)</span><br><span class="line">        .mouseup</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;375px&apos;).height(&apos;375px&apos;);//恢复原来的形状</span><br><span class="line">				clicks++;//增加点击数</span><br><span class="line">				$(&quot;#clickcount&quot;).text(clicks);//id为clickcont的html标签的文本改为点击数</span><br><span class="line">				if(clicks &gt;= 1000000)//如果这个点击数大于等于1000000了</span><br><span class="line">				&#123;</span><br><span class="line">					var form = $(&apos;&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&apos; +&apos;&lt;input type=&quot;text&quot; name=&quot;clicks&quot; value=&quot;&apos; + clicks + &apos;&quot; hidden/&gt;&apos; + &apos;&lt;/form&gt;&apos;);//声明一个叫form的变量，是一串字符串。</span><br><span class="line">					//就是一个表单，以post方式，传递名为clicks的表单值，然后输入框被隐藏，值是一个字符串。</span><br><span class="line">					$(&apos;body&apos;).append(form);//在html的body标签里追加子元素form。</span><br><span class="line">					form.submit();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		);</span><br><span class="line">    &#125;</span><br><span class="line">	);</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var clicks=0</span><br><span class="line">    $(</span><br><span class="line">	function() </span><br><span class="line">	&#123;</span><br><span class="line">      $(&quot;#cookie&quot;)</span><br><span class="line">		.mousedown</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;350px&apos;).height(&apos;350px&apos;);//控制形状变小</span><br><span class="line">			&#125;</span><br><span class="line">		)</span><br><span class="line">        .mouseup</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;375px&apos;).height(&apos;375px&apos;);//恢复原来的形状</span><br><span class="line">				clicks++;//增加点击数</span><br><span class="line">				$(&quot;#clickcount&quot;).text(clicks);//id为clickcont的html标签的文本改为点击数</span><br><span class="line">				if(clicks &gt;= 1000000)//如果这个点击数大于等于1000000了</span><br><span class="line">				&#123;</span><br><span class="line">					var form = $(&apos;&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&apos; +&apos;&lt;input type=&quot;text&quot; name=&quot;clicks&quot; value=&quot;&apos; + clicks + &apos;&quot; hidden/&gt;&apos; + &apos;&lt;/form&gt;&apos;);//声明一个叫form的变量，是一串字符串。</span><br><span class="line">					//就是一个表单，以post方式，传递名为clicks的表单值，然后输入框被隐藏，值是一个字符串。</span><br><span class="line">					$(&apos;body&apos;).append(form);//在html的body标签里追加子元素form。</span><br><span class="line">					form.submit();//提交表单值</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		);</span><br><span class="line">    &#125;</span><br><span class="line">	);</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/img/bk15-2.png" alt="bk15-2"><br>关于form.submit，就是把js里的表单给提交了。<br><img src="/img/bk15-3.png" alt="bk15-3"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们不用js代码，直接传递clicks值。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>用hackbar提交post值，注意不要加空格。<br>然后就出现flag了。</p>
+<p>也可以直接在bp里改变request method。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>jquery阅读</strong></li>
+<li>post值提交</li>
+</ol>
 
       
 
@@ -290,18 +297,18 @@
   
 <nav id="article-nav">
   
-    <a href="/unln1999.github.io/2019/10/04/13编码/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          编码和加密
+          Bugku 2019/10/4 秋名山老司机
         
       </div>
     </a>
   
   
-    <a href="/unln1999.github.io/2019/10/03/DIARY/191003/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">diary191003</div>
+    <a href="/unln1999.github.io/2019/10/02/bk14-输入密码查看flag/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Bugku 2019/10/2 输入密码查看flag</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -448,19 +455,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,11 +467,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,10 +492,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diary</a>
               </li>
             
             <div class="clearfix"></div>
