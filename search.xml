@@ -9,6 +9,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Bugku 2019/10/3 点击一百万次]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F10%2F03%2Fbk15-%E7%82%B9%E5%87%BB%E4%B8%80%E7%99%BE%E4%B8%87%E6%AC%A1%2F</url>
+    <content type="text"><![CDATA[jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。jQuery中#可作为id选择器。!(bk15-1)(/img/bk15-1.png)W3C参考 进入题目页面显示着点击曲奇饼增加点击数的界面。html里的js源码是： 1234567891011121314151617181920212223242526272829303132&lt;script&gt; var clicks=0 $( function() &#123; $(&quot;#cookie&quot;) .mousedown ( function() &#123; $(this).width(&apos;350px&apos;).height(&apos;350px&apos;);//控制形状变小 &#125; ) .mouseup ( function() &#123; $(this).width(&apos;375px&apos;).height(&apos;375px&apos;);//恢复原来的形状 clicks++;//增加点击数 $(&quot;#clickcount&quot;).text(clicks);//id为clickcont的html标签的文本改为点击数 if(clicks &gt;= 1000000)//如果这个点击数大于等于1000000了 &#123; var form = $(&apos;&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&apos; +&apos;&lt;input type=&quot;text&quot; name=&quot;clicks&quot; value=&quot;&apos; + clicks + &apos;&quot; hidden/&gt;&apos; + &apos;&lt;/form&gt;&apos;);//声明一个叫form的变量，是一串字符串。 //就是一个表单，以post方式，传递名为clicks的表单值，然后输入框被隐藏，值是一个字符串。 $(&apos;body&apos;).append(form);//在html的body标签里追加子元素form。 form.submit(); &#125; &#125; ); &#125; ); &lt;/script&gt; 关于form.submit，就是把js里的表单给提交了。]]></content>
+      <tags>
+        <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[diary191003]]></title>
     <url>%2Funln1999.github.io%2F2019%2F10%2F03%2FDIARY%2F191003%2F</url>
     <content type="text"><![CDATA[天气：晴 地点：天津滨海国际机场 心情：不错 var diary1 = "自初三以来，有写日记的习惯，但是总是停停顿顿，上了大学之后更是写得少了，以后要把自己的心情记录出来。今天又在思考未来的事情。我曾经是个很有想法的孩子，非常想要科研。但是如今，却觉得科研困难，或者又是觉得科研无趣。实则不然，如今的我依然觉得科研伟大而有意义，但是不知道怎么，原先坚定的意愿不再强烈了。眼下所想的，只有能和她在一块儿，所有的行动，都应该朝着这个目标而努力。我不知道该怎么做，但是至少要富裕吧。我个人对物质的需求不是很高（但是也有），但是既然她想着要挣钱，我便不希望她太辛苦。挣钱可能是一件快乐的事，也是一件没意思的事。大家都喜欢轻松，轻松是很难挣大钱的。作为温州人，我一定要打拼出我自己的伟大事业。在这里谈钱可能很俗，但是作为普通人的我，却正要为了未来，而去想办法挣大钱，也想着要开心，做喜欢做的事情。必须努力！我爱郭煜。"; var diary2 = "今天晚上和煜儿宝贝通语音，开心，虽然有时候不知道说啥，但是就是很开心，特别安心。以后要经常通通话，嘻嘻。然后打算慢慢看掉她发给我的小说。" function check() { var password=document.getElementById("password").value; if(password=="000705") document.getElementById("diary1").innerHTML=diary1; document.getElementById("diary2").innerHTML=diary2; else document.getElementById("diary1").innerHTML="密码输错，不要乱看人家日记啦。不过聪明的大佬是可以找到密码的哦。甚至不用输密码也能看到日记。"; } 输入密码查看日记]]></content>
