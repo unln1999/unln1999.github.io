@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://unln1999.github.io/img/xss-2.png">
 <meta property="og:image" content="https://unln1999.github.io/img/xss-3.png">
 <meta property="og:image" content="https://unln1999.github.io/img/xss-4.png">
-<meta property="og:updated_time" content="2019-10-07T05:30:50.239Z">
+<meta property="og:updated_time" content="2019-10-07T05:33:00.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DVWA-XSS全解">
 <meta name="twitter:description" content="DOMDOM Based XSS：是基于DOM文档对象模型的操作，通过前端脚本修改页面的DOM节点形成的XSS，该操作不与服务器端进行交互，而且代码是可见的，从前端获取到DOM中的数据在本地执行，从效果上来说也是反射型XSS。说白了就是在HTML里攻击。 Low选择一个语言提交后，url里会出现以get方式提交的default，令 1default=&amp;lt;script&amp;gt;alert(&amp;quo">
@@ -181,7 +181,7 @@
 <p>html里的这块代码和High级是一样的，目的是美化选项下拉框。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + decodeURI(lang) + &quot;&lt;/option&gt;&quot;);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><p>php代码里屏蔽了script（不分大小写）。<br>利用img标签。<br>闭合&amp;ltoption&amp;gt和&amp;ltselect&amp;gt标签，是代码在value里也可以运行。</p>
+<h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><p>php代码里屏蔽了script（不分大小写）。<br>利用img标签。<br>闭合&lt;option&gt;和&lt;select&gt;标签，是代码在value里也可以运行。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">令default=&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(&quot;xss&quot;)&gt;</span><br></pre></td></tr></table></figure>
 
 <p>攻击成功。</p>
@@ -494,15 +494,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +514,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,11 +526,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
             
             <div class="clearfix"></div>
