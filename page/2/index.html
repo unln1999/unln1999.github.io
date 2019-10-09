@@ -148,6 +148,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk13-web4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/01/bk13-web4/">Bugku 2019/10/1 web4</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/01/bk13-web4/" class="archive-article-date">
+  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一段文字“看看源代码？”<br>一个输入框，一个写着提交的按钮。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不用说也要看源代码。<br>看到form向index.php用post传递参数。<br>输入框的名字叫flag，应该是检验flag对错的。<br>输入1，看看反应。<br>说“再好好看看”。<br>根据之前的经验，就是检验flag对错。<br>html代码里有一段script。<br>是escape加密。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>eval里的代码看起来没有执行。我们直接输出，看看效果是什么。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;title&gt;BKCTF-WEB4&lt;/title&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var p1 = &apos;%66%75%6e%63%74%69%6f%6e%20%63%68%65%63%6b%53%75%62%6d%69%74%28%29%7b%76%61%72%20%61%3d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%70%61%73%73%77%6f%72%64%22%29%3b%69%66%28%22%75%6e%64%65%66%69%6e%65%64%22%21%3d%74%79%70%65%6f%66%20%61%29%7b%69%66%28%22%36%37%64%37%30%39%62%32%62&apos;;</span><br><span class="line">var p2 = &apos;%61%61%36%34%38%63%66%36%65%38%37%61%37%31%31%34%66%31%22%3d%3d%61%2e%76%61%6c%75%65%29%72%65%74%75%72%6e%21%30%3b%61%6c%65%72%74%28%22%45%72%72%6f%72%22%29%3b%61%2e%66%6f%63%75%73%28%29%3b%72%65%74%75%72%6e%21%31%7d%7d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%6c%65%76%65%6c%51%75%65%73%74%22%29%2e%6f%6e%73%75%62%6d%69%74%3d%63%68%65%63%6b%53%75%62%6d%69%74%3b&apos;;</span><br><span class="line">eval(document.write(unescape(p1) + unescape(&apos;%35%34%61%61%32&apos; + p2)));</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function checkSubmit()&#123;var a=document.getElementById(&quot;password&quot;);if(&quot;undefined&quot;!=typeof a)&#123;if(&quot;67d709b2b54aa2aa648cf6e87a7114f1&quot;==a.value)return!0;alert(&quot;Error&quot;);a.focus();return!1&#125;&#125;document.getElementById(&quot;levelQuest&quot;).onsubmit=checkSubmit;</span><br></pre></td></tr></table></figure>
+
+<p>这是定义了一个checkSubmit的函数。<br>当a被赋值时，如果a的值是67d709b2b54aa2aa648cf6e87a7114f1时可能会发生一些事情，checkSubmit返回。<br>猜测a就是输入框里的东西。<br>输入以上字符串，返回结果即为flag。<br>很遗憾这个不是检验flag对错，而是用密文获取正确flag，思路里的猜想并不对。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>eval()</strong></li>
+<li><strong>unescape</strong></li>
+<li><strong>JSP基础知识</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/01/bk13-web4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk12-管理员系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -899,93 +986,6 @@
 
 
   
-    <article id="post-md3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/24/md3/">双极型晶体管及其基本放大电路——模电Charpter3</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/24/md3/" class="archive-article-date">
-  	<time datetime="2019-09-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-双极型晶体管"><a href="#1-双极型晶体管" class="headerlink" title="1. 双极型晶体管"></a>1. 双极型晶体管</h1><h2 id="1-1-晶体管的结构、类型和三种组态"><a href="#1-1-晶体管的结构、类型和三种组态" class="headerlink" title="1.1 晶体管的结构、类型和三种组态"></a>1.1 晶体管的结构、类型和三种组态</h2><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>就是由发射极、基极、集电极组成。</p>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>有NPN型和PNP型。</p>
-<h3 id="组态"><a href="#组态" class="headerlink" title="组态"></a>组态</h3><p>有共基极接法、共发射极接法、共集电极接法。</p>
-<h2 id="1-2-晶体管的电流放大作用"><a href="#1-2-晶体管的电流放大作用" class="headerlink" title="1.2 晶体管的电流放大作用"></a>1.2 晶体管的电流放大作用</h2><h3 id="共基极直流放大系数-α"><a href="#共基极直流放大系数-α" class="headerlink" title="共基极直流放大系数 α"></a>共基极直流放大系数 α</h3><h3 id="共射极直流放大系数-β"><a href="#共射极直流放大系数-β" class="headerlink" title="共射极直流放大系数 β"></a>共射极直流放大系数 β</h3><h2 id="1-3-晶体管的共射特性曲线和主要参数"><a href="#1-3-晶体管的共射特性曲线和主要参数" class="headerlink" title="1.3 晶体管的共射特性曲线和主要参数"></a>1.3 晶体管的共射特性曲线和主要参数</h2><h3 id="输入特性曲线"><a href="#输入特性曲线" class="headerlink" title="输入特性曲线"></a>输入特性曲线</h3><p>$U_{CE}$不变，$i_B$和$U_{BE}$的关系和二极管正向特性曲线相似。</p>
-<h3 id="输出特性曲线"><a href="#输出特性曲线" class="headerlink" title="输出特性曲线"></a>输出特性曲线</h3><p>$i_B$不变，$i_C$随$U_{CE}$的增大而增大直至饱和。（$U_{CE}$）</p>
-<h3 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h3><p>参数有直流参数、交流参数、极限参数三类。</p>
-<ul>
-<li><p>直流参数（加横杠表示直流）<br>β：当$U_{CE}$不变时，输出集电极电流和输入基极电流的比值。<br>α：见上。</p>
-</li>
-<li><p>交流参数<br>交流放大系数和直流的差不多。<br>特征频率<br>截止频率<br>有：$f_α=f_T=β·f_β$</p>
-</li>
-<li><p>极限参数<br>集电极最大允许电流<br>集电极最大允许功耗</p>
-</li>
-</ul>
-<h1 id="2-放大的概念和放大的性能指标"><a href="#2-放大的概念和放大的性能指标" class="headerlink" title="2. 放大的概念和放大的性能指标"></a>2. 放大的概念和放大的性能指标</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模电</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/24/md3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1108,15 +1108,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">

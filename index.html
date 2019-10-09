@@ -256,6 +256,94 @@
 
 
   
+    <article id="post-bk19-备份是个好习惯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/">Bugku 2019/10/7 备份是个好习惯</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文件包含漏洞：一些服务器脚本的函数会引入本地文件、远程文件，如果没有经过合理的校验，可能会操作预想之外的文件，导致文件泄露、代码注入等情况。<br>涉及的函数有：include()、include_once()、require()、require_once()。<br>当动态地包含文件时会产生文件包含漏洞。</p>
+<h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示“d41d8cd98f00b204e9800998ecf8427ed41d8cd98f00b204e9800998ecf8427e”<br>刚好64位，是md5加密，解密后为：[空密码]/[Empty String]。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>根据这个题目的意思，首先扫描一下目录，发现只有index.php。<br>试一下能不能直接访问bak文件。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>加.bak。<br>edge里会打开，chorome会下载。<br>内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">/**</span><br><span class="line"> * Created by PhpStorm.</span><br><span class="line"> * User: Norse</span><br><span class="line"> * Date: 2017/8/6</span><br><span class="line"> * Time: 20:22</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">include_once &quot;flag.php&quot;;</span><br><span class="line">ini_set(&quot;display_errors&quot;, 0);</span><br><span class="line">$str = strstr($_SERVER[&apos;REQUEST_URI&apos;], &apos;?&apos;); //寻找？首次出现的地址，$_SERVER[&apos;REQUEST_URI&apos;]就是URL，然后找get变量。</span><br><span class="line">$str = substr($str,1); //从起始下标截取，就是除去问号</span><br><span class="line">$str = str_replace(&apos;key&apos;,&apos;&apos;,$str); 把key去掉。（因此想办法编码）</span><br><span class="line">parse_str($str); //把字符串分解为变量，有点像有个东西，一下子记不起来了</span><br><span class="line">echo md5($key1);</span><br><span class="line"></span><br><span class="line">echo md5($key2);</span><br><span class="line">if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123; //还要不等，迷惑</span><br><span class="line">    echo $flag.&quot;取得flag&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>利用”kekeyy”绕过对key的频率。<br>然后md5函数不能处理数组，返回null。<br>还有一个==比较漏洞，md5加密值为0e开头的话会被认为是科学计数法。<br><img src="/img/bk19-1.png" alt="bk19-1"></p>
+<p>选择第一种。<br>URL输入：123.206.87.240:8002/web16/index.php?kekeyy1[]=1&amp;kekeyy2[]=2<br>得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>文件包含漏洞</strong></li>
+<li><strong>备份文件</strong></li>
+<li><strong>md5()</strong></li>
+<li><strong>==比较漏洞</strong></li>
+<li><strong>str_replace绕过</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-md三种组态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -276,7 +364,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="共射基本放大电路"><a href="#共射基本放大电路" class="headerlink" title="共射基本放大电路"></a>共射基本放大电路</h1><p>有两种，一种是固定偏置，一种是分压偏置。（区别就是有没有$R_{b2}$）</p>
+        <h1 id="共射基本放大电路——-集极放大器"><a href="#共射基本放大电路——-集极放大器" class="headerlink" title="共射基本放大电路—— 集极放大器"></a>共射基本放大电路—— 集极放大器</h1><p>输入：基极 输出：集极</p>
+<p>有两种，一种是固定偏置，一种是分压偏置。（区别就是有没有$R_{b2}$）</p>
+<h2 id="固定偏置"><a href="#固定偏置" class="headerlink" title="固定偏置"></a>固定偏置</h2><p>$A_u=-\frac{βR’<em>L}}{r</em>{be}}$ <strong>反向放大</strong><br>$R_i=R_b//r_{be}$<br>$R_o=R_c$</p>
+<h2 id="分压偏置"><a href="#分压偏置" class="headerlink" title="分压偏置"></a>分压偏置</h2><p>$A_u=-\frac{βR’<em>L}}{r</em>{be}}$ <strong>反向放大</strong><br>$R_i=R_{b1}//R_{b2}//r_{be}$<br>$R_o=R_c$</p>
+<p>进一步探究——旁路电容$C_e$对电压放大倍数的影响和静态工作点稳定原理。<br>1.主要是有无的问题，去掉旁路电容，$R_e$要被包含于$U_i$里，$U_i$增大，放大倍数减小。因此，添加旁路电容是为了增大放大倍数。<br>2.T↑→$I_c$↑（书第46页，穿透电流增强）→$I_e$↑（jjshoot）→$U_E$↑（这个等于射极电流乘射极电阻）→$U_{BE}$↓→$I_B$↓→$I_C$↓</p>
+<hr>
+<h1 id="共集基本放大电路——-射集跟随器"><a href="#共集基本放大电路——-射集跟随器" class="headerlink" title="共集基本放大电路—— 射集跟随器"></a>共集基本放大电路—— 射集跟随器</h1><p>输入：基极 输出：射极</p>
+<p>$A_u=-\frac{(1+β)R’<em>L}}{r</em>{be}+(1+β)R’<em>L}$ <strong>正向放大</strong><br>$R_i=R</em>{b}//r_{be}+(1+β)R’L$<br>$R_o=\frac{R_s//R_b+r_{be}}{1+β}//R_e$</p>
 
       
 
@@ -1119,93 +1214,6 @@
 
 
   
-    <article id="post-bk13-web4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/01/bk13-web4/">Bugku 2019/10/1 web4</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/01/bk13-web4/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一段文字“看看源代码？”<br>一个输入框，一个写着提交的按钮。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不用说也要看源代码。<br>看到form向index.php用post传递参数。<br>输入框的名字叫flag，应该是检验flag对错的。<br>输入1，看看反应。<br>说“再好好看看”。<br>根据之前的经验，就是检验flag对错。<br>html代码里有一段script。<br>是escape加密。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>eval里的代码看起来没有执行。我们直接输出，看看效果是什么。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;title&gt;BKCTF-WEB4&lt;/title&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var p1 = &apos;%66%75%6e%63%74%69%6f%6e%20%63%68%65%63%6b%53%75%62%6d%69%74%28%29%7b%76%61%72%20%61%3d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%70%61%73%73%77%6f%72%64%22%29%3b%69%66%28%22%75%6e%64%65%66%69%6e%65%64%22%21%3d%74%79%70%65%6f%66%20%61%29%7b%69%66%28%22%36%37%64%37%30%39%62%32%62&apos;;</span><br><span class="line">var p2 = &apos;%61%61%36%34%38%63%66%36%65%38%37%61%37%31%31%34%66%31%22%3d%3d%61%2e%76%61%6c%75%65%29%72%65%74%75%72%6e%21%30%3b%61%6c%65%72%74%28%22%45%72%72%6f%72%22%29%3b%61%2e%66%6f%63%75%73%28%29%3b%72%65%74%75%72%6e%21%31%7d%7d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%6c%65%76%65%6c%51%75%65%73%74%22%29%2e%6f%6e%73%75%62%6d%69%74%3d%63%68%65%63%6b%53%75%62%6d%69%74%3b&apos;;</span><br><span class="line">eval(document.write(unescape(p1) + unescape(&apos;%35%34%61%61%32&apos; + p2)));</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>结果得到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function checkSubmit()&#123;var a=document.getElementById(&quot;password&quot;);if(&quot;undefined&quot;!=typeof a)&#123;if(&quot;67d709b2b54aa2aa648cf6e87a7114f1&quot;==a.value)return!0;alert(&quot;Error&quot;);a.focus();return!1&#125;&#125;document.getElementById(&quot;levelQuest&quot;).onsubmit=checkSubmit;</span><br></pre></td></tr></table></figure>
-
-<p>这是定义了一个checkSubmit的函数。<br>当a被赋值时，如果a的值是67d709b2b54aa2aa648cf6e87a7114f1时可能会发生一些事情，checkSubmit返回。<br>猜测a就是输入框里的东西。<br>输入以上字符串，返回结果即为flag。<br>很遗憾这个不是检验flag对错，而是用密文获取正确flag，思路里的猜想并不对。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>eval()</strong></li>
-<li><strong>unescape</strong></li>
-<li><strong>JSP基础知识</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/01/bk13-web4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
@@ -1328,15 +1336,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
