@@ -148,6 +148,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk15-点击一百万次" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/03/bk15-点击一百万次/">Bugku 2019/10/3 点击一百万次</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/03/bk15-点击一百万次/" class="archive-article-date">
+  	<time datetime="2019-10-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。<br>jQuery中#可作为id选择器。<br><img src="/img/bk15-1.png" alt="bk15-1"><br><a href="https://www.w3school.com.cn/jquery/jquery_selectors.asp" target="_blank" rel="noopener">W3C参考</a></p>
+<h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示着点击曲奇饼增加点击数的界面。<br>html里的js源码是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var clicks=0</span><br><span class="line">    $(</span><br><span class="line">	function() </span><br><span class="line">	&#123;</span><br><span class="line">      $(&quot;#cookie&quot;)</span><br><span class="line">		.mousedown</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;350px&apos;).height(&apos;350px&apos;);//控制形状变小</span><br><span class="line">			&#125;</span><br><span class="line">		)</span><br><span class="line">        .mouseup</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;375px&apos;).height(&apos;375px&apos;);//恢复原来的形状</span><br><span class="line">				clicks++;//增加点击数</span><br><span class="line">				$(&quot;#clickcount&quot;).text(clicks);//id为clickcont的html标签的文本改为点击数</span><br><span class="line">				if(clicks &gt;= 1000000)//如果这个点击数大于等于1000000了</span><br><span class="line">				&#123;</span><br><span class="line">					var form = $(&apos;&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&apos; +&apos;&lt;input type=&quot;text&quot; name=&quot;clicks&quot; value=&quot;&apos; + clicks + &apos;&quot; hidden/&gt;&apos; + &apos;&lt;/form&gt;&apos;);//声明一个叫form的变量，是一串字符串。</span><br><span class="line">					//就是一个表单，以post方式，传递名为clicks的表单值，然后输入框被隐藏，值是一个字符串。</span><br><span class="line">					$(&apos;body&apos;).append(form);//在html的body标签里追加子元素form。</span><br><span class="line">					form.submit();//提交表单值</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		);</span><br><span class="line">    &#125;</span><br><span class="line">	);</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/bk15-2.png" alt="bk15-2"><br>关于form.submit，就是把js里的表单给提交了。<br><img src="/img/bk15-3.png" alt="bk15-3"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们不用js代码，直接传递clicks值。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>用hackbar提交post值，注意不要加空格。<br>然后就出现flag了。</p>
+<p>也可以直接在bp里改变request method。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>jquery阅读</strong></li>
+<li>post值提交</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/03/bk15-点击一百万次/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk14-输入密码查看flag" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -905,87 +990,6 @@
 
 
   
-    <article id="post-bk7-host" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/25/bk7-host/">Bugku 2019/9/25 host</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/25/bk7-host/" class="archive-article-date">
-  	<time datetime="2019-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>其实没有题目页面，就是有个题目。<br>然后内容是：“听说把 flag.baidu.com 解析到123.206.87.240 就能拿到flag”</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>第一次做且不懂hosts肯定无法理解什么意思。<br>所以我查了writeup，才知道是要添加到hosts文件里。<br>至于题目背后的原理，我还是不太清楚。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>找到系统的hosts文件。<br>然后另起一行输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123.206.87.240 flag.baidu.com</span><br></pre></td></tr></table></figure>
-
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>hosts设置</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/25/bk7-host/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1104,15 +1108,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
