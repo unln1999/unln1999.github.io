@@ -148,6 +148,248 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-14MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/11/14MySQL/">Bugku 2019/10/11 MySQL简易教程</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/11/14MySQL/" class="archive-article-date">
+  	<time datetime="2019-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="开始本教程前置条件"><a href="#开始本教程前置条件" class="headerlink" title="开始本教程前置条件"></a>开始本教程前置条件</h1><p>掌握一定的html、php知识。</p>
+<h1 id="关于MySQL"><a href="#关于MySQL" class="headerlink" title="关于MySQL"></a>关于MySQL</h1><p>MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，这样可以提高访问速度。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/11/14MySQL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk23-前女友" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/11/bk23-前女友/">Bugku 2019/10/11 前女友</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/11/bk23-前女友/" class="archive-article-date">
+  	<time datetime="2019-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一段话。</p>
+<blockquote>
+</blockquote>
+<p>分手了，纠结再三我没有拉黑她，原因无它，放不下。<br>终于那天，竟然真的等来了她的消息：“在吗？”<br>我神色平静，但颤抖的双手却显示出我此刻的激动。“怎么了？有事要我帮忙？”<br>“怎么，没事就不能联系了吗？”结尾处调皮表情，是多么的陌生和熟悉……<br>“帮我看看这个…”说着，她发来一个链接。<br>不忍心拂她的意就点开了链接，看着屏幕我的心久久不能平静，往事一幕幕涌上心头……<br>。。。。。。<br>“我到底做错了什么，要给我看这个！”<br>“还记得你曾经说过。。。。。。。。”<br>PHP是世界上最好的语言</p>
+<blockquote>
+</blockquote>
+<p>源码里也就是普通的html。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先扫一下目录。<br>只有index.php。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>仔细查看源码，链接两个字是可以点击的。<br>出现了index的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(isset($_GET[&apos;v1&apos;]) &amp;&amp; isset($_GET[&apos;v2&apos;]) &amp;&amp; isset($_GET[&apos;v3&apos;])) //v1、v2、v3都要在get里传递。</span><br><span class="line">&#123;</span><br><span class="line">    $v1 = $_GET[&apos;v1&apos;];//赋值</span><br><span class="line">    $v2 = $_GET[&apos;v2&apos;];//赋值</span><br><span class="line">    $v3 = $_GET[&apos;v3&apos;];//赋值</span><br><span class="line">	</span><br><span class="line">    if($v1 != $v2 &amp;&amp; md5($v1) == md5($v2)) //如果 v1不等于v2 且v1和v2 md5值相等则执行，这里使用数组</span><br><span class="line">	&#123; </span><br><span class="line">        if(!strcmp($v3, $flag)) //相等时返回0，小于时返回负数。这里也使用数组</span><br><span class="line">		&#123;</span><br><span class="line">            echo $flag;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>URL：<a href="http://123.206.31.85:49162/?v1[]=1&amp;v2[]=2&amp;v3[]=3" target="_blank" rel="noopener">http://123.206.31.85:49162/?v1[]=1&amp;v2[]=2&amp;v3[]=3</a><br>得到flag。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/11/bk23-前女友/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk22-cookie欺骗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/">Bugku 2019/10/10 cookies欺骗</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/" class="archive-article-date">
+  	<time datetime="2019-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现一堆字母，而且不是base64加密。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始url为：http://123.206.87.240:8002/web11/<br>实际页面的url为：http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=<br>后面的filename是base64加密，意思是keys.txt<br>line参数是行号，文件名都用base64加密。<br>现在试着读取index.php。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>编写python脚本，服务器不返回内容。<br>因此改用intruder来简化过程。<br>最终得到index.php为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0);</span><br><span class="line">$file=base64_decode(isset($_GET[&apos;filename&apos;])?$_GET[&apos;filename&apos;]:&quot;&quot;);</span><br><span class="line">$line=isset($_GET[&apos;line&apos;])?intval($_GET[&apos;line&apos;]):0;</span><br><span class="line">if($file==&apos;&apos;) header(&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;);</span><br><span class="line">$file_list = array(</span><br><span class="line">&apos;0&apos; =&gt;&apos;keys.txt&apos;,</span><br><span class="line">&apos;1&apos; =&gt;&apos;index.php&apos;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">if(isset($_COOKIE[&apos;margin&apos;]) &amp;&amp; $_COOKIE[&apos;margin&apos;]==&apos;margin&apos;)&#123;</span><br><span class="line">$file_list[2]=&apos;keys.php&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(in_array($file, $file_list))&#123;</span><br><span class="line">$fa = file($file);</span><br><span class="line">echo $fa[$line];</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>整理一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0); //关闭错误报告</span><br><span class="line">$file=base64_decode(isset($_GET[&apos;filename&apos;])?$_GET[&apos;filename&apos;]:&quot;&quot;);//解码filename get值。</span><br><span class="line">$line=isset($_GET[&apos;line&apos;])?intval($_GET[&apos;line&apos;]):0; //获得line值</span><br><span class="line"></span><br><span class="line">if($file==&apos;&apos;)</span><br><span class="line">	header(&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;); //如果file没有设置，url重定位到初始界面。</span><br><span class="line">	</span><br><span class="line">$file_list = array(&apos;0&apos; =&gt;&apos;keys.txt&apos;,&apos;1&apos; =&gt;&apos;index.php&apos;,); //一个数组</span><br><span class="line"></span><br><span class="line">if(isset($_COOKIE[&apos;margin&apos;]) &amp;&amp; $_COOKIE[&apos;margin&apos;]==&apos;margin&apos;) //当cookie margin存在且值为margin时</span><br><span class="line">&#123;</span><br><span class="line">	$file_list[2]=&apos;keys.php&apos;; //改变数组值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(in_array($file, $file_list)) //当file在数组里时</span><br><span class="line">&#123; </span><br><span class="line">	$fa = file($file); //读取文件</span><br><span class="line">	echo $fa[$line]; //输出文件第几行</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改cookie值，并使得filename变量为keys.php的base64值。line就置空。<br>确认操作无误后，发现页面是空的。<br>查看源码，flag就在其中。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk21-never give up" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -802,449 +1044,6 @@
 
 
   
-    <article id="post-bk17-速度要快" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/05/bk17-速度要快/">Bugku 2019/10/5 速度要快</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/05/bk17-速度要快/" class="archive-article-date">
-  	<time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>提示你要速度要快。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>查看源码，说让你用post方法传递一个叫margin的量。<br>它的值是多少呢？<br>如果随便给个值，返回结果是”我都说了让你快点。。。”<br>接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。<br>把这个值作为margin的值。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>写一个快速反弹post的python脚本，内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">import base64</span><br><span class="line">s = requests.session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/web6/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">#第一种</span><br><span class="line">#flag = r.headers[&apos;flag&apos;]</span><br><span class="line">#flag = base64.b64decode(flag)</span><br><span class="line">#flag = flag.decode()</span><br><span class="line">#flag = base64.b64decode(flag.split(&quot;:&quot;)[1])</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line">#第二种</span><br><span class="line">#flag = re.search(r&quot;6LeR55qE6L\+Y5LiN6ZSZ77yM57uZ5L2gZmxhZ\+WQpzogT\w&#123;10&#125;=&quot;,str(r.headers))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#flag = re.search(r&quot;\w&#123;7&#125;[\w =]&quot;,str(flag))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/web6/&quot;,data)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
-
-<p>有两种方式去解密margin的值，第一种是网上常规的，第二种是我用正则表达式写的。<br>在powershell里运行py文件（使用的时候选择一种方法去掉语句的注释）。<br>即可得到flag。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>base64库</strong></li>
-<li><strong>base64多次加密</strong></li>
-<li>requests库</li>
-<li>基于python的快速反弹</li>
-<li>正则表达式</li>
-<li><strong>split方法</strong></li>
-<li>decode</li>
-<li>html响应头</li>
-</ol>
-<p>做了两道快速反弹post的题之后也可以意识到，提交post值还可以用py脚本。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/05/bk17-速度要快/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-13编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/04/13编码/">编码和加密</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/04/13编码/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h1><h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>统一码，为每种语言中的每个字符设定了统一并且唯一的二进制编码。它把所有语言都统一到一套编码里。其通常用两个字节表示一个字符。<br>UTF是Unicode Transfomation Format，是Unicode字符集转换格式。<br>UTF-16都是用两个字节表示，UTF-8可以用一个字节、两个字节和最多三个字节。 UTF-32<br>下面引用一段文字：</p>
-<blockquote>
-<p>Unicode 做的跟国人GBK做的类似。但是格局更大。 GBK是收录了绝大部分汉字，部分阿拉伯符号，部分俄文，部分希腊字母等等。<br>Unicode收录的是全世界所有的文字和符号。 Unicode和ASC2兼容，但是与GB2312,GBK都不兼容。<br>所以世界上所有的符号都能用两个字节来表示。<br>这时候，中国人开心了，英文国家的人就不开心了。本来他们用asc2好好的，每个字符用一个字节表示，现在得用两个字节表示，这将占用带宽和硬盘呢。<br>于是他们基于Unicode发明了 UTF-8编码。<br>UTF-8是这样做的：</p>
-<ol>
-<li>单字节的字符，字节的第一位设为0，对于英语文本，UTF-8码只占用一个字节，和ASCII码完全相同；</li>
-<li>n个字节的字符(n&gt;1)，第一个字节的前n位设为1，第n+1位设为0，后面字节的前两位都设为10，这n个字节的其余空位填充该字符unicode码，高位用0补足。这样就形成了如下的UTF-8标记位：<br>0xxxxxxx<br>110xxxxx 10xxxxxx<br>1110xxxx 10xxxxxx 10xxxxxx<br>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx<br>111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx<br>1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx<br>… …</li>
-</ol>
-<p>这样，UTF-8存储英文时只用占用一个字节了。省！<br>接下来说说 UTF-16，<br>UTF-16没啥好说的，就是所有字符用两个字节，16位来表示。（但是要分大端对其还是小端对其）<br>UTF-16就是把Unicode码搬过来，简单无脑，只是会多费点空间。</p>
-</blockquote>
-<p>源于<a href="https://blog.csdn.net/qq_34471305/article/details/83301883" target="_blank" rel="noopener">这里</a></p>
-<h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><p>url编码是一种浏览器用来打包表单输入的格式，其实url编码就是一个字符ascii码的十六进制。</p>
-<h2 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h2><p>一种被<strong>广泛</strong>使用的m密码散列函数，可以被破解。因为md5普遍、稳定、快速，所以它仍然用于普通数据的加密保护领域。<br>MD5算法还可以作为一种电子签名的方法来使用，使用 MD5算法就可以为任何文件（不管其大小、格式、数量）产生一个独一无二的“数字指纹”，借助这个“数字指纹”，通过检查文件前后MD5值是否发生了改变，就可以知道源文件是否被改动。<br>MD5加密后通常为16位或32位，16 位实际上是从 32 位字符串中，取中间的第 9 位到第 24 位的部分。</p>
-<h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p>Base64是字面意思，它基于64个可打印字符来表示二进制数据。<br>Base64要求把每三个8Bit的字节转换为四个6Bit的字节（3*8 = 4*6 = 24），然后把6Bit再添两位高位0，组成四个8Bit的字节，也就是说，转换后的字符串理论上将要比原来的长$\frac{1}{3}$。<br><img src="/img/13-1.png" alt="13-1"><br>$2^6=64$,这样刚好可以表示6Bit。<br>属于转义密文，然后会增加长度，便于破解。</p>
-<h1 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h1><h2 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密"></a>RSA加密</h2><p>Ron Rivest、Adi Shamir、Leonard Adleman提出。<br>对极大整数做因数分解的难度决定了RSA算法的可靠性。换言之，对一极大整数做因数分解愈困难，RSA算法愈可靠。<br>今天只有短的RSA钥匙才可能被强力方式解破。<br>它通常是先生成一对RSA 密钥，其中之一是保密密钥，由用户保存；另一个为公开密钥，可对外公开，甚至可在网络服务器中注册。为提高保密强度，RSA密钥至少为500位长，一般推荐使用1024位。<br><img src="/img/13-2.png" alt="13-2"><br>加密、解密密钥不同。是非对称加密。</p>
-<h2 id="des加密"><a href="#des加密" class="headerlink" title="des加密"></a>des加密</h2><p>des是对称加密，加密解密使用同样的密钥。对称与否说的是信息发送方和接收方对于密码上的地位。<br><img src="/img/13-3.png" alt="13-3"><br>类似于转义密文，就是移位和逻辑运算的多次迭代（16次），因此只要知道密钥就很好求解，否则由于多次迭代就难以破解。<br>破解方法是暴力猜解密钥，其安全性会随着计算机的发展而逐渐减弱。但仍有一定强度。<br>密文开头是”U2FsdGVkX1”,可以有密钥也可以无密钥。    </p>
-<h2 id="古典密码（以下部分大部分为引用，源于这里）"><a href="#古典密码（以下部分大部分为引用，源于这里）" class="headerlink" title="古典密码（以下部分大部分为引用，源于这里）"></a>古典密码（以下部分大部分为引用，源于<a href="https://blog.csdn.net/qq_34206560/article/details/83242664" target="_blank" rel="noopener">这里</a>）</h2><p><strong>重要的会标红</strong><br>【字母表顺序】-数字<br>　　加密的时候，经常要把A~Z这26个字母转换成数字，最常见的一种方法就是取字母表中的数字序号。A代表1，B代表2，C代表3… </p>
-<p>　　字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　数字 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 </p>
-<p>【进制转换密码】<br>　　例如二进制：1110 10101 1101 10 101 10010 1111 1110 101<br>　　转为十进制：14 21 13 2 5 18 15 14 5<br>　　对应字母表：number </p>
-<p>【Mod算法】<br>　　我们可以对字母序号进行数学运算，然后把所得的结果作为密文。当运算结果大于26或小于1的时候，<br>　　我们希望把这个数值转为1~26的范围，那么取这个数除以26的余数即可。<br>　　Mod就是求余数的运算符，有时也用“%”表示。例如 29 Mod 26 = 3，或写成 29 % 26 = 3，意思是29除以26的余数是3。 </p>
-<p>【倒序】<br>　　加密时为经常要对字符进行倒序处理。如果让你按abcdef…的顺序背出字母表的每个字母会很容易，<br>　　但是如果是zyxwvu…的顺序那就很难背出来了。一个很熟悉的单词，如果按相反的顺序拼写，可能就会感到很陌生。 </p>
-<p>　　例如“love”字母倒过来拼就是“evol”。 </p>
-<p>　　具体加密时倒序有很多种方案，需要灵活运用。例如： </p>
-<p>　　每个单词的倒序：siht si a tset - this is a test<br>　　整句的倒序：tset a si siht - this is a test<br>　　数字的倒序：02 50 91 02 - 20 05 19 20(test) </p>
-<p>【间隔】<br>　　单词之间的间隔一般使用空格。在加密时常常要去掉空格，但有时某些字母或数字来替代空格也不失为一种好的加密方案。<br>　　错误空格位置也会起到很强的误导作用。 </p>
-<p>　　例如：t hi sis at est - this is a test </p>
-<p><font color="red">【字母频率】</font><br>　　频率分析法可以有效的破解单字母替换密码。 </p>
-<p>　　关于词频问题的密码，我在这里提供英文字母的出现频率给大家，其中数字全部是出现的百分比：<br>　　a 8.2 b 1.5 c 2.8 d 4.3<br>　　e 12.7 f 2.2 g 2.0 h 6.1<br>　　i 7.0 j 0.2 k 0.8 l 4.0<br>　　m 2.4 n 6.7 o 7.5 p 1.9<br>　　q 0.1 r 6.0 s 6.3 t 9.1<br>　　u 2.8 v 1.0 w 2.4 x 0.2<br>　　y 2.0 z 0.1 </p>
-<p>　　词频法其实就是计算各个字母在文章中的出现频率，然后大概猜测出明码表，最后验证自己的推算是否正确。<br>　　这种方法由于要统计字母出现频率，需要花费时间较长。参考《跳舞的小人》和《金甲虫》。 </p>
-<p><font color="red">【凯撒密码(Caesar Shifts, Simple Shift)】 </font></p>
-<p>　　也称凯撒移位，是最简单的加密方法之一，相传是古罗马恺撒大帝用来保护重要军情的加密系统，它是一种替代密码。 </p>
-<p>　　加密公式：密文 = (明文 + 位移数) Mod 26<br>　　解密公式：明文 = (密文 - 位移数) Mod 26 </p>
-<p>　　以《数字城堡》中的一组密码为例： </p>
-<p>　　HL FKZC VD LDS </p>
-<p>　　只需把每个字母都按字母表中的顺序依次后移一个字母即可——A变成B，B就成了C，依此类推。因此明文为： </p>
-<p>　　IM GLAD WE MET </p>
-<p>　　英文字母的移位以移25位为一个循环，移26位等于没有移位。所以可以用穷举法列出所有可能的组合。 </p>
-<p>　　例如：phhw ph diwhu wkh wrjd sduwb </p>
-<p>　　利用电脑可以方便地列出所有组合，然后从中选出有意义的话： </p>
-<p>　　qiix qi ejxiv xli xske tevxc<br>　　rjjy rj fkyjw ymj ytlf ufwyd<br>　　skkz sk glzkx znk zumg vgxze<br>　　tlla tl hmaly aol avnh whyaf<br>　　ummb um inbmz bpm bwoi xizbg<br>　　vnnc vn jocna cqn cxpj yjach<br>　　wood wo kpdob dro dyqk zkbdi<br>　　xppe xp lqepc esp ezrl alcej<br>　　yqqf yq mrfqd ftq fasm bmdfk<br>　　zrrg zr nsgre gur gbtn cnegl<br>　　assh as othsf hvs hcuo dofhm<br>　　btti bt puitg iwt idvp epgin<br>　　cuuj cu qvjuh jxu jewq fqhjo<br>　　dvvk dv rwkvi kyv kfxr grikp<br>　　ewwl ew sxlwj lzw lgys hsjlq<br>　　fxxm fx tymxk max mhzt itkmr<br>　　gyyn gy uznyl nby niau julns<br>　　hzzo hz vaozm ocz ojbv kvmot<br>　　iaap ia wbpan pda pkcw lwnpu<br>　　jbbq jb xcqbo qeb qldx mxoqv<br>　　kccr kc ydrcp rfc rmey nyprw<br>　　ldds ld zesdq sgd snfz ozqsx<br>　　meet me after the toga party &lt;-<br>　　nffu nf bgufs uif uphb qbsuz<br>　　oggv og chvgt vjg vqic rctva </p>
-<p>　　可知明文为：meet me after the toga party </p>
-<hr>
-<p><font color="red">【凯撒移位(中文版)】</font> </p>
-<p>　　就是按照中文字在Unicode编码表中的顺序进行移位，可以用来加密中文的信息。 </p>
-<p>　　例：[中文凯撒移位]<br>　　转换成Unicode编码：中文凯撒移位<br>　　移1位后成为： 丮斈凰撓秼低<br>　　转换成中文：[丮斈凰挠秼低] </p>
-<p><font color="red">【栅栏密码(The Rail-Fence Cipher)】</font> </p>
-<p>　　也称栅栏易位(Columnar Transposition)，即把将要传递的信息中的字母交替排成上下两行，<br>　　再将下面一行字母排在上面一行的后边，从而形成一段密码。栅栏密码是一种置换密码。 </p>
-<p>　　例如密文：TEOGSDYUTAENNHLNETAMSHVAED </p>
-<p>　　解密过程：先将密文分为两行 </p>
-<p>　　T E O G S D Y U T A E N N<br>　　H L N E T A M S H V A E D </p>
-<p>　　再按上下上下的顺序组合成一句话 </p>
-<p>　　THE LONGEST DAY MUST HAVE AN END. </p>
-<p>　　…………………………………………………….<br>　　<strong>加密时不一定非用两栏</strong>s，还是举《数字城堡》中的一个例子，密文为： </p>
-<p>　　PFEE SESN RETM MFHA IRWE OOIG MEEN NRMA ENET SHAS DCNS IIAA IEER BRNK FBLE LODI </p>
-<p>　　去掉空格：PFEESESNRETMMFHAIRWEOOIGMEENNRMAENETSHASDCNSIIAAIEERBRNKFBLELODI </p>
-<p>　　共64个字符，以8个字符为一栏，排列成8*8的方阵(凯撒方阵)： </p>
-<p>　　P F E E S E S N<br>　　R E T M M F H A<br>　　I R W E O O I G<br>　　M E E N N R M A<br>　　E N E T S H A S<br>　　D C N S I I A A<br>　　I E E R B R N K<br>　　F B L E L O D I </p>
-<p>　　从上向下竖着读：PRIMEDIFFERENCEBETWEENELEMENTSRESMONSIBLEFORHIROSHIMAANDNAGASAKI </p>
-<p>　　插入空格：PRIME DIFFERENCE BETWEEN ELEMENTS RESMONSIBLE FOR HIROSHIMA AND NAGASAKI (广岛和长崎的原子弹轰炸的最主要区别) </p>
-<p>　　…………………………………………………….<br>　　<strong>栅栏密码也可以用于中文，不过比较容易破解。</strong></p>
-<p>　　明文： 这是中文的栅栏密码<br>　　密文(3*3方阵)：这文栏是的密中栅码 </p>
-<p>　　由于中文用规则的栅栏比较容易破解，所以产生了一些变体，例如道家心法密籍《天仙金丹心法》中的一段加密方法。密文如下： </p>
-<p>　　○ 茫 天 ： 摹 然 月 终 为 鼎 半 是 真 灭 器 轮 假 不 但 伸 净 著 定 分 泥 万 ○ 无 ○ 光 人 经 法 一 从 尘 色 返 我 权 自 法 中 妙 大 空 照 生 屈 来 好 路 形 神 海 ○ 便 还 未 归 </p>
-<p>　　○ 茫<br>　　天 ： 摹<br>　　然 月 终 为<br>　　鼎 半 是 真 灭<br>　　器 轮 假 不 但 伸<br>　　净 著 定 分 泥 万 ○<br>　　无 ○ 光 人 经 法 一 从<br>　　尘 色 返 我 权 自 法 中 妙<br>　　大 空 照 生 屈 来 好 路 形 神<br>　　海 ○ 便 还 未 归 </p>
-<p>　　明文(从上向下竖着读)：天然鼎器净无尘，大海茫茫月半轮。著色空摹终是假，定光返照便为真。不分人我生还灭，但泥经权屈未伸。万法自来归一法，好从中路妙形神。 </p>
-<p>　　…………………………………………………….<br>　　利用电脑进行加密或解密，建议使用“列举加密”或“列举解密”，电脑会自动尝试一些正好匹配的栏位进行列举。 </p>
-<p>　　lyiroonevuclesey </p>
-<p>　　4栏：<br>　　loveyousincerely </p>
-<p>　　8栏：<br>　　lionvceeyroeulsy </p>
-<p><font color="red">【Vigenère Cipher】 </font></p>
-<p>　　由于频率分析法可以有效的破解单表替换密码，法国密码学家维吉尼亚于1586年提出一种多表替换密码，<br>　　即维吉尼亚密码，也称维热纳尔密码。维吉尼亚密码引入了“密钥”的概念，即根据密钥来决定用哪一行的密表来进行替换，<br>　　以此来对抗字频统计。 </p>
-<p>　　加密算法：例如密钥的字母为[d]，明文对应的字母[b]。根据字母表的顺序[d]=4,[b]=2，那么密文就是[d]+[b]-1=4+2-1=5=[e]，<br>　　因此加密的结果为[e]。解密即做此逆运算。 </p>
-<p>　　加密公式：密文 = (明文 + 密钥) Mod 26 - 1<br>　　解密公式：明文 = [26 + (密文 - 密钥)] Mod 26 + 1 </p>
-<p>　　也可以用查表法来进行加密：例如密钥的字母为[d]，明文对应的字母[b]，在下图的表格第一行找到字母”d”(深蓝色)，<br>　　再在左边第一列找到字母”b”(绿色)，两个字母的交叉点(b行d列)就是字母”E”，所以对应的密文字母为[e]。 </p>
-<p>　　[—————–图—————–] </p>
-<p>　　 a b c d e f g h i j k l m n o p q r s t u v w x y z<br>　　a A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　b B C D E F G H I J K L M N O P Q R S T U V W X Y Z A<br>　　c C D E F G H I J K L M N O P Q R S T U V W X Y Z A B<br>　　d D E F G H I J K L M N O P Q R S T U V W X Y Z A B C<br>　　e E F G H I J K L M N O P Q R S T U V W X Y Z A B C D<br>　　f F G H I J K L M N O P Q R S T U V W X Y Z A B C D E<br>　　g G H I J K L M N O P Q R S T U V W X Y Z A B C D E F<br>　　h H I J K L M N O P Q R S T U V W X Y Z A B C D E F G<br>　　i I J K L M N O P Q R S T U V W X Y Z A B C D E F G H<br>　　j J K L M N O P Q R S T U V W X Y Z A B C D E F G H I<br>　　k K L M N O P Q R S T U V W X Y Z A B C D E F G H I J<br>　　l L M N O P Q R S T U V W X Y Z A B C D E F G H I J K<br>　　m M N O P Q R S T U V W X Y Z A B C D E F G H I J K L<br>　　n N O P Q R S T U V W X Y Z A B C D E F G H I J K L M<br>　　o O P Q R S T U V W X Y Z A B C D E F G H I J K L M N<br>　　p P Q R S T U V W X Y Z A B C D E F G H I J K L M N O<br>　　q Q R S T U V W X Y Z A B C D E F G H I J K L M N O P<br>　　r R S T U V W X Y Z A B C D E F G H I J K L M N O P Q<br>　　s S T U V W X Y Z A B C D E F G H I J K L M N O P Q R<br>　　t T U V W X Y Z A B C D E F G H I J K L M N O P Q R S<br>　　u U V W X Y Z A B C D E F G H I J K L M N O P Q R S T<br>　　v V W X Y Z A B C D E F G H I J K L M N O P Q R S T U<br>　　w W X Y Z A B C D E F G H I J K L M N O P Q R S T U V<br>　　x X Y Z A B C D E F G H I J K L M N O P Q R S T U V W<br>　　y Y Z A B C D E F G H I J K L M N O P Q R S T U V W X<br>　　z Z A B C D E F G H I J K L M N O P Q R S T U V W X Y </p>
-<p>　　假如对如下明文加密： </p>
-<p>　　to be or not to be that is the question </p>
-<p>　　当选定“have”作为密钥时，加密过程是：密钥第一个字母为[h]，明文第一个为[t]，因此可以找到在h行t列中的字母[a]，依此类推，<br>　　得出对应关系如下： </p>
-<p>　　密钥：ha ve ha veh av eh aveh av eha vehaveha<br>　　明文：to be or not to be that is the question<br>　　密文：ao wi vr isa tj fl tcea in xoe lylsomvn </p>
-<p><font color="red">【Polybius密码(Polybius Cipher)】 </font></p>
-<p>　　也称棋盘密码，是利用波利比奥斯方阵(Polybius Square)进行加密的密码方式，产生于公元前两世纪的希腊，<br>　　相传是世界上最早的一种密码。 </p>
-<p>　　假设我们需要发送明文讯息 “Attack at once”， 用一套秘密混杂的字母表填满波利比奥斯方阵，像是这样： </p>
-<p>　　  A D F G X<br>　　A b t a l p<br>　　D d h o z k<br>　　F q f v s n<br>　　G g j c u x<br>　　X m r e w y </p>
-<p>　　i和j视为同一个字，使字母数量符合 5 × 5 格。之所以选择这五个字母，是因为它们译成摩斯密码时不容易混淆，<br>　　可以降低传输错误的机率。使用这个方格，找出明文字母在这个方格的位置，再以那个字母所在的栏名称和列名称代替这个字母。<br>　　可将该讯息转换成处理过的分解形式。 </p>
-<p>　　明文：A T T A C K A T O N C E<br>　　密文：AF AD AD AF GF DX AF AD DF FX GF XF </p>
-<p>　　A,D,F,G,X也可以用数字1,2,3,4,5来代替，这样密文就成了： </p>
-<p>　　13 12 12 13 43 25 13 12 23 35 43 53 </p>
-<hr>
-<p>【ADFGX/ADFGVX密码(ADFGX/ADFGVX Cipher)】 </p>
-<p>ADFGX<br>　　1918年，第一次世界大战将要结束时，法军截获了一份德军电报，电文中的所有单词都由A、D、F、G、X五个字母拼成，<br>　　因此被称为ADFGX密码。ADFGX密码是1918年3月由德军上校Fritz Nebel发明的，<strong>是结合了Polybius密码和置换密码的双重加密方案</strong>。<br>　　A、D、F、G、X即Polybius方阵中的前5个字母。 </p>
-<p>　　明文：A T T A C K A T O N C E<br>　　经过Polybius变换：AF AD AD AF GF DX AF AD DF FX GF XF </p>
-<p>　　下一步，利用一个移位密钥加密。假设密钥是“CARGO”，将之写在新格子的第一列。再将上一阶段的密码文一列一列写进新方格里。 </p>
-<p>　　C A R G O<br>　　<strong>_____</strong><br>　　A F A D A<br>　　D A F G F<br>　　D X A F A<br>　　D D F F X<br>　　G F X F X </p>
-<p>　　最后，密钥按照字母表顺序“ACGOR”排序，再按照此顺序依次抄下每个字母下面的整列讯息，形成新密文。如下： </p>
-<p>　　FAXDF ADDDG DGFFF AFAXX AFAFX </p>
-<p>　　在实际应用中，移位密钥通常有两打字符那么长，且分解密钥和移位密钥都是每天更换的。 </p>
-<p>ADFGVX<br>　　在1918年6月，再加入一个字V扩充。变成以6×6格共36个字符加密。这使得所有英文字母（不再将I和J视为同一个字）以及数字0到9都可混合使用。<br>　　这次增改是因为以原来的加密法发送含有大量数字的简短信息有问题。 </p>
-<p>【乘法密码(Multiplication Cipher)】 </p>
-<p>　　乘法密码也是一种简单的替代密码，与凯撒密码相似，凯撒密码用的是加法，而乘法密码用的自然是乘法。<br>　　这种方法形成的加密信息保密性比较低。 </p>
-<p>　　加密公式：密文 = (明文 * 乘数) Mod 26 </p>
-<p>　　对于乘数密码，只有当乘数与26互质时，加密之后才会有唯一的解，因此乘数只可能有如下11种的选择： </p>
-<p>　　乘数 = 3,5,7,9,11,15,17,19,21,23,25 </p>
-<p>　　仿射密码和希尔密码因为都用到了乘法，所以乘数也受到相同的局限。 </p>
-<hr>
-<p>【仿射密码(Affine Shift)】 </p>
-<p>　　仿射密码就是凯撒密码和乘法密码的结合。 </p>
-<p>　　加密公式：密文 = (明文 * 乘数 + 位移数) Mod 26 </p>
-<hr>
-<p><font color="red">【希尔密码(Hill Cipher)】 </font></p>
-<p>　　希尔密码就是矩阵乘法密码，运用基本矩阵论原理的替换密码。每个字母当作26进制数字：A=0, B=1, C=2… 一串字母当成n维向量，<br>　　跟一个n×n的密钥矩阵相乘，再将得出的结果模26。希尔密码的优点是完全隐藏了字符的频率信息，弱点是容易被已知明文攻击击破。 </p>
-<p>加密<br>　　例如：密钥矩阵<br>　　1 3<br>　　0 2 </p>
-<p>　　明文：HI THERE </p>
-<p>　　去空格，2个字母一组，根据字母表顺序换成矩阵数值如下，末尾的E为填充字元： </p>
-<p>　　HI TH ER EE<br>　　8 20 5 5<br>　　9 8 18 5 </p>
-<p>　　HI 经过矩阵运算转换为 IS，具体算法参考下面的说明： </p>
-<p>　　|1 3| 8 e1<em>8+3</em>9=35 MOD26=9 =I<br>　　|0 2| 9 e0<em>8+2</em>9=18 MOD26=18=S </p>
-<p>　　用同样的方法把“HI THERE”转换为密文“IS RPGJTJ”，注意明文中的两个E分别变为密文中的G和T。 </p>
-<p>解密<br>　　解密时，必须先算出密钥的逆矩阵，然后再根据加密的过程做逆运算。 </p>
-<p>　　逆矩阵算法公式：<br>　　|A B| = 1/(AD-BC) * | D -B|<br>　　|C D| |-C A| </p>
-<p>　　例如密钥矩阵=<br>　　|1 7|<br>　　|0 3|<br>　　AD-BC=1<em>3-0</em>7=3 3*X=1 mod26 所以 X=9<br>　　因此<br>　　|1 7| 的逆矩阵为： 9 * |3 -7|<br>　　|0 3| |0 1| </p>
-<p>　　假设密文为“FOAOESWO” </p>
-<p>　　FO AO ES WO<br>　　 6 1 5 23<br>　　15 15 19 15 </p>
-<p>　　9* |3 -7| | 6| = 9<em>(3<em>6-7</em>15)=-783 mod26 = 23=W<br>　　 |0 1| |15| = 9</em>(0<em>6+1</em>15)= 135 mod26 = 5 =E </p>
-<p>　　所以密文“FOAOESWO”的明文为“WEREDONE” </p>
-<hr>
-<p>【Playfair密码(Playfair Cipher)】 </p>
-<p>　　Playfair将明文中的双字母组合作为一个单元对待，并将这些单元转换为双字母组合。<br>　　加密后的字符出现的频率在一定程度上被均匀化。 </p>
-<p>　　5*5变换矩阵(I或J视为同一字符)： </p>
-<p>　　C I P H E<br>　　R A B D F<br>　　G K L M N<br>　　O Q S T U<br>　　V W X Y Z </p>
-<p>　　加密规则：按成对字母加密 </p>
-<p>　　相同对中的字母加分隔符(如x)<br>　　ballon -&gt; ba lx lo on<br>　　同行取右边：he-&gt;ec<br>　　同列取下边：dm-&gt;mt<br>　　其他取交叉：kt-&gt;mq od-&gt;tr </p>
-<p>　　例如：ballon -&gt; ba lx lo on -&gt; db sp gs ug </p>
-<p><font color="red">【摩斯电码】 </font></p>
-<p>　　摩斯电码(摩尔斯电码)是一种发报用的信号代码，是一种替代密码，用点(Dot)和划(Dash)的组合来表示各个英文字母或标点。 </p>
-<p>　　国际标准摩斯电码表 </p>
-<p>　　1 <em>—- A *- N -</em> [.] <em>-</em>-<em>-<br>　　2 <strong>— B -*</strong> O — [,] –<strong>–<br>　　3 *</strong>– C -</em>-* P <em>–</em> [:] —<strong>*<br>　　4 **</strong>- D -<em>* Q –</em>- [‘] <em>—-</em><br>　　5 <strong><em>** E * R *-</em> [?] **–</strong><br>　　6 -<strong><em>* F **-</em> S *</strong> [-] -<strong><em>*-<br>　　7 –</em></strong> G –* T - [()] -<em>–</em>-<br>　　8 —<em>* H **** U **- [@] *–</em>-*<br>　　9 —-* I <em>* V <strong><em>- [—] -</em></strong>-<br>　　0 —– J <em>— W <em>– 分数线 -</em></em>-</em><br>　 K -<em>- X -<strong>-<br>　 L *-</strong> Y -</em>– 终了[\r] <strong><em>-</em>-<br>　 M – Z –</strong> 始信[\n] -<em>-</em>- </p>
-<p>　　例：Hello (斜线代表字母之间的间隔)<br>　　<strong><em>*/</em>/*-</strong>/<em>-*</em>/—/ </p>
-<p>【置换密码(Transposition Cipher)】 </p>
-<h2 id="也称易位密码。"><a href="#也称易位密码。" class="headerlink" title="　　也称易位密码。 "></a>　　也称易位密码。 </h2><p>【替代密码(Monoalphabetic Substitution)】 </p>
-<p>　　也称单表替换密码。 </p>
-<p>【字母表数字 】<br>　　用1-26这些数字分别表示A-Z的字母。 </p>
-<p>　　字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　数字 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 </p>
-<p>【字母表代码】<br>　　同字母表数字，只是把10以下的数字添0补位。 </p>
-<p>　　字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　数字 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 </p>
-<p>【反字母表】<br>　　就是丹·布朗在《达·芬奇密码》一书中提到的埃特巴什码(Atbash Cipher)。它的原理是取一个字母，<br>　　指出它位于字母表正数第几位，再把它替换为从字母表倒数同样的位数后得到的字母。如：E被替换为V，N被替换为M等。 </p>
-<p>　　明码表 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　密码表 Z Y X W V U T S R Q P O N M L K J I H G F E D C B A </p>
-<p>　　明文：sophia<br>　　密文：hlksrz </p>
-<p>【随机乱序字母】<br>　　即单字母替换密码。重排密码表二十六个字母的顺序，密码表会增加到四千亿亿亿多种，<br>　　能有效的防止用筛选的方法检验所有的密码表。这种密码持续使用几个世纪，直到阿拉伯人发明了频率分析法。 </p>
-<p>　　明码表 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　密码表 Q W E R T Y U I O P A S D F G H J K L Z X C V B N M </p>
-<p>　　明文：forest<br>　　密文：gbmrst </p>
-<p>【棋盘密码】<br>　　即Polybius密码。 </p>
-<p><font color="red">【键盘密码】 </font><br>　　加密的原理同棋盘密码，只是利用了键盘作为方阵。 </p>
-<p>　　键盘的字母分布： </p>
-<p>　　~!@#$%^&amp;*()_+|<br>　　`1234567890-=\<br>　　 QWERTYUIOP{}<br>　　 qwertyuiop[]<br>　　 ASDFGHJKL:”<br>　　 asdfghjkl;’<br>　　 ZXCVBNM&lt;&gt;?<br>　　 zxcvbnm,./ </p>
-<p>　　密文：72 81 12 63 01 12 63<br>　　明文：jianpan </p>
-<p>　　低下头看看键盘就知道了，<strong>密文就是键盘上的26个字母的坐标，72即第7列第2行</strong>，第7列正好是数字键[7]的位置，往下2个就是字母[J]。<br>【键盘移位】<br>　　密文：kosm[sm<br>　　明文：jianpan </p>
-<p>　　就是键盘上的字母往右一个。例如[j]键的右面是[k]，[i]键的右面是[o]，依此类推。<br>【软键盘密码】<br>　　密文1：まはす にはつ へつ たっゃの せちなゃ ひつなゃ てなゃ ひつな ゅつ ぬす<br>　　密文2：ㄈㄘㄍ ㄋㄘㄛ ㄠㄛ ㄗㄟㄙㄕ ㄐㄧㄇㄙ ㄨㄛㄇㄙ ㄣㄇㄙ ㄨㄛㄇ ㄩㄛ ㄎㄍ<br>　　密文3：црв мрж уж езып гёлы сжлы илы сжл ьж нв<br>　　密文4：＃←☆ △←◇ 〓◇ ●◆＿→ ★◎■＿ ↑◇■＿ □■＿ ↑◇■ ￣◇ ▲☆<br>　　明文：zhe shi li yong ruan jian pan jia mi de(这是利用软键盘加密的) </p>
-<p>　　用智能ABC或微软拼音输入法，把小键盘打开，选择日本平假名字符，输入“zhe shi”就会出现“まはす にはつ”，<br>　　如果切换到俄文字符就会出现“црв мрж”……<br>【数字小键盘密码】<br>　　数字小键盘的字母分布：<br>　　7 8 9<br>　　4 5 6<br>　　1 2 3 </p>
-<p>　　密文：852 74123 741236987 74269 78974123456 7412369<br>　　明文：I L O V E U </p>
-<p>　　对照小键盘，依次打这些字母，看组成的形状就行了。<br>　　关于Alt+小键盘数字的加密方法，参看：百度/Google/网页字符。 </p>
-<p><font color="red">【手机键盘密码】</font><br>　　根据手机键盘上的数字和对应的字母进行加密。<br>　　密文：42 21 71 71 93<br>　　明文：HAPPY<br>　　“42”：4键对应的是GHI，GHI第2个就是H；“21”：2键对应的是ABC，ABC第1个就是A。<br>　　加密时往往只出现数字键，而不给出具体的字母位置，这时解密时就要列举所有可能的组合，从中选出有意义的单词来。<br>　　例如密文：42779，这时就要从 GHI ABC PQRS PQRS WXYZ 中提出有意义的字符：HAPPY<br>　　另一种方法是根据形状加密的，和数字小键盘密码相同，按照密码里的数字比划一下就划出来了。<br>　　比如密文173946，对应的明文是H，17是左边一竖，39是右边一竖，46是中间一横。 </p>
-<p>【百度/Google/网页字符】 </p>
-<p>　　下面解释一下在百度、Google搜索中文的关键词时，地址栏上出现的奇怪字符。 </p>
-<p>百度字符(GB2312)<br>　　例如在百度搜索“你好”两个字，会转到一个地址为 <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a> 的网页。 </p>
-<p>　　密文(GB码16进制)：%C4%E3%BA%C3<br>　　密文(GB码十进制)：50403 47811<br>　　明文：你好 </p>
-<p>　　百度用的是GB2312的中文编码，是16进制的。GB2312是标准的简体中文编码。“你”字的GB码为C4E3，“好”字的GB码为BAC3。<br>　　“你好”转换成十进制为50403和47811。 </p>
-<p>Google字符(URI)<br>　　例如在Google搜索“你好”两个字，会转到一个地址为 <a href="http://www.google.cn" target="_blank" rel="noopener">http://www.google.cn</a> 的网页。 </p>
-<p>　　密文(URI)：%E4%BD%A0%E5%A5%BD<br>　　明文：你好 </p>
-<p>　　URI全称Uniform Resource Identifier(通用资源标识符)。Internet可用的每种资源 - HTML文档、图像、视频片段、程序等 -<br>　　由一个通过URI进行定位。 </p>
-<p>网页编码(Unicode)<br>　　论坛里常玩的一个把戏，就是让你回帖时写一堆像天书一样的奇怪字符，而回帖之后就能看到相应的文字。 </p>
-<p>　　密文(Unicode16进制)：楼主是个天才<br>　　密文(Unicode10进制)：楼主是个天才<br>　　明文：楼主是个天才 </p>
-<p>　　这里使用的是Unicode编码(十进制)，Unicode是一种全世界范围的文字编码，网页都支持这种编码。 </p>
-<p>Alt+数字小键盘<br>　　按住Alt键，在任意文本框中，用键盘右边的数字小键盘输入55021，然后松开Alt键，这时你看到了什么？ </p>
-<p>　　用同样的方法分别输入“你好”两个字的GB代码(十进制)50403、47811，这时你将在文本框中看到这两个字。 </p>
-<p>　　注意在qq的对话框中，要使用Unicode代码(十进制)20320、22909。<br>【元音密码】<br>元音密码的原则很简单，即将五个元音字母分别标号1，2，3，4，5，然后将26个英文字母的对应表码写成如下的形式：<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z1 11 12 13  2 21 22 23  3 31 32 33 34 35  4 41 42 43 44 45  5 51 52 53 54 55然后进行加密即可。</p>
-<p>题目：45.23.2.33.1.44.45.44.3.22.23.45<br>对应上表解出明文：the last sight（最后一面）.<br>需要说明的是，元音字母因为密文中只含有1，2，3，4，5五个数字而且时常出现个位数，因此很容易破解，<br>有时候可以将1，2，3，4，5变为10，20，30，40，50等，也可变成如同棋盘密码密文的形式来对解密者进行干扰。<br>【云影密码】<br>此密码运用了1248代码，因为本人才疏学浅，尚未发现有过使用的先例，因此暂归为原创密码，若有密码界前辈认为不妥，<br>请指出此密码或类似密码的普遍使用历史并附寄一份到我站内邮箱，我将以最快速度核查并改正。由于这个密码，我和片风云影初识，为了纪念，将其命名为“云影密码”，原文请见谜题大全精华区。<br>原理很简单，有了1，2，4，8这四个简单的数字，你可以以加法表示出0-9任何一个数字，例如0=28，7=124，9=18。<br>这样，再用1-26来表示A-Z，就可以用作密码了。<br>为了不至于混乱，我个人引入了第五个数字0，来用作间隔，以避免翻译错误，所以还可以称“01248密码”。</p>
-<p>题目：12401011801180212011401804<br>第一步，分割，即124  1  118  118  212  114  18  4<br>第二步，基本翻译，例如124可以表示7，也可以表示16（但不可能是34，因为不会超过26），所以可以放在一边，翻译其他没有异议的，<br>可得：124  a  s  s  w  o  18  d<br>第三步，推测得出明文。可以推测后面的18表示r，前面的为p最合适。</p>
-<p>明文：password（密码）.(五)四位乘法密码——（密文：I Q V L N J O P X；密钥：1234）<br>自古密文的传递者最担心的就是密文和密钥同时落入敌手，这样，密码的效应也就所剩无几了，<br>所以通常会将两样东西以不同的方式在不同的时间进行传送。但是，后来有一个叫前天淫次郎的日本鬼子发明了一种加密方式，<br>这种加密方式使得即使密钥落入敌手也不会轻易暴露，一时很令敌手头疼。<br>这种加密方式的关键是密钥，简短但是实用。下面介绍其使用及破译方法：<br>首先，任意选取一个个十百位数均无零的四位数，如题目中的密钥，即1234；<br>其次，将上述四位数做平方处理，即1234×1234=1522756,取中间三位数，即227；<br>再次，用所得数字与1234相乘，即227×1234=280118，取“中间三位”（之前传递和接收密文的双方要有所约定比如遇到像280118这样的数字，<br>是取‘801’还是取‘011’），这里取801；<br>依次类推，直到所得的三位数所含数字总个数大于或等于密文的字母个数为止，即801×1234=988434，取884。<br>这样，最终得到的一组码是227801884。<br>最后，将这组码标在密文下，向前推相应的位数即可得到明文，即</p>
-<p>密文：I Q V L N J O P X<br>密钥：2 2 7 8 0 1 8 8 4<br>明文：g o o d n i g h t(Good night!)<br><font color="red">【费娜姆密码】（密码：00110110010001001100100010000010110；密钥：study）</font></p>
-<p>二战时德军使用过的一种密码，其实是利用了二进制的表示法来替代字母，有如下的表格作为基础：</p>
-<p>A 1000001 B 1000010 C 1000011 D 1000100 E 1000101 F 1000110 G 1000111 H 1001000 I 1001001 J 1001010</p>
-<p>K 1001011 L 1001100 M 1001101 N 1001110 O 1001111 P 1010000 Q 1010001 R 1010010 S 1010011 T 1010100</p>
-<p>U 1010101 V 1010110 W 1010111 X 1011000 Y 1011001 Z 1011010</p>
-<p>那么，比如我们要加密“Hello”，密钥用“study”，则以如下方式进行加密：</p>
-<p>H E L L O = 1001000 1000101 1001100 1001100 1001111<br>S T U D Y = 1010011 1010100 1010101 1000100 1011001</p>
-<p>加密原则：1+1=0，0+0=0，1+0=1</p>
-<p>于是得密文：00110110010001001100100010000010110</p>
-<p>那么解题目中的密文，需要遵循以下几个原则和步骤，</p>
-<p>1，划分，即每七个数字为一组；</p>
-<p>2，对应，找出密文每个字母对应的数字，再与上述数字对应；</p>
-<p>3，转换，遵循上述加密原则，逆用即可；</p>
-<p>4，解密，得出新的一组数字，对应字母，得出明文。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/04/13编码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk16-秋名山老司机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/">Bugku 2019/10/4 秋名山老司机</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>让你计算一个值，在2秒内，那么他怎么知道你在两秒内算好呢？<br>本题是快速反弹post请求。<br>刷新页面，算式会变，文字提示有时候会变成英文，里面有post字眼。<br>先要在python安装requests库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;pip install request</span><br></pre></td></tr></table></figure>
-
-<p>如果失败离线安装，离线包下载点<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">这里</a>,进去后搜索requests。<br>下载形如requests-2.22.0-py2.py3-none-any的文件。<br>然后中途可能还是会缺很多库……要再去下载。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>利用python的request库做快速反弹</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>安装好需要的库后，可以用如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">s = requests.Session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/qiumingshan/&quot;) #会话对象的方法,向url发送get请求</span><br><span class="line">searchobj = re.search(r&quot;(\d+[+\-*])+(\d+)&quot;,r.text)#原生正则表达式,text是对象r的属性</span><br><span class="line">d =	&#123;</span><br><span class="line">	&quot;value&quot;: eval(searchobj.group(0))</span><br><span class="line">	&#125;</span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/qiumingshan/&quot;,data = d)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
-
-<p>以下是正则表达式含义<br><img src="/img/bk16-1.png" alt="bk16-1"><br>在powershell里运行py脚本，就可以得到flag。<br>并不是每次都能成功，所以要重复几次。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>基于python的快速反弹</strong></li>
-<li><strong>requests库</strong></li>
-<li><strong>re库</strong></li>
-<li>正则表达式</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
@@ -1363,15 +1162,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1391,7 +1190,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1399,7 +1198,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
             
             <div class="clearfix"></div>

@@ -148,6 +148,246 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk10-web5（jjencode）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">Bugku 2019/9/28 web5</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/" class="archive-article-date">
+  	<time datetime="2019-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="打开题目界面"><a href="#打开题目界面" class="headerlink" title="打开题目界面"></a>打开题目界面</h2><p>显示一段文字和一个文本框和提交按钮。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>打开html代码，分区里有一堆字符，第一次看真的不知道是干啥的。<br>然后就是很正常的两个表单。<br>题目的意思是让你输入正确的flag，然后提交后会反馈给你是否正确。<br>我们先随便输点东西，看一下有没有错误反馈。<br>结果是有的，作者让你再看一下。<br>于是就研究html代码。<br>但是不知道那堆字符是干嘛的，于是去查了writeup。<br>提示中的JSPFUCK中的JSP是指java server page。这个好像也是一种加密，不太清楚到底是jjencode还是jspfuck。<br>总之，把这段字符放在控制行里，回车得到java代码。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>复制字符到浏览器console并回车。<br>得到flag，然后输入后发现不对。<br>再由题干中的字符大写启发，改为大写，则正确。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>jsp加密</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk9-头等舱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/27/bk9-头等舱/">Bugku 2019/9/27 头等舱</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/27/bk9-头等舱/" class="archive-article-date">
+  	<time datetime="2019-09-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示“什么都没有”</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>因为直接显示的内容里没有明显的线索。<br>因此看源代码。<br>发现也没有内容。<br>这时候再看更根本的HTTP响应。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>打开bp，把get请求发送到repeater里，然后go一下，接收返回来的http响应。<br>然后可以发现，响应头标里有flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>HTTP响应头标</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/27/bk9-头等舱/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk8-你必须让它停下来" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/26/bk8-你必须让它停下来/">Bugku 2019/9/26 你必须让他停下</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/26/bk8-你必须让它停下来/" class="archive-article-date">
+  	<time datetime="2019-09-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>进入后，可以看到页面一直在刷新。<br>有个图片一直在变，还有一些话，意识是，当你看到熊猫的时候，就会看到flag。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>做web题要看F12，页面一直在刷新，所以不便于看html代码。<br>因此用bp抓包，让页面刷新可控。<br>应该每个图本来都是会显示的，应该是服务器里出了什么问题，导致图片显示不出来。所以正常情况下，我们看刷新的页面，是会出现熊猫的。并且我们不能发现flag。<br>我们观察html代码。可以发现有一句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a style=&quot;display:none&quot;&gt;flag is here~&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>看到display可以猜测flag会在这个书签语句里出现，并且它会被隐藏。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>要刷新页面到出现熊猫时才会有flag。<br>因此把第一个包（连接服务器的get包，我还不太懂qaq）发送到repeater里。<br>重复获取页面。<br>最终flag会出现。<br>如果过头了的话，repeater里可以倒退。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>repeater刷新初始页面</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/26/bk8-你必须让它停下来/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk7-host" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -482,6 +722,95 @@
 
 
   
+    <article id="post-dw-热学公式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/22/dw-热学公式/">热学公式和一些细节</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/22/dw-热学公式/" class="archive-article-date">
+  	<time datetime="2019-09-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="只需要记红色的公式！"><a href="#只需要记红色的公式！" class="headerlink" title="只需要记红色的公式！"></a>只需要记<font color="red">红色</font>的公式！</h1><p><strong><font color="blue">第17章 气体动理论</font></strong></p>
+<h2 id="理想气体状态方程"><a href="#理想气体状态方程" class="headerlink" title="理想气体状态方程"></a>理想气体状态方程</h2><p><strong>N、V、P、T</strong><br>$PV=νRT$<br>$PV=NkT$<br><font color="red">$P=nkT$</font></p>
+<h2 id="理想气体压强（这个公式不记）"><a href="#理想气体压强（这个公式不记）" class="headerlink" title="理想气体压强（这个公式不记）"></a>理想气体压强（这个公式不记）</h2><p><strong>N、V、P、$\varepsilon_t$</strong><br>$P=\frac{2}{3}n\varepsilon_t$(n为单位体积分子数)<br>$PV=\frac{2}{3}N\varepsilon_t$</p>
+<h2 id="理想气体分子平均平动动能"><a href="#理想气体分子平均平动动能" class="headerlink" title="理想气体分子平均平动动能"></a>理想气体分子平均平动动能</h2><p><strong>\varepsilon_t、T</strong><br><font color="red">$\varepsilon_t=\frac{3}{2}kT$</font></p>
+<h2 id="分子总平均动能"><a href="#分子总平均动能" class="headerlink" title="分子总平均动能"></a>分子总平均动能</h2><p><font color="red">$\varepsilon_k=\frac{i}{2}kT$</font></p>
+<h2 id="气体内能"><a href="#气体内能" class="headerlink" title="气体内能"></a>气体内能</h2><p>$E=N\varepsilon_k$</p>
+<h2 id="三种速率"><a href="#三种速率" class="headerlink" title="三种速率"></a>三种速率</h2><p>$v_{rms}$是用来算平均平动动能的。<br><font color="red">$\varepsilon_t=\frac{1}{2}mv_{rms}^2</font><br>另外两个目前没用（我感觉）</p>
+<hr>
+<p>小结：本章研究气体的几个表征量。<br>微观的有：分子平均平动动能、分子平均动能【公式3】<br>宏观的有：气压、气温、分子浓度、内能<br>其中，分子平均平动动能和气温有直接关系。【公式2】<br>微观量只和气温和分子类型有关。<br>所以研究气体，最重要的是研究宏观。<br>气温、气压、气浓知二求一。【公式1】<br>然后知道方均根速率和分子平均平动动能的关系。【公式4】<br>单位体积内能只与温度和分子数有关。</p>
+<hr>
+<p><strong><font color="blue">第18章 热力学第一定律<font></font></font></strong></p>
+<h2 id="热力学第一定律"><a href="#热力学第一定律" class="headerlink" title="热力学第一定律"></a>热力学第一定律</h2><p><strong>Q、A、E</strong><br><font color="red">Q=$\DeltaE+A$</font>，主要记文字表述：<strong>系统吸热等于系统内能增量+系统对外做功</strong><br>【Q的确定依赖T】<br>【A的确定依赖PV】<br>【E的确定依赖VT】<br>热力学第一定律问题本质上是对气体宏观属性的利用。</p>
+<h2 id="准静态过程体积功"><a href="#准静态过程体积功" class="headerlink" title="准静态过程体积功"></a>准静态过程体积功</h2><p><strong>A、P、V</strong><br>$A=\int^{V_2}_{V_1}p{\rm d}v$<br>在PV图里，正向面积为系统对外做功，负向面积为外界对内做功。<br>循环过程中，顺时针是整体对外做功，逆时针是整体外界对内做功。<br><font color="red"><strong>体积功正负只和体积变化有关，体积变大一定对外做功，体积缩小一定对内做功。</strong></font></p>
+<h2 id="热容"><a href="#热容" class="headerlink" title="热容"></a>热容</h2><p>定体热容$C_{V,m}=\frac{i}{2}R$<br>定压热容$C_{P,m}=\frac{i+2}{2}R$</p>
+<h2 id="几种过程"><a href="#几种过程" class="headerlink" title="几种过程"></a>几种过程</h2><h3 id="等体过程，A-0"><a href="#等体过程，A-0" class="headerlink" title="等体过程，A=0"></a>等体过程，A=0</h3><h3 id="等压过程"><a href="#等压过程" class="headerlink" title="等压过程"></a>等压过程</h3><h3 id="等温过程，-DeltaE-0"><a href="#等温过程，-DeltaE-0" class="headerlink" title="等温过程，$\DeltaE$=0"></a>等温过程，$\DeltaE$=0</h3><h3 id="绝热过程，Q-0"><a href="#绝热过程，Q-0" class="headerlink" title="绝热过程，Q=0"></a>绝热过程，Q=0</h3><p>$PV^γ=const$,γ是比热比。<br>$A=\frac{1}{γ-1}(P_1V_1-P_2V_2)$</p>
+<h3 id="绝热自由膨胀（不是准静态过程）"><a href="#绝热自由膨胀（不是准静态过程）" class="headerlink" title="绝热自由膨胀（不是准静态过程）"></a>绝热自由膨胀（不是准静态过程）</h3><p>写不动了，回头在更新</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大物</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/22/dw-热学公式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk4-计算器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -643,347 +972,6 @@
 
 
   
-    <article id="post-dw-热学公式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/22/dw-热学公式/">热学公式和一些细节</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/22/dw-热学公式/" class="archive-article-date">
-  	<time datetime="2019-09-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="只需要记红色的公式！"><a href="#只需要记红色的公式！" class="headerlink" title="只需要记红色的公式！"></a>只需要记<font color="red">红色</font>的公式！</h1><p><strong><font color="blue">第17章 气体动理论</font></strong></p>
-<h2 id="理想气体状态方程"><a href="#理想气体状态方程" class="headerlink" title="理想气体状态方程"></a>理想气体状态方程</h2><p><strong>N、V、P、T</strong><br>$PV=νRT$<br>$PV=NkT$<br><font color="red">$P=nkT$</font></p>
-<h2 id="理想气体压强（这个公式不记）"><a href="#理想气体压强（这个公式不记）" class="headerlink" title="理想气体压强（这个公式不记）"></a>理想气体压强（这个公式不记）</h2><p><strong>N、V、P、$\varepsilon_t$</strong><br>$P=\frac{2}{3}n\varepsilon_t$(n为单位体积分子数)<br>$PV=\frac{2}{3}N\varepsilon_t$</p>
-<h2 id="理想气体分子平均平动动能"><a href="#理想气体分子平均平动动能" class="headerlink" title="理想气体分子平均平动动能"></a>理想气体分子平均平动动能</h2><p><strong>\varepsilon_t、T</strong><br><font color="red">$\varepsilon_t=\frac{3}{2}kT$</font></p>
-<h2 id="分子总平均动能"><a href="#分子总平均动能" class="headerlink" title="分子总平均动能"></a>分子总平均动能</h2><p><font color="red">$\varepsilon_k=\frac{i}{2}kT$</font></p>
-<h2 id="气体内能"><a href="#气体内能" class="headerlink" title="气体内能"></a>气体内能</h2><p>$E=N\varepsilon_k$</p>
-<h2 id="三种速率"><a href="#三种速率" class="headerlink" title="三种速率"></a>三种速率</h2><p>$v_{rms}$是用来算平均平动动能的。<br><font color="red">$\varepsilon_t=\frac{1}{2}mv_{rms}^2</font><br>另外两个目前没用（我感觉）</p>
-<hr>
-<p>小结：本章研究气体的几个表征量。<br>微观的有：分子平均平动动能、分子平均动能【公式3】<br>宏观的有：气压、气温、分子浓度、内能<br>其中，分子平均平动动能和气温有直接关系。【公式2】<br>微观量只和气温和分子类型有关。<br>所以研究气体，最重要的是研究宏观。<br>气温、气压、气浓知二求一。【公式1】<br>然后知道方均根速率和分子平均平动动能的关系。【公式4】<br>单位体积内能只与温度和分子数有关。</p>
-<hr>
-<p><strong><font color="blue">第18章 热力学第一定律<font></font></font></strong></p>
-<h2 id="热力学第一定律"><a href="#热力学第一定律" class="headerlink" title="热力学第一定律"></a>热力学第一定律</h2><p><strong>Q、A、E</strong><br><font color="red">Q=$\DeltaE+A$</font>，主要记文字表述：<strong>系统吸热等于系统内能增量+系统对外做功</strong><br>【Q的确定依赖T】<br>【A的确定依赖PV】<br>【E的确定依赖VT】<br>热力学第一定律问题本质上是对气体宏观属性的利用。</p>
-<h2 id="准静态过程体积功"><a href="#准静态过程体积功" class="headerlink" title="准静态过程体积功"></a>准静态过程体积功</h2><p><strong>A、P、V</strong><br>$A=\int^{V_2}_{V_1}p{\rm d}v$<br>在PV图里，正向面积为系统对外做功，负向面积为外界对内做功。<br>循环过程中，顺时针是整体对外做功，逆时针是整体外界对内做功。<br><font color="red"><strong>体积功正负只和体积变化有关，体积变大一定对外做功，体积缩小一定对内做功。</strong></font></p>
-<h2 id="热容"><a href="#热容" class="headerlink" title="热容"></a>热容</h2><p>定体热容$C_{V,m}=\frac{i}{2}R$<br>定压热容$C_{P,m}=\frac{i+2}{2}R$</p>
-<h2 id="几种过程"><a href="#几种过程" class="headerlink" title="几种过程"></a>几种过程</h2><h3 id="等体过程，A-0"><a href="#等体过程，A-0" class="headerlink" title="等体过程，A=0"></a>等体过程，A=0</h3><h3 id="等压过程"><a href="#等压过程" class="headerlink" title="等压过程"></a>等压过程</h3><h3 id="等温过程，-DeltaE-0"><a href="#等温过程，-DeltaE-0" class="headerlink" title="等温过程，$\DeltaE$=0"></a>等温过程，$\DeltaE$=0</h3><h3 id="绝热过程，Q-0"><a href="#绝热过程，Q-0" class="headerlink" title="绝热过程，Q=0"></a>绝热过程，Q=0</h3><p>$PV^γ=const$,γ是比热比。<br>$A=\frac{1}{γ-1}(P_1V_1-P_2V_2)$</p>
-<h3 id="绝热自由膨胀（不是准静态过程）"><a href="#绝热自由膨胀（不是准静态过程）" class="headerlink" title="绝热自由膨胀（不是准静态过程）"></a>绝热自由膨胀（不是准静态过程）</h3><p>写不动了，回头在更新</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大物</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/22/dw-热学公式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk3-web2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/21/bk3-web2/">Bugku 2019-9-21 web2</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/21/bk3-web2/" class="archive-article-date">
-  	<time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现了一堆滑稽，看起来没什么线索，但是能猜到设计者的坏心思。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>web题首先给我们的是一个页面，页面和html在某种意义上是等效的，但是并不是所有的html语言都会被浏览器显示出来。<br>因此，html代码比页面富含更多的信息（页面只不过更加具体形象）。<br>所以如果在页面找不到线索，就按F12查看一下html代码。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>打开开发者工具（F12），出现了醒目的flag。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>Html代码的查看</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/21/bk3-web2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-md2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/21/md2/">半导体二极管及其基本应用电路——模电Charpter2</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/21/md2/" class="archive-article-date">
-  	<time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>写在最最前面</strong><br>模电第一章是绪论，所以第一章不做笔记。然后本套笔记的标题为“章.节.点”，一般省略章。<br>标题主要取自哈尔滨工业大学的慕课《模拟电子技术基础》，次取自高等教育出版社的《模拟电子技术基础》。也会有自己添加标题的情况。<br>本笔记主要标记方式为加粗、下划线和红蓝字体。重点程度为，红&gt;蓝&gt;加粗，下划线是需要理解记忆（或强行记忆）的地方。<br><font color="red">本笔记不宜作为自学、系统学习的教程。主要是个人向的重点总结。</font><br>没了，好好学习！</p>
-<h1 id="1-半导体基本知识和PN结"><a href="#1-半导体基本知识和PN结" class="headerlink" title="1 半导体基本知识和PN结"></a>1 半导体基本知识和PN结</h1><h2 id="1-1-半导体基础知识"><a href="#1-1-半导体基础知识" class="headerlink" title="1.1 半导体基础知识"></a>1.1 半导体基础知识</h2><h3 id="本征半导体"><a href="#本征半导体" class="headerlink" title="本征半导体"></a>本征半导体</h3><p>光热下本征激发和复合动态平衡，产生少量载流子。</p>
-<h3 id="杂质半导体"><a href="#杂质半导体" class="headerlink" title="杂质半导体"></a>杂质半导体</h3><p>P型：多数载流子是空穴，掺入了三价原子。<br>N型：多数载流子是电子，掺入了五价原子。<br><font color="red">杂质半导体的载流子是<strong><u>自由电子和空穴</u></strong>。</font></p>
-<h2 id="1-2-PN结"><a href="#1-2-PN结" class="headerlink" title="1.2 PN结"></a>1.2 PN结</h2><h3 id="扩散运动"><a href="#扩散运动" class="headerlink" title="扩散运动"></a>扩散运动</h3><p>多子因为浓度差开始扩散，形成了<strong><u>耗尽层（空间电荷区、势垒区）</u></strong>。<br>浓度差始终存在，因此扩散始终进行。</p>
-<h3 id="漂移运动"><a href="#漂移运动" class="headerlink" title="漂移运动"></a>漂移运动</h3><p>耗尽层中，形成内电场，使得内电场中的少子开始漂移削弱内电场。<br>内电场始终存在，因此漂移始终进行。</p>
-<h3 id="动态平衡"><a href="#动态平衡" class="headerlink" title="动态平衡"></a>动态平衡</h3><p>扩散增强内电场，漂移削弱内电场，哪个作用强，哪个作用就会减弱，另一个的作用就会增强，最终达到动态平衡，内电场强度宏观上不再变化。</p>
-<h3 id="单向导电性"><a href="#单向导电性" class="headerlink" title="单向导电性"></a>单向导电性</h3><p>正向偏置导电有压降，反向偏置截止。</p>
-<h3 id="电容效应"><a href="#电容效应" class="headerlink" title="电容效应"></a>电容效应</h3><h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><h1 id="2-半导体二极管"><a href="#2-半导体二极管" class="headerlink" title="2 半导体二极管"></a>2 半导体二极管</h1><h2 id="2-1-二极管的伏安特性"><a href="#2-1-二极管的伏安特性" class="headerlink" title="2.1 二极管的伏安特性"></a>2.1 二极管的伏安特性</h2><p>硅：0.5V 0.7V<br>锗：0.1V 0.3V</p>
-<h2 id="2-2-二极管的等效模型"><a href="#2-2-二极管的等效模型" class="headerlink" title="2.2 二极管的等效模型"></a>2.2 二极管的等效模型</h2><ol>
-<li>理想模型</li>
-<li>恒压降模型</li>
-<li>折线化模型</li>
-<li>小信号模型</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模电</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/21/md2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk2-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/20/bk2-post/">Bugku 2019-9-20 web基础$_POST</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/20/bk2-post/" class="archive-article-date">
-  	<time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what=$_POST[&apos;what&apos;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what==&apos;flag&apos;)</span><br><span class="line">echo &apos;flag&#123;****&#125;&apos;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读后，知道这是php代码，意思是，用post方式从html里获取一个名为’what’的表单值赋给php的变量＄what。<br>然后页面会打印出＄what变量的值。<br>当＄what为’flag’时，还会输出flag。<br>这段代码显然不是后台实际脚本，只是一个提示。<br>根据该提示，我们提交一个＄what变量。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><p>用firefox的hackbar插件（日后写一个免费hackbar的教程）提交。<br><img src="/img/bk2-1.png" alt="bk2-1"><br>然后点击Execute就可以传递了。<br><img src="/img/bk2-2.png" alt="bk2-2"></p>
-<h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><p>打开bp，刷新页面<br><img src="/img/bk2-3.png" alt="bk2-3"><br>这段文字是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /post/ HTTP/1.1</span><br><span class="line">Host: 123.206.87.240:8002</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: close</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Cache-Control: max-age=0</span><br></pre></td></tr></table></figure>
-
-<p>（注，下面的操作也推荐在repeater里进行）<br>把第一行的GET改成POST，把前两行之外的内容全删除。<br>添加一行：Content-Type: application/x-www-form-urlencoded<font color="red">【背诵】</font><br>然后<strong>再空一行</strong>并添加一行：what=flag。如下图（必须要空一行，如箭头所示）：<br><img src="/img/bk2-4.png" alt="bk2-4"><br>注意flag后面不能有空格，因此要用delete清除后面的空格、空行。<br>然后提交包，页面显示flag。<br><img src="/img/bk2-5.png" alt="bk2-5"></p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>如何提交post变量</strong></li>
-<li><strong>php代码阅读（基础）</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/20/bk2-post/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/4/">Next &raquo;</a>
@@ -1102,15 +1090,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1130,7 +1118,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,7 +1126,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
             
             <div class="clearfix"></div>
