@@ -148,6 +148,166 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-md三种组态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/07/md三种组态/">放大电路的三种组态</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/07/md三种组态/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="共射基本放大电路——-集极放大器"><a href="#共射基本放大电路——-集极放大器" class="headerlink" title="共射基本放大电路—— 集极放大器"></a>共射基本放大电路—— 集极放大器</h1><p>输入：基极 输出：集极</p>
+<p>有两种，一种是固定偏置，一种是分压偏置。（区别就是有没有$R_{b2}$）</p>
+<h2 id="固定偏置"><a href="#固定偏置" class="headerlink" title="固定偏置"></a>固定偏置</h2><p>$A_u=-\frac{βR’<em>L}}{r</em>{be}}$ <strong>反向放大</strong><br>$R_i=R_b//r_{be}$<br>$R_o=R_c$</p>
+<h2 id="分压偏置"><a href="#分压偏置" class="headerlink" title="分压偏置"></a>分压偏置</h2><p>$A_u=-\frac{βR’<em>L}}{r</em>{be}}$ <strong>反向放大</strong><br>$R_i=R_{b1}//R_{b2}//r_{be}$<br>$R_o=R_c$</p>
+<p>进一步探究——旁路电容$C_e$对电压放大倍数的影响和静态工作点稳定原理。<br>1.主要是有无的问题，去掉旁路电容，$R_e$要被包含于$U_i$里，$U_i$增大，放大倍数减小。因此，添加旁路电容是为了增大放大倍数。<br>2.T↑→$I_c$↑（书第46页，穿透电流增强）→$I_e$↑（jjshoot）→$U_E$↑（这个等于射极电流乘射极电阻）→$U_{BE}$↓→$I_B$↓→$I_C$↓</p>
+<hr>
+<h1 id="共集基本放大电路——-射集跟随器"><a href="#共集基本放大电路——-射集跟随器" class="headerlink" title="共集基本放大电路—— 射集跟随器"></a>共集基本放大电路—— 射集跟随器</h1><p>输入：基极 输出：射极</p>
+<p>$A_u=-\frac{(1+β)R’<em>L}}{r</em>{be}+(1+β)R’<em>L}$ <strong>正向放大</strong><br>$R_i=R</em>{b}//r_{be}+(1+β)R’L$<br>$R_o=\frac{R_s//R_b+r_{be}}{1+β}//R_e$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模电</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/md三种组态/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk18-flag在index里" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/06/bk18-flag在index里/">Bugku 2019/10/6 flag在index里</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/06/bk18-flag在index里/" class="archive-article-date">
+  	<time datetime="2019-10-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>只有一个链接，<br>点击之后显示test5.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>点击后的url里有file字眼，存在文件包含漏洞。<br>这里要用到“file=php://filter/read=convert.base64-encode/resource=index.php”<br>它传递了file关键字的get参数，php://是一种协议名称，php://filter/则是一种访问本地文件的协议，convert.base64-encode将内容编码以免执行。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>传递file参数为：<br>file=php://filter/read=convert.base64-encode/resource=index.php<br>回车得到base64编码后的index.php【划重点，我回车之后就无法访问了，不知道为啥】<br>解码得到falg。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>php://协议</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/06/bk18-flag在index里/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-md放大电路分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1030,189 +1190,6 @@
 
 
   
-    <article id="post-12正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/29/12正则表达式/">正则表达式</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/29/12正则表达式/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.cnblogs.com/zery/p/3438845.html" target="_blank" rel="noopener">参考网址</a><br>挑了部分来讲，全部写清还是有点困难。以实用为主。</p>
-<h1 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h1><p>正则表达式是一种特殊的字符串模式，用于匹配一组字符串，定义一种规则去匹配符合规则的字符。</p>
-<h1 id="常用的正则表达式工具"><a href="#常用的正则表达式工具" class="headerlink" title="常用的正则表达式工具"></a>常用的正则表达式工具</h1><p>可以使用<a href="https://pan.baidu.com/s/19Yn49" target="_blank" rel="noopener">McTracer</a></p>
-<h1 id="正则字符简介"><a href="#正则字符简介" class="headerlink" title="正则字符简介"></a>正则字符简介</h1><h2 id="元字符介绍"><a href="#元字符介绍" class="headerlink" title="元字符介绍"></a>元字符介绍</h2><p>^ 匹配行或字符串的起始位置<br>$ 匹配行或字符串的结尾<br>\b 不消耗字符、匹配一个位置（blank）<br>\d 匹配数字（digit）<br>\w 匹配字母、数字、下划线（word）<br>\s 匹配空格<br>. 匹配除了换行符的任意字符<br>[abc] 字符组，匹配括号内的所有字符<br>字母类的大写取反义，字符组加^取反义。</p>
-<h2 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h2><p>贪婪*：重复0次或更多<br>占有+：重复1次或更多<br>懒惰？：重复零次或一次<br>{n}：重复n次<br>{n，m}：重复n到m次<br>{n，}：重复n次或更多</p>
-<h2 id="懒惰限定符"><a href="#懒惰限定符" class="headerlink" title="懒惰限定符"></a>懒惰限定符</h2><p>尽可能少重复。</p>
-<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><h2 id="捕获分组"><a href="#捕获分组" class="headerlink" title="捕获分组"></a>捕获分组</h2><p>利用数字来对（）括号内的捕获内容进行分组。<br>加入?<name>可以对分组命名。<br>(?=exp)匹配exp前面的内容<br>(?&lt;=exp)匹配exp后面的内容</name></p>
-<h1 id="感觉还有不少内容没有涵盖进去，先这样吧-2019-9-29-20-33"><a href="#感觉还有不少内容没有涵盖进去，先这样吧-2019-9-29-20-33" class="headerlink" title="感觉还有不少内容没有涵盖进去，先这样吧 2019/9/29 20:33"></a>感觉还有不少内容没有涵盖进去，先这样吧 2019/9/29 20:33</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/29/12正则表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/29/JS/">JavaScript基础</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/29/JS/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h1><p>JavaScript 是可插入HTML页面的编程代码。<br>它可以做到以下的事：</p>
-<ul>
-<li>直接写入html输出流（document.write）</li>
-<li>对事件的反应（通过button）</li>
-<li>改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容）</li>
-<li>改变html图像（通过element.src来改变图像的source）</li>
-<li>改变html样式</li>
-<li>验证输入</li>
-</ul>
-<h1 id="JSP用法"><a href="#JSP用法" class="headerlink" title="JSP用法"></a>JSP用法</h1><p>必须位于script标签之间。<br>既可放在body也可放在head里。<br>还可以将JavaScript保存在外部文件里。</p>
-<h1 id="JSP输出"><a href="#JSP输出" class="headerlink" title="JSP输出"></a>JSP输出</h1><ol>
-<li>window.alert()</li>
-<li>document.write()</li>
-<li>使用innerHTML写入html元素中。</li>
-<li>console.log写入浏览器的控制台中。</li>
-</ol>
-<h1 id="JSP语法"><a href="#JSP语法" class="headerlink" title="JSP语法"></a>JSP语法</h1><p>//是注释，也可以用/**/<br>语句用;作结<br>JSP对大小写敏感。<br>其它和别的编程语言差不多。</p>
-<h1 id="JSP语句"><a href="#JSP语句" class="headerlink" title="JSP语句"></a>JSP语句</h1><p>和C差不多</p>
-<h1 id="JSP变量"><a href="#JSP变量" class="headerlink" title="JSP变量"></a>JSP变量</h1><p>加var来声明。<br>是弱类型的。<br>可以声明多个变量。还可以跨行。<br>重新声明，值不会改变。</p>
-<h1 id="JSP数据类型"><a href="#JSP数据类型" class="headerlink" title="JSP数据类型"></a>JSP数据类型</h1><p>字符串、数字、布尔值、null、undefined、Symbol。<br>数据具有动态类型，可以通过赋值而改变数据类型。<br>JSP数组和C有一定区别。<br>JSP对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔。<br>可以用关键字new来声明变量类型。</p>
-<h1 id="JSP对象"><a href="#JSP对象" class="headerlink" title="JSP对象"></a>JSP对象</h1><p>对象是拥有属性和方法的数据。<br><img src="/img/js-1.png" alt="js-1"><br>在 JavaScript 中，对象是非常重要的，当你理解了对象，就可以了解 JavaScript 。<br>对象的方法定义了一个函数。</p>
-<h1 id="JSP函数"><a href="#JSP函数" class="headerlink" title="JSP函数"></a>JSP函数</h1><p>函数内的都是局部变量，函数内的都是局部变量，函数外的是全局变量。</p>
-<h1 id="JSP作用域"><a href="#JSP作用域" class="headerlink" title="JSP作用域"></a>JSP作用域</h1><p>作用域是可访问变量的集合。</p>
-<h1 id="JSP事件"><a href="#JSP事件" class="headerlink" title="JSP事件"></a>JSP事件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;some-HTML-element some-event=&quot;JavaScript 代码&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/js-2.png" alt="js-2"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/29/JS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1331,10 +1308,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -1347,15 +1320,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
