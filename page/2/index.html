@@ -148,6 +148,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk19-备份是个好习惯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/">Bugku 2019/10/7 备份是个好习惯</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文件包含漏洞：一些服务器脚本的函数会引入本地文件、远程文件，如果没有经过合理的校验，可能会操作预想之外的文件，导致文件泄露、代码注入等情况。<br>涉及的函数有：include()、include_once()、require()、require_once()。<br>当动态地包含文件时会产生文件包含漏洞。</p>
+<h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示“d41d8cd98f00b204e9800998ecf8427ed41d8cd98f00b204e9800998ecf8427e”<br>刚好64位，是md5加密，解密后为：[空密码]/[Empty String]。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>根据这个题目的意思，首先扫描一下目录，发现只有index.php。<br>试一下能不能直接访问bak文件。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>加.bak。<br>edge里会打开，chorome会下载。<br>内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">/**</span><br><span class="line"> * Created by PhpStorm.</span><br><span class="line"> * User: Norse</span><br><span class="line"> * Date: 2017/8/6</span><br><span class="line"> * Time: 20:22</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">include_once &quot;flag.php&quot;;</span><br><span class="line">ini_set(&quot;display_errors&quot;, 0);</span><br><span class="line">$str = strstr($_SERVER[&apos;REQUEST_URI&apos;], &apos;?&apos;); //寻找？首次出现的地址，$_SERVER[&apos;REQUEST_URI&apos;]就是URL，然后找get变量。</span><br><span class="line">$str = substr($str,1); //从起始下标截取，就是除去问号</span><br><span class="line">$str = str_replace(&apos;key&apos;,&apos;&apos;,$str); 把key去掉。（因此想办法编码）</span><br><span class="line">parse_str($str); //把字符串分解为变量，有点像有个东西，一下子记不起来了</span><br><span class="line">echo md5($key1);</span><br><span class="line"></span><br><span class="line">echo md5($key2);</span><br><span class="line">if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123; //还要不等，迷惑</span><br><span class="line">    echo $flag.&quot;取得flag&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>利用”kekeyy”绕过对key的频率。<br>然后md5函数不能处理数组，返回null。<br>还有一个==比较漏洞，md5加密值为0e开头的话会被认为是科学计数法。    </p>
+<p>选择第一种。<br>URL输入：123.206.87.240:8002/web16/index.php?kekeyy1[]=1&amp;kekeyy2[]=2<br>得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>文件包含漏洞</strong></li>
+<li><strong>备份文件</strong></li>
+<li><strong>md5()</strong></li>
+<li><strong>==比较漏洞</strong></li>
+<li><strong>str_replace绕过</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-md三种组态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1105,91 +1193,6 @@
 
 
   
-    <article id="post-bk12-管理员系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/30/bk12-管理员系统/">Bugku 2019/9/30 管理员系统</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/30/bk12-管理员系统/" class="archive-article-date">
-  	<time datetime="2019-09-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>可以看到一个管理员系统的登录页面，有Username、Password还有提交、重置按钮。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一般来说管理员账号是admin、root、administrator等。<br>这里的密码看起来需要暴力破解，但其实不然，在源代码里可以发现一行被注释的玩意儿。<br>试着解密。【是base64加密】<br>然后登录。<br>登录后发现提示“IP禁止访问，请联系本地管理员登陆，IP已被记录. ”<br>意思就是本机IP不允许登录。<br>因此想到修改HTTP请求包，加入X-Forwarded-For头字段（大小写没有严格要求，但一般来说头字段里每个单词首字母大写）。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>html代码里获得：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- dGVzdDEyMw== --&gt;</span><br></pre></td></tr></table></figure>
-
-<p>利用base64解码得：“test123”。<br>猜测这是密码。然后尝试用户名为admin。<br>第一次尝试登录失败。<br>没有那么简单。<br>伪造真实IP为本地IP127.0.0.1。<br><img src="/img/bk12-1.png" alt="bk12-1"><br>登录成功。<br><img src="/img/bk12-2.png" alt="bk12-2"><br>回头我又试了一下root作为用户名。<br>返回结果为：<br><img src="/img/bk12-3.png" alt="bk12-3"><br>使用administrator和输错密码也是同样的结果。</p>
-<p>虽然做出来了，我们用BP找一下用户名。<br>用“去生日最小字典”（我个人感觉蛮实用的字典）暴力破解用户名。<br>实际上在intruder里就可以得到flag。<br><img src="/img/bk12-4.png" alt="bk12-4"></p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>base64加密</strong></li>
-<li><strong>伪造真实IP</strong></li>
-<li>bp暴力破解</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/30/bk12-管理员系统/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1308,11 +1311,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,10 +1328,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1345,6 +1344,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>

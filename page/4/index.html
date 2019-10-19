@@ -148,6 +148,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk5-矛盾" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/23/bk5-矛盾/">Bugku 2019-9-23 矛盾</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/23/bk5-矛盾/" class="archive-article-date">
+  	<time datetime="2019-09-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>给出了文本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$num=$_GET[&apos;num&apos;];</span><br><span class="line">if(!is_numeric($num))</span><br><span class="line">&#123;</span><br><span class="line">echo $num;</span><br><span class="line">if($num==1)</span><br><span class="line">echo &apos;flag&#123;**********&#125;&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然是php代码。<br>和SQL注入类似，我们提交的表单值也可以进行注入。<br>首先明确我们输出flag的前提。</p>
+<ul>
+<li>＄num不是数</li>
+<li>＄num后加==1是一个真值<br>＄num不是一个数，那它可以是字符串。<br>逻辑表达式为真可以嵌套or和and。<br>所以我们用一个含“==1”的字符串来作为真值。</li>
+</ul>
+<h2 id="writup"><a href="#writup" class="headerlink" title="writup"></a>writup</h2><p>取＄num为’1 or 1’，这个是随便想的一个。<br>1 or 1==1布尔值为真。<br>然后在url里提交，就可以得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>代码注入思想</strong></li>
+<li>如何提交get变量</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/23/bk5-矛盾/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk4-计算器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -917,89 +1003,6 @@
 
 
   
-    <article id="post-9linux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/18/9linux基础/">Linux小笔记——文件权限、用户权限</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/18/9linux基础/" class="archive-article-date">
-  	<time datetime="2019-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Linux用户对文件的权限"><a href="#Linux用户对文件的权限" class="headerlink" title="Linux用户对文件的权限"></a>Linux用户对文件的权限</h2><p>主要有三种，读、写、执行。<br>分别是r、w、x。<br>也就是read、write、execute。</p>
-<h2 id="Linux用户关于文件权限的三个命令"><a href="#Linux用户关于文件权限的三个命令" class="headerlink" title="Linux用户关于文件权限的三个命令"></a>Linux用户关于文件权限的三个命令</h2><p>分别是ls、chmod、chown。</p>
-<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>下面我挑了几个我个人觉得有用的选项<br>-a 显示隐藏的文件（试了一下，-A好像和-a差不多，就是少了.和..）<br>-l 单列显示，并且很详细<br>-F 在文件名后显示类型标识符<br>-b 用编码显示不可输出的字符<br>-d 仅显示目录名<br>-k 以KB显示文件大小（感觉没啥用）<br>-m 加逗号分隔文件和目录<br>-r 反向排序<br>-s size，也是显示大小<br>-t time，按更改时间排序<br>-R 递归处理（在目录里继续lS）</p>
-<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><p><strong>字母模式</strong><br>chomod [ugoa][+-=][rexX]</p>
-<p>-R 递归<br>-f 抑制失败错误信息<br><strong>数字模式</strong><br>ugo各一个数字<br>r1w2x4</p>
-<p>比如715<br>u的权限是rwx<br>g的权限是r<br>o的权限是rx</p>
-<h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><p>chomod id:idgroup</p>
-<h2 id="给用户sudo权限"><a href="#给用户sudo权限" class="headerlink" title="给用户sudo权限"></a>给用户sudo权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br><span class="line">(输入密码)</span><br><span class="line"># vim /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-<p>然后找到“root ALL=(ALL)ALL”这一行，然后再下一行添加：<br>“你要赋予权限的用户名 ALL=（ALL）ALL”<br>比如“zhanhan ALL=(ALL)ALL”</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/18/9linux基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/page/3/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/5/">Next &raquo;</a>
@@ -1118,11 +1121,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,10 +1138,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1155,6 +1154,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>
