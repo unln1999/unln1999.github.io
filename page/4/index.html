@@ -148,6 +148,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk6-web3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/24/bk6-web3/">Bugku 2019-9-24 web3</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/24/bk6-web3/" class="archive-article-date">
+  	<time datetime="2019-09-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现了一些列弹窗。说flag就在这里。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>点击几次弹窗，发现还在弹。考虑无限弹窗的可能性，直接不管弹窗，打开开发者工具（F12）。<br>阅读代码，发现一段被注释的HTML特殊字母编码，猜测这是flag。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>把这个特殊编码写入一个html文档里，直接打开，会译为字符串。<br>结果就是flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>html注释</strong></li>
+<li><strong>html特殊字母编码</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/24/bk6-web3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-md3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -915,91 +995,9 @@
 
 
   
-    <article id="post-bk1-get" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/19/bk1-get/">Bugku 2019-9-19 web基础$_GET</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/19/bk1-get/" class="archive-article-date">
-  	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what=$_GET[&apos;what&apos;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what==&apos;flag&apos;)</span><br><span class="line">echo &apos;flag&#123;****&#125;&apos;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读后，知道这是php代码，意思是，用get方式从html里获取一个名为’what’的表单值赋给php的变量＄what。<br>然后页面会打印出＄what变量的值。<br>当＄what为’flag’时，还会输出flag。<br>这段代码显然不是后台实际脚本，只是一个提示。<br>根据该提示，我们让浏览器用get方式提交一个what变量值，这只需要通过url实现。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>直接在浏览器url后添加’?what=flag’<br>然后有：<br><img src="/img/bk1-1.png" alt="bk1-1"></p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>如何提交get变量</strong></li>
-<li><strong>php代码阅读（基础）</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/19/bk1-get/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/3/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/3/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="page-number" href="/unln1999.github.io/page/6/">6</a><a class="extend next" rel="next" href="/unln1999.github.io/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1127,10 +1125,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
@@ -1143,6 +1137,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
@@ -1151,11 +1149,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color3">电路</a>
               </li>
             
             <div class="clearfix"></div>

