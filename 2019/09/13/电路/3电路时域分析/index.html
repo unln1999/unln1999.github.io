@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="夢の此夜亭🌸">
 <meta property="og:description" content="小结1.动态元件电感电容这类其上电压电流呈导数关系的元件。 2.稳态电路量为常量或周期量的电路工作状态称为稳态。 3.换路改变电路工作状态的因素。 4.暂态动态元件吸收或释放元件的过渡过程就是暂态。 5.时域分析的思想暂态过程是一段时间，这段时间上，电路量发生改变，而这些电路量的改变可以用关于时间的函数来刻画。因此，利用电路结构方程和欧姆定律以及动态元件端口特性方程，我们可以列写以t为因变量的微分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-13T02:38:08.050Z">
+<meta property="og:updated_time" content="2019-10-27T07:19:23.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时域分析">
 <meta name="twitter:description" content="小结1.动态元件电感电容这类其上电压电流呈导数关系的元件。 2.稳态电路量为常量或周期量的电路工作状态称为稳态。 3.换路改变电路工作状态的因素。 4.暂态动态元件吸收或释放元件的过渡过程就是暂态。 5.时域分析的思想暂态过程是一段时间，这段时间上，电路量发生改变，而这些电路量的改变可以用关于时间的函数来刻画。因此，利用电路结构方程和欧姆定律以及动态元件端口特性方程，我们可以列写以t为因变量的微分">
@@ -181,7 +181,7 @@
 <h3 id="10-一阶电路的阶跃响应"><a href="#10-一阶电路的阶跃响应" class="headerlink" title="10.一阶电路的阶跃响应"></a>10.一阶电路的阶跃响应</h3><p>我们讨论的阶跃响应是零状态响应。<br>我们列出的微分方程为一阶非齐次微分方程。</p>
 <h4 id="特解"><a href="#特解" class="headerlink" title="特解"></a>特解</h4><p>特解是稳态分量</p>
 <h4 id="齐次方程通解"><a href="#齐次方程通解" class="headerlink" title="齐次方程通解"></a>齐次方程通解</h4><p>$u_C=-Ae^{\frac{t}{RC}}$<br>齐次方程通解是暂态分量</p>
-<h4 id="通解"><a href="#通解" class="headerlink" title="通解"></a>通解</h4><p>$U_C=U_S(1-e^{\frac{t}{RC}})\varepsilon(t)$<br>$i_C=\frac{U_S}{R}e^{\frac{t}{RC}}$</p>
+<h4 id="通解"><a href="#通解" class="headerlink" title="通解"></a>通解</h4><p>$U_C=U_S(1-e^{\frac{t}{RC}})\varepsilon(t)$<br>$i_C=\frac{U_C}{R}e^{\frac{t}{RC}}$</p>
 <h4 id="单位阶跃特性"><a href="#单位阶跃特性" class="headerlink" title="单位阶跃特性"></a>单位阶跃特性</h4><p>$s(t)=\frac{u_C(t)}{U_S}=(1-e^{\frac{t}{RC}})\varepsilon(t)$</p>
 <p>所以通解为$U_Ss(t)$</p>
 <h3 id="11-一阶电路的冲激响应"><a href="#11-一阶电路的冲激响应" class="headerlink" title="11.一阶电路的冲激响应"></a>11.一阶电路的冲激响应</h3><p>设$u_S$是宽度为$\Delta\xi$，幅度为$\Psi/\Delta\xi$的矩形脉冲电压。<br>拆解为两个幅度为$\Psi/\Delta\xi$的阶跃电压的叠加。<br>$u_S=u_S’+u_S’’=\frac{\Psi}{\Delta\xi}(\varepsilon(t)-\varepsilon(t-\Delta\xi)$<br>再用阶跃特性计算响应。<br>有：$u_C=\frac{\Psi}{\Delta\xi}(s(t)-s(t-\Delta\xi))$<br>又因为$\Delta\xi$趋于0，所以，$u_C=\Psi\frac{ds(t)}{dt}$<br>$u_C=Ue^{\frac{t}{\tau}\varepsilon(t)}<br>$i_C=$[Q\delta(t)-\frac{U}{R}]e^{\frac{t}{\tau}}$<br>冲激响应的初始值不适用于换路定律，因为是奇异函数。<br>类似于零输入响应</p>
@@ -302,11 +302,11 @@
   
 <nav id="article-nav">
   
-    <a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          LAMP环境安装【web系列3】
+          Ubuntu18.04.3安装流程【web系列2】
         
       </div>
     </a>
@@ -464,11 +464,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +484,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
