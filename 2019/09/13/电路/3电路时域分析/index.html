@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="夢の此夜亭🌸">
 <meta property="og:description" content="小结1.动态元件电感电容这类其上电压电流呈导数关系的元件。 2.稳态电路量为常量或周期量的电路工作状态称为稳态。 3.换路改变电路工作状态的因素。 4.暂态动态元件吸收或释放元件的过渡过程就是暂态。 5.时域分析的思想暂态过程是一段时间，这段时间上，电路量发生改变，而这些电路量的改变可以用关于时间的函数来刻画。因此，利用电路结构方程和欧姆定律以及动态元件端口特性方程，我们可以列写以t为因变量的微分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-27T07:19:23.278Z">
+<meta property="og:updated_time" content="2019-10-27T12:09:14.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时域分析">
 <meta name="twitter:description" content="小结1.动态元件电感电容这类其上电压电流呈导数关系的元件。 2.稳态电路量为常量或周期量的电路工作状态称为稳态。 3.换路改变电路工作状态的因素。 4.暂态动态元件吸收或释放元件的过渡过程就是暂态。 5.时域分析的思想暂态过程是一段时间，这段时间上，电路量发生改变，而这些电路量的改变可以用关于时间的函数来刻画。因此，利用电路结构方程和欧姆定律以及动态元件端口特性方程，我们可以列写以t为因变量的微分">
@@ -188,6 +188,7 @@
 <h4 id="单位冲激特性"><a href="#单位冲激特性" class="headerlink" title="单位冲激特性"></a>单位冲激特性</h4><p><font color="red">$h(t)=\frac{ds(t)}{dt}$</font></p>
 <h3 id="12-正弦电源作用下的一阶电路"><a href="#12-正弦电源作用下的一阶电路" class="headerlink" title="12.正弦电源作用下的一阶电路"></a>12.正弦电源作用下的一阶电路</h3><p>$u_S=U_mcos(\omegat+\Psi_u)$<br>$\Psi_u$是开关接通时刻电源的相位，称为接入相角。<br>首先确定稳态解，直接把正弦电压向量除以阻抗就好了。<br>然后求齐次方程通解，为$Ae^{-\frac{t}{\tau}}$，A是积分常数。<br>接下来利用初始值确定积分常数，A为特解在0+时的负值。<br>【当$\Psi_u-\phi=\frac{\pi}{2}或-\frac{\pi}{2}时没有暂态$】<br>【当$\Psi_u-\phi=\pi或-\pi，会产生较大响应，电气设备要注意防范。$】</p>
 <h3 id="13-一阶电路的全响应"><a href="#13-一阶电路的全响应" class="headerlink" title="13.一阶电路的全响应"></a>13.一阶电路的全响应</h3><p>一阶电路的全响应可以分为零输入响应和零状态响应。</p>
+<h3 id="14-卷积积分求暂态响应"><a href="#14-卷积积分求暂态响应" class="headerlink" title="14.卷积积分求暂态响应"></a>14.卷积积分求暂态响应</h3><h3 id="15-二阶电路的暂态过程"><a href="#15-二阶电路的暂态过程" class="headerlink" title="15.二阶电路的暂态过程"></a>15.二阶电路的暂态过程</h3><p>有特征方程：<br>$α=-\frac{1}{2t}$ t就是tao<br>$ω=\frac{1}{sqrt{LC}}$<br>①α大，过阻尼，非震荡<br>②α小，欠阻尼，震荡<br>③α=ω，临界，非震荡</p>
 
       
 
@@ -302,11 +303,11 @@
   
 <nav id="article-nav">
   
-    <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Ubuntu18.04.3安装流程【web系列2】
+          LAMP环境安装【web系列3】
         
       </div>
     </a>
@@ -460,10 +461,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
@@ -472,15 +469,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">

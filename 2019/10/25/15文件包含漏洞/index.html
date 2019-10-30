@@ -8,18 +8,23 @@
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
   <title>php文件包含漏洞 | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="直接从DVWA源码开始看起： Low123456&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;apos; ]; ?&amp;gt;  Medium12345678910&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;apos; ]; //">
+  <meta name="description" content="本地包含条件：  allow_url_fopen=On  用户可以动态控制变量  远程包含条件：  allow_url_include=On 用户可以动态控制变量  通过url随便输入一个文件可能获取目录绝对地址。 直接从DVWA源码开始看起： Low123456&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;ap">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php文件包含漏洞">
 <meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/10/25/15文件包含漏洞/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="直接从DVWA源码开始看起： Low123456&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;apos; ]; ?&amp;gt;  Medium12345678910&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;apos; ]; //">
+<meta property="og:description" content="本地包含条件：  allow_url_fopen=On  用户可以动态控制变量  远程包含条件：  allow_url_include=On 用户可以动态控制变量  通过url随便输入一个文件可能获取目录绝对地址。 直接从DVWA源码开始看起： Low123456&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;ap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-25T12:17:36.670Z">
+<meta property="og:image" content="https://unln1999.github.io/img/15-1.png">
+<meta property="og:image" content="https://unln1999.github.io/img/15-2.png">
+<meta property="og:image" content="https://unln1999.github.io/img/15-3.png">
+<meta property="og:image" content="https://unln1999.github.io/img/15-4.png">
+<meta property="og:updated_time" content="2019-10-30T13:09:08.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php文件包含漏洞">
-<meta name="twitter:description" content="直接从DVWA源码开始看起： Low123456&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;apos; ]; ?&amp;gt;  Medium12345678910&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;apos; ]; //">
+<meta name="twitter:description" content="本地包含条件：  allow_url_fopen=On  用户可以动态控制变量  远程包含条件：  allow_url_include=On 用户可以动态控制变量  通过url随便输入一个文件可能获取目录绝对地址。 直接从DVWA源码开始看起： Low123456&amp;lt;?php // The page we wish to display $file = $_GET[ &amp;apos;page&amp;ap">
+<meta name="twitter:image" content="https://unln1999.github.io/img/15-1.png">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -168,12 +173,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>直接从DVWA源码开始看起：</p>
+        <p>本地包含条件：</p>
+<ol>
+<li>allow_url_fopen=On </li>
+<li>用户可以动态控制变量</li>
+</ol>
+<p>远程包含条件：</p>
+<ol>
+<li>allow_url_include=On</li>
+<li>用户可以动态控制变量</li>
+</ol>
+<p>通过url随便输入一个文件可能获取目录绝对地址。</p>
+<p>直接从DVWA源码开始看起：</p>
 <h2 id="Low"><a href="#Low" class="headerlink" title="Low"></a>Low</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
+<p>直接包含即可。<br>本地包含：<br><img src="/img/15-1.png" alt="15-1"><br>远程包含：<br><img src="/img/15-2.png" alt="15-2"></p>
 <h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">// Input validation </span><br><span class="line">$file = str_replace( array( &quot;http://&quot;, &quot;https://&quot; ), &quot;&quot;, $file ); </span><br><span class="line">$file = str_replace( array( &quot;../&quot;, &quot;..\&quot;&quot; ), &quot;&quot;, $file ); </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="High"><a href="#High" class="headerlink" title="High"></a>High</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">// Input validation </span><br><span class="line">if( !fnmatch( &quot;file*&quot;, $file ) &amp;&amp; $file != &quot;include.php&quot; ) &#123; </span><br><span class="line">    // This isn&apos;t the page we want! </span><br><span class="line">    echo &quot;ERROR: File not found!&quot;; </span><br><span class="line">    exit; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>想要过滤远程包含和防止目录倒退，但是用str_replace可以用双写绕过</p>
+<h2 id="High"><a href="#High" class="headerlink" title="High"></a>High</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// The page we wish to display </span><br><span class="line">$file = $_GET[ &apos;page&apos; ]; </span><br><span class="line"></span><br><span class="line">// Input validation </span><br><span class="line">if( !fnmatch( &quot;file*&quot;, $file ) &amp;&amp; $file != &quot;include.php&quot; ) &#123;  //如果文件不是file后加若干字符的话同时也不是include.php</span><br><span class="line">    // This isn&apos;t the page we want! </span><br><span class="line">    echo &quot;ERROR: File not found!&quot;; </span><br><span class="line">    exit; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>限制了报错和file的内容。<br>可以使用file协议进行本地文件包含。<br>随便输一个文件可以暴露绝对地址。<br><img src="/img/15-3.png" alt="15-3"><br>有点像这样，红色箭头指向的是地址。<br><img src="/img/15-4.png" alt="15-4"></p>
+
       
 
       
@@ -286,6 +307,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/unln1999.github.io/2019/10/27/电路/复频域分析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          复频域分析
+        
+      </div>
+    </a>
   
   
     <a href="/unln1999.github.io/2019/10/19/buu1-随便注/" id="article-nav-older" class="article-nav-link-wrap">
@@ -436,10 +466,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
@@ -448,15 +474,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
