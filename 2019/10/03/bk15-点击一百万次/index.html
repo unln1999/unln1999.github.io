@@ -87,12 +87,12 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="weibo" target="_blank" href="https://weibo.com/R11road" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://weibo.com/R11road" title="weibo" rel="external nofollow noopener noreferrer"><i class="icon-weibo"></i></a>
 		        
 			</div>
 			<div style="position:absolute; bottom:120px left:auto;width:85%">
-			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=86 src="//music.163.com/outchain/player?type=2&id=535056564&auto=1&height=66"></iframe>
-			<img src="/img/petalage.jpg" alt="这是我喜欢的人写给我的！！！" align="middle"/>
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="260" height="86" src="//music.163.com/outchain/player?type=2&id=535056564&auto=1&height=66"></iframe>
+			<img src="/img/petalage.jpg" alt="这是我喜欢的人写给我的！！！" align="middle">
 			</div>
 		</nav>
 		<script type="text/javascript">
@@ -129,7 +129,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="weibo" target="_blank" href="https://weibo.com/R11road" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://weibo.com/R11road" title="weibo" rel="external nofollow noopener noreferrer"><i class="icon-weibo"></i></a>
 			        
 				</div>
 			</nav>
@@ -150,7 +150,7 @@
       <div id="wrapper" class="body-wrap">
         <div class="menu-l">
           <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+            <canvas data-colors="#eaeaea" data-sectionheight="100" data-contentid="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
             <article id="post-bk15-点击一百万次" class="article article-type-post " itemscope itemprop="blogPost">
@@ -173,7 +173,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。<br>jQuery中#可作为id选择器。<br><img src="/img/bk15-1.png" alt="bk15-1"><br><a href="https://www.w3school.com.cn/jquery/jquery_selectors.asp" target="_blank" rel="noopener">W3C参考</a></p>
+        <p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。<br>jQuery中#可作为id选择器。<br><img src="/img/bk15-1.png" alt="bk15-1"><br><a href="https://www.w3school.com.cn/jquery/jquery_selectors.asp" rel="external nofollow noopener noreferrer" target="_blank">W3C参考</a></p>
 <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示着点击曲奇饼增加点击数的界面。<br>html里的js源码是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var clicks=0</span><br><span class="line">    $(</span><br><span class="line">	function() </span><br><span class="line">	&#123;</span><br><span class="line">      $(&quot;#cookie&quot;)</span><br><span class="line">		.mousedown</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;350px&apos;).height(&apos;350px&apos;);//控制形状变小</span><br><span class="line">			&#125;</span><br><span class="line">		)</span><br><span class="line">        .mouseup</span><br><span class="line">		(</span><br><span class="line">			function()</span><br><span class="line">			&#123;</span><br><span class="line">				$(this).width(&apos;375px&apos;).height(&apos;375px&apos;);//恢复原来的形状</span><br><span class="line">				clicks++;//增加点击数</span><br><span class="line">				$(&quot;#clickcount&quot;).text(clicks);//id为clickcont的html标签的文本改为点击数</span><br><span class="line">				if(clicks &gt;= 1000000)//如果这个点击数大于等于1000000了</span><br><span class="line">				&#123;</span><br><span class="line">					var form = $(&apos;&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&apos; +&apos;&lt;input type=&quot;text&quot; name=&quot;clicks&quot; value=&quot;&apos; + clicks + &apos;&quot; hidden/&gt;&apos; + &apos;&lt;/form&gt;&apos;);//声明一个叫form的变量，是一串字符串。</span><br><span class="line">					//就是一个表单，以post方式，传递名为clicks的表单值，然后输入框被隐藏，值是一个字符串。</span><br><span class="line">					$(&apos;body&apos;).append(form);//在html的body标签里追加子元素form。</span><br><span class="line">					form.submit();//提交表单值</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		);</span><br><span class="line">    &#125;</span><br><span class="line">	);</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -356,7 +356,7 @@
     		&copy; 2019 Petalage
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow noopener noreferrer">Yilia</a> by Litten
       	</div>
     </div>
   </div>
@@ -473,19 +473,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,7 +505,7 @@ MathJax.Hub.Queue(function() {
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -549,15 +549,15 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://www.xctf.org.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>XCTF社区</a>
+              <a href="https://www.xctf.org.cn/" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>XCTF社区</a>
             </li>
           
             <li class="search-li">
-              <a href="https://ctf.bugku.com/challenges" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>BugKu题库</a>
+              <a href="https://ctf.bugku.com/challenges" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>BugKu题库</a>
             </li>
           
             <li class="search-li">
-              <a href="https://moeyu.moe" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>夜樱·散花</a>
+              <a href="https://moeyu.moe" target="_blank" class="search-title" rel="external nofollow noopener noreferrer"><i class="icon-quo-left icon"></i>夜樱·散花</a>
             </li>
           
         </ul>
@@ -643,4 +643,3 @@ MathJax.Hub.Queue(function() {
 </div>
   </div>
 </body>
-</html>
