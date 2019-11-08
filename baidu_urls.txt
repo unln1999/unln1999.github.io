@@ -54,8 +54,8 @@ https://unln1999.github.io/unln1999.github.io/2019/09/18/9linux基础/
 https://unln1999.github.io/unln1999.github.io/2019/09/16/8/
 https://unln1999.github.io/unln1999.github.io/2019/09/16/7.换源/
 https://unln1999.github.io/unln1999.github.io/2019/09/15/5ubuntu安装/
-https://unln1999.github.io/unln1999.github.io/2019/09/15/6.LAMP环境安装/
 https://unln1999.github.io/unln1999.github.io/2019/09/15/4centos安装/
+https://unln1999.github.io/unln1999.github.io/2019/09/15/6.LAMP环境安装/
 https://unln1999.github.io/unln1999.github.io/2019/09/13/电路/3电路时域分析/
 https://unln1999.github.io/unln1999.github.io/2019/09/12/1建立博客/
 https://unln1999.github.io/unln1999.github.io/2019/09/01/2SQLlow/
