@@ -148,6 +148,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk22-cookie欺骗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/">Bugku 2019/10/10 cookies欺骗</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/" class="archive-article-date">
+  	<time datetime="2019-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现一堆字母，而且不是base64加密。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始url为：http://123.206.87.240:8002/web11/<br>实际页面的url为：http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=<br>后面的filename是base64加密，意思是keys.txt<br>line参数是行号，文件名都用base64加密。<br>现在试着读取index.php。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>编写python脚本，服务器不返回内容。<br>因此改用intruder来简化过程。<br>最终得到index.php为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0);</span><br><span class="line">$file=base64_decode(isset($_GET[&apos;filename&apos;])?$_GET[&apos;filename&apos;]:&quot;&quot;);</span><br><span class="line">$line=isset($_GET[&apos;line&apos;])?intval($_GET[&apos;line&apos;]):0;</span><br><span class="line">if($file==&apos;&apos;) header(&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;);</span><br><span class="line">$file_list = array(</span><br><span class="line">&apos;0&apos; =&gt;&apos;keys.txt&apos;,</span><br><span class="line">&apos;1&apos; =&gt;&apos;index.php&apos;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">if(isset($_COOKIE[&apos;margin&apos;]) &amp;&amp; $_COOKIE[&apos;margin&apos;]==&apos;margin&apos;)&#123;</span><br><span class="line">$file_list[2]=&apos;keys.php&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(in_array($file, $file_list))&#123;</span><br><span class="line">$fa = file($file);</span><br><span class="line">echo $fa[$line];</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>整理一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0); //关闭错误报告</span><br><span class="line">$file=base64_decode(isset($_GET[&apos;filename&apos;])?$_GET[&apos;filename&apos;]:&quot;&quot;);//解码filename get值。</span><br><span class="line">$line=isset($_GET[&apos;line&apos;])?intval($_GET[&apos;line&apos;]):0; //获得line值</span><br><span class="line"></span><br><span class="line">if($file==&apos;&apos;)</span><br><span class="line">	header(&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;); //如果file没有设置，url重定位到初始界面。</span><br><span class="line">	</span><br><span class="line">$file_list = array(&apos;0&apos; =&gt;&apos;keys.txt&apos;,&apos;1&apos; =&gt;&apos;index.php&apos;,); //一个数组</span><br><span class="line"></span><br><span class="line">if(isset($_COOKIE[&apos;margin&apos;]) &amp;&amp; $_COOKIE[&apos;margin&apos;]==&apos;margin&apos;) //当cookie margin存在且值为margin时</span><br><span class="line">&#123;</span><br><span class="line">	$file_list[2]=&apos;keys.php&apos;; //改变数组值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(in_array($file, $file_list)) //当file在数组里时</span><br><span class="line">&#123; </span><br><span class="line">	$fa = file($file); //读取文件</span><br><span class="line">	echo $fa[$line]; //输出文件第几行</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改cookie值，并使得filename变量为keys.php的base64值。line就置空。<br>确认操作无误后，发现页面是空的。<br>查看源码，flag就在其中。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk21-never give up" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1157,94 +1239,6 @@
 
 
   
-    <article id="post-bk16-秋名山老司机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/">Bugku 2019/10/4 秋名山老司机</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/" class="archive-article-date">
-  	<time datetime="2019-10-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>让你计算一个值，在2秒内，那么他怎么知道你在两秒内算好呢？<br>本题是快速反弹post请求。<br>刷新页面，算式会变，文字提示有时候会变成英文，里面有post字眼。<br>先要在python安装requests库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;pip install request</span><br></pre></td></tr></table></figure>
-
-<p>如果失败离线安装，离线包下载点<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">这里</a>,进去后搜索requests。<br>下载形如requests-2.22.0-py2.py3-none-any的文件。<br>然后中途可能还是会缺很多库……要再去下载。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>利用python的request库做快速反弹</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>安装好需要的库后，可以用如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">s = requests.Session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/qiumingshan/&quot;) #会话对象的方法,向url发送get请求</span><br><span class="line">searchobj = re.search(r&quot;(\d+[+\-*])+(\d+)&quot;,r.text)#原生正则表达式,text是对象r的属性</span><br><span class="line">d =	&#123;</span><br><span class="line">	&quot;value&quot;: eval(searchobj.group(0))</span><br><span class="line">	&#125;</span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/qiumingshan/&quot;,data = d)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
-
-<p>以下是正则表达式含义<br><img src="/img/bk16-1.png" alt="bk16-1"><br>在powershell里运行py脚本，就可以得到flag。<br>并不是每次都能成功，所以要重复几次。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>基于python的快速反弹</strong></li>
-<li><strong>requests库</strong></li>
-<li><strong>re库</strong></li>
-<li>正则表达式</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/04/bk16-秋名山老司机/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/6/">6</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1363,10 +1357,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
@@ -1375,11 +1365,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1387,11 +1377,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
