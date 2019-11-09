@@ -65,7 +65,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[bugku 2019/11/4 这只是一张单纯的图片]]></title>
+    <title><![CDATA[bugku 2019/11/4 还单纯吗？]]></title>
     <url>%2Funln1999.github.io%2F2019%2F11%2F04%2Fbk28-%E8%BF%98%E5%8D%95%E7%BA%AF%E5%90%97%2F</url>
     <content type="text"><![CDATA[进入题目页面保存图片 思路 看属性有无信息 用文本编辑器打开，看看头尾有无文件 查看EXIF信息 用Stegsolve查看各个通道 利用binwalk看是否有多个文件 是否隐写了压缩文件 writeup在binwalk目录打开powershell，然后输入： 1&gt;py .\binwalk 2.jpg的地址 得到结果 windows里分离文件可以安装foremost，下载地址，参考文章安装好后右键分离就行了，中文目录会有问题，但是不影响实际使用。结果为：falg{NSCTF_e6532a34928a3d1dadd0b049d5a3cc57}注意这里不是flag而是falg。用OCR识别再校对比较方便，使用在线工具就可以了。 知识点 binwalk的使用 foremost的使用]]></content>
       <tags>
@@ -177,19 +177,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[放大电路的三种组态]]></title>
-    <url>%2Funln1999.github.io%2F2019%2F10%2F07%2Fmd%E4%B8%89%E7%A7%8D%E7%BB%84%E6%80%81%2F</url>
-    <content type="text"><![CDATA[共射基本放大电路—— 集极放大器输入：基极 输出：集极 有两种，一种是固定偏置，一种是分压偏置。（区别就是有没有$R_{b2}$） 固定偏置$A_u=-\frac{βR’L}}{r{be}}$ 反向放大$R_i=R_b//r_{be}$$R_o=R_c$ 分压偏置$A_u=-\frac{βR’L}}{r{be}}$ 反向放大$R_i=R_{b1}//R_{b2}//r_{be}$$R_o=R_c$ 进一步探究——旁路电容$C_e$对电压放大倍数的影响和静态工作点稳定原理。1.主要是有无的问题，去掉旁路电容，$R_e$要被包含于$U_i$里，$U_i$增大，放大倍数减小。因此，添加旁路电容是为了增大放大倍数。2.T↑→$I_c$↑（书第46页，穿透电流增强）→$I_e$↑（jjshoot）→$U_E$↑（这个等于射极电流乘射极电阻）→$U_{BE}$↓→$I_B$↓→$I_C$↓ 共集基本放大电路—— 射集跟随器输入：基极 输出：射极 $A_u=-\frac{(1+β)R’L}}{r{be}+(1+β)R’L}$ 正向放大$R_i=R{b}//r_{be}+(1+β)R’L$$R_o=\frac{R_s//R_b+r_{be}}{1+β}//R_e$]]></content>
-      <tags>
-        <tag>模电</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Bugku 2019/10/7 备份是个好习惯]]></title>
     <url>%2Funln1999.github.io%2F2019%2F10%2F07%2Fbk19-%E5%A4%87%E4%BB%BD%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B9%A0%E6%83%AF%2F</url>
     <content type="text"><![CDATA[文件包含漏洞：一些服务器脚本的函数会引入本地文件、远程文件，如果没有经过合理的校验，可能会操作预想之外的文件，导致文件泄露、代码注入等情况。涉及的函数有：include()、include_once()、require()、require_once()。当动态地包含文件时会产生文件包含漏洞。 进入题目页面显示“d41d8cd98f00b204e9800998ecf8427ed41d8cd98f00b204e9800998ecf8427e”刚好64位，是md5加密，解密后为：[空密码]/[Empty String]。 思路根据这个题目的意思，首先扫描一下目录，发现只有index.php。试一下能不能直接访问bak文件。 writeup加.bak。edge里会打开，chorome会下载。内容为： 123456789101112131415161718192021&lt;?php/** * Created by PhpStorm. * User: Norse * Date: 2017/8/6 * Time: 20:22*/include_once &quot;flag.php&quot;;ini_set(&quot;display_errors&quot;, 0);$str = strstr($_SERVER[&apos;REQUEST_URI&apos;], &apos;?&apos;); //寻找？首次出现的地址，$_SERVER[&apos;REQUEST_URI&apos;]就是URL，然后找get变量。$str = substr($str,1); //从起始下标截取，就是除去问号$str = str_replace(&apos;key&apos;,&apos;&apos;,$str); 把key去掉。（因此想办法编码）parse_str($str); //把字符串分解为变量，有点像有个东西，一下子记不起来了echo md5($key1);echo md5($key2);if(md5($key1) == md5($key2) &amp;&amp; $key1 !== $key2)&#123; //还要不等，迷惑 echo $flag.&quot;取得flag&quot;;&#125;?&gt; 利用”kekeyy”绕过对key的频率。然后md5函数不能处理数组，返回null。还有一个==比较漏洞，md5加密值为0e开头的话会被认为是科学计数法。 选择第一种。URL输入：123.206.87.240:8002/web16/index.php?kekeyy1[]=1&amp;kekeyy2[]=2得到flag。 知识点 文件包含漏洞 备份文件 md5() ==比较漏洞 str_replace绕过]]></content>
       <tags>
         <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[放大电路的三种组态]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F10%2F07%2Fmd%E4%B8%89%E7%A7%8D%E7%BB%84%E6%80%81%2F</url>
+    <content type="text"><![CDATA[共射基本放大电路—— 集极放大器输入：基极 输出：集极 有两种，一种是固定偏置，一种是分压偏置。（区别就是有没有$R_{b2}$） 固定偏置$A_u=-\frac{βR’L}}{r{be}}$ 反向放大$R_i=R_b//r_{be}$$R_o=R_c$ 分压偏置$A_u=-\frac{βR’L}}{r{be}}$ 反向放大$R_i=R_{b1}//R_{b2}//r_{be}$$R_o=R_c$ 进一步探究——旁路电容$C_e$对电压放大倍数的影响和静态工作点稳定原理。1.主要是有无的问题，去掉旁路电容，$R_e$要被包含于$U_i$里，$U_i$增大，放大倍数减小。因此，添加旁路电容是为了增大放大倍数。2.T↑→$I_c$↑（书第46页，穿透电流增强）→$I_e$↑（jjshoot）→$U_E$↑（这个等于射极电流乘射极电阻）→$U_{BE}$↓→$I_B$↓→$I_C$↓ 共集基本放大电路—— 射集跟随器输入：基极 输出：射极 $A_u=-\frac{(1+β)R’L}}{r{be}+(1+β)R’L}$ 正向放大$R_i=R{b}//r_{be}+(1+β)R’L$$R_o=\frac{R_s//R_b+r_{be}}{1+β}//R_e$]]></content>
+      <tags>
+        <tag>模电</tag>
       </tags>
   </entry>
   <entry>
@@ -354,19 +354,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[热学公式和一些细节]]></title>
-    <url>%2Funln1999.github.io%2F2019%2F09%2F22%2Fdw-%E7%83%AD%E5%AD%A6%E5%85%AC%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[只需要记红色的公式！第17章 气体动理论 理想气体状态方程N、V、P、T$PV=νRT$$PV=NkT$$P=nkT$ 理想气体压强（这个公式不记）N、V、P、$\varepsilon_t$$P=\frac{2}{3}n\varepsilon_t$(n为单位体积分子数)$PV=\frac{2}{3}N\varepsilon_t$ 理想气体分子平均平动动能\varepsilon_t、T$\varepsilon_t=\frac{3}{2}kT$ 分子总平均动能$\varepsilon_k=\frac{i}{2}kT$ 气体内能$E=N\varepsilon_k$ 三种速率$v_{rms}$是用来算平均平动动能的。$\varepsilon_t=\frac{1}{2}mv_{rms}^2另外两个目前没用（我感觉） 小结：本章研究气体的几个表征量。微观的有：分子平均平动动能、分子平均动能【公式3】宏观的有：气压、气温、分子浓度、内能其中，分子平均平动动能和气温有直接关系。【公式2】微观量只和气温和分子类型有关。所以研究气体，最重要的是研究宏观。气温、气压、气浓知二求一。【公式1】然后知道方均根速率和分子平均平动动能的关系。【公式4】单位体积内能只与温度和分子数有关。 第18章 热力学第一定律 热力学第一定律Q、A、EQ=$\DeltaE+A$，主要记文字表述：系统吸热等于系统内能增量+系统对外做功【Q的确定依赖T】【A的确定依赖PV】【E的确定依赖VT】热力学第一定律问题本质上是对气体宏观属性的利用。 准静态过程体积功A、P、V$A=\int^{V_2}_{V_1}p{\rm d}v$在PV图里，正向面积为系统对外做功，负向面积为外界对内做功。循环过程中，顺时针是整体对外做功，逆时针是整体外界对内做功。体积功正负只和体积变化有关，体积变大一定对外做功，体积缩小一定对内做功。 热容定体热容$C_{V,m}=\frac{i}{2}R$定压热容$C_{P,m}=\frac{i+2}{2}R$ 几种过程等体过程，A=0等压过程等温过程，$\DeltaE$=0绝热过程，Q=0$PV^γ=const$,γ是比热比。$A=\frac{1}{γ-1}(P_1V_1-P_2V_2)$ 绝热自由膨胀（不是准静态过程）写不动了，回头在更新]]></content>
-      <tags>
-        <tag>大物</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[复变函数论]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F22%2Ffb1%2F</url>
     <content type="text"><![CDATA[本教程不是零基础向，读者应有高中复数基本知识等。 1.1 复数、区域和边界1.1.1 复数的基本定义常识。a+bi中，a是实部，b是虚部，提取实部虚部的记号要记住，是Re z和Im z加减乘除的共轭要会算。 1.1.2 复数的几何表示与各种标记就是在复平面上用向量表示复数。长度称为复数的模。辐角主值是最常用的，辐角有无穷个。（z=0时，辐角没有意义） 然后复数除了代数式，还可以写成三角式，和利用欧拉公式写成指数式。（虽然指数式不是记号，而是确实等于这个复数，但也可以把它作为一种记号，便于理解，看不懂这句话就算了……） 复数的加减用代数式或向量式（本质是一个东西）。复数的乘除用指数式（或三角式）。开方也用指数式，开几次方，有几个解. 1.1.3 球极投影了解 1.1.4区域和边界区域是连通的开集。边界也是常识，边界由边界点构成，边界点的任意邻域内，既有属于区域的点也有区域外的点。边界和区域的并集为闭区域。 1.2 复变函数本课程内，我们只研究单值函数。复变函数类似于二元函数。只不过是两个二元函数的“复合”。多元函数的极限，需要不依赖路径，复变函数也是如此。复变函数有极限，需要两个二元函数都有极限。复变函数的连续也等价于两个二元函数的连续。但是复变函数本质上又是一元函数。差不多就这样。 1.3 复变函数的可微性和解析性可微是对点来说的，其实也可以对整个函数来说，只不过这里整个单值函数可微称为解析。作为一元函数，复变函数可导等价于可微。需要记忆的↓柯西黎曼条件：$\frac{\patialu}{patialx}=\frac{\patialv}{patialy},\frac{patialu}{patialy}=-\frac{\patialv}{patialx}$拉普拉斯微分方程：调和函数满足：$\frac{\patial^2\phi}{patialx^2}+\frac{\patial^2\phi}{patialy^2}$]]></content>
       <tags>
         <tag>复变</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[热学公式和一些细节]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F22%2Fdw-%E7%83%AD%E5%AD%A6%E5%85%AC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[只需要记红色的公式！第17章 气体动理论 理想气体状态方程N、V、P、T$PV=νRT$$PV=NkT$$P=nkT$ 理想气体压强（这个公式不记）N、V、P、$\varepsilon_t$$P=\frac{2}{3}n\varepsilon_t$(n为单位体积分子数)$PV=\frac{2}{3}N\varepsilon_t$ 理想气体分子平均平动动能\varepsilon_t、T$\varepsilon_t=\frac{3}{2}kT$ 分子总平均动能$\varepsilon_k=\frac{i}{2}kT$ 气体内能$E=N\varepsilon_k$ 三种速率$v_{rms}$是用来算平均平动动能的。$\varepsilon_t=\frac{1}{2}mv_{rms}^2另外两个目前没用（我感觉） 小结：本章研究气体的几个表征量。微观的有：分子平均平动动能、分子平均动能【公式3】宏观的有：气压、气温、分子浓度、内能其中，分子平均平动动能和气温有直接关系。【公式2】微观量只和气温和分子类型有关。所以研究气体，最重要的是研究宏观。气温、气压、气浓知二求一。【公式1】然后知道方均根速率和分子平均平动动能的关系。【公式4】单位体积内能只与温度和分子数有关。 第18章 热力学第一定律 热力学第一定律Q、A、EQ=$\DeltaE+A$，主要记文字表述：系统吸热等于系统内能增量+系统对外做功【Q的确定依赖T】【A的确定依赖PV】【E的确定依赖VT】热力学第一定律问题本质上是对气体宏观属性的利用。 准静态过程体积功A、P、V$A=\int^{V_2}_{V_1}p{\rm d}v$在PV图里，正向面积为系统对外做功，负向面积为外界对内做功。循环过程中，顺时针是整体对外做功，逆时针是整体外界对内做功。体积功正负只和体积变化有关，体积变大一定对外做功，体积缩小一定对内做功。 热容定体热容$C_{V,m}=\frac{i}{2}R$定压热容$C_{P,m}=\frac{i+2}{2}R$ 几种过程等体过程，A=0等压过程等温过程，$\DeltaE$=0绝热过程，Q=0$PV^γ=const$,γ是比热比。$A=\frac{1}{γ-1}(P_1V_1-P_2V_2)$ 绝热自由膨胀（不是准静态过程）写不动了，回头在更新]]></content>
+      <tags>
+        <tag>大物</tag>
       </tags>
   </entry>
   <entry>
@@ -442,14 +442,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ubuntu18.04.3安装流程【web系列2】]]></title>
-    <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F5ubuntu%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[预先安装VMware Workstation Pro 15因为我事先安装好了，所以暂时先不记录流程。这个东东是用固定序列号注册的，所以正版激活只用百度序列号。之后我会写一篇文章来讲Vmware Workstation的安装。 下载Ubuntu镜像文件在这个页面下载Ubuntu Desktop latest（LTS） 创建虚拟机1.打开VMware Workstation。点击创建虚拟机（在左上角“文件”菜单里有）。2.选择自定义！！！下一步。3.下一步。4.选择稍后安装操作系统下一步。5.然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。下一步。6.然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）下一步。7.下一步。（1个内核就行）8.下一步。（2G就行）9.下一步。（NAT）10.下一步。（LSI logic）11.下一步。（SCSI）12.下一步。（创建新虚拟硬盘）13.我看到教程改成了拆分成单个文件，我们不拆。直接下一步。14.下一步。15.完成。 虚拟机安装1.按图配置ISO文件。(最后⑤的圈没圈起来)2.启动虚拟机，如果有问题，重新下载ISO文件。3.过一段时间进入安装界面，选择中文，并点击安装Ubuntu。4.之后几步一直按默认来，点击继续，直到设置用户名和密码。5.输入用户名和密码，然后选择自动登录，方便。6.然后等待安装，安装完成后重启。检查一下网络连接。如果无法进入桌面（一直黑屏）重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。然后找到一个splash，在后面打一个空格，然后输入nomodeset。再按ctrl+X重启。 VMware Tools安装在左上角“虚拟机”菜单里点击安装VMware Tools。然后桌面会有一个光盘的图标，双击打开。复制里面的压缩包到主目录。压缩包就是下图圈的那个。然后打开终端。这里介绍一下ubuntu su进root的办法，挺重要的。就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。su进root只需要： 1234$ sudo passwd (输入原密码)（输入新密码，可以和原密码一样，建议一样）（确认新密码） 搞定之后就可以su进root了。接着我们继续 123# tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。# cd vmware-tools-distrib# sudo ./vmware-install.pl 然后重启就可以使用VMware Tools了。重启的时候又黑屏，估计每次都得搞那个nomodeset。]]></content>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[CentOS 7（Gnome桌面）安装流程【web系列1】]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F4centos%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！ 预先安装VMware Workstation Pro 15因为我事先安装好了，所以暂时先不记录流程。这个东东是用固定序列号注册的，所以正版激活只用百度序列号。之后我会写一篇文章来讲Vmware Workstation的安装。 下载CentOS镜像文件在这个页面下载DVD ISO文件。然后等下好。 创建虚拟机1.打开VMware Workstation。点击创建虚拟机（在左上角“文件”菜单里有）。2.选择自定义！！！下一步。3.下一步。4.选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（不要有中文目录！！！，虽然我第一次安装也有中文目录且没有什么问题）下一步。5.下一步。6.下一步。（内核数量改成2也行）7.下一步。（内存改成2G也行）8.下一步。（选择NAT）9.下一步。（LSI logic）10.下一步。（SCSI）11.下一步。（创建新虚拟硬盘）12.下一步。（20G，拆分成多个文件）13.下一步。14.下一步。（可以勾选创建后开启此虚拟机，我勾选了。） 虚拟机安装1.启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）2.鼠标移动到画面内，按下Enter键。3.进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。4.然后会有这样的界面。在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。按下图，左边选择GNOME桌面，右边选择图中这四个。5.点击系统里面的“安装位置”，什么也不用修改，确认。6.接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。7.接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。图中这里勾上把此用户作为管理员！！！8.等待安装完成后，重启。9.重启后点击Licence Infomation，然后再点同意，确认。10.点击右下角完成配置。11.然后进入图形化登录界面。12.登陆后配置语言、输入法。在线账号那里可以跳过。13.然后就安装完毕了。 关于VMware Tools安装很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。我之前装过了……然后重装系统之后还有，迷惑。我看在Ubuntu系统上安装的时候，单独写一篇日志。]]></content>
@@ -461,6 +453,14 @@
     <title><![CDATA[LAMP环境安装【web系列3】]]></title>
     <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F6.LAMP%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[蓝色字体将介绍安装的软件。 环境检测全新系统不需要这一步，我暂时跳过，日后补充。 安装Apache、PHP、Mysql1.安装Apache世界使用排名第一的服务器软件，可广泛地运行于多个平台上先su进root。 1# yum -y install httpd 我的返回结果是： 1234567已安装: httpd.x86_64 0:2.4.6-89.el7.centos.1 作为依赖被安装: httpd-tools.x86_64 0:2.4.6-89.el7.centos.1 mailcap.noarch 0:2.1.41-2.el7 完毕！ 2.安装PHP一种较新的web脚本语言，php环境用来运行php程序代码输入： 1# yum -y install php 我的返回结果是： 12345678已安装: php.x86_64 0:5.4.16-46.el7 作为依赖被安装: libzip.x86_64 0:0.10.1-8.el7 php-cli.x86_64 0:5.4.16-46.el7 php-common.x86_64 0:5.4.16-46.el7 完毕！ 3.安装php-fpmphp的fastCGI process manager，CGI是通用网关接口（Common Gateway Interface）,fast就是快速。web服务器（我们的是Apache）本身不能解释php语言，服务器将php请求交给FastCGI进程管理来处理。对于5.3.3之前的php环境，应该只有安装了php-fpm，才能让服务器解释php文件。我的php版本为5.4.16，我特意卸载掉php-fpm依然可以在localhost里打开php文件。输入： 1# yum -y install php-fpm 我的返回结果是： 1234已安装: php-fpm.x86_64 0:5.4.16-46.el7 完毕！ 4.安装Mysql一种流行的DBMS（关系型数据库管理系统）输入： 1# yum -y install mysql 我的返回结果是： 1234已安装: mariadb.x86_64 1:5.5.60-1.el7_5 完毕！ 5.安装Mysql-serverMysql的服务器，是Mysql的核心程序这一步要先换源！！！【参考web系列4】这里用yum会出错，这是作者怕Mysql闭源的结果。无法使用下面的命令： 1# yum -y install mysql-server 直接从官网下载Mysql-server就可以了输入： 123# wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i# rpm -ivh mysql-community-release-el7-5.noarch.rpm2# yum install mysql-community-server 输入y继续。耐心等候。（这个过程很快，如果不快就换源，阿里云的好像不行，中科大的快）我的返回结果是： 123456789101112已安装: mysql-community-server.x86_64 0:5.6.45-2.el7 作为依赖被安装: perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7 perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7 perl-DBI.x86_64 0:1.627-4.el7 perl-IO-Compress.noarch 0:2.061-2.el7 perl-Net-Daemon.noarch 0:0.48-5.el7 perl-PlRPC.noarch 0:0.2020-14.el7 完毕！ 6.安装php-mysql应该是php和Mysql的接口工具之类的（百度不到）输入： 1# yum -y install php-mysql 我的返回结果是： 1234567已安装: php-mysql.x86_64 0:5.4.16-46.el7 作为依赖被安装: php-pdo.x86_64 0:5.4.16-46.el7 完毕！ 安装基本常用扩展包1.安装Apache扩展包输入： 1# yum -y install httpd-manual mod_ssl mod_perl mod_auth_mysql 我的返回结果是： 1234567891011121314151617已安装: httpd-manual.noarch 0:2.4.6-89.el7.centos.1 mod_perl.x86_64 0:2.0.10-3.el7 mod_ssl.x86_64 1:2.4.6-89.el7.centos.1 作为依赖被安装: gdbm-devel.x86_64 0:1.10-8.el7 libdb-devel.x86_64 0:5.3.21-24.el7 perl-BSD-Resource.x86_64 0:1.29.07-1.el7 perl-ExtUtils-Install.noarch 0:1.58-294.el7_6 perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7 perl-ExtUtils-Manifest.noarch 0:1.61-244.el7 perl-ExtUtils-ParseXS.noarch 1:3.18-3.el7 perl-Linux-Pid.x86_64 0:0.04-18.el7 perl-devel.x86_64 4:5.16.3-294.el7_6 systemtap-sdt-devel.x86_64 0:3.3-3.el7 完毕！ 2.安装PHP扩展包输入： 1# yum -y install php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel 我的返回结果是： 1234567891011已安装: php-devel.x86_64 0:5.4.16-46.el7 php-gd.x86_64 0:5.4.16-46.el7 php-ldap.x86_64 0:5.4.16-46.el7 php-mbstring.x86_64 0:5.4.16-46.el7 php-pear.noarch 1:1.9.4-21.el7 php-xml.x86_64 0:5.4.16-46.el7 php-xmlrpc.x86_64 0:5.4.16-46.el7 作为依赖被安装: pcre-devel.x86_64 0:8.32-17.el7 php-process.x86_64 0:5.4.16-46.el7 t1lib.x86_64 0:5.1.2-14.el7 完毕！ 3.安装Mysql扩展包输入： 1# yum -y install mysql-connector-odbc mysql-devel libdbi-dbd-mysql 我的返回结果是： 12345678910已安装: libdbi-dbd-mysql.x86_64 0:0.8.3-16.el7 mysql-community-devel.x86_64 0:5.6.45-2.el7 mysql-connector-odbc.x86_64 0:8.0.17-1.el7 作为依赖被安装: libdbi.x86_64 0:0.8.4-6.el7 libdbi-drivers.x86_64 0:0.8.3-16.el7 unixODBC.x86_64 0:2.3.1-11.el7 完毕！ 配置Apache、Mysql开机启动（这样更方便）123456# systemctl enable httpd.service #设置apache开机启动(返回如下)Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.# systemctl enable mysqld.service #设置mysql开机启动（没有返回结果） 重启检验是否开机启动 12# service mysqld status# service httpd status 配置Mysql设置密码输入： 12345# mysql_secure_installation（回车）（回车）（输入密码，不显示，我输入的是root）（回车4次，完成设置） 测试环境测试Apache在虚拟机的浏览器（firefox）里打开“http://localhost/”应该会如图有这样的界面，如果没有说明有问题，或者apache没有启动。没有启动要用 12# service httpd status #确定是否启动# service httpd start #启动 测试php123# cd /var/www/html# touch phpinfo-test.php #这个名字无所谓的# vim phpinfo-test.php 写一个简单的php文件： 123&lt;?phpphpinfo;?&gt; 然后保存退出，浏览器力打开“localhost/phpinfo-test.php”如果出现下图，则php安装成功。]]></content>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu18.04.3安装流程【web系列2】]]></title>
+    <url>%2Funln1999.github.io%2F2019%2F09%2F15%2F5ubuntu%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[预先安装VMware Workstation Pro 15因为我事先安装好了，所以暂时先不记录流程。这个东东是用固定序列号注册的，所以正版激活只用百度序列号。之后我会写一篇文章来讲Vmware Workstation的安装。 下载Ubuntu镜像文件在这个页面下载Ubuntu Desktop latest（LTS） 创建虚拟机1.打开VMware Workstation。点击创建虚拟机（在左上角“文件”菜单里有）。2.选择自定义！！！下一步。3.下一步。4.选择稍后安装操作系统下一步。5.然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。下一步。6.然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）下一步。7.下一步。（1个内核就行）8.下一步。（2G就行）9.下一步。（NAT）10.下一步。（LSI logic）11.下一步。（SCSI）12.下一步。（创建新虚拟硬盘）13.我看到教程改成了拆分成单个文件，我们不拆。直接下一步。14.下一步。15.完成。 虚拟机安装1.按图配置ISO文件。(最后⑤的圈没圈起来)2.启动虚拟机，如果有问题，重新下载ISO文件。3.过一段时间进入安装界面，选择中文，并点击安装Ubuntu。4.之后几步一直按默认来，点击继续，直到设置用户名和密码。5.输入用户名和密码，然后选择自动登录，方便。6.然后等待安装，安装完成后重启。检查一下网络连接。如果无法进入桌面（一直黑屏）重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。然后找到一个splash，在后面打一个空格，然后输入nomodeset。再按ctrl+X重启。 VMware Tools安装在左上角“虚拟机”菜单里点击安装VMware Tools。然后桌面会有一个光盘的图标，双击打开。复制里面的压缩包到主目录。压缩包就是下图圈的那个。然后打开终端。这里介绍一下ubuntu su进root的办法，挺重要的。就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。su进root只需要： 1234$ sudo passwd (输入原密码)（输入新密码，可以和原密码一样，建议一样）（确认新密码） 搞定之后就可以su进root了。接着我们继续 123# tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。# cd vmware-tools-distrib# sudo ./vmware-install.pl 然后重启就可以使用VMware Tools了。重启的时候又黑屏，估计每次都得搞那个nomodeset。]]></content>
       <tags>
         <tag>web</tag>
       </tags>
