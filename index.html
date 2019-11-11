@@ -410,7 +410,10 @@
         <h1 id="ascii"><a href="#ascii" class="headerlink" title="ascii"></a>ascii</h1><h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>就是一段十六进制数，开头那段6什么F什么的是flag的意思，可以把它背下来，有提示作用（虽然我记下来又忘记了）<br>用010editor就可以解密。<br>得到flag。</p>
 <h1 id="get和js都很好用"><a href="#get和js都很好用" class="headerlink" title="get和js都很好用"></a>get和js都很好用</h1><h2 id="writeup-1"><a href="#writeup-1" class="headerlink" title="writeup"></a>writeup</h2><p>要计算1+1=?<br>输入2，提示不对，是要二进制，那么应该是10。<br>输入10，发现只能输一位。<br>修改html标签的位数限制，搞定。<br>还可以把gat变量的值在url直接修改。<br>得到flag。</p>
 <h1 id="JSfuck"><a href="#JSfuck" class="headerlink" title="JSfuck"></a>JSfuck</h1><h2 id="writeup-2"><a href="#writeup-2" class="headerlink" title="writeup"></a>writeup</h2><p>一种输入到浏览器控制台可以解密的加密方式。<br>输入到控制台，alert出一段话，里面是flag。</p>
-<h1 id="php是世界上最好的语言"><a href="#php是世界上最好的语言" class="headerlink" title="php是世界上最好的语言"></a>php是世界上最好的语言</h1><h2 id="writeup-3"><a href="#writeup-3" class="headerlink" title="writeup"></a>writeup</h2><p>属于php代码审计中的弱类型比较的知识。<br>==是弱类型的等号判断。false == 0 为真，’false’作为字符串，不是’0’，它对应bool值为true。<br>第二个是用字符串和数字比较，会取字符串的前几位来和数字比较。<br>因此构造url：<br>47.98.240.217:8891/?a=false&amp;b=3333a<br>得到flag。</p>
+<h1 id="php是世界上最好的语言"><a href="#php是世界上最好的语言" class="headerlink" title="php是世界上最好的语言"></a>php是世界上最好的语言</h1><h2 id="writeup-3"><a href="#writeup-3" class="headerlink" title="writeup"></a>writeup</h2><p>属于php代码审计中的弱类型比较的知识。<br>==是弱类型的等号判断。false == 0 为真，’false’作为字符串，不是’0’，它对应bool值为true。<br>第二个是用字符串和数字比较，会取字符串的前几位来和数字比较。<br>因此构造url：</p>
+<p>47.98.240.217:8891/?a=false&b=3333a</p>
+得到flag。
+
 <h1 id="robot"><a href="#robot" class="headerlink" title="robot"></a>robot</h1><h2 id="writeup-4"><a href="#writeup-4" class="headerlink" title="writeup"></a>writeup</h2><p>前几天在做博客被百度收录的工作，其中有一项就是添加robots.txt，来禁止爬虫爬取的内容。<br>但是人为是可以访问所有文件的，只要有权限。<br>所有robots.txt里可能会有不让访问的东西，因此可以从中获取攻击思路。<br>包括彩票那道题也需要查看robots.txt。<br>本题查看robots.txt，它限制了爬虫看一个flag文件。<br>但是我们可以看，直接把文件名放到url里，得到flag。</p>
 <h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="writeup-5"><a href="#writeup-5" class="headerlink" title="writeup"></a>writeup</h2><p>有一堆乱七八糟的字符（我记得是中文），不解其意。<br>先看源码，发现有个不显示的&lt;a&gt;标签,里面有一段内容。<br>是url编码，解码得到/u开头的一段内容，是unicode编码，再解码为中文（应该是utf-8吧），得到flag。</p>
 <h1 id="参禅"><a href="#参禅" class="headerlink" title="参禅"></a>参禅</h1><h2 id="writeup-6"><a href="#writeup-6" class="headerlink" title="writeup"></a>writeup</h2><p>考察知识面，在联网情况下可以说是白给。当然不联网也不好解密。<br>是一种叫“与佛论禅”的加密方式，解密即得flag。</p>
@@ -1096,11 +1099,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1128,11 +1131,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">
