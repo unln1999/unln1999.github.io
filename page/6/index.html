@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://unln1999.github.io">
+  <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
   <title>夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="夢の此夜亭🌸">
-<meta property="og:url" content="https://unln1999.github.io/page/6/index.html">
+<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/page/6/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
 <meta property="og:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
 <meta property="og:locale" content="zh-Hans">
@@ -499,6 +499,95 @@
 
 
   
+    <article id="post-7.换源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/16/7.换源/">CentOS换中科大源【web系列4】</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/16/7.换源/" class="archive-article-date">
+  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先备份源。然后编辑源。<br>备份过程略。<br>首先提供编辑权限，一时半会不用改回去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/yum.repos.d/</span><br><span class="line"># touch epel.repo</span><br><span class="line"># touch epel-testing.repo</span><br><span class="line"># chmod a+rwx -R /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+
+<p>然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。<br>编辑CentOS-Base.repo:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-$releasever - Updates</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-$releasever - Plus</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/centosplus/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
+
+<p>编辑epel.repo:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
+
+<p>编辑epel-testing.repo:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel-testing]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-testing-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-testing-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
+
+<p>接着要补充一个gpg密钥文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/pki/rpm-gpg </span><br><span class="line"># wget https://archive.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7</span><br></pre></td></tr></table></figure>
+
+<p>然后应该就完事了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/7.换源/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -584,42 +673,102 @@
 
 
   
-    <article id="post-7.换源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-6.LAMP环境安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/16/7.换源/">CentOS换中科大源【web系列4】</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">LAMP环境安装【web系列3】</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/16/7.换源/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+        <a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先备份源。然后编辑源。<br>备份过程略。<br>首先提供编辑权限，一时半会不用改回去。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/yum.repos.d/</span><br><span class="line"># touch epel.repo</span><br><span class="line"># touch epel-testing.repo</span><br><span class="line"># chmod a+rwx -R /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+        <p>蓝色字体将介绍安装的软件。</p>
+<h1 id="环境检测"><a href="#环境检测" class="headerlink" title="环境检测"></a>环境检测</h1><p>全新系统不需要这一步，我暂时跳过，日后补充。</p>
+<h1 id="安装Apache、PHP、Mysql"><a href="#安装Apache、PHP、Mysql" class="headerlink" title="安装Apache、PHP、Mysql"></a>安装Apache、PHP、Mysql</h1><h2 id="1-安装Apache"><a href="#1-安装Apache" class="headerlink" title="1.安装Apache"></a>1.安装Apache</h2><p><font color="blue">世界使用排名第一的服务器软件，可广泛地运行于多个平台上</font><br>先su进root。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install httpd</span><br></pre></td></tr></table></figure>
 
-<p>然后在文件夹里打开到这个目录，编辑。个人觉得比vim方便。<br>编辑CentOS-Base.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># CentOS-Base.repo</span><br><span class="line">#</span><br><span class="line"># The mirror system uses the connecting IP address of the client and the</span><br><span class="line"># update status of each mirror to pick mirrors that are updated to and</span><br><span class="line"># geographically close to the client.  You should use this for CentOS updates</span><br><span class="line"># unless you are manually picking other mirrors.</span><br><span class="line">#</span><br><span class="line"># If the mirrorlist= does not work for you, as a fall back you can try the</span><br><span class="line"># remarked out baseurl= line instead.</span><br><span class="line">#</span><br><span class="line">#</span><br><span class="line">[base]</span><br><span class="line">name=CentOS-$releasever - Base</span><br><span class="line">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/os/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#released updates</span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-$releasever - Updates</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/updates/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that may be useful</span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-$releasever - Extras</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/extras/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">#additional packages that extend functionality of existing packages</span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-$releasever - Plus</span><br><span class="line"># mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/centosplus/$basearch/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  httpd.x86_64 0:2.4.6-89.el7.centos.1                                          </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  httpd-tools.x86_64 0:2.4.6-89.el7.centos.1    mailcap.noarch 0:2.1.41-2.el7   </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
 
-<p>编辑epel.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装PHP"><a href="#2-安装PHP" class="headerlink" title="2.安装PHP"></a>2.安装PHP</h2><p><font color="blue">一种较新的web脚本语言，php环境用来运行php程序代码</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php</span><br></pre></td></tr></table></figure>
 
-<p>编辑epel-testing.repo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[epel-testing]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">[epel-testing-debuginfo]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Debug</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/$basearch/debug</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br><span class="line">[epel-testing-source]</span><br><span class="line">name=Extra Packages for Enterprise Linux 7 - Testing - $basearch - Source</span><br><span class="line">baseurl=http://mirrors.ustc.edu.cn/epel/testing/7/SRPMS</span><br><span class="line">#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&amp;arch=$basearch</span><br><span class="line">failovermethod=priority</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php.x86_64 0:5.4.16-46.el7                                                    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  libzip.x86_64 0:0.10.1-8.el7             php-cli.x86_64 0:5.4.16-46.el7       </span><br><span class="line">  php-common.x86_64 0:5.4.16-46.el7       </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
 
-<p>接着要补充一个gpg密钥文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /etc/pki/rpm-gpg </span><br><span class="line"># wget https://archive.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7</span><br></pre></td></tr></table></figure>
+<h2 id="3-安装php-fpm"><a href="#3-安装php-fpm" class="headerlink" title="3.安装php-fpm"></a>3.安装php-fpm</h2><p><font color="blue">php的fastCGI process manager，CGI是通用网关接口（Common Gateway Interface）,fast就是快速。web服务器（我们的是Apache）本身不能解释php语言，服务器将php请求交给FastCGI进程管理来处理。对于5.3.3之前的php环境，应该只有安装了php-fpm，才能让服务器解释php文件。我的php版本为5.4.16，我特意卸载掉php-fpm依然可以在localhost里打开php文件。</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-fpm</span><br></pre></td></tr></table></figure>
 
-<p>然后应该就完事了。</p>
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-fpm.x86_64 0:5.4.16-46.el7                                                </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装Mysql"><a href="#4-安装Mysql" class="headerlink" title="4.安装Mysql"></a>4.安装Mysql</h2><p><font color="blue">一种流行的DBMS（关系型数据库管理系统）</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mariadb.x86_64 1:5.5.60-1.el7_5                                               </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-安装Mysql-server"><a href="#5-安装Mysql-server" class="headerlink" title="5.安装Mysql-server"></a>5.安装Mysql-server</h2><p><font color="blue">Mysql的服务器，是Mysql的核心程序</font><br>这一步要先换源！！！【参考web系列4】<br>这里用yum会出错，这是作者怕Mysql闭源的结果。<br>无法使用下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>直接从官网下载Mysql-server就可以了<br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i</span><br><span class="line"># rpm -ivh mysql-community-release-el7-5.noarch.rpm2</span><br><span class="line"># yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+
+<p>输入y继续。<br>耐心等候。（这个过程很快，如果不快就换源，阿里云的好像不行，中科大的快）<br>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mysql-community-server.x86_64 0:5.6.45-2.el7                                  </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7                                  </span><br><span class="line">  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7                                   </span><br><span class="line">  perl-DBI.x86_64 0:1.627-4.el7                                                 </span><br><span class="line">  perl-IO-Compress.noarch 0:2.061-2.el7                                         </span><br><span class="line">  perl-Net-Daemon.noarch 0:0.48-5.el7                                           </span><br><span class="line">  perl-PlRPC.noarch 0:0.2020-14.el7                                             </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-安装php-mysql"><a href="#6-安装php-mysql" class="headerlink" title="6.安装php-mysql"></a>6.安装php-mysql</h2><p><font color="blue">应该是php和Mysql的接口工具之类的（百度不到）</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-mysql.x86_64 0:5.4.16-46.el7                                              </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  php-pdo.x86_64 0:5.4.16-46.el7                                                </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装基本常用扩展包"><a href="#安装基本常用扩展包" class="headerlink" title="安装基本常用扩展包"></a>安装基本常用扩展包</h1><h2 id="1-安装Apache扩展包"><a href="#1-安装Apache扩展包" class="headerlink" title="1.安装Apache扩展包"></a>1.安装Apache扩展包</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install httpd-manual mod_ssl mod_perl mod_auth_mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  httpd-manual.noarch 0:2.4.6-89.el7.centos.1   mod_perl.x86_64 0:2.0.10-3.el7  </span><br><span class="line">  mod_ssl.x86_64 1:2.4.6-89.el7.centos.1       </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  gdbm-devel.x86_64 0:1.10-8.el7                                                </span><br><span class="line">  libdb-devel.x86_64 0:5.3.21-24.el7                                            </span><br><span class="line">  perl-BSD-Resource.x86_64 0:1.29.07-1.el7                                      </span><br><span class="line">  perl-ExtUtils-Install.noarch 0:1.58-294.el7_6                                 </span><br><span class="line">  perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7                                   </span><br><span class="line">  perl-ExtUtils-Manifest.noarch 0:1.61-244.el7                                  </span><br><span class="line">  perl-ExtUtils-ParseXS.noarch 1:3.18-3.el7                                     </span><br><span class="line">  perl-Linux-Pid.x86_64 0:0.04-18.el7                                           </span><br><span class="line">  perl-devel.x86_64 4:5.16.3-294.el7_6                                          </span><br><span class="line">  systemtap-sdt-devel.x86_64 0:3.3-3.el7                                        </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装PHP扩展包"><a href="#2-安装PHP扩展包" class="headerlink" title="2.安装PHP扩展包"></a>2.安装PHP扩展包</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-devel.x86_64 0:5.4.16-46.el7      php-gd.x86_64 0:5.4.16-46.el7          </span><br><span class="line">  php-ldap.x86_64 0:5.4.16-46.el7       php-mbstring.x86_64 0:5.4.16-46.el7    </span><br><span class="line">  php-pear.noarch 1:1.9.4-21.el7        php-xml.x86_64 0:5.4.16-46.el7         </span><br><span class="line">  php-xmlrpc.x86_64 0:5.4.16-46.el7    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  pcre-devel.x86_64 0:8.32-17.el7       php-process.x86_64 0:5.4.16-46.el7      </span><br><span class="line">  t1lib.x86_64 0:5.1.2-14.el7          </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装Mysql扩展包"><a href="#3-安装Mysql扩展包" class="headerlink" title="3.安装Mysql扩展包"></a>3.安装Mysql扩展包</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-connector-odbc mysql-devel libdbi-dbd-mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  libdbi-dbd-mysql.x86_64 0:0.8.3-16.el7                                        </span><br><span class="line">  mysql-community-devel.x86_64 0:5.6.45-2.el7                                   </span><br><span class="line">  mysql-connector-odbc.x86_64 0:8.0.17-1.el7                                    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  libdbi.x86_64 0:0.8.4-6.el7         libdbi-drivers.x86_64 0:0.8.3-16.el7     </span><br><span class="line">  unixODBC.x86_64 0:2.3.1-11.el7     </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置Apache、Mysql开机启动（这样更方便）"><a href="#配置Apache、Mysql开机启动（这样更方便）" class="headerlink" title="配置Apache、Mysql开机启动（这样更方便）"></a>配置Apache、Mysql开机启动（这样更方便）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># systemctl enable httpd.service #设置apache开机启动</span><br><span class="line">(返回如下)</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.</span><br><span class="line"></span><br><span class="line"># systemctl enable mysqld.service #设置mysql开机启动</span><br><span class="line">（没有返回结果）</span><br></pre></td></tr></table></figure>
+
+<p>重启检验是否开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service mysqld status</span><br><span class="line"># service httpd status</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置Mysql"><a href="#配置Mysql" class="headerlink" title="配置Mysql"></a>配置Mysql</h1><h2 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mysql_secure_installation</span><br><span class="line">（回车）</span><br><span class="line">（回车）</span><br><span class="line">（输入密码，不显示，我输入的是root）</span><br><span class="line">（回车4次，完成设置）</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h1><h2 id="测试Apache"><a href="#测试Apache" class="headerlink" title="测试Apache"></a>测试Apache</h2><p>在虚拟机的浏览器（firefox）里打开“<a href="http://localhost/”" rel="external nofollow" target="_blank">http://localhost/”</a><br>应该会如图有这样的界面，如果没有说明有问题，或者apache没有启动。<br><img src="/img/6-1.png" alt="6-1"><br>没有启动要用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service httpd status #确定是否启动</span><br><span class="line"># service httpd start #启动</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试php"><a href="#测试php" class="headerlink" title="测试php"></a>测试php</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /var/www/html</span><br><span class="line"># touch phpinfo-test.php #这个名字无所谓的</span><br><span class="line"># vim phpinfo-test.php</span><br></pre></td></tr></table></figure>
+
+<p>写一个简单的php文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后保存退出，浏览器力打开“localhost/phpinfo-test.php”<br>如果出现下图，则php安装成功。<br><img src="/img/6-2.png" alt="6-2"></p>
 
       
 
@@ -643,7 +792,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/7.换源/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">展开全文 >></a>
         </p>
       
 
@@ -807,155 +956,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-6.LAMP环境安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">LAMP环境安装【web系列3】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>蓝色字体将介绍安装的软件。</p>
-<h1 id="环境检测"><a href="#环境检测" class="headerlink" title="环境检测"></a>环境检测</h1><p>全新系统不需要这一步，我暂时跳过，日后补充。</p>
-<h1 id="安装Apache、PHP、Mysql"><a href="#安装Apache、PHP、Mysql" class="headerlink" title="安装Apache、PHP、Mysql"></a>安装Apache、PHP、Mysql</h1><h2 id="1-安装Apache"><a href="#1-安装Apache" class="headerlink" title="1.安装Apache"></a>1.安装Apache</h2><p><font color="blue">世界使用排名第一的服务器软件，可广泛地运行于多个平台上</font><br>先su进root。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install httpd</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  httpd.x86_64 0:2.4.6-89.el7.centos.1                                          </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  httpd-tools.x86_64 0:2.4.6-89.el7.centos.1    mailcap.noarch 0:2.1.41-2.el7   </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装PHP"><a href="#2-安装PHP" class="headerlink" title="2.安装PHP"></a>2.安装PHP</h2><p><font color="blue">一种较新的web脚本语言，php环境用来运行php程序代码</font><br>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php.x86_64 0:5.4.16-46.el7                                                    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  libzip.x86_64 0:0.10.1-8.el7             php-cli.x86_64 0:5.4.16-46.el7       </span><br><span class="line">  php-common.x86_64 0:5.4.16-46.el7       </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装php-fpm"><a href="#3-安装php-fpm" class="headerlink" title="3.安装php-fpm"></a>3.安装php-fpm</h2><p><font color="blue">php的fastCGI process manager，CGI是通用网关接口（Common Gateway Interface）,fast就是快速。web服务器（我们的是Apache）本身不能解释php语言，服务器将php请求交给FastCGI进程管理来处理。对于5.3.3之前的php环境，应该只有安装了php-fpm，才能让服务器解释php文件。我的php版本为5.4.16，我特意卸载掉php-fpm依然可以在localhost里打开php文件。</font><br>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-fpm</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-fpm.x86_64 0:5.4.16-46.el7                                                </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-安装Mysql"><a href="#4-安装Mysql" class="headerlink" title="4.安装Mysql"></a>4.安装Mysql</h2><p><font color="blue">一种流行的DBMS（关系型数据库管理系统）</font><br>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mariadb.x86_64 1:5.5.60-1.el7_5                                               </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-安装Mysql-server"><a href="#5-安装Mysql-server" class="headerlink" title="5.安装Mysql-server"></a>5.安装Mysql-server</h2><p><font color="blue">Mysql的服务器，是Mysql的核心程序</font><br>这一步要先换源！！！【参考web系列4】<br>这里用yum会出错，这是作者怕Mysql闭源的结果。<br>无法使用下面的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-server</span><br></pre></td></tr></table></figure>
-
-<p>直接从官网下载Mysql-server就可以了<br>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i</span><br><span class="line"># rpm -ivh mysql-community-release-el7-5.noarch.rpm2</span><br><span class="line"># yum install mysql-community-server</span><br></pre></td></tr></table></figure>
-
-<p>输入y继续。<br>耐心等候。（这个过程很快，如果不快就换源，阿里云的好像不行，中科大的快）<br>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mysql-community-server.x86_64 0:5.6.45-2.el7                                  </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7                                  </span><br><span class="line">  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7                                   </span><br><span class="line">  perl-DBI.x86_64 0:1.627-4.el7                                                 </span><br><span class="line">  perl-IO-Compress.noarch 0:2.061-2.el7                                         </span><br><span class="line">  perl-Net-Daemon.noarch 0:0.48-5.el7                                           </span><br><span class="line">  perl-PlRPC.noarch 0:0.2020-14.el7                                             </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-安装php-mysql"><a href="#6-安装php-mysql" class="headerlink" title="6.安装php-mysql"></a>6.安装php-mysql</h2><p><font color="blue">应该是php和Mysql的接口工具之类的（百度不到）</font><br>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-mysql</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-mysql.x86_64 0:5.4.16-46.el7                                              </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  php-pdo.x86_64 0:5.4.16-46.el7                                                </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装基本常用扩展包"><a href="#安装基本常用扩展包" class="headerlink" title="安装基本常用扩展包"></a>安装基本常用扩展包</h1><h2 id="1-安装Apache扩展包"><a href="#1-安装Apache扩展包" class="headerlink" title="1.安装Apache扩展包"></a>1.安装Apache扩展包</h2><p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install httpd-manual mod_ssl mod_perl mod_auth_mysql</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  httpd-manual.noarch 0:2.4.6-89.el7.centos.1   mod_perl.x86_64 0:2.0.10-3.el7  </span><br><span class="line">  mod_ssl.x86_64 1:2.4.6-89.el7.centos.1       </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  gdbm-devel.x86_64 0:1.10-8.el7                                                </span><br><span class="line">  libdb-devel.x86_64 0:5.3.21-24.el7                                            </span><br><span class="line">  perl-BSD-Resource.x86_64 0:1.29.07-1.el7                                      </span><br><span class="line">  perl-ExtUtils-Install.noarch 0:1.58-294.el7_6                                 </span><br><span class="line">  perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7                                   </span><br><span class="line">  perl-ExtUtils-Manifest.noarch 0:1.61-244.el7                                  </span><br><span class="line">  perl-ExtUtils-ParseXS.noarch 1:3.18-3.el7                                     </span><br><span class="line">  perl-Linux-Pid.x86_64 0:0.04-18.el7                                           </span><br><span class="line">  perl-devel.x86_64 4:5.16.3-294.el7_6                                          </span><br><span class="line">  systemtap-sdt-devel.x86_64 0:3.3-3.el7                                        </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装PHP扩展包"><a href="#2-安装PHP扩展包" class="headerlink" title="2.安装PHP扩展包"></a>2.安装PHP扩展包</h2><p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-devel.x86_64 0:5.4.16-46.el7      php-gd.x86_64 0:5.4.16-46.el7          </span><br><span class="line">  php-ldap.x86_64 0:5.4.16-46.el7       php-mbstring.x86_64 0:5.4.16-46.el7    </span><br><span class="line">  php-pear.noarch 1:1.9.4-21.el7        php-xml.x86_64 0:5.4.16-46.el7         </span><br><span class="line">  php-xmlrpc.x86_64 0:5.4.16-46.el7    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  pcre-devel.x86_64 0:8.32-17.el7       php-process.x86_64 0:5.4.16-46.el7      </span><br><span class="line">  t1lib.x86_64 0:5.1.2-14.el7          </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装Mysql扩展包"><a href="#3-安装Mysql扩展包" class="headerlink" title="3.安装Mysql扩展包"></a>3.安装Mysql扩展包</h2><p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-connector-odbc mysql-devel libdbi-dbd-mysql</span><br></pre></td></tr></table></figure>
-
-<p>我的返回结果是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  libdbi-dbd-mysql.x86_64 0:0.8.3-16.el7                                        </span><br><span class="line">  mysql-community-devel.x86_64 0:5.6.45-2.el7                                   </span><br><span class="line">  mysql-connector-odbc.x86_64 0:8.0.17-1.el7                                    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  libdbi.x86_64 0:0.8.4-6.el7         libdbi-drivers.x86_64 0:0.8.3-16.el7     </span><br><span class="line">  unixODBC.x86_64 0:2.3.1-11.el7     </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
-
-<h1 id="配置Apache、Mysql开机启动（这样更方便）"><a href="#配置Apache、Mysql开机启动（这样更方便）" class="headerlink" title="配置Apache、Mysql开机启动（这样更方便）"></a>配置Apache、Mysql开机启动（这样更方便）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># systemctl enable httpd.service #设置apache开机启动</span><br><span class="line">(返回如下)</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.</span><br><span class="line"></span><br><span class="line"># systemctl enable mysqld.service #设置mysql开机启动</span><br><span class="line">（没有返回结果）</span><br></pre></td></tr></table></figure>
-
-<p>重启检验是否开机启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service mysqld status</span><br><span class="line"># service httpd status</span><br></pre></td></tr></table></figure>
-
-<h1 id="配置Mysql"><a href="#配置Mysql" class="headerlink" title="配置Mysql"></a>配置Mysql</h1><h2 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h2><p>输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mysql_secure_installation</span><br><span class="line">（回车）</span><br><span class="line">（回车）</span><br><span class="line">（输入密码，不显示，我输入的是root）</span><br><span class="line">（回车4次，完成设置）</span><br></pre></td></tr></table></figure>
-
-<h1 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h1><h2 id="测试Apache"><a href="#测试Apache" class="headerlink" title="测试Apache"></a>测试Apache</h2><p>在虚拟机的浏览器（firefox）里打开“<a href="http://localhost/”" rel="external nofollow" target="_blank">http://localhost/”</a><br>应该会如图有这样的界面，如果没有说明有问题，或者apache没有启动。<br><img src="/img/6-1.png" alt="6-1"><br>没有启动要用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service httpd status #确定是否启动</span><br><span class="line"># service httpd start #启动</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试php"><a href="#测试php" class="headerlink" title="测试php"></a>测试php</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /var/www/html</span><br><span class="line"># touch phpinfo-test.php #这个名字无所谓的</span><br><span class="line"># vim phpinfo-test.php</span><br></pre></td></tr></table></figure>
-
-<p>写一个简单的php文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>然后保存退出，浏览器力打开“localhost/phpinfo-test.php”<br>如果出现下图，则php安装成功。<br><img src="/img/6-2.png" alt="6-2"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">展开全文 >></a>
         </p>
       
 
@@ -1197,10 +1197,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
@@ -1213,6 +1209,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -1221,15 +1221,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复变</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1238,6 +1234,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
