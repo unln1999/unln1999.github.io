@@ -387,6 +387,107 @@
 
 
   
+    <article id="post-校赛" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/11/10/校赛/">2019校赛个人做出题解</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/11/10/校赛/" class="archive-article-date">
+  	<time datetime="2019-11-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ascii"><a href="#ascii" class="headerlink" title="ascii"></a>ascii</h1><h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>就是一段十六进制数，开头那段6什么F什么的是flag的意思，可以把它背下来，有提示作用（虽然我记下来又忘记了）<br>用010editor就可以解密。<br>得到flag。</p>
+<h1 id="get和js都很好用"><a href="#get和js都很好用" class="headerlink" title="get和js都很好用"></a>get和js都很好用</h1><h2 id="writeup-1"><a href="#writeup-1" class="headerlink" title="writeup"></a>writeup</h2><p>要计算1+1=?<br>输入2，提示不对，是要二进制，那么应该是10。<br>输入10，发现只能输一位。<br>修改html标签的位数限制，搞定。<br>还可以把gat变量的值在url直接修改。<br>得到flag。</p>
+<h1 id="JSfuck"><a href="#JSfuck" class="headerlink" title="JSfuck"></a>JSfuck</h1><h2 id="writeup-2"><a href="#writeup-2" class="headerlink" title="writeup"></a>writeup</h2><p>一种输入到浏览器控制台可以解密的加密方式。<br>输入到控制台，alert出一段话，里面是flag。</p>
+<h1 id="php是世界上最好的语言"><a href="#php是世界上最好的语言" class="headerlink" title="php是世界上最好的语言"></a>php是世界上最好的语言</h1><h2 id="writeup-3"><a href="#writeup-3" class="headerlink" title="writeup"></a>writeup</h2><p>属于php代码审计中的弱类型比较的知识。<br>==是弱类型的等号判断。false == 0 为真，’false’作为字符串，不是’0’，它对应bool值为true。<br>第二个是用字符串和数字比较，会取字符串的前几位来和数字比较。<br>因此构造url：<br>47.98.240.217:8891/?a=false&amp;b=3333a<br>得到flag。</p>
+<h1 id="robot"><a href="#robot" class="headerlink" title="robot"></a>robot</h1><h2 id="writeup-4"><a href="#writeup-4" class="headerlink" title="writeup"></a>writeup</h2><p>前几天在做博客被百度收录的工作，其中有一项就是添加robots.txt，来禁止爬虫爬取的内容。<br>但是人为是可以访问所有文件的，只要有权限。<br>所有robots.txt里可能会有不让访问的东西，因此可以从中获取攻击思路。<br>包括彩票那道题也需要查看robots.txt。<br>本题查看robots.txt，它限制了爬虫看一个flag文件。<br>但是我们可以看，直接把文件名放到url里，得到flag。</p>
+<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="writeup-5"><a href="#writeup-5" class="headerlink" title="writeup"></a>writeup</h2><p>有一堆乱七八糟的字符（我记得是中文），不解其意。<br>先看源码，发现有个不显示的/<a>标签,里面有一段内容。<br>是url编码，解码得到/u开头的一段内容，是unicode编码，再解码为中文（应该是utf-8吧），得到flag。</a></p>
+<h1 id="参禅"><a href="#参禅" class="headerlink" title="参禅"></a>参禅</h1><h2 id="writeup-6"><a href="#writeup-6" class="headerlink" title="writeup"></a>writeup</h2><p>考察知识面，在联网情况下可以说是白给。当然不联网也不好解密。<br>是一种叫“与佛论禅”的加密方式，解密即得flag。</p>
+<h1 id="快速计算"><a href="#快速计算" class="headerlink" title="快速计算"></a>快速计算</h1><h2 id="writeup-7"><a href="#writeup-7" class="headerlink" title="writeup"></a>writeup</h2><p>题目要我们一秒内算一个乘法然后用get方式提交，<br>用python脚本可以快速放射。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库，用来建立连接</span><br><span class="line">import re #调用re库，用来正则查找对象</span><br><span class="line">s = requests.Session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://47.98.240.217:8897/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">searchobj = re.search(r&quot;\d+\*\d+&quot;,r.text) #原生正则表达式,text是对象r的属性</span><br><span class="line">number = eval(searchobj.group(0)) #计算搜索到的表达式</span><br><span class="line">r = s.get(&quot;http://47.98.240.217:8897/?number=&quot;+str(number)) #重新提交get请求</span><br><span class="line">print(r.text) #输出结果</span><br></pre></td></tr></table></figure>
+
+<p>用这样的程序，运行一下得到flag。</p>
+<h1 id="普通的上班族"><a href="#普通的上班族" class="headerlink" title="普通的上班族"></a>普通的上班族</h1><h2 id="writeup-8"><a href="#writeup-8" class="headerlink" title="writeup"></a>writeup</h2><p>png图片可能改宽高，尤其是图片不完整的情况下。（一般是改高，改宽是会变形的）<br>改了高度和宽度一样后（其实往大改就行），flag出现。</p>
+<h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><h2 id="writeup-9"><a href="#writeup-9" class="headerlink" title="writeup"></a>writeup</h2><p>进入题目页面，看到一段文字，提示这是一个示例文件，所以包含的文件不是我们想要的文件。<br>想要主动包含文件要通过get方式和post方式，也就是说，只要存在文件包含漏洞，几乎（因为学识有限）一定可以通过get或者post方式传参。<br>而题目已经包含了文件，所以要么是在后端代码里固定了file.php的初始包含文件，要么就是设定好了get和post值。因为有漏洞，所以应该是后者。<br>一般不会用post来初始化包含的文件，因为比较复杂（但是应该可以实现），所以看看get值。<br>查看url，有个名为file的get变量。<br>file后面有一串字符串，显然这不是“真实的”文件名，应该是某种编码。<br>常见的可供后端服务器解码的编码有：</p>
+<ul>
+<li>base64及其它base系列加密</li>
+<li>urlencode</li>
+<li>unicode 【需要自己写函数】</li>
+<li>utf8_decode<br>etc.</li>
+</ul>
+<p>总之后几种都是有斜杠啊什么的来划分一个字符的，base64就是连成一串的字符(大小写字母、数字、+、//)</p>
+<p>解密后得到temp.txt。<br>试着查看:</p>
+<ul>
+<li>index.php</li>
+<li>flag.txt</li>
+<li>flag.php</li>
+</ul>
+<p>得解。</p>
+<h1 id="小兔子"><a href="#小兔子" class="headerlink" title="小兔子"></a>小兔子</h1><h2 id="writeup-10"><a href="#writeup-10" class="headerlink" title="writeup"></a>writeup</h2><p>看到一只兔子，是png格式，我一开始是直接用binwalk看到里面有zip。<br>然后研究zip去了，以为是伪加密，但其实是真加密……<br>png格式的兔子需要改高度，兔子眼睛看着的就是zip密码。<br>解压得到flag的word文档，说something is here。<br>文件大小很大，却显示一点点。再binwalk一下，发现还是zip，再解压，可以在里面的dumument.xml里找到flag。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/11/10/校赛/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk32-strcmp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -877,79 +978,6 @@
 
 
   
-    <article id="post-电路/复频域分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/27/电路/复频域分析/">复频域分析</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/27/电路/复频域分析/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/27/电路/复频域分析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/7/">7</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
@@ -1068,15 +1096,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1096,7 +1124,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1104,7 +1132,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
