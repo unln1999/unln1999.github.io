@@ -5,13 +5,13 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
+  <link rel="dns-prefetch" href="https://unln1999.github.io">
   <title>夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="夢の此夜亭🌸">
-<meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/index.html">
+<meta property="og:url" content="https://unln1999.github.io/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
 <meta property="og:description" content="记录CTF学习之路上的各种收获，和同学们分享，共同进步~">
 <meta property="og:locale" content="zh-Hans">
@@ -412,7 +412,7 @@
 <h1 id="JSfuck"><a href="#JSfuck" class="headerlink" title="JSfuck"></a>JSfuck</h1><h2 id="writeup-2"><a href="#writeup-2" class="headerlink" title="writeup"></a>writeup</h2><p>一种输入到浏览器控制台可以解密的加密方式。<br>输入到控制台，alert出一段话，里面是flag。</p>
 <h1 id="php是世界上最好的语言"><a href="#php是世界上最好的语言" class="headerlink" title="php是世界上最好的语言"></a>php是世界上最好的语言</h1><h2 id="writeup-3"><a href="#writeup-3" class="headerlink" title="writeup"></a>writeup</h2><p>属于php代码审计中的弱类型比较的知识。<br>==是弱类型的等号判断。false == 0 为真，’false’作为字符串，不是’0’，它对应bool值为true。<br>第二个是用字符串和数字比较，会取字符串的前几位来和数字比较。<br>因此构造url：<br>47.98.240.217:8891/?a=false&amp;b=3333a<br>得到flag。</p>
 <h1 id="robot"><a href="#robot" class="headerlink" title="robot"></a>robot</h1><h2 id="writeup-4"><a href="#writeup-4" class="headerlink" title="writeup"></a>writeup</h2><p>前几天在做博客被百度收录的工作，其中有一项就是添加robots.txt，来禁止爬虫爬取的内容。<br>但是人为是可以访问所有文件的，只要有权限。<br>所有robots.txt里可能会有不让访问的东西，因此可以从中获取攻击思路。<br>包括彩票那道题也需要查看robots.txt。<br>本题查看robots.txt，它限制了爬虫看一个flag文件。<br>但是我们可以看，直接把文件名放到url里，得到flag。</p>
-<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="writeup-5"><a href="#writeup-5" class="headerlink" title="writeup"></a>writeup</h2><p>有一堆乱七八糟的字符（我记得是中文），不解其意。<br>先看源码，发现有个不显示的/<a>标签,里面有一段内容。<br>是url编码，解码得到/u开头的一段内容，是unicode编码，再解码为中文（应该是utf-8吧），得到flag。</a></p>
+<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="writeup-5"><a href="#writeup-5" class="headerlink" title="writeup"></a>writeup</h2><p>有一堆乱七八糟的字符（我记得是中文），不解其意。<br>先看源码，发现有个不显示的&lt;a&gt;标签,里面有一段内容。<br>是url编码，解码得到/u开头的一段内容，是unicode编码，再解码为中文（应该是utf-8吧），得到flag。</p>
 <h1 id="参禅"><a href="#参禅" class="headerlink" title="参禅"></a>参禅</h1><h2 id="writeup-6"><a href="#writeup-6" class="headerlink" title="writeup"></a>writeup</h2><p>考察知识面，在联网情况下可以说是白给。当然不联网也不好解密。<br>是一种叫“与佛论禅”的加密方式，解密即得flag。</p>
 <h1 id="快速计算"><a href="#快速计算" class="headerlink" title="快速计算"></a>快速计算</h1><h2 id="writeup-7"><a href="#writeup-7" class="headerlink" title="writeup"></a>writeup</h2><p>题目要我们一秒内算一个乘法然后用get方式提交，<br>用python脚本可以快速放射。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库，用来建立连接</span><br><span class="line">import re #调用re库，用来正则查找对象</span><br><span class="line">s = requests.Session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://47.98.240.217:8897/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">searchobj = re.search(r&quot;\d+\*\d+&quot;,r.text) #原生正则表达式,text是对象r的属性</span><br><span class="line">number = eval(searchobj.group(0)) #计算搜索到的表达式</span><br><span class="line">r = s.get(&quot;http://47.98.240.217:8897/?number=&quot;+str(number)) #重新提交get请求</span><br><span class="line">print(r.text) #输出结果</span><br></pre></td></tr></table></figure>
@@ -1100,11 +1100,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,11 +1120,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
