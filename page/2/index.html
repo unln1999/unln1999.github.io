@@ -149,6 +149,177 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CTF/bk-misc/bk27-这只是一张单纯的图片" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/11/04/CTF/bk-misc/bk27-这只是一张单纯的图片/">bugku 2019/11/4 这只是一张单纯的图片</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/11/04/CTF/bk-misc/bk27-这只是一张单纯的图片/" class="archive-article-date">
+  	<time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一张图片</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>既然说是一张单纯的图片，所以flag应该是隐写在图片里面。<br><font color="red">文件属性里是可以写东西的，应该作为一种隐写技术掌握。</font><br>图片是有起始和结尾的，结尾之后的内容会被省略（忽略），所以常常可以隐写内容。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>用010 editor打开。<br>notepad++也可以。<br>最后会有一段编码：&#107;&#101;&#121;&#123;&#121;&#111;&#117;&#32;&#97;&#114;&#101;&#32;&#114;&#105;&#103;&#104;&#116;&#125;<br>&amp;#是unicode编码。<br>解码得：key{you are right} （解码为ascii码）</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>简单的图片隐写</strong></li>
+<li><strong>unicode编码</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/11/04/CTF/bk-misc/bk27-这只是一张单纯的图片/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CTF/bk-misc/bk28-还单纯吗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/11/04/CTF/bk-misc/bk28-还单纯吗/">bugku 2019/11/4 还单纯吗？</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/11/04/CTF/bk-misc/bk28-还单纯吗/" class="archive-article-date">
+  	<time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>保存图片</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>看属性有无信息</li>
+<li>用文本编辑器打开，看看头尾有无文件</li>
+<li>查看EXIF信息</li>
+<li>用Stegsolve查看各个通道</li>
+<li>利用binwalk看是否有多个文件</li>
+<li>是否隐写了压缩文件</li>
+</ol>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>在binwalk目录打开powershell，然后输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;py .\binwalk 2.jpg的地址</span><br></pre></td></tr></table></figure>
+
+<p>得到结果<br><img src="/img/bk28-1.png" alt="bk28-1"></p>
+<p>windows里分离文件可以安装foremost，<a href="https://github.com/raddyfiy/foremost" rel="external nofollow" target="_blank">下载地址</a>，<a href="https://www.cnblogs.com/cnnnnnn/p/8994362.html" rel="external nofollow" target="_blank">参考文章</a><br>安装好后右键分离就行了，中文目录会有问题，但是不影响实际使用。<br>结果为：falg{NSCTF_e6532a34928a3d1dadd0b049d5a3cc57}<br>注意这里不是flag而是falg。<br>用OCR识别再校对比较方便，使用在线工具就可以了。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>binwalk的使用</strong></li>
+<li><strong>foremost的使用</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/11/04/CTF/bk-misc/bk28-还单纯吗/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-电路/复频域分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -222,19 +393,19 @@
 
 
   
-    <article id="post-15文件包含漏洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/15文件包含漏洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/25/15文件包含漏洞/">php文件包含漏洞</a>
+      <a class="article-title" href="/unln1999.github.io/2019/10/25/CTF/15文件包含漏洞/">php文件包含漏洞</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/10/25/15文件包含漏洞/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/10/25/CTF/15文件包含漏洞/" class="archive-article-date">
   	<time datetime="2019-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
 </a>
         
@@ -286,7 +457,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/25/15文件包含漏洞/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/25/CTF/15文件包含漏洞/">展开全文 >></a>
         </p>
       
 
@@ -316,19 +487,19 @@
 
 
   
-    <article id="post-buu1-随便注" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/buu-web/buu1-随便注" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/19/buu1-随便注/">BUU 2019/10/19 随便注</a>
+      <a class="article-title" href="/unln1999.github.io/2019/10/19/CTF/buu-web/buu1-随便注/">BUU 2019/10/19 随便注</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/10/19/buu1-随便注/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/10/19/CTF/buu-web/buu1-随便注/" class="archive-article-date">
   	<time datetime="2019-10-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-19</time>
 </a>
         
@@ -402,7 +573,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/19/buu1-随便注/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/19/CTF/buu-web/buu1-随便注/">展开全文 >></a>
         </p>
       
 
@@ -513,19 +684,19 @@
 
 
   
-    <article id="post-bk26-welcometobkctf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/bk-web/bk26-程序员本地网址" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/14/bk26-welcometobkctf/">Bugku 2019/10/14 程序员本地网站</a>
+      <a class="article-title" href="/unln1999.github.io/2019/10/14/CTF/bk-web/bk26-程序员本地网址/">Bugku 2019/10/14 程序员本地网站</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/10/14/bk26-welcometobkctf/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/10/14/CTF/bk-web/bk26-程序员本地网址/" class="archive-article-date">
   	<time datetime="2019-10-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
 </a>
         
@@ -562,7 +733,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/14/bk26-welcometobkctf/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/14/CTF/bk-web/bk26-程序员本地网址/">展开全文 >></a>
         </p>
       
 
@@ -592,19 +763,19 @@
 
 
   
-    <article id="post-bk25-滴答滴" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/bk-crypto/bk25-滴答滴" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/13/bk25-滴答滴/">Bugku 2019/10/13 加密1~4</a>
+      <a class="article-title" href="/unln1999.github.io/2019/10/13/CTF/bk-crypto/bk25-滴答滴/">Bugku 2019/10/13 加密1~4</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/10/13/bk25-滴答滴/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/10/13/CTF/bk-crypto/bk25-滴答滴/" class="archive-article-date">
   	<time datetime="2019-10-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-13</time>
 </a>
         
@@ -658,7 +829,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/13/bk25-滴答滴/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/13/CTF/bk-crypto/bk25-滴答滴/">展开全文 >></a>
         </p>
       
 
@@ -688,19 +859,19 @@
 
 
   
-    <article id="post-bk24-字符？正则？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/bk-web/bk24-字符？正则？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/12/bk24-字符？正则？/">Bugku 2019/10/12 字符？正则？</a>
+      <a class="article-title" href="/unln1999.github.io/2019/10/12/CTF/bk-web/bk24-字符？正则？/">Bugku 2019/10/12 字符？正则？</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/10/12/bk24-字符？正则？/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/10/12/CTF/bk-web/bk24-字符？正则？/" class="archive-article-date">
   	<time datetime="2019-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
 </a>
         
@@ -740,7 +911,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/12/bk24-字符？正则？/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/12/CTF/bk-web/bk24-字符？正则？/">展开全文 >></a>
         </p>
       
 
@@ -770,19 +941,19 @@
 
 
   
-    <article id="post-14MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/14MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/11/14MySQL/">Bugku 2019/10/11 MySQL简易教程（Windows）</a>
+      <a class="article-title" href="/unln1999.github.io/2019/10/11/CTF/14MySQL/">Bugku 2019/10/11 MySQL简易教程（Windows）</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/10/11/14MySQL/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/10/11/CTF/14MySQL/" class="archive-article-date">
   	<time datetime="2019-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
 </a>
         
@@ -890,179 +1061,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/11/14MySQL/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk23-前女友" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/11/bk23-前女友/">Bugku 2019/10/11 前女友</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/11/bk23-前女友/" class="archive-article-date">
-  	<time datetime="2019-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>有一段话。</p>
-<blockquote>
-</blockquote>
-<p>分手了，纠结再三我没有拉黑她，原因无它，放不下。<br>终于那天，竟然真的等来了她的消息：“在吗？”<br>我神色平静，但颤抖的双手却显示出我此刻的激动。“怎么了？有事要我帮忙？”<br>“怎么，没事就不能联系了吗？”结尾处调皮表情，是多么的陌生和熟悉……<br>“帮我看看这个…”说着，她发来一个链接。<br>不忍心拂她的意就点开了链接，看着屏幕我的心久久不能平静，往事一幕幕涌上心头……<br>。。。。。。<br>“我到底做错了什么，要给我看这个！”<br>“还记得你曾经说过。。。。。。。。”<br>PHP是世界上最好的语言</p>
-<blockquote>
-</blockquote>
-<p>源码里也就是普通的html。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先扫一下目录。<br>只有index.php。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>仔细查看源码，链接两个字是可以点击的。<br>出现了index的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(isset($_GET[&apos;v1&apos;]) &amp;&amp; isset($_GET[&apos;v2&apos;]) &amp;&amp; isset($_GET[&apos;v3&apos;])) //v1、v2、v3都要在get里传递。</span><br><span class="line">&#123;</span><br><span class="line">    $v1 = $_GET[&apos;v1&apos;];//赋值</span><br><span class="line">    $v2 = $_GET[&apos;v2&apos;];//赋值</span><br><span class="line">    $v3 = $_GET[&apos;v3&apos;];//赋值</span><br><span class="line">	</span><br><span class="line">    if($v1 != $v2 &amp;&amp; md5($v1) == md5($v2)) //如果 v1不等于v2 且v1和v2 md5值相等则执行，这里使用数组</span><br><span class="line">	&#123; </span><br><span class="line">        if(!strcmp($v3, $flag)) //相等时返回0，小于时返回负数。这里也使用数组</span><br><span class="line">		&#123;</span><br><span class="line">            echo $flag;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>URL：<a href="http://123.206.31.85:49162/?v1[]=1&amp;v2[]=2&amp;v3[]=3" rel="external nofollow" target="_blank">http://123.206.31.85:49162/?v1[]=1&amp;v2[]=2&amp;v3[]=3</a></p>
-<p>得到flag。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li>md5</li>
-<li><strong>strcmp()的绕过</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/11/bk23-前女友/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-bk22-cookie欺骗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/">Bugku 2019/10/10 cookies欺骗</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/" class="archive-article-date">
-  	<time datetime="2019-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现一堆字母，而且不是base64加密。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始url为：http://123.206.87.240:8002/web11/<br>实际页面的url为：http://123.206.87.240:8002/web11/index.php?line=&amp;filename=a2V5cy50eHQ=<br>后面的filename是base64加密，意思是keys.txt<br>line参数是行号，文件名都用base64加密。<br>现在试着读取index.php。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>编写python脚本，服务器不返回内容。<br>因此改用intruder来简化过程。<br>最终得到index.php为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0);</span><br><span class="line">$file=base64_decode(isset($_GET[&apos;filename&apos;])?$_GET[&apos;filename&apos;]:&quot;&quot;);</span><br><span class="line">$line=isset($_GET[&apos;line&apos;])?intval($_GET[&apos;line&apos;]):0;</span><br><span class="line">if($file==&apos;&apos;) header(&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;);</span><br><span class="line">$file_list = array(</span><br><span class="line">&apos;0&apos; =&gt;&apos;keys.txt&apos;,</span><br><span class="line">&apos;1&apos; =&gt;&apos;index.php&apos;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">if(isset($_COOKIE[&apos;margin&apos;]) &amp;&amp; $_COOKIE[&apos;margin&apos;]==&apos;margin&apos;)&#123;</span><br><span class="line">$file_list[2]=&apos;keys.php&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(in_array($file, $file_list))&#123;</span><br><span class="line">$fa = file($file);</span><br><span class="line">echo $fa[$line];</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>整理一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(0); //关闭错误报告</span><br><span class="line">$file=base64_decode(isset($_GET[&apos;filename&apos;])?$_GET[&apos;filename&apos;]:&quot;&quot;);//解码filename get值。</span><br><span class="line">$line=isset($_GET[&apos;line&apos;])?intval($_GET[&apos;line&apos;]):0; //获得line值</span><br><span class="line"></span><br><span class="line">if($file==&apos;&apos;)</span><br><span class="line">	header(&quot;location:index.php?line=&amp;filename=a2V5cy50eHQ=&quot;); //如果file没有设置，url重定位到初始界面。</span><br><span class="line">	</span><br><span class="line">$file_list = array(&apos;0&apos; =&gt;&apos;keys.txt&apos;,&apos;1&apos; =&gt;&apos;index.php&apos;,); //一个数组</span><br><span class="line"></span><br><span class="line">if(isset($_COOKIE[&apos;margin&apos;]) &amp;&amp; $_COOKIE[&apos;margin&apos;]==&apos;margin&apos;) //当cookie margin存在且值为margin时</span><br><span class="line">&#123;</span><br><span class="line">	$file_list[2]=&apos;keys.php&apos;; //改变数组值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(in_array($file, $file_list)) //当file在数组里时</span><br><span class="line">&#123; </span><br><span class="line">	$fa = file($file); //读取文件</span><br><span class="line">	echo $fa[$line]; //输出文件第几行</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>修改cookie值，并使得filename变量为keys.php的base64值。line就置空。<br>确认操作无误后，发现页面是空的。<br>查看源码，flag就在其中。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/10/bk22-cookie欺骗/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/11/CTF/14MySQL/">展开全文 >></a>
         </p>
       
 
@@ -1210,11 +1209,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,11 +1217,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,19 +1237,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复变</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1255,6 +1246,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
             
             <div class="clearfix"></div>

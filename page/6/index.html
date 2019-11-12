@@ -149,19 +149,184 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-11php教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/bk-web/bk3-web2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/19/11php教程/">PHP教程 of RUNOOB</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/21/CTF/bk-web/bk3-web2/">Bugku 2019-9-21 web2</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/19/11php教程/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/21/CTF/bk-web/bk3-web2/" class="archive-article-date">
+  	<time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现了一堆滑稽，看起来没什么线索，但是能猜到设计者的坏心思。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>web题首先给我们的是一个页面，页面和html在某种意义上是等效的，但是并不是所有的html语言都会被浏览器显示出来。<br>因此，html代码比页面富含更多的信息（页面只不过更加具体形象）。<br>所以如果在页面找不到线索，就按F12查看一下html代码。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>打开开发者工具（F12），出现了醒目的flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>Html代码的查看</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/21/CTF/bk-web/bk3-web2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CTF/bk-web/bk2-post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/20/CTF/bk-web/bk2-post/">Bugku 2019-9-20 web基础$_POST</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/20/CTF/bk-web/bk2-post/" class="archive-article-date">
+  	<time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$what=$_POST[&apos;what&apos;];</span><br><span class="line">echo $what;</span><br><span class="line">if($what==&apos;flag&apos;)</span><br><span class="line">echo &apos;flag&#123;****&#125;&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读后，知道这是php代码，意思是，用post方式从html里获取一个名为’what’的表单值赋给php的变量＄what。<br>然后页面会打印出＄what变量的值。<br>当＄what为’flag’时，还会输出flag。<br>这段代码显然不是后台实际脚本，只是一个提示。<br>根据该提示，我们提交一个＄what变量。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><p>用firefox的hackbar插件（日后写一个免费hackbar的教程）提交。<br><img src="/img/bk2-1.png" alt="bk2-1"><br>然后点击Execute就可以传递了。<br><img src="/img/bk2-2.png" alt="bk2-2"></p>
+<h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><p>打开bp，刷新页面<br><img src="/img/bk2-3.png" alt="bk2-3"><br>这段文字是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /post/ HTTP/1.1</span><br><span class="line">Host: 123.206.87.240:8002</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Connection: close</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Cache-Control: max-age=0</span><br></pre></td></tr></table></figure>
+
+<p>（注，下面的操作也推荐在repeater里进行）<br>把第一行的GET改成POST，把前两行之外的内容全删除。<br>添加一行：Content-Type: application/x-www-form-urlencoded<font color="red">【背诵】</font><br>然后<strong>再空一行</strong>并添加一行：what=flag。如下图（必须要空一行，如箭头所示）：<br><img src="/img/bk2-4.png" alt="bk2-4"><br>注意flag后面不能有空格，因此要用delete清除后面的空格、空行。<br>然后提交包，页面显示flag。<br><img src="/img/bk2-5.png" alt="bk2-5"></p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>如何提交post变量</strong></li>
+<li><strong>php代码阅读（基础）</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/20/CTF/bk-web/bk2-post/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CTF/11php教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/19/CTF/11php教程/">PHP教程 of RUNOOB</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/19/CTF/11php教程/" class="archive-article-date">
   	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
 </a>
         
@@ -211,7 +376,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/19/11php教程/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/19/CTF/11php教程/">展开全文 >></a>
         </p>
       
 
@@ -241,19 +406,19 @@
 
 
   
-    <article id="post-bk1-get" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/bk-web/bk1-get" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/19/bk1-get/">Bugku 2019-9-19 web基础$_GET</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/19/CTF/bk-web/bk1-get/">Bugku 2019-9-19 web基础$_GET</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/19/bk1-get/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/19/CTF/bk-web/bk1-get/" class="archive-article-date">
   	<time datetime="2019-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
 </a>
         
@@ -293,7 +458,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/19/bk1-get/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/19/CTF/bk-web/bk1-get/">展开全文 >></a>
         </p>
       
 
@@ -323,19 +488,19 @@
 
 
   
-    <article id="post-10vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/10vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/18/10vim/">Linux小笔记——vim编辑</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/18/CTF/10vim/">Linux小笔记——vim编辑</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/18/10vim/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/18/CTF/10vim/" class="archive-article-date">
   	<time datetime="2019-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
 </a>
         
@@ -386,7 +551,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/18/10vim/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/18/CTF/10vim/">展开全文 >></a>
         </p>
       
 
@@ -416,19 +581,19 @@
 
 
   
-    <article id="post-9linux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/9linux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/18/9linux基础/">Linux小笔记——文件权限、用户权限</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/18/CTF/9linux基础/">Linux小笔记——文件权限、用户权限</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/18/9linux基础/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/18/CTF/9linux基础/" class="archive-article-date">
   	<time datetime="2019-09-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
 </a>
         
@@ -469,7 +634,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/18/9linux基础/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/18/CTF/9linux基础/">展开全文 >></a>
         </p>
       
 
@@ -499,19 +664,104 @@
 
 
   
-    <article id="post-7.换源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/16/7.换源/">CentOS换中科大源【web系列4】</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/16/CTF/8/">Linux中的DVWA环境搭建【web系列5】</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/16/7.换源/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/16/CTF/8/" class="archive-article-date">
+  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载DVWA"><a href="#下载DVWA" class="headerlink" title="下载DVWA"></a>下载DVWA</h2><p>我用的系统是CentOS 7。<br>预先要安装好LAMP环境【参考web系列3】。<br>在<a href="http://www.dvwa.co.uk/" rel="external nofollow" target="_blank">DVWA官网</a>点击Download下载DVWA环境（其实是有版本的）。</p>
+<h2 id="解压zip文件"><a href="#解压zip文件" class="headerlink" title="解压zip文件"></a>解压zip文件</h2><p>然后用VMware Tools复制到虚拟机中，当然直接在虚拟机里下载也行。<br>先su一下，然后改一下目录的读写权限（我感觉改了之后很方便）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chmod a+rwx -R /var/www/</span><br></pre></td></tr></table></figure>
+
+<p>然后直接把压缩包放到这个目录里。（也可以在其它目录解压到这个目录）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# unzip DVWA-master.zip </span><br><span class="line">[root@localhost html]# rm DVWA-master.zip </span><br><span class="line">rm：是否删除普通文件 &quot;DVWA-master.zip&quot;？y</span><br><span class="line">[root@localhost html]# mv DVWA-master/ DVWA</span><br></pre></td></tr></table></figure>
+
+<p>解压并删除压缩包。把目录名字修改为DVWA<br>有必要的话，还需要多次赋予读写权限。</p>
+<h2 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# cd DVWA/config</span><br><span class="line">[root@localhost config]# cp config.inc.php.dist  config.inc.php #备份</span><br></pre></td></tr></table></figure>
+
+<p>这里就是需要config文件，备份的同时，把dist去掉，php文件作为config文件（配置文件）。<br>编辑这个php文件，把server改为localhost，把password修改为root。<br><img src="/img/7-1.png" alt="7-1"></p>
+<h2 id="使用DVWA"><a href="#使用DVWA" class="headerlink" title="使用DVWA"></a>使用DVWA</h2><p>然后在浏览器里输入：“localhost/DVWA”就可以进入类似于下图的DVWA界面。<br><img src="/img/7-2.png" alt="7-2"><br>点击Create/Reset Database后会创建数据库。<br>然后就会跳转到登录界面。<br>之后都会直接是登录界面。<br>初始用户名是admin，密码是password。<br>登录后是这样的，安装成功~<br><img src="/img/7-3.png" alt="7-3"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/CTF/8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CTF/7.换源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/16/CTF/7.换源/">CentOS换中科大源【web系列4】</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/16/CTF/7.换源/" class="archive-article-date">
   	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
 </a>
         
@@ -558,7 +808,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/7.换源/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/CTF/7.换源/">展开全文 >></a>
         </p>
       
 
@@ -588,38 +838,32 @@
 
 
   
-    <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/16/8/">Linux中的DVWA环境搭建【web系列5】</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/CTF/4centos安装/">CentOS 7（Gnome桌面）安装流程【web系列1】</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/16/8/" class="archive-article-date">
-  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+        <a href="/unln1999.github.io/2019/09/15/CTF/4centos安装/" class="archive-article-date">
+  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="下载DVWA"><a href="#下载DVWA" class="headerlink" title="下载DVWA"></a>下载DVWA</h2><p>我用的系统是CentOS 7。<br>预先要安装好LAMP环境【参考web系列3】。<br>在<a href="http://www.dvwa.co.uk/" rel="external nofollow" target="_blank">DVWA官网</a>点击Download下载DVWA环境（其实是有版本的）。</p>
-<h2 id="解压zip文件"><a href="#解压zip文件" class="headerlink" title="解压zip文件"></a>解压zip文件</h2><p>然后用VMware Tools复制到虚拟机中，当然直接在虚拟机里下载也行。<br>先su一下，然后改一下目录的读写权限（我感觉改了之后很方便）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># chmod a+rwx -R /var/www/</span><br></pre></td></tr></table></figure>
-
-<p>然后直接把压缩包放到这个目录里。（也可以在其它目录解压到这个目录）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# unzip DVWA-master.zip </span><br><span class="line">[root@localhost html]# rm DVWA-master.zip </span><br><span class="line">rm：是否删除普通文件 &quot;DVWA-master.zip&quot;？y</span><br><span class="line">[root@localhost html]# mv DVWA-master/ DVWA</span><br></pre></td></tr></table></figure>
-
-<p>解压并删除压缩包。把目录名字修改为DVWA<br>有必要的话，还需要多次赋予读写权限。</p>
-<h2 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost html]# cd DVWA/config</span><br><span class="line">[root@localhost config]# cp config.inc.php.dist  config.inc.php #备份</span><br></pre></td></tr></table></figure>
-
-<p>这里就是需要config文件，备份的同时，把dist去掉，php文件作为config文件（配置文件）。<br>编辑这个php文件，把server改为localhost，把password修改为root。<br><img src="/img/7-1.png" alt="7-1"></p>
-<h2 id="使用DVWA"><a href="#使用DVWA" class="headerlink" title="使用DVWA"></a>使用DVWA</h2><p>然后在浏览器里输入：“localhost/DVWA”就可以进入类似于下图的DVWA界面。<br><img src="/img/7-2.png" alt="7-2"><br>点击Create/Reset Database后会创建数据库。<br>然后就会跳转到登录界面。<br>之后都会直接是登录界面。<br>初始用户名是admin，密码是password。<br>登录后是这样的，安装成功~<br><img src="/img/7-3.png" alt="7-3"></p>
+        <p>安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！</p>
+<h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
+<h2 id="下载CentOS镜像文件"><a href="#下载CentOS镜像文件" class="headerlink" title="下载CentOS镜像文件"></a>下载CentOS镜像文件</h2><p>在<a href="https://www.centos.org/download/" rel="external nofollow" target="_blank">这个页面</a>下载DVD ISO文件。<br>然后等下好。</p>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br>选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（<strong>不要有中文目录！！！</strong>，虽然我第一次安装也有中文目录且没有什么问题）<br>下一步。<br>5.<br>下一步。<br>6.<br>下一步。（内核数量改成2也行）<br>7.<br>下一步。（内存改成2G也行）<br>8.<br>下一步。（选择NAT）<br>9.<br>下一步。（LSI logic）<br>10.<br>下一步。（SCSI）<br>11.<br>下一步。（创建新虚拟硬盘）<br>12.<br>下一步。（20G，拆分成多个文件）<br>13.<br>下一步。<br>14.<br>下一步。（可以勾选创建后开启此虚拟机，我勾选了。）</p>
+<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）<br>2.<br>鼠标移动到画面内，按下Enter键。<br>3.<br>进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。<br>4.<br>然后会有这样的界面。<br><img src="/img/4-1.png" alt="4-1"><br>在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）<br>在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。<br>按下图，左边选择GNOME桌面，右边选择图中这四个。<br><img src="/img/4-2.png" alt="4-2"><br>5.<br>点击系统里面的“安装位置”，什么也不用修改，确认。<br>6.<br>接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。<br><img src="/img/4-3.png" alt="4-3"><br><img src="/img/4-4.png" alt="4-4"><br>7.<br>接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。<br><img src="/img/4-5.png" alt="4-5"><br><strong>图中这里勾上把此用户作为管理员！！！</strong><br><img src="/img/4-6.png" alt="4-6"><br>8.<br>等待安装完成后，重启。<br>9.<br>重启后点击Licence Infomation，然后再点同意，确认。<br>10.<br>点击右下角完成配置。<br>11.<br>然后进入图形化登录界面。<br><img src="/img/4-7.png" alt="4-7"><br>12.<br>登陆后配置语言、输入法。在线账号那里可以跳过。<br>13.<br>然后就安装完毕了。<br><img src="/img/4-8.png" alt="4-8"></p>
+<h2 id="关于VMware-Tools安装"><a href="#关于VMware-Tools安装" class="headerlink" title="关于VMware Tools安装"></a>关于VMware Tools安装</h2><p>很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。<br>我之前装过了……然后重装系统之后还有，迷惑。<br>我看在Ubuntu系统上安装的时候，单独写一篇日志。</p>
 
       
 
@@ -643,7 +887,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/16/8/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/CTF/4centos安装/">展开全文 >></a>
         </p>
       
 
@@ -673,19 +917,19 @@
 
 
   
-    <article id="post-6.LAMP环境安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CTF/6.LAMP环境安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">LAMP环境安装【web系列3】</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/CTF/6.LAMP环境安装/">LAMP环境安装【web系列3】</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/15/CTF/6.LAMP环境安装/" class="archive-article-date">
   	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
 </a>
         
@@ -792,264 +1036,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-5ubuntu安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">Ubuntu18.04.3安装流程【web系列2】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/15/5ubuntu安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载Ubuntu镜像文件"><a href="#下载Ubuntu镜像文件" class="headerlink" title="下载Ubuntu镜像文件"></a>下载Ubuntu镜像文件</h2><p>在<a href="https://ubuntu.com/download#download" rel="external nofollow" target="_blank">这个页面</a>下载Ubuntu Desktop latest（LTS）</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br><strong>选择稍后安装操作系统</strong><br>下一步。<br>5.<br>然后选择Linux，下面选择Ubuntu 64位，放张图，更直观。<br><img src="/img/5-1.png" alt="5-1"><br>下一步。<br>6.<br>然后可以改一下系统名字，安装目录建议不选系统盘（我CentOS又装错了，C盘好像占用了很多空间，一会儿再重装一次……）<br><img src="/img/5-2.png" alt="5-2"><br>下一步。<br>7.<br>下一步。（1个内核就行）<br>8.<br>下一步。（2G就行）<br>9.<br>下一步。（NAT）<br>10.<br>下一步。（LSI logic）<br>11.<br>下一步。（SCSI）<br>12.<br>下一步。（创建新虚拟硬盘）<br>13.<br>我看到教程改成了拆分成单个文件，我们不拆。<br>直接下一步。<br><img src="/img/5-3.png" alt="5-3"><br>14.<br>下一步。<br>15.<br>完成。</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>按图配置ISO文件。(最后⑤的圈没圈起来)<br><img src="/img/5-4.png" alt="5-4"><br>2.<br>启动虚拟机，如果有问题，重新下载ISO文件。<br>3.<br>过一段时间进入安装界面，选择中文，并点击安装Ubuntu。<br>4.<br>之后几步一直按默认来，点击继续，直到设置用户名和密码。<br>5.<br>输入用户名和密码，然后选择自动登录，方便。<br>6.<br>然后等待安装，安装完成后重启。检查一下网络连接。<br>如果无法进入桌面（一直黑屏）<br>重启虚拟机，马上按E，然后进入一个有四个选项的紫色界面，在第一个选项“ubuntu”上按一次E，然后进入一个编辑界面，有点像vim。<br>然后找到一个splash，在后面打一个空格，然后输入nomodeset。<br><img src="/img/5-5.png" alt="5-5"><br>再按ctrl+X重启。</p>
-<h2 id="VMware-Tools安装"><a href="#VMware-Tools安装" class="headerlink" title="VMware Tools安装"></a>VMware Tools安装</h2><p>在左上角“虚拟机”菜单里点击安装VMware Tools。<br>然后桌面会有一个光盘的图标，双击打开。<br>复制里面的压缩包到主目录。<br>压缩包就是下图圈的那个。<br><img src="/img/5-6.png" alt="5-6"><br>然后打开终端。<br><font color="red">这里介绍一下ubuntu su进root的办法，挺重要的。</font><br>就是ubuntu为了安全性，不允许su进root，但是对于服务器来说，管理员模式很重要。<br>su进root只需要：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo passwd </span><br><span class="line">(输入原密码)</span><br><span class="line">（输入新密码，可以和原密码一样，建议一样）</span><br><span class="line">（确认新密码）</span><br></pre></td></tr></table></figure>
-
-<p>搞定之后就可以su进root了。<br><img src="/img/5-7.png" alt="5-7"><br>接着我们继续</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># tar -zxvf VMware Tools-版本号.tar.gz #这里只需要输入一个V，然后按Tab键补齐就行。</span><br><span class="line"># cd vmware-tools-distrib</span><br><span class="line"># sudo ./vmware-install.pl</span><br></pre></td></tr></table></figure>
-
-<p>然后重启就可以使用VMware Tools了。<br>重启的时候又黑屏，估计每次都得搞那个nomodeset。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/5ubuntu安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/4centos安装/">CentOS 7（Gnome桌面）安装流程【web系列1】</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/15/4centos安装/" class="archive-article-date">
-  	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！</p>
-<h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载CentOS镜像文件"><a href="#下载CentOS镜像文件" class="headerlink" title="下载CentOS镜像文件"></a>下载CentOS镜像文件</h2><p>在<a href="https://www.centos.org/download/" rel="external nofollow" target="_blank">这个页面</a>下载DVD ISO文件。<br>然后等下好。</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br>选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（<strong>不要有中文目录！！！</strong>，虽然我第一次安装也有中文目录且没有什么问题）<br>下一步。<br>5.<br>下一步。<br>6.<br>下一步。（内核数量改成2也行）<br>7.<br>下一步。（内存改成2G也行）<br>8.<br>下一步。（选择NAT）<br>9.<br>下一步。（LSI logic）<br>10.<br>下一步。（SCSI）<br>11.<br>下一步。（创建新虚拟硬盘）<br>12.<br>下一步。（20G，拆分成多个文件）<br>13.<br>下一步。<br>14.<br>下一步。（可以勾选创建后开启此虚拟机，我勾选了。）</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）<br>2.<br>鼠标移动到画面内，按下Enter键。<br>3.<br>进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。<br>4.<br>然后会有这样的界面。<br><img src="/img/4-1.png" alt="4-1"><br>在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）<br>在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。<br>按下图，左边选择GNOME桌面，右边选择图中这四个。<br><img src="/img/4-2.png" alt="4-2"><br>5.<br>点击系统里面的“安装位置”，什么也不用修改，确认。<br>6.<br>接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。<br><img src="/img/4-3.png" alt="4-3"><br><img src="/img/4-4.png" alt="4-4"><br>7.<br>接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。<br><img src="/img/4-5.png" alt="4-5"><br><strong>图中这里勾上把此用户作为管理员！！！</strong><br><img src="/img/4-6.png" alt="4-6"><br>8.<br>等待安装完成后，重启。<br>9.<br>重启后点击Licence Infomation，然后再点同意，确认。<br>10.<br>点击右下角完成配置。<br>11.<br>然后进入图形化登录界面。<br><img src="/img/4-7.png" alt="4-7"><br>12.<br>登陆后配置语言、输入法。在线账号那里可以跳过。<br>13.<br>然后就安装完毕了。<br><img src="/img/4-8.png" alt="4-8"></p>
-<h2 id="关于VMware-Tools安装"><a href="#关于VMware-Tools安装" class="headerlink" title="关于VMware Tools安装"></a>关于VMware Tools安装</h2><p>很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。<br>我之前装过了……然后重装系统之后还有，迷惑。<br>我看在Ubuntu系统上安装的时候，单独写一篇日志。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/4centos安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-电路/3电路时域分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/13/电路/3电路时域分析/">时域分析</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/13/电路/3电路时域分析/" class="archive-article-date">
-  	<time datetime="2019-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><h3 id="1-动态元件"><a href="#1-动态元件" class="headerlink" title="1.动态元件"></a>1.动态元件</h3><p>电感电容这类其上电压电流呈导数关系的元件。</p>
-<h3 id="2-稳态"><a href="#2-稳态" class="headerlink" title="2.稳态"></a>2.稳态</h3><p>电路量为常量或周期量的电路工作状态称为稳态。</p>
-<h3 id="3-换路"><a href="#3-换路" class="headerlink" title="3.换路"></a>3.换路</h3><p>改变电路工作状态的因素。</p>
-<h3 id="4-暂态"><a href="#4-暂态" class="headerlink" title="4.暂态"></a>4.暂态</h3><p>动态元件吸收或释放元件的过渡过程就是暂态。</p>
-<h3 id="5-时域分析的思想"><a href="#5-时域分析的思想" class="headerlink" title="5.时域分析的思想"></a><font color="red">5.时域分析的思想</font></h3><p>暂态过程是一段时间，这段时间上，电路量发生改变，而这些电路量的改变可以用关于时间的函数来刻画。<br>因此，利用<strong>电路结构方程</strong>和<strong>欧姆定律</strong>以及<strong>动态元件端口特性方程</strong>，我们可以列写以t为因变量的微分方程。<br>主要是简单的一阶微分方程，可以套用公式来解。<br>为了得到唯一解，还需要确定初始条件。<br>初始条件的确定利用<strong>换路定律</strong>和<strong>直流电路分析（把换路瞬间认为是直流，并且对动态元件使用置换定理）</strong>。<br>【判断符号时，变化量是增大还是减小，根据实际情况确定】</p>
-<h3 id="6-初始值的确定"><a href="#6-初始值的确定" class="headerlink" title="6.初始值的确定"></a>6.初始值的确定</h3><p>第五点里已经提到了，很简单。</p>
-<h3 id="7-一阶电路的零输入响应"><a href="#7-一阶电路的零输入响应" class="headerlink" title="7.一阶电路的零输入响应"></a>7.一阶电路的零输入响应</h3><h4 id="RC电路零输入响应"><a href="#RC电路零输入响应" class="headerlink" title="RC电路零输入响应"></a>RC电路零输入响应</h4><p>（<strong>与其说是响应，不如说是各种电路量</strong>）<br>最终解得 $u_C=U_0e^{-\frac{t}{RC}}$<br>         $i_C=\frac{U_0}{R}e^{-\frac{t}{RC}}$<br>         $u_R$就不用说了。<br>         时间参数$\tau$为$RC$<br>这种类型的电路，在变路时，电容放电，产生较大放电电流。</p>
-<h4 id="GL电路零输入响应"><a href="#GL电路零输入响应" class="headerlink" title="GL电路零输入响应"></a>GL电路零输入响应</h4><p>最终解得 $i_L=I_0e^{-\frac{Rt}{L}}$<br>         $u_L=-RI_0e^{-\frac{Rt}{L}}$<br>         $i_R$就不用说了。<br>         时间参数$\tau$为$\frac{L}{R}$<br>这种类型的电路，在变路时，电感释放磁场，产生较大电场，也即产生较大电动势。<br>断开含高阻值电阻的电感电路时，开关上可能会形成巨大的电压，因此要减小等效电阻再切断电路，以免发生危险。</p>
-<h3 id="8-阶跃函数"><a href="#8-阶跃函数" class="headerlink" title="8.阶跃函数"></a>8.阶跃函数</h3><p>$\varepsilon(t)$就是单位阶跃函数。<br>$\varepsilon(t-t_0)$是延迟单位阶跃函数<br>$\varepsilon(t)-\varepsilon(t-t_0)$是一种矩形脉冲。也记作$G(t)$。<br>$tG(t)$是一种锯齿形脉冲。</p>
-<h3 id="9-冲激函数"><a href="#9-冲激函数" class="headerlink" title="9.冲激函数"></a>9.冲激函数</h3><p>冲激函数是一种作用时间很短的脉冲信号，但是它具有脉冲强度。是一种奇异函数。<br>单位冲激函数记作$\delta(t)$，其脉冲强度为1。<br>$K\delta(t)$是一般的冲激函数，K的单位是库伦或者韦伯。<br>动态元件的快速变化可以视为一个一般冲激函数。这种变化中，换路定律将不再成立。（这种很快的变化是理想的，实际中不存在），换句话说，暂态过程也非常快，几乎认为不需要时间。</p>
-<h3 id="10-一阶电路的阶跃响应"><a href="#10-一阶电路的阶跃响应" class="headerlink" title="10.一阶电路的阶跃响应"></a>10.一阶电路的阶跃响应</h3><p>我们讨论的阶跃响应是零状态响应。<br>我们列出的微分方程为一阶非齐次微分方程。</p>
-<h4 id="特解"><a href="#特解" class="headerlink" title="特解"></a>特解</h4><p>特解是稳态分量</p>
-<h4 id="齐次方程通解"><a href="#齐次方程通解" class="headerlink" title="齐次方程通解"></a>齐次方程通解</h4><p>$u_C=-Ae^{\frac{t}{RC}}$<br>齐次方程通解是暂态分量</p>
-<h4 id="通解"><a href="#通解" class="headerlink" title="通解"></a>通解</h4><p>$U_C=U_S(1-e^{\frac{t}{RC}})\varepsilon(t)$<br>$i_C=\frac{U_C}{R}e^{\frac{t}{RC}}$</p>
-<h4 id="单位阶跃特性"><a href="#单位阶跃特性" class="headerlink" title="单位阶跃特性"></a>单位阶跃特性</h4><p>$s(t)=\frac{u_C(t)}{U_S}=(1-e^{\frac{t}{RC}})\varepsilon(t)$</p>
-<p>所以通解为$U_Ss(t)$</p>
-<h3 id="11-一阶电路的冲激响应"><a href="#11-一阶电路的冲激响应" class="headerlink" title="11.一阶电路的冲激响应"></a>11.一阶电路的冲激响应</h3><p>设$u_S$是宽度为$\Delta\xi$，幅度为$\Psi/\Delta\xi$的矩形脉冲电压。<br>拆解为两个幅度为$\Psi/\Delta\xi$的阶跃电压的叠加。<br>$u_S=u_S’+u_S’’=\frac{\Psi}{\Delta\xi}(\varepsilon(t)-\varepsilon(t-\Delta\xi)$<br>再用阶跃特性计算响应。<br>有：$u_C=\frac{\Psi}{\Delta\xi}(s(t)-s(t-\Delta\xi))$<br>又因为$\Delta\xi$趋于0，所以，$u_C=\Psi\frac{ds(t)}{dt}$<br>$u_C=Ue^{\frac{t}{\tau}\varepsilon(t)}<br>$i_C=$[Q\delta(t)-\frac{U}{R}]e^{\frac{t}{\tau}}$<br>冲激响应的初始值不适用于换路定律，因为是奇异函数。<br>类似于零输入响应</p>
-<h4 id="单位冲激特性"><a href="#单位冲激特性" class="headerlink" title="单位冲激特性"></a>单位冲激特性</h4><p><font color="red">$h(t)=\frac{ds(t)}{dt}$</font></p>
-<h3 id="12-正弦电源作用下的一阶电路"><a href="#12-正弦电源作用下的一阶电路" class="headerlink" title="12.正弦电源作用下的一阶电路"></a>12.正弦电源作用下的一阶电路</h3><p>$u_S=U_mcos(\omegat+\Psi_u)$<br>$\Psi_u$是开关接通时刻电源的相位，称为接入相角。<br>首先确定稳态解，直接把正弦电压向量除以阻抗就好了。<br>然后求齐次方程通解，为$Ae^{-\frac{t}{\tau}}$，A是积分常数。<br>接下来利用初始值确定积分常数，A为特解在0+时的负值。<br>【当$\Psi_u-\phi=\frac{\pi}{2}或-\frac{\pi}{2}时没有暂态$】<br>【当$\Psi_u-\phi=\pi或-\pi，会产生较大响应，电气设备要注意防范。$】</p>
-<h3 id="13-一阶电路的全响应"><a href="#13-一阶电路的全响应" class="headerlink" title="13.一阶电路的全响应"></a>13.一阶电路的全响应</h3><p>一阶电路的全响应可以分为零输入响应和零状态响应。</p>
-<h3 id="14-卷积积分求暂态响应"><a href="#14-卷积积分求暂态响应" class="headerlink" title="14.卷积积分求暂态响应"></a>14.卷积积分求暂态响应</h3><h3 id="15-二阶电路的暂态过程"><a href="#15-二阶电路的暂态过程" class="headerlink" title="15.二阶电路的暂态过程"></a>15.二阶电路的暂态过程</h3><p>有特征方程：<br>$α=-\frac{1}{2t}$ t就是tao<br>$ω=\frac{1}{sqrt{LC}}$<br>①α大，过阻尼，非震荡<br>②α小，欠阻尼，震荡<br>③α=ω，临界，非震荡</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/13/电路/3电路时域分析/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/CTF/6.LAMP环境安装/">展开全文 >></a>
         </p>
       
 
@@ -1197,11 +1184,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1209,11 +1192,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,19 +1212,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">复变</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,6 +1221,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
             
             <div class="clearfix"></div>
