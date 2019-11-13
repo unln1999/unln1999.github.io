@@ -149,19 +149,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-CTF/4centos安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-6.LAMP环境安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/15/CTF/4centos安装/">CentOS 7（Gnome桌面）安装流程【web系列1】</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">LAMP环境安装【web系列3】</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/15/CTF/4centos安装/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/" class="archive-article-date">
   	<time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
 </a>
         
@@ -169,12 +169,82 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>安装好的CentOS出了点问题（加之之前设置错了），而且我还把镜像文件删了（我怀疑是因为这个原因导致Gnome桌面加载不出来），因此打算重新安装一遍，顺便写一下技术文档！</p>
-<h2 id="预先安装VMware-Workstation-Pro-15"><a href="#预先安装VMware-Workstation-Pro-15" class="headerlink" title="预先安装VMware Workstation Pro 15"></a>预先安装VMware Workstation Pro 15</h2><p>因为我事先安装好了，所以暂时先不记录流程。<br>这个东东是用固定序列号注册的，所以正版激活只用百度序列号。<br>之后我会写一篇文章来讲Vmware Workstation的安装。</p>
-<h2 id="下载CentOS镜像文件"><a href="#下载CentOS镜像文件" class="headerlink" title="下载CentOS镜像文件"></a>下载CentOS镜像文件</h2><p>在<a href="https://www.centos.org/download/" rel="external nofollow" target="_blank">这个页面</a>下载DVD ISO文件。<br>然后等下好。</p>
-<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>1.<br>打开VMware Workstation。<br>点击创建虚拟机（在左上角“文件”菜单里有）。<br>2.<br><strong>选择自定义！！！</strong><br>下一步。<br>3.<br>下一步。<br>4.<br>选择默认的“安装程序光盘映像文件”，然后在你下载好的镜像文件存放目录里选择iso文件。（<strong>不要有中文目录！！！</strong>，虽然我第一次安装也有中文目录且没有什么问题）<br>下一步。<br>5.<br>下一步。<br>6.<br>下一步。（内核数量改成2也行）<br>7.<br>下一步。（内存改成2G也行）<br>8.<br>下一步。（选择NAT）<br>9.<br>下一步。（LSI logic）<br>10.<br>下一步。（SCSI）<br>11.<br>下一步。（创建新虚拟硬盘）<br>12.<br>下一步。（20G，拆分成多个文件）<br>13.<br>下一步。<br>14.<br>下一步。（可以勾选创建后开启此虚拟机，我勾选了。）</p>
-<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>1.<br>启动虚拟机后，选择Install centos（画面过去了，我不记得是不是叫这个了，总之有个目录，选择第一个带install的就行。）<br>2.<br>鼠标移动到画面内，按下Enter键。<br>3.<br>进入一个图形界面后选择安装语言（这个语言是安装过程中的语言），如果没有特殊需求，选用中文。<br>4.<br>然后会有这样的界面。<br><img src="/img/4-1.png" alt="4-1"><br>在第一个本地化的设置里什么都不用修改（当然前提是和图中一样）<br>在软件里面，修改“软件选择”，如果是最小安装的话，会只有命令行，并缺少很多常用的东西。<br>按下图，左边选择GNOME桌面，右边选择图中这四个。<br><img src="/img/4-2.png" alt="4-2"><br>5.<br>点击系统里面的“安装位置”，什么也不用修改，确认。<br>6.<br>接着点下面的“网络与主机名”，把以太网开关打开，否则无法联网。<br><img src="/img/4-3.png" alt="4-3"><br><img src="/img/4-4.png" alt="4-4"><br>7.<br>接着点击“开始安装”，这里要设定用户名和密码，边安装边设置就行。密码建议别太长(不过我还是设置的很长)。<br><img src="/img/4-5.png" alt="4-5"><br><strong>图中这里勾上把此用户作为管理员！！！</strong><br><img src="/img/4-6.png" alt="4-6"><br>8.<br>等待安装完成后，重启。<br>9.<br>重启后点击Licence Infomation，然后再点同意，确认。<br>10.<br>点击右下角完成配置。<br>11.<br>然后进入图形化登录界面。<br><img src="/img/4-7.png" alt="4-7"><br>12.<br>登陆后配置语言、输入法。在线账号那里可以跳过。<br>13.<br>然后就安装完毕了。<br><img src="/img/4-8.png" alt="4-8"></p>
-<h2 id="关于VMware-Tools安装"><a href="#关于VMware-Tools安装" class="headerlink" title="关于VMware Tools安装"></a>关于VMware Tools安装</h2><p>很重要的工具，把真实系统和虚拟机联系起来，并且可以调整虚拟机的画面大小啥的。<br>我之前装过了……然后重装系统之后还有，迷惑。<br>我看在Ubuntu系统上安装的时候，单独写一篇日志。</p>
+        <p>蓝色字体将介绍安装的软件。</p>
+<h1 id="环境检测"><a href="#环境检测" class="headerlink" title="环境检测"></a>环境检测</h1><p>全新系统不需要这一步，我暂时跳过，日后补充。</p>
+<h1 id="安装Apache、PHP、Mysql"><a href="#安装Apache、PHP、Mysql" class="headerlink" title="安装Apache、PHP、Mysql"></a>安装Apache、PHP、Mysql</h1><h2 id="1-安装Apache"><a href="#1-安装Apache" class="headerlink" title="1.安装Apache"></a>1.安装Apache</h2><p><font color="blue">世界使用排名第一的服务器软件，可广泛地运行于多个平台上</font><br>先su进root。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install httpd</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  httpd.x86_64 0:2.4.6-89.el7.centos.1                                          </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  httpd-tools.x86_64 0:2.4.6-89.el7.centos.1    mailcap.noarch 0:2.1.41-2.el7   </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装PHP"><a href="#2-安装PHP" class="headerlink" title="2.安装PHP"></a>2.安装PHP</h2><p><font color="blue">一种较新的web脚本语言，php环境用来运行php程序代码</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php.x86_64 0:5.4.16-46.el7                                                    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  libzip.x86_64 0:0.10.1-8.el7             php-cli.x86_64 0:5.4.16-46.el7       </span><br><span class="line">  php-common.x86_64 0:5.4.16-46.el7       </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装php-fpm"><a href="#3-安装php-fpm" class="headerlink" title="3.安装php-fpm"></a>3.安装php-fpm</h2><p><font color="blue">php的fastCGI process manager，CGI是通用网关接口（Common Gateway Interface）,fast就是快速。web服务器（我们的是Apache）本身不能解释php语言，服务器将php请求交给FastCGI进程管理来处理。对于5.3.3之前的php环境，应该只有安装了php-fpm，才能让服务器解释php文件。我的php版本为5.4.16，我特意卸载掉php-fpm依然可以在localhost里打开php文件。</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-fpm</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-fpm.x86_64 0:5.4.16-46.el7                                                </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装Mysql"><a href="#4-安装Mysql" class="headerlink" title="4.安装Mysql"></a>4.安装Mysql</h2><p><font color="blue">一种流行的DBMS（关系型数据库管理系统）</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mariadb.x86_64 1:5.5.60-1.el7_5                                               </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-安装Mysql-server"><a href="#5-安装Mysql-server" class="headerlink" title="5.安装Mysql-server"></a>5.安装Mysql-server</h2><p><font color="blue">Mysql的服务器，是Mysql的核心程序</font><br>这一步要先换源！！！【参考web系列4】<br>这里用yum会出错，这是作者怕Mysql闭源的结果。<br>无法使用下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>直接从官网下载Mysql-server就可以了<br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm #这个命令我用的时候有问题，也可以直接在windows里输入后半部分URL，然后用VMware Tools弄到CentOS主文件夹里。可能是少了-i</span><br><span class="line"># rpm -ivh mysql-community-release-el7-5.noarch.rpm2</span><br><span class="line"># yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+
+<p>输入y继续。<br>耐心等候。（这个过程很快，如果不快就换源，阿里云的好像不行，中科大的快）<br>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  mysql-community-server.x86_64 0:5.6.45-2.el7                                  </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7                                  </span><br><span class="line">  perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7                                   </span><br><span class="line">  perl-DBI.x86_64 0:1.627-4.el7                                                 </span><br><span class="line">  perl-IO-Compress.noarch 0:2.061-2.el7                                         </span><br><span class="line">  perl-Net-Daemon.noarch 0:0.48-5.el7                                           </span><br><span class="line">  perl-PlRPC.noarch 0:0.2020-14.el7                                             </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-安装php-mysql"><a href="#6-安装php-mysql" class="headerlink" title="6.安装php-mysql"></a>6.安装php-mysql</h2><p><font color="blue">应该是php和Mysql的接口工具之类的（百度不到）</font><br>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-mysql.x86_64 0:5.4.16-46.el7                                              </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  php-pdo.x86_64 0:5.4.16-46.el7                                                </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装基本常用扩展包"><a href="#安装基本常用扩展包" class="headerlink" title="安装基本常用扩展包"></a>安装基本常用扩展包</h1><h2 id="1-安装Apache扩展包"><a href="#1-安装Apache扩展包" class="headerlink" title="1.安装Apache扩展包"></a>1.安装Apache扩展包</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install httpd-manual mod_ssl mod_perl mod_auth_mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  httpd-manual.noarch 0:2.4.6-89.el7.centos.1   mod_perl.x86_64 0:2.0.10-3.el7  </span><br><span class="line">  mod_ssl.x86_64 1:2.4.6-89.el7.centos.1       </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  gdbm-devel.x86_64 0:1.10-8.el7                                                </span><br><span class="line">  libdb-devel.x86_64 0:5.3.21-24.el7                                            </span><br><span class="line">  perl-BSD-Resource.x86_64 0:1.29.07-1.el7                                      </span><br><span class="line">  perl-ExtUtils-Install.noarch 0:1.58-294.el7_6                                 </span><br><span class="line">  perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7                                   </span><br><span class="line">  perl-ExtUtils-Manifest.noarch 0:1.61-244.el7                                  </span><br><span class="line">  perl-ExtUtils-ParseXS.noarch 1:3.18-3.el7                                     </span><br><span class="line">  perl-Linux-Pid.x86_64 0:0.04-18.el7                                           </span><br><span class="line">  perl-devel.x86_64 4:5.16.3-294.el7_6                                          </span><br><span class="line">  systemtap-sdt-devel.x86_64 0:3.3-3.el7                                        </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装PHP扩展包"><a href="#2-安装PHP扩展包" class="headerlink" title="2.安装PHP扩展包"></a>2.安装PHP扩展包</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  php-devel.x86_64 0:5.4.16-46.el7      php-gd.x86_64 0:5.4.16-46.el7          </span><br><span class="line">  php-ldap.x86_64 0:5.4.16-46.el7       php-mbstring.x86_64 0:5.4.16-46.el7    </span><br><span class="line">  php-pear.noarch 1:1.9.4-21.el7        php-xml.x86_64 0:5.4.16-46.el7         </span><br><span class="line">  php-xmlrpc.x86_64 0:5.4.16-46.el7    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  pcre-devel.x86_64 0:8.32-17.el7       php-process.x86_64 0:5.4.16-46.el7      </span><br><span class="line">  t1lib.x86_64 0:5.1.2-14.el7          </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装Mysql扩展包"><a href="#3-安装Mysql扩展包" class="headerlink" title="3.安装Mysql扩展包"></a>3.安装Mysql扩展包</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum -y install mysql-connector-odbc mysql-devel libdbi-dbd-mysql</span><br></pre></td></tr></table></figure>
+
+<p>我的返回结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">已安装:</span><br><span class="line">  libdbi-dbd-mysql.x86_64 0:0.8.3-16.el7                                        </span><br><span class="line">  mysql-community-devel.x86_64 0:5.6.45-2.el7                                   </span><br><span class="line">  mysql-connector-odbc.x86_64 0:8.0.17-1.el7                                    </span><br><span class="line"></span><br><span class="line">作为依赖被安装:</span><br><span class="line">  libdbi.x86_64 0:0.8.4-6.el7         libdbi-drivers.x86_64 0:0.8.3-16.el7     </span><br><span class="line">  unixODBC.x86_64 0:2.3.1-11.el7     </span><br><span class="line"></span><br><span class="line">完毕！</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置Apache、Mysql开机启动（这样更方便）"><a href="#配置Apache、Mysql开机启动（这样更方便）" class="headerlink" title="配置Apache、Mysql开机启动（这样更方便）"></a>配置Apache、Mysql开机启动（这样更方便）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># systemctl enable httpd.service #设置apache开机启动</span><br><span class="line">(返回如下)</span><br><span class="line">Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.</span><br><span class="line"></span><br><span class="line"># systemctl enable mysqld.service #设置mysql开机启动</span><br><span class="line">（没有返回结果）</span><br></pre></td></tr></table></figure>
+
+<p>重启检验是否开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service mysqld status</span><br><span class="line"># service httpd status</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置Mysql"><a href="#配置Mysql" class="headerlink" title="配置Mysql"></a>配置Mysql</h1><h2 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h2><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mysql_secure_installation</span><br><span class="line">（回车）</span><br><span class="line">（回车）</span><br><span class="line">（输入密码，不显示，我输入的是root）</span><br><span class="line">（回车4次，完成设置）</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h1><h2 id="测试Apache"><a href="#测试Apache" class="headerlink" title="测试Apache"></a>测试Apache</h2><p>在虚拟机的浏览器（firefox）里打开“<a href="http://localhost/”" rel="external nofollow" target="_blank">http://localhost/”</a><br>应该会如图有这样的界面，如果没有说明有问题，或者apache没有启动。<br><img src="/img/6-1.png" alt="6-1"><br>没有启动要用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># service httpd status #确定是否启动</span><br><span class="line"># service httpd start #启动</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试php"><a href="#测试php" class="headerlink" title="测试php"></a>测试php</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cd /var/www/html</span><br><span class="line"># touch phpinfo-test.php #这个名字无所谓的</span><br><span class="line"># vim phpinfo-test.php</span><br></pre></td></tr></table></figure>
+
+<p>写一个简单的php文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后保存退出，浏览器力打开“localhost/phpinfo-test.php”<br>如果出现下图，则php安装成功。<br><img src="/img/6-2.png" alt="6-2"></p>
 
       
 
@@ -198,7 +268,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/CTF/4centos安装/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/15/6.LAMP环境安装/">展开全文 >></a>
         </p>
       
 
@@ -228,19 +298,19 @@
 
 
   
-    <article id="post-电路/3电路时域分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-3电路时域分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/13/电路/3电路时域分析/">时域分析</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/13/3电路时域分析/">时域分析</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/13/电路/3电路时域分析/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/13/3电路时域分析/" class="archive-article-date">
   	<time datetime="2019-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
@@ -292,7 +362,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/13/电路/3电路时域分析/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/13/3电路时域分析/">展开全文 >></a>
         </p>
       
 
@@ -437,19 +507,19 @@
 
 
   
-    <article id="post-CTF/2SQLlow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2SQLlow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/01/CTF/2SQLlow/">DVWA-SQL Injection Low级</a>
+      <a class="article-title" href="/unln1999.github.io/2019/09/01/2SQLlow/">DVWA-SQL Injection Low级</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/09/01/CTF/2SQLlow/" class="archive-article-date">
+        <a href="/unln1999.github.io/2019/09/01/2SQLlow/" class="archive-article-date">
   	<time datetime="2019-08-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
 </a>
         
@@ -612,7 +682,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/01/CTF/2SQLlow/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/01/2SQLlow/">展开全文 >></a>
         </p>
       
 
@@ -760,15 +830,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,27 +838,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,6 +859,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
             
             <div class="clearfix"></div>
