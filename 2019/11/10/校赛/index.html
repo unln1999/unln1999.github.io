@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="夢の此夜亭🌸">
 <meta property="og:description" content="asciiwriteup就是一段十六进制数，开头那段6什么F什么的是flag的意思，可以把它背下来，有提示作用（虽然我记下来又忘记了）用010editor就可以解密。得到flag。 get和js都很好用writeup要计算1+1=?输入2，提示不对，是要二进制，那么应该是10。输入10，发现只能输一位。修改html标签的位数限制，搞定。还可以把gat变量的值在url直接修改。得到flag。 JSf">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-11T02:48:06.613Z">
+<meta property="og:updated_time" content="2019-12-01T07:32:39.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019校赛个人做出题解">
 <meta name="twitter:description" content="asciiwriteup就是一段十六进制数，开头那段6什么F什么的是flag的意思，可以把它背下来，有提示作用（虽然我记下来又忘记了）用010editor就可以解密。得到flag。 get和js都很好用writeup要计算1+1=?输入2，提示不对，是要二进制，那么应该是10。输入10，发现只能输一位。修改html标签的位数限制，搞定。还可以把gat变量的值在url直接修改。得到flag。 JSf">
@@ -176,7 +176,7 @@
 <h1 id="robot"><a href="#robot" class="headerlink" title="robot"></a>robot</h1><h2 id="writeup-4"><a href="#writeup-4" class="headerlink" title="writeup"></a>writeup</h2><p>前几天在做博客被百度收录的工作，其中有一项就是添加robots.txt，来禁止爬虫爬取的内容。<br>但是人为是可以访问所有文件的，只要有权限。<br>所有robots.txt里可能会有不让访问的东西，因此可以从中获取攻击思路。<br>包括彩票那道题也需要查看robots.txt。<br>本题查看robots.txt，它限制了爬虫看一个flag文件。<br>但是我们可以看，直接把文件名放到url里，得到flag。</p>
 <h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="writeup-5"><a href="#writeup-5" class="headerlink" title="writeup"></a>writeup</h2><p>有一堆乱七八糟的字符（我记得是中文），不解其意。<br>先看源码，发现有个不显示的&lt;a&gt;标签,里面有一段内容。<br>是url编码，解码得到/u开头的一段内容，是unicode编码，再解码为中文（应该是utf-8吧），得到flag。</p>
 <h1 id="参禅"><a href="#参禅" class="headerlink" title="参禅"></a>参禅</h1><h2 id="writeup-6"><a href="#writeup-6" class="headerlink" title="writeup"></a>writeup</h2><p>考察知识面，在联网情况下可以说是白给。当然不联网也不好解密。<br>是一种叫“与佛论禅”的加密方式，解密即得flag。</p>
-<h1 id="快速计算"><a href="#快速计算" class="headerlink" title="快速计算"></a>快速计算</h1><h2 id="writeup-7"><a href="#writeup-7" class="headerlink" title="writeup"></a>writeup</h2><p>题目要我们一秒内算一个乘法然后用get方式提交，<br>用python脚本可以快速放射。</p>
+<h1 id="快速计算"><a href="#快速计算" class="headerlink" title="快速计算"></a>快速计算</h1><h2 id="writeup-7"><a href="#writeup-7" class="headerlink" title="writeup"></a>writeup</h2><p>题目要我们一秒内算一个乘法然后用get方式提交，<br>用python脚本可以快速反射。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库，用来建立连接</span><br><span class="line">import re #调用re库，用来正则查找对象</span><br><span class="line">s = requests.Session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://47.98.240.217:8897/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">searchobj = re.search(r&quot;\d+\*\d+&quot;,r.text) #原生正则表达式,text是对象r的属性</span><br><span class="line">number = eval(searchobj.group(0)) #计算搜索到的表达式</span><br><span class="line">r = s.get(&quot;http://47.98.240.217:8897/?number=&quot;+str(number)) #重新提交get请求</span><br><span class="line">print(r.text) #输出结果</span><br></pre></td></tr></table></figure>
 
 <p>用这样的程序，运行一下得到flag。</p>
@@ -387,7 +387,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 英和路雪
+    		&copy; 2020 英和路雪
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow">Yilia</a> by Litten
@@ -519,7 +519,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,7 +527,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">

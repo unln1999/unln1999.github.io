@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://unln1999.github.io/unln1999.github.io">
   <title>bugku 2019/11/10 urldecode二次编码绕过 | 夢の此夜亭🌸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="源码123456789101112131415&amp;lt;?phpif(eregi(&amp;quot;hackerDJ&amp;quot;,$_GET[id]))//id不能包含hackerDJ&amp;#123;	echo(&amp;quot;not allowed!&amp;quot;);	exit();&amp;#125;$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，url传入的">
+  <meta name="description" content="源码123456789101112131415&amp;lt;?phpif(eregi(&amp;quot;hackerDJ&amp;quot;,$_GET[id]))//id不能包含hackerDJ&amp;#123;    echo(&amp;quot;not allowed!&amp;quot;);    exit();&amp;#125;$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，">
 <meta name="keywords" content="bugku">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bugku 2019&#x2F;11&#x2F;10 urldecode二次编码绕过">
 <meta property="og:url" content="https://unln1999.github.io/unln1999.github.io/2019/11/10/bk33-urldecode二次编码绕过/index.html">
 <meta property="og:site_name" content="夢の此夜亭🌸">
-<meta property="og:description" content="源码123456789101112131415&amp;lt;?phpif(eregi(&amp;quot;hackerDJ&amp;quot;,$_GET[id]))//id不能包含hackerDJ&amp;#123;	echo(&amp;quot;not allowed!&amp;quot;);	exit();&amp;#125;$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，url传入的">
+<meta property="og:description" content="源码123456789101112131415&amp;lt;?phpif(eregi(&amp;quot;hackerDJ&amp;quot;,$_GET[id]))//id不能包含hackerDJ&amp;#123;    echo(&amp;quot;not allowed!&amp;quot;);    exit();&amp;#125;$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-08T11:30:22.088Z">
+<meta property="og:updated_time" content="2019-11-15T11:27:32.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bugku 2019&#x2F;11&#x2F;10 urldecode二次编码绕过">
-<meta name="twitter:description" content="源码123456789101112131415&amp;lt;?phpif(eregi(&amp;quot;hackerDJ&amp;quot;,$_GET[id]))//id不能包含hackerDJ&amp;#123;	echo(&amp;quot;not allowed!&amp;quot;);	exit();&amp;#125;$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，url传入的">
+<meta name="twitter:description" content="源码123456789101112131415&amp;lt;?phpif(eregi(&amp;quot;hackerDJ&amp;quot;,$_GET[id]))//id不能包含hackerDJ&amp;#123;    echo(&amp;quot;not allowed!&amp;quot;);    exit();&amp;#125;$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，">
   
     <link rel="alternative" href="/atom.xml" title="夢の此夜亭🌸" type="application/atom+xml">
   
@@ -169,7 +169,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(eregi(&quot;hackerDJ&quot;,$_GET[id]))//id不能包含hackerDJ</span><br><span class="line">&#123;</span><br><span class="line">	echo(&quot;not allowed!&quot;);</span><br><span class="line">	exit();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，url传入的时候本身就会解码一次，所以我们需要把hackerDJ编码两次</span><br><span class="line"></span><br><span class="line">if($_GET[id] == &quot;hackerDJ&quot;)</span><br><span class="line">&#123;</span><br><span class="line">echo &quot;Access granted!&quot;;</span><br><span class="line">echo &quot;flag&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(eregi(&quot;hackerDJ&quot;,$_GET[id]))//id不能包含hackerDJ</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;not allowed!&quot;);</span><br><span class="line">    exit();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$_GET[id] = urldecode($_GET[id]);//要我们urlencode id的意思，url传入的时候本身就会解码一次，所以我们需要把hackerDJ编码两次</span><br><span class="line"></span><br><span class="line">if($_GET[id] == &quot;hackerDJ&quot;)</span><br><span class="line">&#123;</span><br><span class="line">echo &quot;Access granted!&quot;;</span><br><span class="line">echo &quot;flag&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>略</p>
 <h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>输入url：123.206.87.240:9009/10.php?id=%25%36%38%25%36%31%25%36%33%25%36%42%25%36%35%25%37%32%25%34%34%25%34%41<br>页面输出flag。</p>
@@ -366,7 +366,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 英和路雪
+    		&copy; 2020 英和路雪
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external nofollow">Yilia</a> by Litten
@@ -498,7 +498,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +506,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color2">buuctf</a>
               </li>
              
               <li class="article-tag-list-item">
