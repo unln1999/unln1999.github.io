@@ -149,6 +149,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk17-速度要快" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/10/05/bk17-速度要快/">Bugku 2019/10/5 速度要快</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/10/05/bk17-速度要快/" class="archive-article-date">
+  	<time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>提示你要速度要快。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>查看源码，说让你用post方法传递一个叫margin的量。<br>它的值是多少呢？<br>如果随便给个值，返回结果是”我都说了让你快点。。。”<br>接下来查看html响应头，发现里面有flag。然后只有数字、字母、+、=,是base64加密，加密得到“flag”，然后对这个“flag”再进行一次解密，发现可以解密。<br>把这个值作为margin的值。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>写一个快速反弹post的python脚本，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">import base64</span><br><span class="line">s = requests.session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/web6/&quot;)#会话对象的方法,向url发送get请求</span><br><span class="line"></span><br><span class="line">#第一种</span><br><span class="line">#flag = r.headers[&apos;flag&apos;]</span><br><span class="line">#flag = base64.b64decode(flag)</span><br><span class="line">#flag = flag.decode()</span><br><span class="line">#flag = base64.b64decode(flag.split(&quot;:&quot;)[1])</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line">#第二种</span><br><span class="line">#flag = re.search(r&quot;6LeR55qE6L\+Y5LiN6ZSZ77yM57uZ5L2gZmxhZ\+WQpzogT\w&#123;10&#125;=&quot;,str(r.headers))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#flag = re.search(r&quot;\w&#123;7&#125;[\w =]&quot;,str(flag))</span><br><span class="line">#flag = base64.b64decode(flag.group(0))</span><br><span class="line">#data = &#123;&quot;margin&quot;: flag&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/web6/&quot;,data)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>有两种方式去解密margin的值，第一种是网上常规的，第二种是我用正则表达式写的。<br>在powershell里运行py文件（使用的时候选择一种方法去掉语句的注释）。<br>即可得到flag。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>base64库</strong></li>
+<li><strong>base64多次加密</strong></li>
+<li>requests库</li>
+<li>基于python的快速反弹</li>
+<li>正则表达式</li>
+<li><strong>split方法</strong></li>
+<li>decode</li>
+<li>html响应头</li>
+</ol>
+<p>做了两道快速反弹post的题之后也可以意识到，提交post值还可以用py脚本。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/10/05/bk17-速度要快/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-13编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1104,85 +1194,6 @@
 
 
   
-    <article id="post-bk10-web5（jjencode）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">Bugku 2019/9/28 web5</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/" class="archive-article-date">
-  	<time datetime="2019-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="打开题目界面"><a href="#打开题目界面" class="headerlink" title="打开题目界面"></a>打开题目界面</h2><p>显示一段文字和一个文本框和提交按钮。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>打开html代码，分区里有一堆字符，第一次看真的不知道是干啥的。<br>然后就是很正常的两个表单。<br>题目的意思是让你输入正确的flag，然后提交后会反馈给你是否正确。<br>我们先随便输点东西，看一下有没有错误反馈。<br>结果是有的，作者让你再看一下。<br>于是就研究html代码。<br>但是不知道那堆字符是干嘛的，于是去查了writeup。<br>提示中的JSPFUCK中的JSP是指java server page。这个好像也是一种加密，不太清楚到底是jjencode还是jspfuck。<br>总之，把这段字符放在控制行里，回车得到java代码。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>复制字符到浏览器console并回车。<br>得到flag，然后输入后发现不对。<br>再由题干中的字符大写启发，改为大写，则正确。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>jsp加密</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/page/3/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/unln1999.github.io/page/5/">5</a><a class="page-number" href="/unln1999.github.io/page/6/">6</a><a class="page-number" href="/unln1999.github.io/page/7/">7</a><a class="extend next" rel="next" href="/unln1999.github.io/page/5/">Next &raquo;</a>
@@ -1321,11 +1332,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,11 +1344,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -149,6 +149,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2020/05/17/SQL/">SQL语句笔记</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2020/05/17/SQL/" class="archive-article-date">
+  	<time datetime="2020-05-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p><font color="red">create schema</font> &lt;模式名&gt; authorization &lt;用户名&gt;<br><em>没有指定模式名时，隐含为用户名</em></p>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><p>font color=red&gt;drop schema &lt;模式名&gt; &lt;cascade|restrict&gt;<br><em>cascade级联删除，restrict做一个检查，如果模式下还有对象则不删除</em></p>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><p><font color="red">create table</font>  &lt;表名&gt; (&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件],&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件],…[表级完整性约束条件]);<br>给几个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create table student(sclass char(3) not null,sno char(3) not null,sname varchar(10) not null,sex char(2),sage tinyint,sdept varchar(4),primary key(sclass,sno));</span><br><span class="line">create table course(cno char(3) not null,cname varchar(20) not null,cpno char(3) ,credit tinyint,primary key(cno));</span><br><span class="line">create table sc(sclass char(3) not null,sno char(8) not null,cno char(10) not null,grade tinyint,primary key(sclass,sno,cno),foreign key(sclass,sno) references student(sclass,sno),foreign key(cno) references course(cno));</span><br></pre></td></tr></table></figure>
+
+<p><em>表明前+数据库名.</em></p>
+<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><p><font color="red">alter table</font>  &lt;表名&gt; add &lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件] drop &lt;列名&gt;&lt;cascade|restrict&gt; drop constraint &lt;完整性约束名&gt; [cascade|restrict] modify column &lt;列名&gt; &lt;数据类型&gt;;</p>
+<h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><p><font color="red">drop table</font>  &lt;表名&gt; [cascade|restrict]</p>
+<h2 id="建立索引"><a href="#建立索引" class="headerlink" title="建立索引"></a>建立索引</h2><p>create [unique|cluster] index &lt;索引名&gt; on &lt;表名&gt; (&lt;列名&gt;[&lt;次序&gt;][,&lt;列名&gt;[&lt;次序&gt;]]…);</p>
+<h2 id="修改索引"><a href="#修改索引" class="headerlink" title="修改索引"></a>修改索引</h2><p>alter index &lt;旧索引名&gt; rename to &lt;新索引名&gt;</p>
+<h2 id="删除所有"><a href="#删除所有" class="headerlink" title="删除所有"></a>删除所有</h2><p>drop index &lt;索引名&gt;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2020/05/17/SQL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk37-密码(社工)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -919,85 +1003,6 @@
 
 
   
-    <article id="post-bk29-隐写" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/11/06/bk29-隐写/">bugku 2019/11/6 隐写</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/11/06/bk29-隐写/" class="archive-article-date">
-  	<time datetime="2019-11-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>没有页面，保存文件解压</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先看一下各通道，无果，binwalk一下。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>binwalk里出现zlib，实际上是类似而不是真的是zlib。<br>只需要修改宽高，右键用010 editor打开文件，然后找到IHDR里的宽高部分，把高改成和宽一样就可以得到flag了。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>宽高隐写（PNG宽高数据位置）</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/11/06/bk29-隐写/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/unln1999.github.io/page/2/">2</a><a class="page-number" href="/unln1999.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/7/">7</a><a class="extend next" rel="next" href="/unln1999.github.io/page/2/">Next &raquo;</a>
@@ -1136,11 +1141,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,11 +1153,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">

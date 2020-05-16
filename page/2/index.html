@@ -149,43 +149,31 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-bk28-还单纯吗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-bk29-隐写" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/11/04/bk28-还单纯吗/">bugku 2019/11/4 还单纯吗？</a>
+      <a class="article-title" href="/unln1999.github.io/2019/11/06/bk29-隐写/">bugku 2019/11/6 隐写</a>
     </h1>
   
 
         
-        <a href="/unln1999.github.io/2019/11/04/bk28-还单纯吗/" class="archive-article-date">
-  	<time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+        <a href="/unln1999.github.io/2019/11/06/bk29-隐写/" class="archive-article-date">
+  	<time datetime="2019-11-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>保存图片</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>看属性有无信息</li>
-<li>用文本编辑器打开，看看头尾有无文件</li>
-<li>查看EXIF信息</li>
-<li>用Stegsolve查看各个通道</li>
-<li>利用binwalk看是否有多个文件</li>
-<li>是否隐写了压缩文件</li>
-</ol>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>在binwalk目录打开powershell，然后输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;py .\binwalk 2.jpg的地址</span><br></pre></td></tr></table></figure>
-
-<p>得到结果<br><img src="/img/bk28-1.png" alt="bk28-1"></p>
-<p>windows里分离文件可以安装foremost，<a href="https://github.com/raddyfiy/foremost" rel="external nofollow" target="_blank">下载地址</a>，<a href="https://www.cnblogs.com/cnnnnnn/p/8994362.html" rel="external nofollow" target="_blank">参考文章</a><br>安装好后右键分离就行了，中文目录会有问题，但是不影响实际使用。<br>结果为：falg{NSCTF_e6532a34928a3d1dadd0b049d5a3cc57}<br>注意这里不是flag而是falg。<br>用OCR识别再校对比较方便，使用在线工具就可以了。</p>
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>没有页面，保存文件解压</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先看一下各通道，无果，binwalk一下。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>binwalk里出现zlib，实际上是类似而不是真的是zlib。<br>只需要修改宽高，右键用010 editor打开文件，然后找到IHDR里的宽高部分，把高改成和宽一样就可以得到flag了。</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>binwalk的使用</strong></li>
-<li><strong>foremost的使用</strong></li>
+<li><strong>宽高隐写（PNG宽高数据位置）</strong></li>
 </ol>
 
       
@@ -210,7 +198,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/11/04/bk28-还单纯吗/">展开全文 >></a>
+          <a class="article-more-a" href="/unln1999.github.io/2019/11/06/bk29-隐写/">展开全文 >></a>
         </p>
       
 
@@ -291,6 +279,97 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/unln1999.github.io/2019/11/04/bk27-这只是一张单纯的图片/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bk28-还单纯吗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/11/04/bk28-还单纯吗/">bugku 2019/11/4 还单纯吗？</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/11/04/bk28-还单纯吗/" class="archive-article-date">
+  	<time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>保存图片</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>看属性有无信息</li>
+<li>用文本编辑器打开，看看头尾有无文件</li>
+<li>查看EXIF信息</li>
+<li>用Stegsolve查看各个通道</li>
+<li>利用binwalk看是否有多个文件</li>
+<li>是否隐写了压缩文件</li>
+</ol>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>在binwalk目录打开powershell，然后输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;py .\binwalk 2.jpg的地址</span><br></pre></td></tr></table></figure>
+
+<p>得到结果<br><img src="/img/bk28-1.png" alt="bk28-1"></p>
+<p>windows里分离文件可以安装foremost，<a href="https://github.com/raddyfiy/foremost" rel="external nofollow" target="_blank">下载地址</a>，<a href="https://www.cnblogs.com/cnnnnnn/p/8994362.html" rel="external nofollow" target="_blank">参考文章</a><br>安装好后右键分离就行了，中文目录会有问题，但是不影响实际使用。<br>结果为：falg{NSCTF_e6532a34928a3d1dadd0b049d5a3cc57}<br>注意这里不是flag而是falg。<br>用OCR识别再校对比较方便，使用在线工具就可以了。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>binwalk的使用</strong></li>
+<li><strong>foremost的使用</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/11/04/bk28-还单纯吗/">展开全文 >></a>
         </p>
       
 
@@ -942,156 +1021,6 @@
 
 
   
-    <article id="post-14MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/10/11/14MySQL/">Bugku 2019/10/11 MySQL简易教程（Windows）</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/10/11/14MySQL/" class="archive-article-date">
-  	<time datetime="2019-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="开始本教程前置条件"><a href="#开始本教程前置条件" class="headerlink" title="开始本教程前置条件"></a>开始本教程前置条件</h1><p>掌握一定的html、php知识。</p>
-<h1 id="关于MySQL"><a href="#关于MySQL" class="headerlink" title="关于MySQL"></a>关于MySQL</h1><h2 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h2><p>MySQL 是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，这样可以提高访问速度。<br>其特点有：</p>
-<ul>
-<li>数据均以表格形式出现</li>
-<li>每行代表各种记录的名称</li>
-<li>每列（column）代表各种记录的数据域</li>
-<li>行和列构成表单（tables）</li>
-<li>许多张表单构成database</li>
-</ul>
-<h2 id="RDBMS术语"><a href="#RDBMS术语" class="headerlink" title="RDBMS术语"></a>RDBMS术语</h2><ul>
-<li>数据库：数据库是一些关联表的集合。</li>
-<li>数据表：表是数据的矩阵、表格。</li>
-<li>列：一列包含了相同类型的数据。</li>
-<li>行：一行是一条记录，包含了一组相关的数据。</li>
-<li>冗余： 存储两倍的数据，降低了性能，但提高了安全性。</li>
-<li>主键：一张表里的主键是唯一的，可以使用主键来查询数据，可以理解为id。</li>
-<li>外键：外键用于关联两张表。</li>
-<li>复合键：将多个列作为一个索引键。</li>
-<li>索引：索引可以快速访问数据库表中的特定信息，类似于目录。</li>
-<li>参照完整性：关系中不允许引用不存在的实体。</li>
-</ul>
-<h2 id="表格结构"><a href="#表格结构" class="headerlink" title="表格结构"></a>表格结构</h2><ul>
-<li>表头header：每一列的名称（本身不属于列）。</li>
-<li>列column：具有相同数据类型的数据的集合。</li>
-<li>行row：某条记录的具体信息，一行是一条记录。</li>
-<li>值value：行的具体信息，每个值要和对应列的数据类型相同。</li>
-<li>键key：key在当前列里具有唯一性。</li>
-</ul>
-<h1 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h1><h2 id="Linux-UNIX"><a href="#Linux-UNIX" class="headerlink" title="Linux/UNIX"></a>Linux/UNIX</h2><p>参照<a href="https://unln1999.github.io/unln1999.github.io/2019/09/15/6.LAMP环境安装/">LAMP环境安装里的Mysql安装过程</a></p>
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>打开<a href="http://dev.mysql.com/downloads/mysql/" rel="external nofollow" target="_blank">MySQL下载</a><br>点击Download，然后点击“No thanks, just start my download.”<br>下载完成后解压，创建配置文件my.ini<br>内容为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8</span><br><span class="line"> </span><br><span class="line">[mysqld]</span><br><span class="line"># 设置3306端口</span><br><span class="line">port = 3306</span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=C:\web\mysql-8.0.11</span><br><span class="line"># 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错</span><br><span class="line"># datadir=C:\\web\\sqldata</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=20</span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
-
-<p>注意要把目录改为你实际安装的目录。<br>在bin目录里启动（参见下面的MySQL）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize --console</span><br><span class="line">mysqld install</span><br><span class="line">net start mysqld</span><br><span class="line"></span><br><span class="line">#登录</span><br><span class="line">mysql -h 主机名 -u 用户名 -p</span><br></pre></td></tr></table></figure>
-
-<p>如果启动不了，大概率是端口占用的问题。</p>
-<h1 id="MySQL管理"><a href="#MySQL管理" class="headerlink" title="MySQL管理"></a>MySQL管理</h1><h2 id="启动与关闭"><a href="#启动与关闭" class="headerlink" title="启动与关闭"></a>启动与关闭</h2><p>cd到bin目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#开启</span><br><span class="line">mysqld --console</span><br><span class="line">#关闭</span><br><span class="line">mysqldmin -uroot shutdown</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>其它看不懂先不写了</p>
-</blockquote>
-<h1 id="MySQL-PHP语法"><a href="#MySQL-PHP语法" class="headerlink" title="MySQL PHP语法"></a>MySQL PHP语法</h1><p>PHP Mysqli函数格式如下：<br>mysqli_function(value,value,…);</p>
-<p>一些简单的例子：<br>mysqli_connect($connect);<br>mysqli_query($connect,”SQL 语句”);<br>mysqli_fetch_array()<br>mysqli_close()</p>
-<h1 id="MySQL连接"><a href="#MySQL连接" class="headerlink" title="MySQL连接"></a>MySQL连接</h1><p>在命令行连接就是输入 mysql -u root -p<br>通过php连接，连接的函数为：<br>mysqli_connect(host,username,password,dbname,port,socket);<br>断连为：<br>bool mysqli_close ( mysqli $link )，通常不需要使用。<br>PHP实例如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$dbhost = &apos;localhost&apos;;  // mysql服务器主机地址</span><br><span class="line">$dbuser = &apos;root&apos;;            // mysql用户名</span><br><span class="line">$dbpass = &apos;123456&apos;;          // mysql用户名密码</span><br><span class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</span><br><span class="line">if(! $conn )</span><br><span class="line">&#123;</span><br><span class="line">    die(&apos;Could not connect: &apos; . mysqli_error());</span><br><span class="line">&#125;</span><br><span class="line">echo &apos;数据库连接成功！&apos;;</span><br><span class="line">mysqli_close($conn);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><p>create database 数据库名;</p>
-<p>PHP函数为：<br>mysqli_query(connection,query,resultmode);</p>
-<h1 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h1><p>drop database 数据库名;</p>
-<p>PHP函数为：<br>mysqli_query(connection,query,resultmode);</p>
-<h1 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h1><p>use 数据库名;</p>
-<p>PHP函数为：<br>mysqli_select_db(connection,dbname);</p>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p><font color="red">暂时跳过</font></p>
-<h1 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h1><p>create table table_name (column_name column_type)<br>命令行里：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@host# mysql -u root -p</span><br><span class="line">Enter password:*******</span><br><span class="line">mysql&gt; use RUNOOB;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; CREATE TABLE runoob_tbl(</span><br><span class="line">   -&gt; runoob_id INT NOT NULL AUTO_INCREMENT,</span><br><span class="line">   -&gt; runoob_title VARCHAR(100) NOT NULL,</span><br><span class="line">   -&gt; runoob_author VARCHAR(40) NOT NULL,</span><br><span class="line">   -&gt; submission_date DATE,</span><br><span class="line">   -&gt; PRIMARY KEY ( runoob_id )</span><br><span class="line">   -&gt; )ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line">Query OK, 0 rows affected (0.16 sec)</span><br><span class="line">mysql&gt;</span><br><span class="line">注意：MySQL命令终止符为分号 ; 。</span><br><span class="line">注意： -&gt; 是换行符标识，不要复制。</span><br></pre></td></tr></table></figure>
-
-<p>PHP也是用mysqli_query(connection,query)<br>查询语句按以下结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$sql = &quot;CREATE TABLE runoob_tbl( &quot;.</span><br><span class="line">        &quot;runoob_id INT NOT NULL AUTO_INCREMENT, &quot;.</span><br><span class="line">        &quot;runoob_title VARCHAR(100) NOT NULL, &quot;.</span><br><span class="line">        &quot;runoob_author VARCHAR(40) NOT NULL, &quot;.</span><br><span class="line">        &quot;submission_date DATE, &quot;.</span><br><span class="line">        &quot;PRIMARY KEY ( runoob_id ))ENGINE=InnoDB DEFAULT CHARSET=utf8; &quot;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h1><p>drop table table_name</p>
-<p>PHP也是用mysqli_query(connection,query)</p>
-<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><p>insert into table_name (column1,column2,column3) values (value1,value2,value3);<br>接下来我不看上面的创建数据表的sql语句，写一下php sql命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;insert into example1&quot;.</span><br><span class="line">&quot;(column1,column2,column3)&quot;.</span><br><span class="line">&quot;values&quot;.</span><br><span class="line">&quot;(value1,value2,value3);&quot;</span><br></pre></td></tr></table></figure>
-
-<p><font color="red">思考了一下，其实不用分行</font></p>
-<h1 id="查询语言（怪重要的）"><a href="#查询语言（怪重要的）" class="headerlink" title="查询语言（怪重要的）"></a>查询语言（怪重要的）</h1><p>select     column1,column2 from table_name [where clause] [limut N,n] [offset M]</p>
-<p>limit 设置了返回的记录数，可以一定程度上增加SQL注入的难度。有两个参数时，第一个跳过数量，第二个取一定数量。有一个参数时为要取的数量。<br>offset 是查询的数据偏移量，默认为0，类似于两参数limit的第一个参数。<br>补充：</p>
-<ul>
-<li>实际上也可以使用多个表，用逗号分隔。</li>
-<li>可以用*代替字段。</li>
-</ul>
-<p>PHP实现：<br>用mysqli_query(connection,query)来获取数据，用mysqli_fetch_array()输出数据。</p>
-<p>查询结束后可用:<br>mysqli_free_result()释放。</p>
-<p>where子句不展开介绍。</p>
-<h1 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h1><p>update table_name set field1=new-value1,field2=new-value2;</p>
-<h1 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h1><p>delete from table_name [where clause] </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/10/11/14MySQL/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/7/">7</a><a class="extend next" rel="next" href="/unln1999.github.io/page/3/">Next &raquo;</a>
@@ -1230,11 +1159,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,11 +1171,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">

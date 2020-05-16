@@ -149,6 +149,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bk10-web5（jjencode）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">Bugku 2019/9/28 web5</a>
+    </h1>
+  
+
+        
+        <a href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/" class="archive-article-date">
+  	<time datetime="2019-09-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="打开题目界面"><a href="#打开题目界面" class="headerlink" title="打开题目界面"></a>打开题目界面</h2><p>显示一段文字和一个文本框和提交按钮。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>打开html代码，分区里有一堆字符，第一次看真的不知道是干啥的。<br>然后就是很正常的两个表单。<br>题目的意思是让你输入正确的flag，然后提交后会反馈给你是否正确。<br>我们先随便输点东西，看一下有没有错误反馈。<br>结果是有的，作者让你再看一下。<br>于是就研究html代码。<br>但是不知道那堆字符是干嘛的，于是去查了writeup。<br>提示中的JSPFUCK中的JSP是指java server page。这个好像也是一种加密，不太清楚到底是jjencode还是jspfuck。<br>总之，把这段字符放在控制行里，回车得到java代码。</p>
+<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>复制字符到浏览器console并回车。<br>得到flag，然后输入后发现不对。<br>再由题干中的字符大写启发，改为大写，则正确。</p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
+<li><strong>jsp加密</strong></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/unln1999.github.io/2019/09/28/bk10-web5（jjencode）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bk9-头等舱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -894,85 +973,6 @@
 
 
   
-    <article id="post-bk3-web2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/unln1999.github.io/2019/09/21/bk3-web2/">Bugku 2019-9-21 web2</a>
-    </h1>
-  
-
-        
-        <a href="/unln1999.github.io/2019/09/21/bk3-web2/" class="archive-article-date">
-  	<time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进入题目页面"><a href="#进入题目页面" class="headerlink" title="进入题目页面"></a>进入题目页面</h2><p>出现了一堆滑稽，看起来没什么线索，但是能猜到设计者的坏心思。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>web题首先给我们的是一个页面，页面和html在某种意义上是等效的，但是并不是所有的html语言都会被浏览器显示出来。<br>因此，html代码比页面富含更多的信息（页面只不过更加具体形象）。<br>所以如果在页面找不到线索，就按F12查看一下html代码。</p>
-<h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>打开开发者工具（F12），出现了醒目的flag。</p>
-<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
-<li><strong>Html代码的查看</strong></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">bugku</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/unln1999.github.io/2019/09/21/bk3-web2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/unln1999.github.io/page/4/">&laquo; Prev</a><a class="page-number" href="/unln1999.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/unln1999.github.io/page/3/">3</a><a class="page-number" href="/unln1999.github.io/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/unln1999.github.io/page/6/">6</a><a class="page-number" href="/unln1999.github.io/page/7/">7</a><a class="extend next" rel="next" href="/unln1999.github.io/page/6/">Next &raquo;</a>
@@ -1111,11 +1111,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,11 +1123,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+                <a href="javascript:void(0)" class="js-tag color3">模电</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模电</a>
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
               </li>
              
               <li class="article-tag-list-item">
