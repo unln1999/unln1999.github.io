@@ -17,7 +17,7 @@
 <meta property="og:description" content="进入题目页面让你计算一个值，在2秒内，那么他怎么知道你在两秒内算好呢？本题是快速反弹post请求。刷新页面，算式会变，文字提示有时候会变成英文，里面有post字眼。先要在python安装requests库。 1&amp;gt;pip install request  如果失败离线安装，离线包下载点这里,进去后搜索requests。下载形如requests-2.22.0-py2.py3-none-any的文">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://unln1999.github.io/img/bk16-1.png">
-<meta property="og:updated_time" content="2019-10-05T03:57:54.738Z">
+<meta property="og:updated_time" content="2020-03-26T15:54:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bugku 2019&#x2F;10&#x2F;4 秋名山老司机">
 <meta name="twitter:description" content="进入题目页面让你计算一个值，在2秒内，那么他怎么知道你在两秒内算好呢？本题是快速反弹post请求。刷新页面，算式会变，文字提示有时候会变成英文，里面有post字眼。先要在python安装requests库。 1&amp;gt;pip install request  如果失败离线安装，离线包下载点这里,进去后搜索requests。下载形如requests-2.22.0-py2.py3-none-any的文">
@@ -177,7 +177,7 @@
 <p>如果失败离线安装，离线包下载点<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" rel="external nofollow" target="_blank">这里</a>,进去后搜索requests。<br>下载形如requests-2.22.0-py2.py3-none-any的文件。<br>然后中途可能还是会缺很多库……要再去下载。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>利用python的request库做快速反弹</p>
 <h2 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h2><p>安装好需要的库后，可以用如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">s = requests.Session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/qiumingshan/&quot;) #会话对象的方法,向url发送get请求</span><br><span class="line">searchobj = re.search(r&quot;(\d+[+\-*])+(\d+)&quot;,r.text)#原生正则表达式,text是对象r的属性</span><br><span class="line">d =	&#123;</span><br><span class="line">	&quot;value&quot;: eval(searchobj.group(0))</span><br><span class="line">	&#125;</span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/qiumingshan/&quot;,data = d)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests #调用requests库</span><br><span class="line">import re</span><br><span class="line">s = requests.session() #创建会话对象</span><br><span class="line">r = s.get(&quot;http://123.206.87.240:8002/qiumingshan/&quot;) #会话对象的方法,向url发送get请求</span><br><span class="line">searchobj = re.search(r&quot;(\d+[+\-*])+(\d+)&quot;,r.text)#原生正则表达式,text是对象r的属性</span><br><span class="line">d =	&#123;</span><br><span class="line">	&quot;value&quot;: eval(searchobj.group(0))</span><br><span class="line">	&#125;</span><br><span class="line">r= s.post(&quot;http://123.206.87.240:8002/qiumingshan/&quot;,data = d)</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
 
 <p>以下是正则表达式含义<br><img src="/img/bk16-1.png" alt="bk16-1"><br>在powershell里运行py脚本，就可以得到flag。<br>并不是每次都能成功，所以要重复几次。</p>
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ol>
@@ -480,11 +480,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,19 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">bugku</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复变</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +512,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">模电</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">复变</a>
               </li>
              
               <li class="article-tag-list-item">
